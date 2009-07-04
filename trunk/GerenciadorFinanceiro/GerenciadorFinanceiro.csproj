@@ -58,8 +58,10 @@
     <Compile Include="Dominio\Cidade.cs" />
     <Compile Include="Dominio\Endereco.cs" />
     <Compile Include="Dominio\Estado.cs" />
-    <Compile Include="Dominio\Instrutore.cs" />
+    <Compile Include="Dominio\Identificacao.cs" />
+    <Compile Include="Dominio\Instrutor.cs" />
     <Compile Include="Dominio\Servico.cs" />
+    <Compile Include="Dominio\Usuario.cs" />
     <Compile Include="Dominio\Veiculo.cs" />
     <Compile Include="GUI\FrmDespesa.cs">
       <SubType>Form</SubType>

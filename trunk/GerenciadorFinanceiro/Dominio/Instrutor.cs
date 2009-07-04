@@ -5,8 +5,9 @@ using System.Text;
 
 namespace GerenciadorFinanceiro.Dominio
 {
-    class Instrutore
+    class Instrutor
     {
+        public Instrutor() { }
 
         public int IdInstrutor { get; set; }
 
