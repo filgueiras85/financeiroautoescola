@@ -7,6 +7,8 @@ namespace GerenciadorFinanceiro.Dominio
 {
     class Estado
     {
+        public Estado() { }
+
         public int IdEstado { get; set; }
 
         public String NomeEstado { get; set; }

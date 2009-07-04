@@ -8,6 +8,8 @@ namespace GerenciadorFinanceiro.Dominio
     class Aluno
     {
 
+        public Aluno() {}
+
         public int IdAluno { get; set; }
 
         public String  NomeAluno { get; set; }

@@ -7,6 +7,8 @@ namespace GerenciadorFinanceiro.Dominio
 {
     class Endereco
     {
+        public Endereco() { }
+
         public String Rua { get; set; }
 
         public int Numero { get; set; }

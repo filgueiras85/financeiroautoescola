@@ -7,6 +7,7 @@ namespace GerenciadorFinanceiro.Dominio
 {
     class Veiculo
     {
+        public Veiculo() { }
 
         public int IdVeiculo { get; set; }
 

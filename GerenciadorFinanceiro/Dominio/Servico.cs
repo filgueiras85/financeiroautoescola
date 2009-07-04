@@ -7,6 +7,7 @@ namespace GerenciadorFinanceiro.Dominio
 {
     class Servico
     {
+        public Servico() { }
 
         public int IdServico { get; set; }
 
