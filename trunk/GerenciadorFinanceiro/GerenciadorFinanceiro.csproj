@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9B6CBD3E-42D9-44CC-A998-FA9422A29D55}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GerenciadorFinanceiro</RootNamespace>
+    <AssemblyName>GerenciadorFinanceiro</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\CtrNavigator.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CtrNavigator.Designer.cs">
+      <DependentUpon>CtrNavigator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dominio\Aluno.cs" />
+    <Compile Include="Dominio\Cidade.cs" />
+    <Compile Include="Dominio\Endereco.cs" />
+    <Compile Include="Dominio\Estado.cs" />
+    <Compile Include="Dominio\Instrutore.cs" />
+    <Compile Include="Dominio\Servico.cs" />
+    <Compile Include="Dominio\Veiculo.cs" />
+    <Compile Include="GUI\FrmDespesa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmDespesa.Designer.cs">
+      <DependentUpon>FrmDespesa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmFabricanteVeiculo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmFabricanteVeiculo.Designer.cs">
+      <DependentUpon>FrmFabricanteVeiculo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmInstrutores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmInstrutores.Designer.cs">
+      <DependentUpon>FrmInstrutores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmModeloVeiculo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmModeloVeiculo.Designer.cs">
+      <DependentUpon>FrmModeloVeiculo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmPrincipal.Designer.cs">
+      <DependentUpon>FrmPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmTipoVeiculo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmTipoVeiculo.Designer.cs">
+      <DependentUpon>FrmTipoVeiculo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmVeiculo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmVeiculo.Designer.cs">
+      <DependentUpon>FrmVeiculo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Repositorio\IRepositorio.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Controls\CtrNavigator.resx">
+      <DependentUpon>CtrNavigator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmDespesa.resx">
+      <DependentUpon>FrmDespesa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmFabricanteVeiculo.resx">
+      <DependentUpon>FrmFabricanteVeiculo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmInstrutores.resx">
+      <DependentUpon>FrmInstrutores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmModeloVeiculo.resx">
+      <DependentUpon>FrmModeloVeiculo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmPrincipal.resx">
+      <DependentUpon>FrmPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmTipoVeiculo.resx">
+      <DependentUpon>FrmTipoVeiculo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmVeiculo.resx">
+      <DependentUpon>FrmVeiculo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Repositorio\RepositorioEstado.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\85551.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\proximo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\primeiro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ultimo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\anterior.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Interfaces\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
