@@ -31,5 +31,6 @@ namespace GerenciadorFinanceiro
 
             LblDataHora.Text = data + "  " + DateTime.Now.Hour + ":" + DateTime.Now.Minute + ":" + DateTime.Now.Second;
         }
+
     }
 }
