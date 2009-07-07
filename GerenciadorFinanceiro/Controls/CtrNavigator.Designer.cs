@@ -30,15 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.BtnUltimo = new System.Windows.Forms.Button();
+            this.BtnProximo = new System.Windows.Forms.Button();
+            this.BtnAnterior = new System.Windows.Forms.Button();
+            this.BtnPrimeiro = new System.Windows.Forms.Button();
             this.BtnExcluir = new System.Windows.Forms.Button();
             this.BtnSalvar = new System.Windows.Forms.Button();
             this.BtnCancelar = new System.Windows.Forms.Button();
             this.BtnEditar = new System.Windows.Forms.Button();
             this.BtnNovo = new System.Windows.Forms.Button();
-            this.BtnUltimo = new System.Windows.Forms.Button();
-            this.BtnProximo = new System.Windows.Forms.Button();
-            this.BtnAnterior = new System.Windows.Forms.Button();
-            this.BtnPrimeiro = new System.Windows.Forms.Button();
             this.PnlBotoes = new System.Windows.Forms.Panel();
             this.PnlBotoes.SuspendLayout();
             this.SuspendLayout();
@@ -47,6 +47,48 @@
             // 
             this.toolTip.IsBalloon = true;
             this.toolTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            // 
+            // BtnUltimo
+            // 
+            this.BtnUltimo.Image = global::GerenciadorFinanceiro.Properties.Resources.ultimo;
+            this.BtnUltimo.Location = new System.Drawing.Point(123, 3);
+            this.BtnUltimo.Name = "BtnUltimo";
+            this.BtnUltimo.Size = new System.Drawing.Size(35, 28);
+            this.BtnUltimo.TabIndex = 3;
+            this.toolTip.SetToolTip(this.BtnUltimo, "Último");
+            this.BtnUltimo.UseVisualStyleBackColor = true;
+            // 
+            // BtnProximo
+            // 
+            this.BtnProximo.Image = global::GerenciadorFinanceiro.Properties.Resources.proximo;
+            this.BtnProximo.Location = new System.Drawing.Point(83, 3);
+            this.BtnProximo.Name = "BtnProximo";
+            this.BtnProximo.Size = new System.Drawing.Size(35, 28);
+            this.BtnProximo.TabIndex = 2;
+            this.toolTip.SetToolTip(this.BtnProximo, "Próximo");
+            this.BtnProximo.UseVisualStyleBackColor = true;
+            this.BtnProximo.Click += new System.EventHandler(this.BtnProximo_Click);
+            // 
+            // BtnAnterior
+            // 
+            this.BtnAnterior.Image = global::GerenciadorFinanceiro.Properties.Resources.anterior;
+            this.BtnAnterior.Location = new System.Drawing.Point(43, 3);
+            this.BtnAnterior.Name = "BtnAnterior";
+            this.BtnAnterior.Size = new System.Drawing.Size(35, 28);
+            this.BtnAnterior.TabIndex = 1;
+            this.toolTip.SetToolTip(this.BtnAnterior, "Anterior");
+            this.BtnAnterior.UseVisualStyleBackColor = true;
+            this.BtnAnterior.Click += new System.EventHandler(this.BtnAnterior_Click);
+            // 
+            // BtnPrimeiro
+            // 
+            this.BtnPrimeiro.Image = global::GerenciadorFinanceiro.Properties.Resources.primeiro;
+            this.BtnPrimeiro.Location = new System.Drawing.Point(3, 3);
+            this.BtnPrimeiro.Name = "BtnPrimeiro";
+            this.BtnPrimeiro.Size = new System.Drawing.Size(35, 28);
+            this.BtnPrimeiro.TabIndex = 0;
+            this.toolTip.SetToolTip(this.BtnPrimeiro, "Primeiro");
+            this.BtnPrimeiro.UseVisualStyleBackColor = true;
             // 
             // BtnExcluir
             // 
@@ -103,46 +145,6 @@
             this.BtnNovo.TabIndex = 4;
             this.BtnNovo.Text = "     Novo";
             this.BtnNovo.UseVisualStyleBackColor = true;
-            // 
-            // BtnUltimo
-            // 
-            this.BtnUltimo.Image = global::GerenciadorFinanceiro.Properties.Resources.ultimo;
-            this.BtnUltimo.Location = new System.Drawing.Point(123, 3);
-            this.BtnUltimo.Name = "BtnUltimo";
-            this.BtnUltimo.Size = new System.Drawing.Size(35, 28);
-            this.BtnUltimo.TabIndex = 3;
-            this.toolTip.SetToolTip(this.BtnUltimo, "Último");
-            this.BtnUltimo.UseVisualStyleBackColor = true;
-            // 
-            // BtnProximo
-            // 
-            this.BtnProximo.Image = global::GerenciadorFinanceiro.Properties.Resources.proximo;
-            this.BtnProximo.Location = new System.Drawing.Point(83, 3);
-            this.BtnProximo.Name = "BtnProximo";
-            this.BtnProximo.Size = new System.Drawing.Size(35, 28);
-            this.BtnProximo.TabIndex = 2;
-            this.toolTip.SetToolTip(this.BtnProximo, "Próximo");
-            this.BtnProximo.UseVisualStyleBackColor = true;
-            // 
-            // BtnAnterior
-            // 
-            this.BtnAnterior.Image = global::GerenciadorFinanceiro.Properties.Resources.anterior;
-            this.BtnAnterior.Location = new System.Drawing.Point(43, 3);
-            this.BtnAnterior.Name = "BtnAnterior";
-            this.BtnAnterior.Size = new System.Drawing.Size(35, 28);
-            this.BtnAnterior.TabIndex = 1;
-            this.toolTip.SetToolTip(this.BtnAnterior, "Anterior");
-            this.BtnAnterior.UseVisualStyleBackColor = true;
-            // 
-            // BtnPrimeiro
-            // 
-            this.BtnPrimeiro.Image = global::GerenciadorFinanceiro.Properties.Resources.primeiro;
-            this.BtnPrimeiro.Location = new System.Drawing.Point(3, 3);
-            this.BtnPrimeiro.Name = "BtnPrimeiro";
-            this.BtnPrimeiro.Size = new System.Drawing.Size(35, 28);
-            this.BtnPrimeiro.TabIndex = 0;
-            this.toolTip.SetToolTip(this.BtnPrimeiro, "Primeiro");
-            this.BtnPrimeiro.UseVisualStyleBackColor = true;
             // 
             // PnlBotoes
             // 

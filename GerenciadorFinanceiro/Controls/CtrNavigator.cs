@@ -11,6 +11,11 @@ namespace GerenciadorFinanceiro.Controls
 {
     public partial class CtrNavigator : UserControl
     {
+        private object _Lista;
+        private int _Indice = -1;
+        private object _ObjetoAtual;
+  
+
         public delegate void Novo();
 
         [System.ComponentModel.Bindable(true)]
@@ -87,6 +92,26 @@ namespace GerenciadorFinanceiro.Controls
         private void BtnExcluir_Click(object sender, EventArgs e)
         {
             this.EnabledButons(GerenciadorFinanceiro.Dominio.Status.Consultando);
+        }
+
+        private void BtnProximo_Click(object sender, EventArgs e)
+        {
+            if (_Lista != null)
+            {
+                if (_Lista.GetType().GetInterface("IList", false) != null)
+                {
+                    //Isso aqui provavelmente não vai funcionar, pois IList<Object> não é a mesma coisa que IList<Button>, por mais
+                    //que Button derive de Object, temos que ver outra possibilidade para iterar sobre a lista dinamicamente, sem precisar
+                    //saber o tipo de objeto da lista.
+                    IList<Object> lista = (IList<object>)_Lista;
+                    _ObjetoAtual = lista[_Indice];
+                }
+            }
+        }
+
+        private void BtnAnterior_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
