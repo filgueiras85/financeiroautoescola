@@ -23,5 +23,7 @@ namespace GerenciadorFinanceiro.Dominio
 
         public String Observacao { get; set; }
 
+        public TipoVeiculo TipoVeiculo { get; set; }
+
     }
 }

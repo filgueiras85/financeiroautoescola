@@ -57,10 +57,12 @@
     <Compile Include="Dominio\Aluno.cs" />
     <Compile Include="Dominio\Cidade.cs" />
     <Compile Include="Dominio\Endereco.cs" />
+    <Compile Include="Dominio\Enumeradores.cs" />
     <Compile Include="Dominio\Estado.cs" />
     <Compile Include="Dominio\Identificacao.cs" />
     <Compile Include="Dominio\Instrutor.cs" />
     <Compile Include="Dominio\Servico.cs" />
+    <Compile Include="Dominio\TipoVeiculo.cs" />
     <Compile Include="Dominio\Usuario.cs" />
     <Compile Include="Dominio\Veiculo.cs" />
     <Compile Include="GUI\FrmDespesa.cs">
@@ -169,7 +171,26 @@
     <None Include="Resources\anterior.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\file_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\file_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\disc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Folder Include="Interfaces\" />
+    <Folder Include="lib\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
