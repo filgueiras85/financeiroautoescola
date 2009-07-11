@@ -1,4 +1,4 @@
-﻿namespace GerenciadorFinanceiro.Controls
+﻿namespace GerenciadorFinanceiro.Controles
 {
     partial class CtrNavigator
     {
@@ -57,6 +57,7 @@
             this.BtnUltimo.TabIndex = 3;
             this.toolTip.SetToolTip(this.BtnUltimo, "Último");
             this.BtnUltimo.UseVisualStyleBackColor = true;
+            this.BtnUltimo.Click += new System.EventHandler(this.BtnUltimo_Click);
             // 
             // BtnProximo
             // 
@@ -89,6 +90,7 @@
             this.BtnPrimeiro.TabIndex = 0;
             this.toolTip.SetToolTip(this.BtnPrimeiro, "Primeiro");
             this.BtnPrimeiro.UseVisualStyleBackColor = true;
+            this.BtnPrimeiro.Click += new System.EventHandler(this.BtnPrimeiro_Click);
             // 
             // BtnExcluir
             // 
@@ -167,6 +169,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.PnlBotoes);
+            this.Location = new System.Drawing.Point(5, 5);
             this.Name = "CtrNavigator";
             this.Size = new System.Drawing.Size(547, 42);
             this.PnlBotoes.ResumeLayout(false);

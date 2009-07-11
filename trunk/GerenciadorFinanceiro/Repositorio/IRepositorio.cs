@@ -13,8 +13,8 @@ namespace GerenciadorFinanceiro.Repositorio
 
         void DeletarObjeto(T objeto);
 
-        void BuscarObjetoPorId(T objeto);
+        void BuscarObjetoPorId(int id);
 
-        void BuscarTodos(T objeto);
+        List<T> BuscarTodos();
     }
 }
