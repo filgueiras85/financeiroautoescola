@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GerenciadorFinanceiro.Repositorio
 {
-    interface IRepositorio<T>
+    public interface IRepositorio<T>
     {
         void SalvarObjeto(T objeto);
 
@@ -13,7 +13,7 @@ namespace GerenciadorFinanceiro.Repositorio
 
         void DeletarObjeto(T objeto);
 
-        void BuscarObjetoPorId(int id);
+        T BuscarObjetoPorId(int id);
 
         List<T> BuscarTodos();
     }

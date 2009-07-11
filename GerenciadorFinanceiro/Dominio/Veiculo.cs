@@ -19,11 +19,15 @@ namespace GerenciadorFinanceiro.Dominio
 
         public int Ano { get; set; }
 
+        public int Modelo { get; set; }
+
         public String Cor { get; set; }
 
         public String Observacao { get; set; }
 
         public TipoVeiculo TipoVeiculo { get; set; }
+
+        public ModeloVeiculo  ModeloVeiculo { get; set; }
 
     }
 }

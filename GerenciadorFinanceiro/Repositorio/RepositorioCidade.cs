@@ -5,33 +5,148 @@ using System.Text;
 
 namespace GerenciadorFinanceiro.Repositorio
 {
-    class RepositorioCidade: IRepositorio<Dominio.Cidade>
+    class RepositorioCidade: Repositorio.RepositorioBase, IRepositorio<Dominio.Cidade>
     {
         #region IRepositorio<Cidade> Members
 
         public void SalvarObjeto(GerenciadorFinanceiro.Dominio.Cidade objeto)
         {
-            throw new NotImplementedException();
+            string sSqlInsert = "insert into TB_Cidade (NomeCidade, IdEstado) values (@NomeCidade, @IdEstado)";
+            try
+            {
+                this.AbrirConexao();
+                this.Execute(sSqlInsert, objeto.NomeCidade, objeto.Estado.IdEstado);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Não foi possível inserir a cidade.", ex);
+            }
+            finally
+            {
+                this.FecharConexao();
+            }
         }
 
         public void AtualizarObjeto(GerenciadorFinanceiro.Dominio.Cidade objeto)
         {
-            throw new NotImplementedException();
+            string sSqlUpdate = "update TB_Cidade set NomeCidade = @NomeCidade, IdEstado = @IdEstado where IdCidade = @IdCidade";
+            try
+            {
+                this.AbrirConexao();
+                this.Execute(sSqlUpdate, objeto.NomeCidade, objeto.Estado.IdEstado, objeto.IdCidade);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Não foi possível atualizar a cidade.", ex);
+            }
+            finally
+            {
+                this.FecharConexao();
+            }
         }
 
         public void DeletarObjeto(GerenciadorFinanceiro.Dominio.Cidade objeto)
         {
-            throw new NotImplementedException();
+            string sSqlDelete = "delete from TB_Cidade where IdCidade = @IdCidade";
+            try
+            {
+                this.AbrirConexao();
+                this.Execute(sSqlDelete, objeto.IdCidade);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Não foi possível deletar a cidade.", ex);
+            }
+            finally
+            {
+                this.FecharConexao();
+            }
         }
 
-        public void BuscarObjetoPorId(int id)
+        public Dominio.Cidade BuscarObjetoPorId(int id)
         {
-            throw new NotImplementedException();
+            string sSqlSelect = "select * from TB_Cidade where IdCidade = @IdCidade";
+            try
+            {
+                this.AbrirConexao();
+                var reader = this.ExecuteReader(sSqlSelect, id);
+                Dominio.Cidade Cid = new Dominio.Cidade();
+                RepositorioEstado repEstado = new RepositorioEstado();
+                while (reader.Read())
+                {
+                    Cid.IdCidade = id;
+                    Cid.NomeCidade = (string)reader["NomeCidade"];
+                    Cid.Estado = repEstado.BuscarObjetoPorId((int)reader["IdEstado"]);
+                }
+                return Cid;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Não foi possível Buscar a Cidade.", ex);
+            }
+            finally
+            {
+                this.FecharConexao();
+            }
         }
 
         public List<GerenciadorFinanceiro.Dominio.Cidade> BuscarTodos()
         {
-            throw new NotImplementedException();
+            string sSqlSelect = "select * from TB_Cidade";
+            List<Dominio.Cidade> listaCid = new List<GerenciadorFinanceiro.Dominio.Cidade>();
+            try
+            {
+                this.AbrirConexao();
+                var reader = this.ExecuteReader(sSqlSelect);
+                Dominio.Cidade Cid;
+                RepositorioEstado repEstado = new RepositorioEstado();
+                while (reader.Read())
+                {
+                    Cid = new Dominio.Cidade();
+                    Cid.IdCidade = (int)reader["IdCidade"];
+                    Cid.NomeCidade  = (string)reader["NomeCidade"];
+                    Cid.Estado = repEstado.BuscarObjetoPorId((int)reader["IdEstado"]);
+                    listaCid.Add(Cid);
+                }
+                return listaCid;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Não foi possível Buscar todas as Cidades.", ex);
+            }
+            finally
+            {
+                this.FecharConexao();
+            }
+        }
+
+        public List<Dominio.Cidade> BuscarCidadesPorEstado(Dominio.Estado estado)
+        {
+            string sSqlSelect = "select * from TB_Cidade where IdEstado = @IdEstado";
+            List<Dominio.Cidade> listaCid = new List<GerenciadorFinanceiro.Dominio.Cidade>();
+            try
+            {
+                this.AbrirConexao();
+                var reader = this.ExecuteReader(sSqlSelect);
+                Dominio.Cidade Cid;
+                while (reader.Read())
+                {
+                    Cid = new Dominio.Cidade();
+                    Cid.IdCidade = (int)reader["IdCidade"];
+                    Cid.NomeCidade = (string)reader["NomeCidade"];
+                    Cid.Estado = estado;
+                    listaCid.Add(Cid);
+                }
+                return listaCid;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Não foi possível buscar todas as Cidades do estado.", ex);
+            }
+            finally
+            {
+                this.FecharConexao();
+            }
         }
 
         #endregion

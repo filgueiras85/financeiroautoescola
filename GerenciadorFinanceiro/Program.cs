@@ -15,7 +15,7 @@ namespace GerenciadorFinanceiro
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new GUI.FrmFabricanteVeiculo());
+            Application.Run(new GUI.FrmLogin());
         }
     }
 }

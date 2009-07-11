@@ -21,8 +21,6 @@ namespace GerenciadorFinanceiro.Dominio
 
         public String CPF { get; set; }
 
-        public String Categorias { get; set; }
-
         public Endereco Endereco { get; set; }
 
     }

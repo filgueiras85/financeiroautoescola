@@ -7,6 +7,11 @@ namespace GerenciadorFinanceiro.Dominio
 {
     class UsuarioLogado
     {
-        public static Usuario User;
+        private static Usuario _User;
+        public static Usuario User
+        {
+            get { return _User; }
+            set { _User = value; }
+        }
     }
 }

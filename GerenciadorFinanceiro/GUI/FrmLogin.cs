@@ -29,7 +29,7 @@ namespace GerenciadorFinanceiro.GUI
             {
                 FrmPrincipal Frm = new FrmPrincipal();
                 Frm.Show();
-                this.Close();
+                this.Hide();
             }
             else
             {

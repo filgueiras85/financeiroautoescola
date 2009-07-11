@@ -7,10 +7,15 @@ namespace GerenciadorFinanceiro.Repositorio
 {
     class RepositorioAluno: IRepositorio<Dominio.Aluno>
     {
+
+
+
         #region IRepositorio<Aluno> Members
 
         public void SalvarObjeto(GerenciadorFinanceiro.Dominio.Aluno objeto)
         {
+
+
             throw new NotImplementedException();
         }
 
@@ -24,7 +29,7 @@ namespace GerenciadorFinanceiro.Repositorio
             throw new NotImplementedException();
         }
 
-        public void BuscarObjetoPorId(int id)
+        public Dominio.Aluno BuscarObjetoPorId(int id)
         {
             throw new NotImplementedException();
         }
