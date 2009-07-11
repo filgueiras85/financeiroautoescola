@@ -57,7 +57,7 @@
             // 
             // menuStrip1
             // 
-            this.menuStrip1.BackColor = System.Drawing.Color.Transparent;
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.Control;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sistemaToolStripMenuItem,
             this.cadastrosToolStripMenuItem,
@@ -73,50 +73,50 @@
             // 
             // sistemaToolStripMenuItem
             // 
-            this.sistemaToolStripMenuItem.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold);
-            this.sistemaToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.sistemaToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.sistemaToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.sistemaToolStripMenuItem.Name = "sistemaToolStripMenuItem";
-            this.sistemaToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.sistemaToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
             this.sistemaToolStripMenuItem.Text = "Sistema";
             // 
             // cadastrosToolStripMenuItem
             // 
-            this.cadastrosToolStripMenuItem.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold);
-            this.cadastrosToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.cadastrosToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.cadastrosToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
-            this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(82, 20);
+            this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
             this.cadastrosToolStripMenuItem.Text = "Cadastros";
             // 
             // consultasToolStripMenuItem
             // 
-            this.consultasToolStripMenuItem.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold);
-            this.consultasToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.consultasToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.consultasToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.consultasToolStripMenuItem.Name = "consultasToolStripMenuItem";
-            this.consultasToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
+            this.consultasToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
             this.consultasToolStripMenuItem.Text = "Consultas";
             // 
             // relatóriosToolStripMenuItem
             // 
-            this.relatóriosToolStripMenuItem.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold);
-            this.relatóriosToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.relatóriosToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.relatóriosToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.relatóriosToolStripMenuItem.Name = "relatóriosToolStripMenuItem";
-            this.relatóriosToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
+            this.relatóriosToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
             this.relatóriosToolStripMenuItem.Text = "Relatórios";
             // 
             // configuraçõesToolStripMenuItem
             // 
-            this.configuraçõesToolStripMenuItem.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold);
-            this.configuraçõesToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.configuraçõesToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.configuraçõesToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.configuraçõesToolStripMenuItem.Name = "configuraçõesToolStripMenuItem";
-            this.configuraçõesToolStripMenuItem.Size = new System.Drawing.Size(111, 20);
+            this.configuraçõesToolStripMenuItem.Size = new System.Drawing.Size(87, 20);
             this.configuraçõesToolStripMenuItem.Text = "Configurações";
             // 
             // ajudaToolStripMenuItem
             // 
-            this.ajudaToolStripMenuItem.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold);
-            this.ajudaToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.ajudaToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.ajudaToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.ajudaToolStripMenuItem.Name = "ajudaToolStripMenuItem";
-            this.ajudaToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
+            this.ajudaToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.ajudaToolStripMenuItem.Text = "Ajuda";
             // 
             // statusStrip1
@@ -257,7 +257,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(655, 400);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.statusStrip1);

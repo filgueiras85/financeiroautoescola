@@ -5,22 +5,21 @@ using System.Text;
 
 namespace GerenciadorFinanceiro.Repositorio
 {
-    class RepositorioEstado: IRepositorio<Dominio.Estado>
+    class RepositorioCidade: IRepositorio<Dominio.Cidade>
     {
+        #region IRepositorio<Cidade> Members
 
-        #region IRepositorio<Estado> Members
-
-        public void SalvarObjeto(GerenciadorFinanceiro.Dominio.Estado objeto)
+        public void SalvarObjeto(GerenciadorFinanceiro.Dominio.Cidade objeto)
         {
             throw new NotImplementedException();
         }
 
-        public void AtualizarObjeto(GerenciadorFinanceiro.Dominio.Estado objeto)
+        public void AtualizarObjeto(GerenciadorFinanceiro.Dominio.Cidade objeto)
         {
             throw new NotImplementedException();
         }
 
-        public void DeletarObjeto(GerenciadorFinanceiro.Dominio.Estado objeto)
+        public void DeletarObjeto(GerenciadorFinanceiro.Dominio.Cidade objeto)
         {
             throw new NotImplementedException();
         }
@@ -30,7 +29,7 @@ namespace GerenciadorFinanceiro.Repositorio
             throw new NotImplementedException();
         }
 
-        public List<GerenciadorFinanceiro.Dominio.Estado> BuscarTodos()
+        public List<GerenciadorFinanceiro.Dominio.Cidade> BuscarTodos()
         {
             throw new NotImplementedException();
         }

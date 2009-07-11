@@ -48,10 +48,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controls\CtrNavigator.cs">
+    <Compile Include="Controles\CtrNavigator.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\CtrNavigator.Designer.cs">
+    <Compile Include="Controles\CtrNavigator.Designer.cs">
       <DependentUpon>CtrNavigator.cs</DependentUpon>
     </Compile>
     <Compile Include="Dominio\Aluno.cs" />
@@ -59,11 +59,14 @@
     <Compile Include="Dominio\Endereco.cs" />
     <Compile Include="Dominio\Enumeradores.cs" />
     <Compile Include="Dominio\Estado.cs" />
+    <Compile Include="Dominio\FabricanteVeiculo.cs" />
     <Compile Include="Dominio\Identificacao.cs" />
     <Compile Include="Dominio\Instrutor.cs" />
+    <Compile Include="Dominio\ModeloVeiculo.cs" />
     <Compile Include="Dominio\Servico.cs" />
     <Compile Include="Dominio\TipoVeiculo.cs" />
     <Compile Include="Dominio\Usuario.cs" />
+    <Compile Include="Dominio\UsuarioLogado.cs" />
     <Compile Include="Dominio\Veiculo.cs" />
     <Compile Include="GUI\FrmDespesa.cs">
       <SubType>Form</SubType>
@@ -82,6 +85,12 @@
     </Compile>
     <Compile Include="GUI\FrmInstrutores.Designer.cs">
       <DependentUpon>FrmInstrutores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\FrmModeloVeiculo.cs">
       <SubType>Form</SubType>
@@ -110,7 +119,7 @@
     <Compile Include="Repositorio\IRepositorio.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Controls\CtrNavigator.resx">
+    <EmbeddedResource Include="Controles\CtrNavigator.resx">
       <DependentUpon>CtrNavigator.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmDespesa.resx">
@@ -121,6 +130,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmInstrutores.resx">
       <DependentUpon>FrmInstrutores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmModeloVeiculo.resx">
       <DependentUpon>FrmModeloVeiculo.cs</DependentUpon>
@@ -153,10 +165,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Repositorio\RepositorioCidade.cs" />
     <Compile Include="Repositorio\RepositorioEstado.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\85551.png" />
+    <Compile Include="Repositorio\RepositorioFabricanteVeiculo.cs" />
+    <Compile Include="Repositorio\RepositorioInstrutor.cs" />
+    <Compile Include="Repositorio\RepositorioModeloVeiculo.cs" />
+    <Compile Include="Repositorio\RepositorioServico.cs" />
+    <Compile Include="Repositorio\RepositorioTipoVeiculo.cs" />
+    <Compile Include="Repositorio\RepositorioUsuario.cs" />
+    <Compile Include="Repositorio\RepositorioAluno.cs" />
+    <Compile Include="Repositorio\RepositorioVeiculo.cs" />
+    <Compile Include="Servicos\Email.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\proximo.png" />
@@ -187,6 +206,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\85551.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Interfaces\" />

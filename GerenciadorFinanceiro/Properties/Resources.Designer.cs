@@ -62,7 +62,7 @@ namespace GerenciadorFinanceiro.Properties {
         
         internal static System.Drawing.Bitmap _85551 {
             get {
-                object obj = ResourceManager.GetObject("85551", resourceCulture);
+                object obj = ResourceManager.GetObject("_85551", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -77,13 +77,6 @@ namespace GerenciadorFinanceiro.Properties {
         internal static System.Drawing.Bitmap Cancel {
             get {
                 object obj = ResourceManager.GetObject("Cancel", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap Delete {
-            get {
-                object obj = ResourceManager.GetObject("Delete", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -105,6 +98,13 @@ namespace GerenciadorFinanceiro.Properties {
         internal static System.Drawing.Bitmap file_edit {
             get {
                 object obj = ResourceManager.GetObject("file_edit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Login {
+            get {
+                object obj = ResourceManager.GetObject("Login", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

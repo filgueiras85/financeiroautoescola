@@ -15,5 +15,23 @@ namespace GerenciadorFinanceiro.GUI
         {
             InitializeComponent();
         }
+
+        private List<Dominio.Instrutor> _ListaInstrutor = new List<GerenciadorFinanceiro.Dominio.Instrutor>();
+        private Dominio.Instrutor _Instrutor = new Dominio.Instrutor();
+
+        private void BuscarTodosOsInstrutores()
+        {
+            Repositorio.RepositorioInstrutor repInstrutor = new Repositorio.RepositorioInstrutor();
+            _ListaInstrutor = repInstrutor.BuscarTodos();
+            DGInstrutores.DataSource = _ListaInstrutor;
+        }
+
+        private void FrmInstrutores_Load(object sender, EventArgs e)
+        {
+            this.BuscarTodosOsInstrutores();
+            Controles.CtrNavigator ctr = new Controles.CtrNavigator(_ListaInstrutor);
+            this.Controls.Add(ctr);
+            this.Refresh();
+        }
     }
 }
