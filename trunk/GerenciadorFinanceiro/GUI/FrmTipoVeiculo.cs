@@ -12,9 +12,8 @@ namespace GerenciadorFinanceiro.GUI
     public partial class FrmTipoVeiculo : Form
     {
 
-        private List<Dominio.TipoVeiculo> _ListTipoVeiculo = new List<GerenciadorFinanceiro.Dominio.TipoVeiculo>;
+        private List<Dominio.TipoVeiculo> _ListTipoVeiculo = new List<GerenciadorFinanceiro.Dominio.TipoVeiculo>();
         private Dominio.TipoVeiculo _TipoVeiculo = new Dominio.TipoVeiculo();
-        private int _IndiceTipoSelecionado = -1;
 
 
         public FrmTipoVeiculo()
@@ -191,7 +190,7 @@ namespace GerenciadorFinanceiro.GUI
 
         private void FrmTipoVeiculo_Load(object sender, EventArgs e)
         {
-            this.BuscarTodosTiposVeiculos();
+            this.BuscarTodosTiposVeiculos();            
             Controles.CtrNavigator ctr = new Controles.CtrNavigator(_ListTipoVeiculo);
             this.Controls.Add(ctr);
             this.Refresh();

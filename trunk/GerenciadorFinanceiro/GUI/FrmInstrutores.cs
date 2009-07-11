@@ -22,7 +22,7 @@ namespace GerenciadorFinanceiro.GUI
         private void BuscarTodosOsInstrutores()
         {
             Repositorio.RepositorioInstrutor repInstrutor = new Repositorio.RepositorioInstrutor();
-            _ListaInstrutor = repInstrutor.BuscarTodos();
+            _ListaInstrutor = repInstrutor.BuscarTo;
             DGInstrutores.DataSource = _ListaInstrutor;
         }
 

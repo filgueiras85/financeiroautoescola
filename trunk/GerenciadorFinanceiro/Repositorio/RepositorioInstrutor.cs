@@ -5,8 +5,9 @@ using System.Text;
 
 namespace GerenciadorFinanceiro.Repositorio
 {
-    class RepositorioInstrutor: IRepositorio<Dominio.Instrutor>
+    public class RepositorioInstrutor : RepositorioBase, IRepositorio<Dominio.Instrutor>
     {
+
         #region IRepositorio<Instrutor> Members
 
         public void SalvarObjeto(GerenciadorFinanceiro.Dominio.Instrutor objeto)
@@ -24,7 +25,7 @@ namespace GerenciadorFinanceiro.Repositorio
             throw new NotImplementedException();
         }
 
-        public void BuscarObjetoPorId(int id)
+        public GerenciadorFinanceiro.Dominio.Instrutor BuscarObjetoPorId(int id)
         {
             throw new NotImplementedException();
         }

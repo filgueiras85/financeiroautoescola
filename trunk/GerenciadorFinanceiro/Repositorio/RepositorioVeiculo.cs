@@ -24,7 +24,7 @@ namespace GerenciadorFinanceiro.Repositorio
             throw new NotImplementedException();
         }
 
-        public void BuscarObjetoPorId(int id)
+        public Dominio.Veiculo BuscarObjetoPorId(int id)
         {
             throw new NotImplementedException();
         }

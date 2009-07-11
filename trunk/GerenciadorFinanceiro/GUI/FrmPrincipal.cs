@@ -15,6 +15,7 @@ namespace GerenciadorFinanceiro
         public FrmPrincipal()
         {
             InitializeComponent();
+            label1.Text = Dominio.UsuarioLogado.User.Nome;
         }
 
         private void Timer_Tick(object sender, EventArgs e)

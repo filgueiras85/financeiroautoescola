@@ -25,12 +25,13 @@ namespace GerenciadorFinanceiro.Repositorio
             throw new NotImplementedException();
         }
 
-        public void BuscarObjetoPorId(int id)
+
+        public List<GerenciadorFinanceiro.Dominio.ModeloVeiculo> BuscarTodos()
         {
             throw new NotImplementedException();
         }
 
-        public List<GerenciadorFinanceiro.Dominio.ModeloVeiculo> BuscarTodos()
+        public GerenciadorFinanceiro.Dominio.ModeloVeiculo BuscarObjetoPorId(int id)
         {
             throw new NotImplementedException();
         }

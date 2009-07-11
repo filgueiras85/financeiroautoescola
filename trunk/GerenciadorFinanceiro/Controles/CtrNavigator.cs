@@ -12,12 +12,12 @@ namespace GerenciadorFinanceiro.Controles
 {
     public partial class CtrNavigator : UserControl
     {
-        private object _Lista;
+        private System.Collections.IList _Lista;
         private int _Indice = -1;
         private int _QuantidadeItensLista = 0;
         private object _ObjetoAtual;
 
-        public CtrNavigator(object lista)
+        public CtrNavigator(System.Collections.IList lista)
         {
             this._Lista = lista;
             InitializeComponent();
@@ -107,11 +107,11 @@ namespace GerenciadorFinanceiro.Controles
 
         private void VerificaQuantidadeItensLista()
         {
-            _QuantidadeItensLista = 0;
-            foreach (FieldInfo f in GetType().GetFields())
-            {
-                _QuantidadeItensLista += 1;
-            }
+            _QuantidadeItensLista = _Lista.Count;
+            //foreach (FieldInfo f in GetType().GetFields())
+            //{
+            //    _QuantidadeItensLista += 1;
+            //}
         }
 
         private void EnabledNavegator()
