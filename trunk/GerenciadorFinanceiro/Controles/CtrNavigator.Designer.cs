@@ -102,6 +102,7 @@
             this.BtnExcluir.TabIndex = 8;
             this.BtnExcluir.Text = "     Excluir";
             this.BtnExcluir.UseVisualStyleBackColor = true;
+            this.BtnExcluir.Click += new System.EventHandler(this.BtnExcluir_Click);
             // 
             // BtnSalvar
             // 
@@ -113,6 +114,7 @@
             this.BtnSalvar.TabIndex = 7;
             this.BtnSalvar.Text = "     Salvar";
             this.BtnSalvar.UseVisualStyleBackColor = true;
+            this.BtnSalvar.Click += new System.EventHandler(this.BtnSalvar_Click);
             // 
             // BtnCancelar
             // 
@@ -125,6 +127,7 @@
             this.BtnCancelar.Text = "Cancelar";
             this.BtnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnCancelar.UseVisualStyleBackColor = true;
+            this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
             // BtnEditar
             // 
@@ -136,6 +139,7 @@
             this.BtnEditar.TabIndex = 5;
             this.BtnEditar.Text = "    Editar";
             this.BtnEditar.UseVisualStyleBackColor = true;
+            this.BtnEditar.Click += new System.EventHandler(this.BtnEditar_Click);
             // 
             // BtnNovo
             // 
@@ -147,6 +151,7 @@
             this.BtnNovo.TabIndex = 4;
             this.BtnNovo.Text = "     Novo";
             this.BtnNovo.UseVisualStyleBackColor = true;
+            this.BtnNovo.Click += new System.EventHandler(this.BtnNovo_Click);
             // 
             // PnlBotoes
             // 

@@ -29,10 +29,11 @@
         private void InitializeComponent()
         {
             this.DGFabricantes = new System.Windows.Forms.DataGridView();
-            this.idFabricanteVeiculo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TxtDescricao = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.ctrNavigator1 = new GerenciadorFinanceiro.Controles.CtrNavigator();
+            this.idFabricanteVeiculo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DGFabricantes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,12 +45,37 @@
             this.DGFabricantes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idFabricanteVeiculo,
             this.Descricao});
-            this.DGFabricantes.Location = new System.Drawing.Point(20, 84);
+            this.DGFabricantes.Location = new System.Drawing.Point(16, 84);
             this.DGFabricantes.Name = "DGFabricantes";
             this.DGFabricantes.ReadOnly = true;
             this.DGFabricantes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGFabricantes.Size = new System.Drawing.Size(506, 173);
+            this.DGFabricantes.Size = new System.Drawing.Size(547, 179);
             this.DGFabricantes.TabIndex = 3;
+            // 
+            // TxtDescricao
+            // 
+            this.TxtDescricao.Location = new System.Drawing.Point(100, 12);
+            this.TxtDescricao.Name = "TxtDescricao";
+            this.TxtDescricao.Size = new System.Drawing.Size(402, 20);
+            this.TxtDescricao.TabIndex = 4;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(13, 14);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(71, 15);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Descrição :";
+            // 
+            // ctrNavigator1
+            // 
+            this.ctrNavigator1.DataSource = null;
+            this.ctrNavigator1.Location = new System.Drawing.Point(16, 37);
+            this.ctrNavigator1.Name = "ctrNavigator1";
+            this.ctrNavigator1.Size = new System.Drawing.Size(547, 42);
+            this.ctrNavigator1.TabIndex = 6;
             // 
             // idFabricanteVeiculo
             // 
@@ -65,30 +91,14 @@
             this.Descricao.HeaderText = "Fabricante";
             this.Descricao.Name = "Descricao";
             this.Descricao.ReadOnly = true;
-            this.Descricao.Width = 365;
-            // 
-            // TxtDescricao
-            // 
-            this.TxtDescricao.Location = new System.Drawing.Point(104, 50);
-            this.TxtDescricao.Name = "TxtDescricao";
-            this.TxtDescricao.Size = new System.Drawing.Size(402, 20);
-            this.TxtDescricao.TabIndex = 4;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(17, 52);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(71, 15);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Descrição :";
+            this.Descricao.Width = 390;
             // 
             // FrmFabricanteVeiculo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(549, 279);
+            this.ClientSize = new System.Drawing.Size(578, 279);
+            this.Controls.Add(this.ctrNavigator1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TxtDescricao);
             this.Controls.Add(this.DGFabricantes);
@@ -111,5 +121,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn idFabricanteVeiculo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descricao;
+        private GerenciadorFinanceiro.Controles.CtrNavigator ctrNavigator1;
     }
 }

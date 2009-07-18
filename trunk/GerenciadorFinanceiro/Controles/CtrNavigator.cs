@@ -14,26 +14,61 @@ namespace GerenciadorFinanceiro.Controles
     {
         private System.Collections.IList _Lista;
         private int _Indice = -1;
-        private int _QuantidadeItensLista = 0;
         private object _ObjetoAtual;
+
+        public delegate void MudaRegistro(object objetoAtual);
+        [System.ComponentModel.Bindable(true)]
+        public event MudaRegistro  MudaRegistroSelecionado;
+
+        public delegate void Novo();
+        [System.ComponentModel.Bindable(true)]
+        public event Novo EventoNovo;
+
+        public delegate void Cancelar();
+        [System.ComponentModel.Bindable(true)]
+        public event Cancelar CancelarAcao;
+
+        public delegate void Editar(object objEditar);
+        [System.ComponentModel.Bindable(true)]
+        public event Editar EditarRegistro;
+
+        public delegate void Salvar(object objSalvar);
+        [System.ComponentModel.Bindable(true)]
+        public event Salvar SalvarRegistro;
+
+        public delegate void Excluir(object objExcluir);
+        [System.ComponentModel.Bindable(true)]
+        public event Excluir ExcluirRegistro;
+
+
+        public System.Collections.IList DataSource
+        {
+            get { return _Lista; }
+            set { _Lista = value; IniciaControles(); }
+        }
 
         public CtrNavigator(System.Collections.IList lista)
         {
             this._Lista = lista;
             InitializeComponent();
-            this.VerificaQuantidadeItensLista();
+            IniciaControles();
+        }
+
+        private void IniciaControles()
+        {
+            if (_Lista != null)
+            {
+                if (_Lista.Count > 0)
+                    _Indice = 0;
+            }
             this.EnabledNavegator();
             this.EnabledButons(GerenciadorFinanceiro.Dominio.Status.Consultando);
         }
 
-        public delegate void Novo();
-
-        [System.ComponentModel.Bindable(true)]
-        public event Novo EventoNovo;
-
         public CtrNavigator()
         {
             InitializeComponent();
+            IniciaControles();
         }
 
         private void BtnNovo_Click(object sender, EventArgs e)
@@ -78,10 +113,6 @@ namespace GerenciadorFinanceiro.Controles
                 this.BtnSalvar.Enabled = true;
                 this.BtnExcluir.Enabled = false;
             }
-            //this.BtnPrimeiro.Enabled = false;
-            //this.BtnAnterior.Enabled = false;
-            //this.BtnProximo.Enabled = false;
-            //this.BtnUltimo.Enabled = false;
         }
 
         private void BtnEditar_Click(object sender, EventArgs e)
@@ -97,21 +128,11 @@ namespace GerenciadorFinanceiro.Controles
         private void BtnSalvar_Click(object sender, EventArgs e)
         {
             this.EnabledButons(GerenciadorFinanceiro.Dominio.Status.Consultando);
-            this.VerificaQuantidadeItensLista();
         }
 
         private void BtnExcluir_Click(object sender, EventArgs e)
         {
             this.EnabledButons(GerenciadorFinanceiro.Dominio.Status.Consultando);
-        }
-
-        private void VerificaQuantidadeItensLista()
-        {
-            _QuantidadeItensLista = _Lista.Count;
-            //foreach (FieldInfo f in GetType().GetFields())
-            //{
-            //    _QuantidadeItensLista += 1;
-            //}
         }
 
         private void EnabledNavegator()
@@ -128,7 +149,7 @@ namespace GerenciadorFinanceiro.Controles
                     this.BtnPrimeiro.Enabled = true;
                     this.BtnAnterior.Enabled = true;
                 }
-                if (_QuantidadeItensLista > (_Indice + 1))
+                if (_Lista.Count > (_Indice + 1))
                 {
                     this.BtnProximo.Enabled = true;
                     this.BtnUltimo.Enabled = true;
@@ -150,39 +171,62 @@ namespace GerenciadorFinanceiro.Controles
 
         private void BtnProximo_Click(object sender, EventArgs e)
         {
+            _Indice += 1;
+            this.EnabledNavegator();
             if (_Lista != null)
             {
-                if (_Lista.GetType().GetInterface("IList", false) != null)
+                if (_Lista.Count > 0)
                 {
-                    //Isso aqui provavelmente não vai funcionar, pois IList<Object> não é a mesma coisa que IList<Button>, por mais
-                    //que Button derive de Object, temos que ver outra possibilidade para iterar sobre a lista dinamicamente, sem precisar
-                    //saber o tipo de objeto da lista.
-                    //IList<Object> lista = (IList<object>)_Lista;
-                    //_ObjetoAtual = lista[_Indice];
-
-                    _Indice += 1;
-                    this.EnabledNavegator();
+                    _ObjetoAtual = _Lista[_Indice];
+                    if (MudaRegistroSelecionado != null)
+                        MudaRegistroSelecionado(_ObjetoAtual);
                 }
-            }
+            }        
         }
 
         private void BtnAnterior_Click(object sender, EventArgs e)
         {
             _Indice -= 1;
             this.EnabledNavegator();
+            if (_Lista != null)
+            {
+                if (_Lista.Count > 0)
+                {
+                    _ObjetoAtual = _Lista[_Indice];
+                    if (MudaRegistroSelecionado != null)
+                        MudaRegistroSelecionado(_ObjetoAtual);
+                }
+            }
         }
 
         private void BtnPrimeiro_Click(object sender, EventArgs e)
         {
             _Indice = 0;
             this.EnabledNavegator();
+            if (_Lista != null)
+            {
+                if (_Lista.Count > 0)
+                {
+                    _ObjetoAtual = _Lista[_Indice];
+                    if (MudaRegistroSelecionado != null)
+                        MudaRegistroSelecionado(_ObjetoAtual);
+                }
+            }
         }
 
         private void BtnUltimo_Click(object sender, EventArgs e)
         {
-            _Indice = _QuantidadeItensLista - 1;
+            _Indice = _Lista.Count - 1;
             this.EnabledNavegator();
+            if (_Lista != null)
+            {
+                if (_Lista.Count > 0)
+                {
+                    _ObjetoAtual = _Lista[_Indice];
+                    if (MudaRegistroSelecionado != null)
+                        MudaRegistroSelecionado(_ObjetoAtual);
+                }
+            }
         }
-
     }
 }

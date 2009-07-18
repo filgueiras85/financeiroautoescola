@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GerenciadorFinanceiro.Repositorio
 {
-    public interface IRepositorio<T>
+    interface IRepositorio<T>
     {
         void SalvarObjeto(T objeto);
 

@@ -38,9 +38,6 @@ namespace GerenciadorFinanceiro.GUI
         private void FrmModeloVeiculo_Load(object sender, EventArgs e)
         {
             this.ListarTodosOsModelosDeVeiculos();
-            Controles.CtrNavigator ctr = new Controles.CtrNavigator(_ListaModeloVeiculos);
-            this.Controls.Add(ctr);
-            this.Refresh();
         }
 
         private void DGModelos_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)

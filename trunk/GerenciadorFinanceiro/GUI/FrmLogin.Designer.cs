@@ -30,12 +30,12 @@
         {
             this.BtnLogar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.TxtUsername = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.TxtPassword = new System.Windows.Forms.TextBox();
-            this.BtnCancelar = new System.Windows.Forms.Button();
             this.LnkEsqueciMinhaSenha = new System.Windows.Forms.LinkLabel();
+            this.BtnCancelar = new System.Windows.Forms.Button();
+            this.TxtPassword = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.TxtUsername = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.PcbImagem = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcbImagem)).BeginInit();
@@ -67,40 +67,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Identificação ";
             // 
-            // label1
+            // LnkEsqueciMinhaSenha
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(6, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 15);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Usuário :";
-            // 
-            // TxtUsername
-            // 
-            this.TxtUsername.Location = new System.Drawing.Point(66, 22);
-            this.TxtUsername.Name = "TxtUsername";
-            this.TxtUsername.Size = new System.Drawing.Size(207, 20);
-            this.TxtUsername.TabIndex = 0;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(6, 53);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 15);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Senha :";
-            // 
-            // TxtPassword
-            // 
-            this.TxtPassword.Location = new System.Drawing.Point(66, 50);
-            this.TxtPassword.Name = "TxtPassword";
-            this.TxtPassword.Size = new System.Drawing.Size(207, 20);
-            this.TxtPassword.TabIndex = 1;
-            this.TxtPassword.UseSystemPasswordChar = true;
+            this.LnkEsqueciMinhaSenha.AutoSize = true;
+            this.LnkEsqueciMinhaSenha.Location = new System.Drawing.Point(162, 77);
+            this.LnkEsqueciMinhaSenha.Name = "LnkEsqueciMinhaSenha";
+            this.LnkEsqueciMinhaSenha.Size = new System.Drawing.Size(111, 13);
+            this.LnkEsqueciMinhaSenha.TabIndex = 4;
+            this.LnkEsqueciMinhaSenha.TabStop = true;
+            this.LnkEsqueciMinhaSenha.Text = "Esqueci Minha Senha";
             // 
             // BtnCancelar
             // 
@@ -112,15 +87,42 @@
             this.BtnCancelar.UseVisualStyleBackColor = true;
             this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
-            // LnkEsqueciMinhaSenha
+            // TxtPassword
             // 
-            this.LnkEsqueciMinhaSenha.AutoSize = true;
-            this.LnkEsqueciMinhaSenha.Location = new System.Drawing.Point(162, 77);
-            this.LnkEsqueciMinhaSenha.Name = "LnkEsqueciMinhaSenha";
-            this.LnkEsqueciMinhaSenha.Size = new System.Drawing.Size(111, 13);
-            this.LnkEsqueciMinhaSenha.TabIndex = 4;
-            this.LnkEsqueciMinhaSenha.TabStop = true;
-            this.LnkEsqueciMinhaSenha.Text = "Esqueci Minha Senha";
+            this.TxtPassword.Location = new System.Drawing.Point(66, 50);
+            this.TxtPassword.Name = "TxtPassword";
+            this.TxtPassword.Size = new System.Drawing.Size(207, 20);
+            this.TxtPassword.TabIndex = 1;
+            this.TxtPassword.Text = "admin";
+            this.TxtPassword.UseSystemPasswordChar = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(6, 53);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(49, 15);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Senha :";
+            // 
+            // TxtUsername
+            // 
+            this.TxtUsername.Location = new System.Drawing.Point(66, 22);
+            this.TxtUsername.Name = "TxtUsername";
+            this.TxtUsername.Size = new System.Drawing.Size(207, 20);
+            this.TxtUsername.TabIndex = 0;
+            this.TxtUsername.Text = "admin";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(6, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(57, 15);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Usuário :";
             // 
             // PcbImagem
             // 
