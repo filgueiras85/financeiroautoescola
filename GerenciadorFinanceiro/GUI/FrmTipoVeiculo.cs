@@ -186,14 +186,12 @@ namespace GerenciadorFinanceiro.GUI
             Repositorio.RepositorioTipoVeiculo repTipoVeiculo = new Repositorio.RepositorioTipoVeiculo();
             _ListTipoVeiculo = repTipoVeiculo.BuscarTodos();
             DGTipoVeiculo.DataSource = _ListTipoVeiculo;
+            this.ctrNavigator1.DataSource = _ListTipoVeiculo;
         }
 
         private void FrmTipoVeiculo_Load(object sender, EventArgs e)
         {
             this.BuscarTodosTiposVeiculos();            
-            Controles.CtrNavigator ctr = new Controles.CtrNavigator(_ListTipoVeiculo);
-            this.Controls.Add(ctr);
-            this.Refresh();
         }          
         
     }

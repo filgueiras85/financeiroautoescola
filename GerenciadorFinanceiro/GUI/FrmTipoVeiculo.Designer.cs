@@ -34,6 +34,7 @@
             this.IdTipoVeiculo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.ctrNavigator1 = new GerenciadorFinanceiro.Controles.CtrNavigator();
             ((System.ComponentModel.ISupportInitialize)(this.DGTipoVeiculo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -41,7 +42,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(17, 52);
+            this.label1.Location = new System.Drawing.Point(21, 20);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(71, 15);
             this.label1.TabIndex = 11;
@@ -49,7 +50,7 @@
             // 
             // TxtDescricao
             // 
-            this.TxtDescricao.Location = new System.Drawing.Point(104, 50);
+            this.TxtDescricao.Location = new System.Drawing.Point(107, 18);
             this.TxtDescricao.Name = "TxtDescricao";
             this.TxtDescricao.Size = new System.Drawing.Size(402, 20);
             this.TxtDescricao.TabIndex = 10;
@@ -58,16 +59,15 @@
             // 
             this.DGTipoVeiculo.AllowUserToAddRows = false;
             this.DGTipoVeiculo.AllowUserToDeleteRows = false;
-            this.DGTipoVeiculo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.DGTipoVeiculo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGTipoVeiculo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IdTipoVeiculo,
             this.Descricao});
-            this.DGTipoVeiculo.Location = new System.Drawing.Point(20, 84);
+            this.DGTipoVeiculo.Location = new System.Drawing.Point(12, 97);
             this.DGTipoVeiculo.Name = "DGTipoVeiculo";
             this.DGTipoVeiculo.ReadOnly = true;
             this.DGTipoVeiculo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGTipoVeiculo.Size = new System.Drawing.Size(506, 173);
+            this.DGTipoVeiculo.Size = new System.Drawing.Size(547, 190);
             this.DGTipoVeiculo.TabIndex = 9;
             this.DGTipoVeiculo.SelectionChanged += new System.EventHandler(this.DGTipoVeiculo_SelectionChanged);
             // 
@@ -94,15 +94,22 @@
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             this.dataGridViewImageColumn1.Width = 40;
             // 
+            // ctrNavigator1
+            // 
+            this.ctrNavigator1.Location = new System.Drawing.Point(12, 49);
+            this.ctrNavigator1.Name = "ctrNavigator1";
+            this.ctrNavigator1.Size = new System.Drawing.Size(547, 42);
+            this.ctrNavigator1.TabIndex = 12;
+            // 
             // FrmTipoVeiculo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(549, 279);
+            this.ClientSize = new System.Drawing.Size(578, 299);
+            this.Controls.Add(this.ctrNavigator1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TxtDescricao);
             this.Controls.Add(this.DGTipoVeiculo);
-            this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmTipoVeiculo";
             this.ShowInTaskbar = false;
@@ -123,5 +130,6 @@
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdTipoVeiculo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descricao;
+        private GerenciadorFinanceiro.Controles.CtrNavigator ctrNavigator1;
     }
 }

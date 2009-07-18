@@ -31,7 +31,7 @@ namespace GerenciadorFinanceiro.Repositorio
 
         public List<GerenciadorFinanceiro.Dominio.TipoVeiculo> BuscarTodos()
         {
-            throw new NotImplementedException();
+            return new List<GerenciadorFinanceiro.Dominio.TipoVeiculo>();
         }
 
         #endregion

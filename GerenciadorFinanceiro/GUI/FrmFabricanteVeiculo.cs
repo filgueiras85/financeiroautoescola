@@ -41,14 +41,12 @@ namespace GerenciadorFinanceiro.GUI
 
 
             this.DGFabricantes.DataSource = _ListaFabricanteVeiculo;
+            this.ctrNavigator1.DataSource = _ListaFabricanteVeiculo;
         }
 
         private void FrmFabricanteVeiculo_Load(object sender, EventArgs e)
         {
             this.BuscarTodosFabricantesVeiculos();
-            Controles.CtrNavigator ctr = new Controles.CtrNavigator(_ListaFabricanteVeiculo);
-            this.Controls.Add(ctr);
-            this.Refresh();
         }
     }
 }

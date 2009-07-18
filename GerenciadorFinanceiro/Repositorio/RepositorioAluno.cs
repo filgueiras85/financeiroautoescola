@@ -8,8 +8,6 @@ namespace GerenciadorFinanceiro.Repositorio
     class RepositorioAluno: IRepositorio<Dominio.Aluno>
     {
 
-
-
         #region IRepositorio<Aluno> Members
 
         public void SalvarObjeto(GerenciadorFinanceiro.Dominio.Aluno objeto)

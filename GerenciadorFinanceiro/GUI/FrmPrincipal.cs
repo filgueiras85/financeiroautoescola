@@ -14,8 +14,7 @@ namespace GerenciadorFinanceiro
     {
         public FrmPrincipal()
         {
-            InitializeComponent();
-            label1.Text = Dominio.UsuarioLogado.User.Nome;
+            InitializeComponent();            
         }
 
         private void Timer_Tick(object sender, EventArgs e)
@@ -31,6 +30,32 @@ namespace GerenciadorFinanceiro
 
 
             LblDataHora.Text = data + "  " + DateTime.Now.Hour + ":" + DateTime.Now.Minute + ":" + DateTime.Now.Second;
+        }
+
+        private void instrutorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (this.MdiChildren.Length > 0)
+            {
+                this.MdiChildren[0].Close();
+            }           
+
+            GUI.FrmInstrutores form = new GerenciadorFinanceiro.GUI.FrmInstrutores();
+            form.MdiParent = this;
+            form.WindowState = FormWindowState.Maximized;
+            form.Show();
+        }
+
+        private void tipoDeVeiculosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (this.MdiChildren.Length > 0)
+            {
+                this.MdiChildren[0].Close();
+            }
+
+            GUI.FrmTipoVeiculo form = new GerenciadorFinanceiro.GUI.FrmTipoVeiculo();
+            form.MdiParent = this;
+            form.WindowState = FormWindowState.Maximized;
+            form.Show();
         }
 
     }
