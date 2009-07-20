@@ -33,6 +33,8 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.sistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.instrutorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tipoDeVeiculosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relatóriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configuraçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,8 +52,7 @@
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.Timer = new System.Windows.Forms.Timer(this.components);
-            this.instrutorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tipoDeVeiculosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fabricanteDeVeículoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -85,12 +86,27 @@
             // 
             this.cadastrosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.instrutorToolStripMenuItem,
-            this.tipoDeVeiculosToolStripMenuItem});
+            this.tipoDeVeiculosToolStripMenuItem,
+            this.fabricanteDeVeículoToolStripMenuItem});
             this.cadastrosToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.cadastrosToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
             this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
             this.cadastrosToolStripMenuItem.Text = "Cadastros";
+            // 
+            // instrutorToolStripMenuItem
+            // 
+            this.instrutorToolStripMenuItem.Name = "instrutorToolStripMenuItem";
+            this.instrutorToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.instrutorToolStripMenuItem.Text = "Instrutor";
+            this.instrutorToolStripMenuItem.Click += new System.EventHandler(this.instrutorToolStripMenuItem_Click);
+            // 
+            // tipoDeVeiculosToolStripMenuItem
+            // 
+            this.tipoDeVeiculosToolStripMenuItem.Name = "tipoDeVeiculosToolStripMenuItem";
+            this.tipoDeVeiculosToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.tipoDeVeiculosToolStripMenuItem.Text = "Tipo de Veículos";
+            this.tipoDeVeiculosToolStripMenuItem.Click += new System.EventHandler(this.tipoDeVeiculosToolStripMenuItem_Click);
             // 
             // consultasToolStripMenuItem
             // 
@@ -258,19 +274,12 @@
             this.Timer.Interval = 1000;
             this.Timer.Tick += new System.EventHandler(this.Timer_Tick);
             // 
-            // instrutorToolStripMenuItem
+            // fabricanteDeVeículoToolStripMenuItem
             // 
-            this.instrutorToolStripMenuItem.Name = "instrutorToolStripMenuItem";
-            this.instrutorToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.instrutorToolStripMenuItem.Text = "Instrutor";
-            this.instrutorToolStripMenuItem.Click += new System.EventHandler(this.instrutorToolStripMenuItem_Click);
-            // 
-            // tipoDeVeiculosToolStripMenuItem
-            // 
-            this.tipoDeVeiculosToolStripMenuItem.Name = "tipoDeVeiculosToolStripMenuItem";
-            this.tipoDeVeiculosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.tipoDeVeiculosToolStripMenuItem.Text = "Tipo de veiculos";
-            this.tipoDeVeiculosToolStripMenuItem.Click += new System.EventHandler(this.tipoDeVeiculosToolStripMenuItem_Click);
+            this.fabricanteDeVeículoToolStripMenuItem.Name = "fabricanteDeVeículoToolStripMenuItem";
+            this.fabricanteDeVeículoToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.fabricanteDeVeículoToolStripMenuItem.Text = "Fabricante de Veículo";
+            this.fabricanteDeVeículoToolStripMenuItem.Click += new System.EventHandler(this.fabricanteDeVeículoToolStripMenuItem_Click);
             // 
             // FrmPrincipal
             // 
@@ -321,6 +330,7 @@
         private System.Windows.Forms.Timer Timer;
         private System.Windows.Forms.ToolStripMenuItem instrutorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tipoDeVeiculosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fabricanteDeVeículoToolStripMenuItem;
     }
 }
 
