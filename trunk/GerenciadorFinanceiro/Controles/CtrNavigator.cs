@@ -40,11 +40,21 @@ namespace GerenciadorFinanceiro.Controles
         [System.ComponentModel.Bindable(true)]
         public event Excluir ExcluirRegistro;
 
-
         public System.Collections.IList DataSource
         {
             get { return _Lista; }
             set { _Lista = value; IniciaControles(); }
+        }
+
+        public object ObjetoAtual
+        {
+            get { return _ObjetoAtual; }
+        }
+
+        public int Indice
+        {
+            get { return _Indice; }
+            set { _Indice = value; _ObjetoAtual = _Lista[_Indice]; EnabledNavegator(); }
         }
 
         public CtrNavigator(System.Collections.IList lista)
@@ -118,27 +128,44 @@ namespace GerenciadorFinanceiro.Controles
         private void BtnEditar_Click(object sender, EventArgs e)
         {
             this.EnabledButons(GerenciadorFinanceiro.Dominio.Status.Editando);
+            if (EditarRegistro != null)
+                EditarRegistro(_ObjetoAtual);
         }
 
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
             this.EnabledButons(GerenciadorFinanceiro.Dominio.Status.Consultando);
+            if (CancelarAcao != null)
+                CancelarAcao();
         }
 
         private void BtnSalvar_Click(object sender, EventArgs e)
         {
             this.EnabledButons(GerenciadorFinanceiro.Dominio.Status.Consultando);
+            if (SalvarRegistro != null)
+                SalvarRegistro(_ObjetoAtual);
         }
 
         private void BtnExcluir_Click(object sender, EventArgs e)
         {
             this.EnabledButons(GerenciadorFinanceiro.Dominio.Status.Consultando);
+            if (ExcluirRegistro != null)
+                ExcluirRegistro(_ObjetoAtual);
         }
 
         private void EnabledNavegator()
         {
             if (_Lista != null)
             {
+                //if (EventoNovo != null | EditarRegistro != null)
+                //{
+                //    this.BtnPrimeiro.Enabled = false;
+                //    this.BtnAnterior.Enabled = false;
+                //    this.BtnProximo.Enabled = false;
+                //    this.BtnUltimo.Enabled = false;
+                //}
+                //else
+                //{
                 if (_Indice <= 0)
                 {
                     this.BtnPrimeiro.Enabled = false;
@@ -160,6 +187,7 @@ namespace GerenciadorFinanceiro.Controles
                     this.BtnUltimo.Enabled = false;
                 }
             }
+            //}
             else
             {
                 this.BtnPrimeiro.Enabled = false;
