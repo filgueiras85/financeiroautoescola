@@ -5,33 +5,115 @@ using System.Text;
 
 namespace GerenciadorFinanceiro.Repositorio
 {
-    class RepositorioTipoVeiculo: IRepositorio<Dominio.TipoVeiculo>
+    class RepositorioTipoVeiculo:Repositorio.RepositorioBase, IRepositorio<Dominio.TipoVeiculo>
     {
         #region IRepositorio<TipoVeiculo> Members
 
         public void SalvarObjeto(GerenciadorFinanceiro.Dominio.TipoVeiculo objeto)
         {
-            throw new NotImplementedException();
+            string sSqlInsert = "insert into TB_Tipo_Veiculo (Descricao) values (@Descricao)";
+            try
+            {
+                this.AbrirConexao();
+                this.Execute(sSqlInsert, objeto.Descricao);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Não foi possível inserir o Tipo de Veículo.", ex);
+            }
+            finally
+            {
+                this.FecharConexao();
+            }
         }
 
         public void AtualizarObjeto(GerenciadorFinanceiro.Dominio.TipoVeiculo objeto)
         {
-            throw new NotImplementedException();
+            string sSqlUpdate = "update TB_Tipo_Veiculo set Descricao = @Descricao where IdTipoVeiculo = @IdTipoVeiculo";
+            try
+            {
+                this.AbrirConexao();
+                this.Execute(sSqlUpdate, objeto.Descricao, objeto.IdTipoVeiculo);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Não foi possível atualizar o Tipo de Veículo.", ex);
+            }
+            finally
+            {
+                this.FecharConexao();
+            }
         }
 
         public void DeletarObjeto(GerenciadorFinanceiro.Dominio.TipoVeiculo objeto)
         {
-            throw new NotImplementedException();
+            string sSqlDelete = "delete from TB_Tipo_Veiculo where IdTipoVeiculo = @IdTipoVeiculo";
+            try
+            {
+                this.AbrirConexao();
+                this.Execute(sSqlDelete, objeto.IdTipoVeiculo);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Não foi possível deletar o Tipo de Veículo.", ex);
+            }
+            finally
+            {
+                this.FecharConexao();
+            }
         }
 
         public Dominio.TipoVeiculo BuscarObjetoPorId(int id)
         {
-            throw new NotImplementedException();
+            string sSqlSelect = "select * from TB_Tipo_Veiculo where IdTipoVeiculo = @IdTipoVeiculo";
+            try
+            {
+                this.AbrirConexao();
+                var reader = this.ExecuteReader(sSqlSelect, id);
+                Dominio.TipoVeiculo tipoVeiculo = new Dominio.TipoVeiculo();
+                while (reader.Read())
+                {
+                    tipoVeiculo.IdTipoVeiculo = id;
+                    tipoVeiculo.Descricao = (string)reader["Descricao"];
+                }
+                return tipoVeiculo;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Não foi possível Buscar o Tipo de Veículo.", ex);
+            }
+            finally
+            {
+                this.FecharConexao();
+            }
         }
 
         public List<GerenciadorFinanceiro.Dominio.TipoVeiculo> BuscarTodos()
         {
-            return new List<GerenciadorFinanceiro.Dominio.TipoVeiculo>();
+            string sSqlSelect = "select * from TB_Tipo_Veiculo order by Descricao";
+            List<Dominio.TipoVeiculo> listaTipoVeiculo = new List<GerenciadorFinanceiro.Dominio.TipoVeiculo>();
+            try
+            {
+                this.AbrirConexao();
+                var reader = this.ExecuteReader(sSqlSelect);
+                Dominio.TipoVeiculo tipoVeiculo;
+                while (reader.Read())
+                {
+                    tipoVeiculo = new Dominio.TipoVeiculo();
+                    tipoVeiculo.IdTipoVeiculo = (int)reader["IdTipoVeiculo"];
+                    tipoVeiculo.Descricao = (string)reader["Descricao"];
+                    listaTipoVeiculo.Add(tipoVeiculo);
+                }
+                return listaTipoVeiculo;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Não foi possível Buscar todos os Tipos de Veículos.", ex);
+            }
+            finally
+            {
+                this.FecharConexao();
+            }
         }
 
         #endregion
