@@ -106,6 +106,7 @@ namespace GerenciadorFinanceiro.Repositorio
                     modeloVeiculo.Descricao = (string)reader["Descricao"];
                     modeloVeiculo.Fabricante = new Repositorio.RepositorioFabricanteVeiculo().BuscarObjetoPorId((int)reader["IdFabricanteVeiculo"]);
                     listaModeloVeiculo.Add(modeloVeiculo);
+                    modeloVeiculo = null;
                 }
                 return listaModeloVeiculo;
             }

@@ -71,12 +71,11 @@ namespace GerenciadorFinanceiro.Repositorio
                 this.AbrirConexao();
                 var reader = this.ExecuteReader(sSqlSelect, id);
                 Dominio.Cidade Cid = new Dominio.Cidade();
-                RepositorioEstado repEstado = new RepositorioEstado();
                 while (reader.Read())
                 {
                     Cid.IdCidade = id;
                     Cid.NomeCidade = (string)reader["NomeCidade"];
-                    Cid.Estado = repEstado.BuscarObjetoPorId((int)reader["IdEstado"]);
+                    Cid.Estado = new RepositorioEstado().BuscarObjetoPorId((int)reader["IdEstado"]);
                 }
                 return Cid;
             }
@@ -92,7 +91,7 @@ namespace GerenciadorFinanceiro.Repositorio
 
         public List<GerenciadorFinanceiro.Dominio.Cidade> BuscarTodos()
         {
-            string sSqlSelect = "select * from TB_Cidade";
+            string sSqlSelect = "select * from TB_Cidade order by NomeCidade";
             List<Dominio.Cidade> listaCid = new List<GerenciadorFinanceiro.Dominio.Cidade>();
             try
             {
@@ -136,6 +135,7 @@ namespace GerenciadorFinanceiro.Repositorio
                     Cid.NomeCidade = (string)reader["NomeCidade"];
                     Cid.Estado = estado;
                     listaCid.Add(Cid);
+                    Cid = null;
                 }
                 return listaCid;
             }

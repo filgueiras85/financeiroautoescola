@@ -92,7 +92,7 @@ namespace GerenciadorFinanceiro.Repositorio
 
         public List<GerenciadorFinanceiro.Dominio.Estado> BuscarTodos()
         {
-            string sSqlSelect = "select * from TB_Estado";
+            string sSqlSelect = "select * from TB_Estado order by NomeEstado";
             List<Dominio.Estado> listaEst = new List<GerenciadorFinanceiro.Dominio.Estado>();
             try
             {
@@ -106,6 +106,7 @@ namespace GerenciadorFinanceiro.Repositorio
                     Est.NomeEstado = (string)reader["NomeEstado"];
                     Est.SiglaEstado = (string)reader["Sigla"];
                     listaEst.Add(Est);
+                    Est = null;
                 }
                 return listaEst;
             }
