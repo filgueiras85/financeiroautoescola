@@ -23,17 +23,24 @@ namespace GerenciadorFinanceiro.GUI
 
         private void BtnLogar_Click(object sender, EventArgs e)
         {
-            Repositorio.RepositorioUsuario repUser = new Repositorio.RepositorioUsuario();
-            Dominio.UsuarioLogado.User = repUser.ObterUsuarioPorUsernameAndPassword(this.TxtUsername.Text, this.TxtPassword.Text);
-            if (Dominio.UsuarioLogado.User != null)
+            try
             {
-                FrmPrincipal Frm = new FrmPrincipal();
-                Frm.Show();
-                this.Hide();
+                Repositorio.RepositorioUsuario repUser = new Repositorio.RepositorioUsuario();
+                Dominio.UsuarioLogado.User = repUser.ObterUsuarioPorUsernameAndPassword(this.TxtUsername.Text, this.TxtPassword.Text);
+                if (Dominio.UsuarioLogado.User != null)
+                {
+                    FrmPrincipal Frm = new FrmPrincipal();
+                    Frm.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Usuário ou Senha Inválido.", "Atenção");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Usuário ou Senha Inválido.", "Atenção");
+                MessageBox.Show(ex.Message,"Mensagem!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
