@@ -45,8 +45,14 @@ namespace GerenciadorFinanceiro.Repositorio
         public void Execute(string sql,params  object[] parametros)
         {
             SqlCeCommand comando = new SqlCeCommand(sql, _Conexao);
+            List<string> lista = BuscaParametros(sql);
             try
-            {                
+            {
+                if (lista.Count != parametros.Length)
+                {
+                    throw new Exception("Contagem de Parametros incorreto.");
+                }
+                AdicionaParametros(comando, lista, parametros);               
                 comando.ExecuteNonQuery();
             }
             finally
@@ -58,8 +64,14 @@ namespace GerenciadorFinanceiro.Repositorio
         public object ExecuteScalar(string sql, params object[] parametros)
         {
             SqlCeCommand comando = new SqlCeCommand(sql, _Conexao);
+            List<string> lista = BuscaParametros(sql);
             try
             {
+                if (lista.Count != parametros.Length)
+                {
+                    throw new Exception("Contagem de Parametros incorreto.");
+                }
+                AdicionaParametros(comando, lista, parametros);
                 return comando.ExecuteScalar();
             }
             finally
