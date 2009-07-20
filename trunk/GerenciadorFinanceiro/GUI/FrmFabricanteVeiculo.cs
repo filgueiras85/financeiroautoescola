@@ -17,29 +17,37 @@ namespace GerenciadorFinanceiro.GUI
         }
 
         private List<Dominio.FabricanteVeiculo> _ListaFabricanteVeiculo;
+        private Dominio.FabricanteVeiculo _FabricanteVeiculo;
+
+        private void CamposInterface(Dominio.FabricanteVeiculo fabVeiculo, Dominio.Status status)
+        {
+            TxtDescricao.Text = fabVeiculo.Descricao;
+            if (status == Dominio.Status.Inserindo)
+            {
+                TxtDescricao.Enabled = true;
+                LblStatus.Text = "Status : Inserindo";
+            }
+            else if (status == Dominio.Status.Editando)
+            {
+                TxtDescricao.Enabled = true;
+                LblStatus.Text = "Status : Editando";
+            }
+            else if (status == Dominio.Status.Excluindo)
+            {
+                TxtDescricao.Enabled = false;
+                LblStatus.Text = "Status : Excluindo";
+            }
+            else
+            {
+                TxtDescricao.Enabled = false;
+                LblStatus.Text = "Status : Consultando";
+            }
+        }
 
         private void BuscarTodosFabricantesVeiculos()
         {
-            
-            _ListaFabricanteVeiculo = new List<GerenciadorFinanceiro.Dominio.FabricanteVeiculo>();
-            
-            //Repositorio.RepositorioFabricanteVeiculo repFabVeiculo = new Repositorio.RepositorioFabricanteVeiculo();
-            //_ListaFabricanteVeiculo = repFabVeiculo.BuscarTodos();
-            
-            Dominio.FabricanteVeiculo fabVeiculo = new Dominio.FabricanteVeiculo();
-            fabVeiculo.IdFabricanteVeiculo = 1;
-            fabVeiculo.Descricao = "Volkswagem";
-            _ListaFabricanteVeiculo.Add(fabVeiculo);
-            fabVeiculo = new Dominio.FabricanteVeiculo();
-            fabVeiculo.IdFabricanteVeiculo = 2;
-            fabVeiculo.Descricao = "Chevrolet";
-            _ListaFabricanteVeiculo.Add(fabVeiculo);
-            fabVeiculo = new Dominio.FabricanteVeiculo();
-            fabVeiculo.IdFabricanteVeiculo = 3;
-            fabVeiculo.Descricao = "Fiat";
-            _ListaFabricanteVeiculo.Add(fabVeiculo);
-
-
+            Repositorio.RepositorioFabricanteVeiculo repFabVeiculo = new Repositorio.RepositorioFabricanteVeiculo();
+            _ListaFabricanteVeiculo = repFabVeiculo.BuscarTodos();
             this.DGFabricantes.DataSource = _ListaFabricanteVeiculo;
             this.ctrNavigator1.DataSource = _ListaFabricanteVeiculo;
         }
@@ -47,6 +55,95 @@ namespace GerenciadorFinanceiro.GUI
         private void FrmFabricanteVeiculo_Load(object sender, EventArgs e)
         {
             this.BuscarTodosFabricantesVeiculos();
+            _FabricanteVeiculo = new Dominio.FabricanteVeiculo();
+            this.CamposInterface(_FabricanteVeiculo, Dominio.Status.Consultando);
+        }
+
+        private void ctrNavigator1_EventoNovo()
+        {
+            _FabricanteVeiculo = new Dominio.FabricanteVeiculo();
+            this.CamposInterface(_FabricanteVeiculo, Dominio.Status.Inserindo);
+        }
+
+        private void ctrNavigator1_EditarRegistro(object objEditar)
+        {
+            this.CamposInterface(_FabricanteVeiculo, Dominio.Status.Editando);            
+        }
+
+        private void ctrNavigator1_CancelarAcao()
+        {
+            this.CamposInterface(_FabricanteVeiculo, GerenciadorFinanceiro.Dominio.Status.Consultando);
+        }
+
+        private void ctrNavigator1_SalvarRegistro(object objSalvar)
+        {
+            this._FabricanteVeiculo.Descricao = TxtDescricao.Text;
+            try
+            {
+                if (_FabricanteVeiculo.IdFabricanteVeiculo == 0)
+                    new Repositorio.RepositorioFabricanteVeiculo().SalvarObjeto(_FabricanteVeiculo);
+                else
+                    new Repositorio.RepositorioFabricanteVeiculo().AtualizarObjeto(_FabricanteVeiculo);
+            }
+            catch (Exception ex)
+            {
+                
+            }
+            this.BuscarTodosFabricantesVeiculos();
+            this.CamposInterface(_FabricanteVeiculo, Dominio.Status.Consultando);
+        }
+
+        private void ctrNavigator1_ExcluirRegistro(object objExcluir)
+        {
+            this.CamposInterface(_FabricanteVeiculo, GerenciadorFinanceiro.Dominio.Status.Excluindo);
+            try
+            {
+                new Repositorio.RepositorioFabricanteVeiculo().DeletarObjeto(_FabricanteVeiculo);
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        private void ctrNavigator1_MudaRegistroSelecionado(object objetoAtual)
+        {
+            for (int i = 0; i < DGFabricantes.Rows.Count; i++)
+            {
+                if (i == ctrNavigator1.Indice)
+                    DGFabricantes.Rows[i].Selected = true;
+                else
+                    DGFabricantes.Rows[i].Selected = false;
+            }
+            //_FabricanteVeiculo = (Dominio.FabricanteVeiculo)ctrNavigator1.ObjetoAtual;
+            //this.CamposInterface(_FabricanteVeiculo, Dominio.Status.Consultando);
+        }
+
+        private void DGFabricantes_SelectionChanged(object sender, EventArgs e)
+        {
+            if (this.DGFabricantes.Rows.Count > 0)
+            {
+                if (DGFabricantes.SelectedRows.Count > 0)
+                {
+                    _FabricanteVeiculo = (Dominio.FabricanteVeiculo)DGFabricantes.SelectedRows[0].DataBoundItem;
+                    try
+                    {
+                        ctrNavigator1.Indice = DGFabricantes.SelectedRows[0].Index;
+                    }
+                    catch (Exception ex)
+                    {
+                    }
+                }
+                else
+                {
+                    _FabricanteVeiculo = new Dominio.FabricanteVeiculo();
+                }
+            }
+            else
+            {
+                _FabricanteVeiculo = new Dominio.FabricanteVeiculo();
+            }
+            this.CamposInterface(_FabricanteVeiculo, Dominio.Status.Consultando);
         }
     }
 }
