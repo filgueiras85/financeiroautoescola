@@ -103,6 +103,7 @@ namespace GerenciadorFinanceiro.Repositorio
                     fabVeiculo.IdFabricanteVeiculo = (int)reader["IdFabricanteVeiculo"];
                     fabVeiculo.Descricao = (string)reader["Descricao"];
                     listaFabVeiculo.Add(fabVeiculo);
+                    fabVeiculo = null;
                 }
                 return listaFabVeiculo;
             }

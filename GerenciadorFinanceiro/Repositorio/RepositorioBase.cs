@@ -27,8 +27,7 @@ namespace GerenciadorFinanceiro.Repositorio
         {
             get { return _Conexao; }
         }
-    
-    
+        
         public void AbrirConexao()
         {
             if (_Conexao.State != System.Data.ConnectionState.Open)

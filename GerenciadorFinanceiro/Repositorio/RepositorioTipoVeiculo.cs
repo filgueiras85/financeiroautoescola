@@ -103,6 +103,7 @@ namespace GerenciadorFinanceiro.Repositorio
                     tipoVeiculo.IdTipoVeiculo = (int)reader["IdTipoVeiculo"];
                     tipoVeiculo.Descricao = (string)reader["Descricao"];
                     listaTipoVeiculo.Add(tipoVeiculo);
+                    tipoVeiculo = null;
                 }
                 return listaTipoVeiculo;
             }

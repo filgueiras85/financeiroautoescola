@@ -5,34 +5,131 @@ using System.Text;
 
 namespace GerenciadorFinanceiro.Repositorio
 {
-    class RepositorioUsuario: Repositorio.RepositorioBase ,  IRepositorio<Dominio.Usuario>
+    class RepositorioUsuario: Repositorio.RepositorioBase,  IRepositorio<Dominio.Usuario>
     {
 
         #region IRepositorio<Usuario> Members
 
         public void SalvarObjeto(GerenciadorFinanceiro.Dominio.Usuario objeto)
-        {            
-            throw new NotImplementedException();
+        {
+            string sSqlInsert = "insert into TB_Usuario (Nome, Email, Telefone, Celular, Username, Senha)" +
+                               " values (@Nome, @Email, @Telefone, @Celular, @Username, @Senha)";
+            try
+            {
+                this.AbrirConexao();
+                this.Execute(sSqlInsert, objeto.Nome, objeto.Email, objeto.Telefone, objeto.Celular, objeto.UserName, objeto.Senha);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Não foi possível Salvar o Usuário.", ex);
+            }
+            finally
+            {
+                this.FecharConexao();
+            }
         }
 
         public void AtualizarObjeto(GerenciadorFinanceiro.Dominio.Usuario objeto)
         {
-            throw new NotImplementedException();
+            string sSqlUpdate = "update TB_Usuario set Nome = @Nome, Email = @Email, Telefone = @Telefone, " +
+                                "Celular = @Celular, Username = @Username, Senha = @Senha " +
+                                "where IdUsuario = @IdUsuario";
+            try
+            {
+                this.AbrirConexao();
+                this.Execute(sSqlUpdate, objeto.Nome, objeto.Email, objeto.Telefone, objeto.Celular, 
+                             objeto.UserName, objeto.Senha, objeto.IdUsuario);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Não foi possível atualizar o Usuário.", ex);
+            }
+            finally
+            {
+                this.FecharConexao();
+            }
         }
 
         public void DeletarObjeto(GerenciadorFinanceiro.Dominio.Usuario objeto)
         {
-            throw new NotImplementedException();
+            string sSqlDelete = "delete from TB_Usuario where IdUsuario = @IdUsuario";
+            try
+            {
+                this.AbrirConexao();
+                this.Execute(sSqlDelete, objeto.IdUsuario);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Não foi possível deletar o Usuário.", ex);
+            }
+            finally
+            {
+                this.FecharConexao();
+            }
         }
 
         public Dominio.Usuario BuscarObjetoPorId(int id)
         {
-            throw new NotImplementedException();
+            string sSqlSelect = "select * from TB_Usuario where IdUsuario = @IdUsuario";
+            try
+            {
+                this.AbrirConexao();
+                var reader = this.ExecuteReader(sSqlSelect, id);
+                Dominio.Usuario usuario = new Dominio.Usuario();
+                while (reader.Read())
+                {
+                    usuario.IdUsuario = id;
+                    usuario.Nome = (string)reader["Nome"];
+                    usuario.Email = (string)reader["Email"];
+                    usuario.Telefone = (string)reader["Telefone"];
+                    usuario.Celular = (string)reader["Celular"];
+                    usuario.UserName = (string)reader["Username"];
+                    usuario.Senha = (string)reader["Senha"];
+                }
+                return usuario;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Não foi possível Buscar o Usuário.", ex);
+            }
+            finally
+            {
+                this.FecharConexao();
+            }
         }
 
         public List<GerenciadorFinanceiro.Dominio.Usuario> BuscarTodos()
         {
-            throw new NotImplementedException();
+            string sSqlSelect = "select * from TB_Usuario order by Nome";
+            List<Dominio.Usuario> ListUsuarios = new List<GerenciadorFinanceiro.Dominio.Usuario>();
+            try
+            {
+                this.AbrirConexao();
+                var reader = this.ExecuteReader(sSqlSelect);
+                Dominio.Usuario usuario;
+                while (reader.Read())
+                {
+                    usuario = new Dominio.Usuario();
+                    usuario.IdUsuario = (int)reader["IdUsuario"];
+                    usuario.Nome = (string)reader["Nome"];
+                    usuario.Email = (string)reader["Email"];
+                    usuario.Telefone = (string)reader["Telefone"];
+                    usuario.Celular = (string)reader["Celular"];
+                    usuario.UserName = (string)reader["Username"];
+                    usuario.Senha = (string)reader["Senha"];
+                    ListUsuarios.Add(usuario);
+                    usuario = null;
+                }
+                return ListUsuarios;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Não foi possível Buscar todos os Usuários.", ex);
+            }
+            finally
+            {
+                this.FecharConexao();
+            }
         }
 
         #endregion
