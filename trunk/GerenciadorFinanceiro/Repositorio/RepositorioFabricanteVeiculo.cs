@@ -90,7 +90,7 @@ namespace GerenciadorFinanceiro.Repositorio
 
         public List<GerenciadorFinanceiro.Dominio.FabricanteVeiculo> BuscarTodos()
         {
-            string sSqlSelect = "select * from TB_Fabricante_Veiculo";
+            string sSqlSelect = "select * from TB_Fabricante_Veiculo order by Descricao";
             List<Dominio.FabricanteVeiculo> listaFabVeiculo = new List<GerenciadorFinanceiro.Dominio.FabricanteVeiculo>();
             try
             {
@@ -108,7 +108,7 @@ namespace GerenciadorFinanceiro.Repositorio
             }
             catch (Exception ex)
             {
-                throw new Exception("Não foi possível Buscar todas as Cidades.", ex);
+                throw new Exception("Não foi possível Buscar todos os Fabricantes de Veículos.", ex);
             }
             finally
             {
