@@ -17,6 +17,7 @@ namespace GerenciadorFinanceiro.GUI
         }
 
         private List<Dominio.Instrutor> _ListaInstrutor = new List<GerenciadorFinanceiro.Dominio.Instrutor>();
+        private List<Dominio.Cidade> _ListaCidade = new List<GerenciadorFinanceiro.Dominio.Cidade>();
         private Dominio.Instrutor _Instrutor = new Dominio.Instrutor();
 
         private void BuscarTodosOsInstrutores()
