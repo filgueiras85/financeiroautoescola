@@ -55,6 +55,7 @@
             this.Timer = new System.Windows.Forms.Timer(this.components);
             this.estadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cidadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modeloDeVeículoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -91,7 +92,8 @@
             this.tipoDeVeiculosToolStripMenuItem,
             this.fabricanteDeVeículoToolStripMenuItem,
             this.estadosToolStripMenuItem,
-            this.cidadesToolStripMenuItem});
+            this.cidadesToolStripMenuItem,
+            this.modeloDeVeículoToolStripMenuItem});
             this.cadastrosToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.cadastrosToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
@@ -299,6 +301,13 @@
             this.cidadesToolStripMenuItem.Text = "Cidades";
             this.cidadesToolStripMenuItem.Click += new System.EventHandler(this.cidadesToolStripMenuItem_Click);
             // 
+            // modeloDeVeículoToolStripMenuItem
+            // 
+            this.modeloDeVeículoToolStripMenuItem.Name = "modeloDeVeículoToolStripMenuItem";
+            this.modeloDeVeículoToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.modeloDeVeículoToolStripMenuItem.Text = "Modelo de Veículo";
+            this.modeloDeVeículoToolStripMenuItem.Click += new System.EventHandler(this.modeloDeVeículoToolStripMenuItem_Click);
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -351,6 +360,7 @@
         private System.Windows.Forms.ToolStripMenuItem fabricanteDeVeículoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem estadosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cidadesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem modeloDeVeículoToolStripMenuItem;
     }
 }
 

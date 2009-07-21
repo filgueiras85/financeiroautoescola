@@ -12,11 +12,11 @@ namespace GerenciadorFinanceiro.Repositorio
 
         public void SalvarObjeto(GerenciadorFinanceiro.Dominio.ModeloVeiculo objeto)
         {
-            string sSqlInsert = "insert into TB_Modelo_Veiculo (Descricao, IdFabricante) values (@Descricao, @IdFabricante)";
+            string sSqlInsert = "insert into TB_Modelo_Veiculo (Descricao, IdFabricanteVeiculo) values (@Descricao, @IdFabricante)";
             try
             {
                 this.AbrirConexao();
-                this.Execute(sSqlInsert, objeto.Descricao);
+                this.Execute(sSqlInsert, objeto.Descricao, objeto.Fabricante.IdFabricanteVeiculo);
             }
             catch (Exception ex)
             {
@@ -30,7 +30,7 @@ namespace GerenciadorFinanceiro.Repositorio
 
         public void AtualizarObjeto(GerenciadorFinanceiro.Dominio.ModeloVeiculo objeto)
         {
-            string sSqlUpdate = "update TB_Modelo_Veiculo set Descricao = @Descricao, IdFabricante = @IdFabricante where IdModeloVeiculo = @IdModeloVeiculo";
+            string sSqlUpdate = "update TB_Modelo_Veiculo set Descricao = @Descricao, IdFabricanteVeiculo = @IdFabricante where IdModeloVeiculo = @IdModeloVeiculo";
             try
             {
                 this.AbrirConexao();

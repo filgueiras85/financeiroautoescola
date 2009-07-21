@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.LblSiglaEstado = new System.Windows.Forms.Label();
             this.StatusStrip = new System.Windows.Forms.StatusStrip();
             this.LblStatus = new System.Windows.Forms.ToolStripStatusLabel();
@@ -93,6 +94,8 @@
             // 
             this.DGCidades.AllowUserToAddRows = false;
             this.DGCidades.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DGCidades.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DGCidades.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)));
             this.DGCidades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -111,6 +114,7 @@
             // 
             // CmbEstados
             // 
+            this.CmbEstados.BackColor = System.Drawing.Color.White;
             this.CmbEstados.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbEstados.FormattingEnabled = true;
             this.CmbEstados.Location = new System.Drawing.Point(100, 37);

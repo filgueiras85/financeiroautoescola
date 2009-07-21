@@ -28,14 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.TxtDescricao = new System.Windows.Forms.TextBox();
             this.DGTipoVeiculo = new System.Windows.Forms.DataGridView();
             this.IdTipoVeiculo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.StatusStrip = new System.Windows.Forms.StatusStrip();
+            this.LblStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.ctrNavigator1 = new GerenciadorFinanceiro.Controles.CtrNavigator();
             ((System.ComponentModel.ISupportInitialize)(this.DGTipoVeiculo)).BeginInit();
+            this.StatusStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -50,6 +54,7 @@
             // 
             // TxtDescricao
             // 
+            this.TxtDescricao.BackColor = System.Drawing.Color.White;
             this.TxtDescricao.Location = new System.Drawing.Point(107, 18);
             this.TxtDescricao.Name = "TxtDescricao";
             this.TxtDescricao.Size = new System.Drawing.Size(402, 20);
@@ -59,11 +64,15 @@
             // 
             this.DGTipoVeiculo.AllowUserToAddRows = false;
             this.DGTipoVeiculo.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DGTipoVeiculo.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.DGTipoVeiculo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)));
             this.DGTipoVeiculo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGTipoVeiculo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IdTipoVeiculo,
             this.Descricao});
-            this.DGTipoVeiculo.Location = new System.Drawing.Point(12, 97);
+            this.DGTipoVeiculo.Location = new System.Drawing.Point(15, 97);
             this.DGTipoVeiculo.Name = "DGTipoVeiculo";
             this.DGTipoVeiculo.ReadOnly = true;
             this.DGTipoVeiculo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -94,18 +103,44 @@
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             this.dataGridViewImageColumn1.Width = 40;
             // 
+            // StatusStrip
+            // 
+            this.StatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.LblStatus});
+            this.StatusStrip.Location = new System.Drawing.Point(0, 302);
+            this.StatusStrip.Name = "StatusStrip";
+            this.StatusStrip.Size = new System.Drawing.Size(578, 22);
+            this.StatusStrip.TabIndex = 13;
+            this.StatusStrip.Text = "statusStrip1";
+            // 
+            // LblStatus
+            // 
+            this.LblStatus.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
+            this.LblStatus.Name = "LblStatus";
+            this.LblStatus.Size = new System.Drawing.Size(124, 17);
+            this.LblStatus.Text = "Status : Consultando";
+            // 
             // ctrNavigator1
             // 
+            this.ctrNavigator1.DataSource = null;
+            this.ctrNavigator1.Indice = -1;
             this.ctrNavigator1.Location = new System.Drawing.Point(12, 49);
             this.ctrNavigator1.Name = "ctrNavigator1";
             this.ctrNavigator1.Size = new System.Drawing.Size(547, 42);
             this.ctrNavigator1.TabIndex = 12;
+            this.ctrNavigator1.ExcluirRegistro += new GerenciadorFinanceiro.Controles.CtrNavigator.Excluir(this.ctrNavigator1_ExcluirRegistro);
+            this.ctrNavigator1.EventoNovo += new GerenciadorFinanceiro.Controles.CtrNavigator.Novo(this.ctrNavigator1_EventoNovo);
+            this.ctrNavigator1.MudaRegistroSelecionado += new GerenciadorFinanceiro.Controles.CtrNavigator.MudaRegistro(this.ctrNavigator1_MudaRegistroSelecionado);
+            this.ctrNavigator1.CancelarAcao += new GerenciadorFinanceiro.Controles.CtrNavigator.Cancelar(this.ctrNavigator1_CancelarAcao);
+            this.ctrNavigator1.SalvarRegistro += new GerenciadorFinanceiro.Controles.CtrNavigator.Salvar(this.ctrNavigator1_SalvarRegistro);
+            this.ctrNavigator1.EditarRegistro += new GerenciadorFinanceiro.Controles.CtrNavigator.Editar(this.ctrNavigator1_EditarRegistro);
             // 
             // FrmTipoVeiculo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(578, 299);
+            this.ClientSize = new System.Drawing.Size(578, 324);
+            this.Controls.Add(this.StatusStrip);
             this.Controls.Add(this.ctrNavigator1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TxtDescricao);
@@ -117,6 +152,8 @@
             this.Text = "Cadastro de Tipo de Veículo";
             this.Load += new System.EventHandler(this.FrmTipoVeiculo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DGTipoVeiculo)).EndInit();
+            this.StatusStrip.ResumeLayout(false);
+            this.StatusStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -131,5 +168,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn IdTipoVeiculo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descricao;
         private GerenciadorFinanceiro.Controles.CtrNavigator ctrNavigator1;
+        private System.Windows.Forms.StatusStrip StatusStrip;
+        private System.Windows.Forms.ToolStripStatusLabel LblStatus;
     }
 }

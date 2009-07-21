@@ -97,5 +97,17 @@ namespace GerenciadorFinanceiro
             form.Show();
         }
 
+        private void modeloDeVeículoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (this.MdiChildren.Length > 0)
+            {
+                this.MdiChildren[0].Close();
+            }
+            GUI.FrmModeloVeiculo form = new GerenciadorFinanceiro.GUI.FrmModeloVeiculo();
+            form.MdiParent = this;
+            form.WindowState = FormWindowState.Maximized;
+            form.Show();
+        }
+
     }
 }
