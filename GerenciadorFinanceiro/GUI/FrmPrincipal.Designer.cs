@@ -35,6 +35,7 @@
             this.cadastrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.instrutorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tipoDeVeiculosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fabricanteDeVeículoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relatóriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configuraçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,7 +53,8 @@
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.Timer = new System.Windows.Forms.Timer(this.components);
-            this.fabricanteDeVeículoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.estadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cidadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -87,7 +89,9 @@
             this.cadastrosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.instrutorToolStripMenuItem,
             this.tipoDeVeiculosToolStripMenuItem,
-            this.fabricanteDeVeículoToolStripMenuItem});
+            this.fabricanteDeVeículoToolStripMenuItem,
+            this.estadosToolStripMenuItem,
+            this.cidadesToolStripMenuItem});
             this.cadastrosToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.cadastrosToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
@@ -107,6 +111,13 @@
             this.tipoDeVeiculosToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             this.tipoDeVeiculosToolStripMenuItem.Text = "Tipo de Veículos";
             this.tipoDeVeiculosToolStripMenuItem.Click += new System.EventHandler(this.tipoDeVeiculosToolStripMenuItem_Click);
+            // 
+            // fabricanteDeVeículoToolStripMenuItem
+            // 
+            this.fabricanteDeVeículoToolStripMenuItem.Name = "fabricanteDeVeículoToolStripMenuItem";
+            this.fabricanteDeVeículoToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.fabricanteDeVeículoToolStripMenuItem.Text = "Fabricante de Veículo";
+            this.fabricanteDeVeículoToolStripMenuItem.Click += new System.EventHandler(this.fabricanteDeVeículoToolStripMenuItem_Click);
             // 
             // consultasToolStripMenuItem
             // 
@@ -274,12 +285,19 @@
             this.Timer.Interval = 1000;
             this.Timer.Tick += new System.EventHandler(this.Timer_Tick);
             // 
-            // fabricanteDeVeículoToolStripMenuItem
+            // estadosToolStripMenuItem
             // 
-            this.fabricanteDeVeículoToolStripMenuItem.Name = "fabricanteDeVeículoToolStripMenuItem";
-            this.fabricanteDeVeículoToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
-            this.fabricanteDeVeículoToolStripMenuItem.Text = "Fabricante de Veículo";
-            this.fabricanteDeVeículoToolStripMenuItem.Click += new System.EventHandler(this.fabricanteDeVeículoToolStripMenuItem_Click);
+            this.estadosToolStripMenuItem.Name = "estadosToolStripMenuItem";
+            this.estadosToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.estadosToolStripMenuItem.Text = "Estados";
+            this.estadosToolStripMenuItem.Click += new System.EventHandler(this.estadosToolStripMenuItem_Click);
+            // 
+            // cidadesToolStripMenuItem
+            // 
+            this.cidadesToolStripMenuItem.Name = "cidadesToolStripMenuItem";
+            this.cidadesToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.cidadesToolStripMenuItem.Text = "Cidades";
+            this.cidadesToolStripMenuItem.Click += new System.EventHandler(this.cidadesToolStripMenuItem_Click);
             // 
             // FrmPrincipal
             // 
@@ -331,6 +349,8 @@
         private System.Windows.Forms.ToolStripMenuItem instrutorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tipoDeVeiculosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fabricanteDeVeículoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem estadosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cidadesToolStripMenuItem;
     }
 }
 

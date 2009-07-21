@@ -71,5 +71,31 @@ namespace GerenciadorFinanceiro
             form.Show();
         }
 
+        private void estadosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (this.MdiChildren.Length > 0)
+            {
+                this.MdiChildren[0].Close();
+            }
+
+            GUI.FrmEstado form = new GerenciadorFinanceiro.GUI.FrmEstado();
+            form.MdiParent = this;
+            form.WindowState = FormWindowState.Maximized;
+            form.Show();
+        }
+
+        private void cidadesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (this.MdiChildren.Length > 0)
+            {
+                this.MdiChildren[0].Close();
+            }
+
+            GUI.FrmCidade form = new GerenciadorFinanceiro.GUI.FrmCidade();
+            form.MdiParent = this;
+            form.WindowState = FormWindowState.Maximized;
+            form.Show();
+        }
+
     }
 }

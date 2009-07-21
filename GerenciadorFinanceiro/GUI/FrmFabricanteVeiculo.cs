@@ -42,6 +42,7 @@ namespace GerenciadorFinanceiro.GUI
                 TxtDescricao.Enabled = false;
                 LblStatus.Text = "Status : Consultando";
             }
+            this.Refresh();
         }
 
         private void BuscarTodosFabricantesVeiculos()
@@ -115,8 +116,6 @@ namespace GerenciadorFinanceiro.GUI
                 else
                     DGFabricantes.Rows[i].Selected = false;
             }
-            //_FabricanteVeiculo = (Dominio.FabricanteVeiculo)ctrNavigator1.ObjetoAtual;
-            //this.CamposInterface(_FabricanteVeiculo, Dominio.Status.Consultando);
         }
 
         private void DGFabricantes_SelectionChanged(object sender, EventArgs e)
