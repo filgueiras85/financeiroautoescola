@@ -54,7 +54,13 @@ namespace GerenciadorFinanceiro.Controles
         public int Indice
         {
             get { return _Indice; }
-            set { _Indice = value; _ObjetoAtual = _Lista[_Indice]; EnabledNavegator(); }
+            set 
+            { 
+                _Indice = value; 
+                if (_Indice > -1)
+                    _ObjetoAtual = _Lista[_Indice]; 
+                EnabledNavegator(); 
+            }
         }
 
         public CtrNavigator(System.Collections.IList lista)
@@ -209,7 +215,8 @@ namespace GerenciadorFinanceiro.Controles
                     if (MudaRegistroSelecionado != null)
                         MudaRegistroSelecionado(_ObjetoAtual);
                 }
-            }        
+            }
+            this.EnabledButons(GerenciadorFinanceiro.Dominio.Status.Consultando);
         }
 
         private void BtnAnterior_Click(object sender, EventArgs e)
@@ -225,6 +232,7 @@ namespace GerenciadorFinanceiro.Controles
                         MudaRegistroSelecionado(_ObjetoAtual);
                 }
             }
+            this.EnabledButons(GerenciadorFinanceiro.Dominio.Status.Consultando);
         }
 
         private void BtnPrimeiro_Click(object sender, EventArgs e)
@@ -240,6 +248,7 @@ namespace GerenciadorFinanceiro.Controles
                         MudaRegistroSelecionado(_ObjetoAtual);
                 }
             }
+            this.EnabledButons(GerenciadorFinanceiro.Dominio.Status.Consultando);
         }
 
         private void BtnUltimo_Click(object sender, EventArgs e)
@@ -255,6 +264,7 @@ namespace GerenciadorFinanceiro.Controles
                         MudaRegistroSelecionado(_ObjetoAtual);
                 }
             }
+            this.EnabledButons(GerenciadorFinanceiro.Dominio.Status.Consultando);
         }
     }
 }

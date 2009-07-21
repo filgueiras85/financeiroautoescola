@@ -106,6 +106,7 @@ namespace GerenciadorFinanceiro.Repositorio
                     Cid.NomeCidade  = (string)reader["NomeCidade"];
                     Cid.Estado = repEstado.BuscarObjetoPorId((int)reader["IdEstado"]);
                     listaCid.Add(Cid);
+                    Cid = null;
                 }
                 return listaCid;
             }
