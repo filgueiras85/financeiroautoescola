@@ -138,7 +138,8 @@ namespace GerenciadorFinanceiro.GUI
                 if (DGCidades.SelectedRows.Count > 0)
                 {
                     _Cidade = (Dominio.Cidade)DGCidades.SelectedRows[0].DataBoundItem;
-                    ctrNavigator1.Indice = DGCidades.SelectedRows[0].Index;
+                    if (ctrNavigator1.DataSource != null)
+                        ctrNavigator1.Indice = DGCidades.SelectedRows[0].Index;
                 }
             }
             else

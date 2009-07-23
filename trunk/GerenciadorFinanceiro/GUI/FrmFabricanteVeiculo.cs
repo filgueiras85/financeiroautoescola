@@ -125,7 +125,8 @@ namespace GerenciadorFinanceiro.GUI
                 if (DGFabricantes.SelectedRows.Count > 0)
                 {
                     _FabricanteVeiculo = (Dominio.FabricanteVeiculo)DGFabricantes.SelectedRows[0].DataBoundItem;
-                    ctrNavigator1.Indice = DGFabricantes.SelectedRows[0].Index;
+                    if (ctrNavigator1.DataSource != null)
+                        ctrNavigator1.Indice = DGFabricantes.SelectedRows[0].Index;
                 }
             }
             else

@@ -108,6 +108,7 @@ namespace GerenciadorFinanceiro.GUI
             this.BuscarTodosOsTiposVeiculo();
             this.BuscarTodosOsModelosVeiculos();
             this.BuscarTodosOsVeiculos();
+            this.CamposInterface(_Veiculo, GerenciadorFinanceiro.Dominio.Status.Consultando);
         }
 
         private void ctrNavigator1_MudaRegistroSelecionado(object objetoAtual)
@@ -176,6 +177,7 @@ namespace GerenciadorFinanceiro.GUI
             //this._Veiculo.Modelo = TxtAnoModelo.Text;
             this._Veiculo.ModeloVeiculo = (Dominio.ModeloVeiculo)CmbModelo.SelectedItem;
             this._Veiculo.Observacao = TxtObservacao.Text;
+            this._Veiculo.PathFoto = "";
             try
             {
                 if (_Veiculo.IdVeiculo == 0)
@@ -212,7 +214,8 @@ namespace GerenciadorFinanceiro.GUI
                 if (DGVeiculos.SelectedRows.Count > 0)
                 {
                     _Veiculo = (Dominio.Veiculo)DGVeiculos.SelectedRows[0].DataBoundItem;
-                    ctrNavigator1.Indice = DGVeiculos.SelectedRows[0].Index;
+                    if (ctrNavigator1.DataSource != null && _ListaVeiculos.Count > 0)
+                        ctrNavigator1.Indice = DGVeiculos.SelectedRows[0].Index;
                 }
             }
             else

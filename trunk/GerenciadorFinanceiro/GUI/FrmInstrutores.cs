@@ -184,6 +184,7 @@ namespace GerenciadorFinanceiro.GUI
             end.Cidade.Estado = (Dominio.Estado)CmbEstado.SelectedItem;
             this._Instrutor.Endereco = end;
             this._Instrutor.Observacao = TxtObservacaoInstrutor.Text;
+            this._Instrutor.PathFoto = "";
             try
             {
                 if (_Instrutor.IdInstrutor == 0)
@@ -220,7 +221,8 @@ namespace GerenciadorFinanceiro.GUI
                 if (DGInstrutores.SelectedRows.Count > 0)
                 {
                     _Instrutor = (Dominio.Instrutor)DGInstrutores.SelectedRows[0].DataBoundItem;
-                    ctrNavigator1.Indice = DGInstrutores.SelectedRows[0].Index;
+                    if (ctrNavigator1.DataSource != null)
+                        ctrNavigator1.Indice = DGInstrutores.SelectedRows[0].Index;
                 }
             }
             else
