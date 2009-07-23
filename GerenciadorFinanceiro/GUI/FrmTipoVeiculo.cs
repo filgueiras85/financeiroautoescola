@@ -90,7 +90,7 @@ namespace GerenciadorFinanceiro.GUI
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show(ex.Message, "Atenção!");
             }
             this.BuscarTodosTiposVeiculos();
             this.CamposInterface(_TipoVeiculo, Dominio.Status.Consultando);
@@ -100,16 +100,18 @@ namespace GerenciadorFinanceiro.GUI
         {
 
             this.CamposInterface(_TipoVeiculo, GerenciadorFinanceiro.Dominio.Status.Excluindo);
-            //TODO: Confirmação de exclusao
-            try
+            if (MessageBox.Show("Deseja excluir o registro.", "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                new Repositorio.RepositorioTipoVeiculo().DeletarObjeto(_TipoVeiculo);
+                try
+                {
+                    new Repositorio.RepositorioTipoVeiculo().DeletarObjeto(_TipoVeiculo);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Atenção!");
+                }
+                this.BuscarTodosTiposVeiculos();
             }
-            catch (Exception ex)
-            {
-
-            }
-            this.BuscarTodosTiposVeiculos();
         }
 
         private void ctrNavigator1_EditarRegistro(object objEditar)

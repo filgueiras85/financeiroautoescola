@@ -111,7 +111,7 @@ namespace GerenciadorFinanceiro.GUI
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show(ex.Message, "Atenção!");
             }
             this.BuscarTodasAsCidades();
             this.CamposInterface(_Cidade, Dominio.Status.Consultando);
@@ -120,14 +120,17 @@ namespace GerenciadorFinanceiro.GUI
         private void ctrNavigator1_ExcluirRegistro(object objExcluir)
         {
             this.CamposInterface(_Cidade, GerenciadorFinanceiro.Dominio.Status.Excluindo);
-            //TODO: Confirmação de exclusao
-            try
+            if (MessageBox.Show("Deseja excluir o registro.", "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                new Repositorio.RepositorioCidade().DeletarObjeto(_Cidade);
-            }
-            catch (Exception ex)
-            {
-
+                try
+                {
+                    new Repositorio.RepositorioCidade().DeletarObjeto(_Cidade);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Atenção!");
+                }
+                this.BuscarTodasAsCidades();
             }
         }
 
