@@ -130,7 +130,7 @@ namespace GerenciadorFinanceiro.GUI
                 if (this.DGTipoVeiculo.SelectedRows.Count > 0)
                 {
                     this._TipoVeiculo = (Dominio.TipoVeiculo)this.DGTipoVeiculo.SelectedRows[0].DataBoundItem;
-                    ctrNavigator1.Indice = DGInstrutores.SelectedRows[0].Index;
+                    ctrNavigator1.Indice = DGTipoVeiculo.SelectedRows[0].Index;
                 }
             }
             else
