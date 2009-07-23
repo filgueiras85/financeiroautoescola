@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.DGFabricantes = new System.Windows.Forms.DataGridView();
+            this.idFabricanteVeiculo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TxtDescricao = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.StatusStrip = new System.Windows.Forms.StatusStrip();
             this.LblStatus = new System.Windows.Forms.ToolStripStatusLabel();
-            this.idFabricanteVeiculo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ctrNavigator1 = new GerenciadorFinanceiro.Controles.CtrNavigator();
             ((System.ComponentModel.ISupportInitialize)(this.DGFabricantes)).BeginInit();
             this.StatusStrip.SuspendLayout();
@@ -44,6 +44,8 @@
             // 
             this.DGFabricantes.AllowUserToAddRows = false;
             this.DGFabricantes.AllowUserToDeleteRows = false;
+            this.DGFabricantes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)));
             this.DGFabricantes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGFabricantes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idFabricanteVeiculo,
@@ -55,6 +57,22 @@
             this.DGFabricantes.Size = new System.Drawing.Size(547, 179);
             this.DGFabricantes.TabIndex = 3;
             this.DGFabricantes.SelectionChanged += new System.EventHandler(this.DGFabricantes_SelectionChanged);
+            // 
+            // idFabricanteVeiculo
+            // 
+            this.idFabricanteVeiculo.DataPropertyName = "idFabricanteVeiculo";
+            this.idFabricanteVeiculo.HeaderText = "Código";
+            this.idFabricanteVeiculo.Name = "idFabricanteVeiculo";
+            this.idFabricanteVeiculo.ReadOnly = true;
+            this.idFabricanteVeiculo.Width = 95;
+            // 
+            // Descricao
+            // 
+            this.Descricao.DataPropertyName = "Descricao";
+            this.Descricao.HeaderText = "Fabricante";
+            this.Descricao.Name = "Descricao";
+            this.Descricao.ReadOnly = true;
+            this.Descricao.Width = 390;
             // 
             // TxtDescricao
             // 
@@ -92,25 +110,10 @@
             this.LblStatus.Size = new System.Drawing.Size(124, 17);
             this.LblStatus.Text = "Status : Consultando";
             // 
-            // idFabricanteVeiculo
-            // 
-            this.idFabricanteVeiculo.DataPropertyName = "idFabricanteVeiculo";
-            this.idFabricanteVeiculo.HeaderText = "Código";
-            this.idFabricanteVeiculo.Name = "idFabricanteVeiculo";
-            this.idFabricanteVeiculo.ReadOnly = true;
-            this.idFabricanteVeiculo.Width = 95;
-            // 
-            // Descricao
-            // 
-            this.Descricao.DataPropertyName = "Descricao";
-            this.Descricao.HeaderText = "Fabricante";
-            this.Descricao.Name = "Descricao";
-            this.Descricao.ReadOnly = true;
-            this.Descricao.Width = 390;
-            // 
             // ctrNavigator1
             // 
             this.ctrNavigator1.DataSource = null;
+            this.ctrNavigator1.Indice = -1;
             this.ctrNavigator1.Location = new System.Drawing.Point(16, 37);
             this.ctrNavigator1.Name = "ctrNavigator1";
             this.ctrNavigator1.Size = new System.Drawing.Size(547, 42);

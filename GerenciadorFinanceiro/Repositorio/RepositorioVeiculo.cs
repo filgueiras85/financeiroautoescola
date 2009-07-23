@@ -16,7 +16,7 @@ namespace GerenciadorFinanceiro.Repositorio
             try
             {
                 this.AbrirConexao();
-                this.Execute(sSqlInsert, objeto.Placa, objeto.Renavam, objeto.Chassi, objeto.Ano, objeto.Modelo, objeto.Cor, objeto.TipoVeiculo.IdTipoVeiculo, objeto.ModeloVeiculo.IdModeloVeiculo, objeto.PathFoto);
+                this.Execute(sSqlInsert, objeto.Placa, objeto.Renavam, objeto.Chassi, objeto.Ano, objeto.Modelo, objeto.Cor, objeto.Observacao, objeto.TipoVeiculo.IdTipoVeiculo, objeto.ModeloVeiculo.IdModeloVeiculo, objeto.PathFoto);
             }
             catch (Exception ex)
             {

@@ -109,7 +109,8 @@ namespace GerenciadorFinanceiro.GUI
                 if (DGModelos.SelectedRows.Count > 0)
                 {
                     _ModeloVeiculo = (Dominio.ModeloVeiculo)DGModelos.SelectedRows[0].DataBoundItem;
-                    ctrNavigator1.Indice = DGModelos.SelectedRows[0].Index;
+                    if (ctrNavigator1.DataSource != null && ctrNavigator1.DataSource.Count > 0)
+                        ctrNavigator1.Indice = DGModelos.SelectedRows[0].Index;
                 }
             }
             else
