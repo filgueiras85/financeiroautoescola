@@ -7,7 +7,7 @@ namespace GerenciadorFinanceiro.Dominio
 {
     class Cidade
     {
-        public Cidade() { }
+        public Cidade() { Estado = new Dominio.Estado(); }
 
         public int IdCidade { get; set; }
 

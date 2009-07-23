@@ -190,7 +190,8 @@ namespace GerenciadorFinanceiro.GUI
 
         private void cmbEstado_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.BuscarTodasAsCidadesPorEstado((Dominio.Estado)CmbEstado.SelectedItem);
+            if(CmbEstado.SelectedItem !=null)
+                this.BuscarTodasAsCidadesPorEstado((Dominio.Estado)CmbEstado.SelectedItem);
         }
 
 #endregion 

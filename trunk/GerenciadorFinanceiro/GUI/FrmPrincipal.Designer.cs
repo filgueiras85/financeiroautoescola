@@ -39,6 +39,7 @@
             this.estadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cidadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modeloDeVeículoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.veículosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relatóriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configuraçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,7 +57,7 @@
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.Timer = new System.Windows.Forms.Timer(this.components);
-            this.veículosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.alunosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -95,7 +96,8 @@
             this.estadosToolStripMenuItem,
             this.cidadesToolStripMenuItem,
             this.modeloDeVeículoToolStripMenuItem,
-            this.veículosToolStripMenuItem});
+            this.veículosToolStripMenuItem,
+            this.alunosToolStripMenuItem});
             this.cadastrosToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.cadastrosToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
@@ -144,6 +146,13 @@
             this.modeloDeVeículoToolStripMenuItem.Text = "Modelo de Veículo";
             this.modeloDeVeículoToolStripMenuItem.Click += new System.EventHandler(this.modeloDeVeículoToolStripMenuItem_Click);
             // 
+            // veículosToolStripMenuItem
+            // 
+            this.veículosToolStripMenuItem.Name = "veículosToolStripMenuItem";
+            this.veículosToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.veículosToolStripMenuItem.Text = "Veículos";
+            this.veículosToolStripMenuItem.Click += new System.EventHandler(this.veículosToolStripMenuItem_Click);
+            // 
             // consultasToolStripMenuItem
             // 
             this.consultasToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
@@ -191,7 +200,7 @@
             this.LblDataHora.Name = "LblDataHora";
             this.LblDataHora.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.LblDataHora.RightToLeftAutoMirrorImage = true;
-            this.LblDataHora.Size = new System.Drawing.Size(58, 17);
+            this.LblDataHora.Size = new System.Drawing.Size(62, 17);
             this.LblDataHora.Text = "Data HOra";
             // 
             // toolStrip1
@@ -310,12 +319,12 @@
             this.Timer.Interval = 1000;
             this.Timer.Tick += new System.EventHandler(this.Timer_Tick);
             // 
-            // veículosToolStripMenuItem
+            // alunosToolStripMenuItem
             // 
-            this.veículosToolStripMenuItem.Name = "veículosToolStripMenuItem";
-            this.veículosToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
-            this.veículosToolStripMenuItem.Text = "Veículos";
-            this.veículosToolStripMenuItem.Click += new System.EventHandler(this.veículosToolStripMenuItem_Click);
+            this.alunosToolStripMenuItem.Name = "alunosToolStripMenuItem";
+            this.alunosToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.alunosToolStripMenuItem.Text = "Alunos";
+            this.alunosToolStripMenuItem.Click += new System.EventHandler(this.alunosToolStripMenuItem_Click);
             // 
             // FrmPrincipal
             // 
@@ -371,6 +380,7 @@
         private System.Windows.Forms.ToolStripMenuItem cidadesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modeloDeVeículoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem veículosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem alunosToolStripMenuItem;
     }
 }
 
