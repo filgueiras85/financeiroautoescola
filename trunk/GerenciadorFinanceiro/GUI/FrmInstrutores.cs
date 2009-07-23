@@ -194,7 +194,7 @@ namespace GerenciadorFinanceiro.GUI
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show(ex.Message, "Atenção!");
             }
             this.BuscarTodosOsInstrutores();
             this.CamposInterface(_Instrutor, Dominio.Status.Consultando);
@@ -203,14 +203,17 @@ namespace GerenciadorFinanceiro.GUI
         private void ctrNavigator1_ExcluirRegistro(object objExcluir)
         {
             this.CamposInterface(_Instrutor, GerenciadorFinanceiro.Dominio.Status.Excluindo);
-            //TODO: Confirmação de exclusao
-            try
+            if (MessageBox.Show("Deseja excluir o registro.", "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                new Repositorio.RepositorioInstrutor().DeletarObjeto(_Instrutor);
-            }
-            catch (Exception ex)
-            {
-
+                try
+                {
+                    new Repositorio.RepositorioInstrutor().DeletarObjeto(_Instrutor);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Atenção!");
+                }
+                this.BuscarTodosOsInstrutores();
             }
         }
 

@@ -72,16 +72,18 @@ namespace GerenciadorFinanceiro.GUI
         private void ctrNavigator1_ExcluirRegistro(object objExcluir)
         {
             this.CamposInterface(_Estado, GerenciadorFinanceiro.Dominio.Status.Excluindo);
-            //TODO: Confirmação de exclusao
-            try
+            if (MessageBox.Show("Deseja excluir o registro.", "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                new Repositorio.RepositorioEstado().DeletarObjeto(_Estado);
+                try
+                {
+                    new Repositorio.RepositorioEstado().DeletarObjeto(_Estado);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Atenção!");
+                }
+                this.BuscarTodosOsEstados();
             }
-            catch (Exception ex)
-            {
-
-            }
-            this.BuscarTodosOsEstados();
         }
 
         private void ctrNavigator1_CancelarAcao()
@@ -106,7 +108,7 @@ namespace GerenciadorFinanceiro.GUI
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show(ex.Message, "Atenção!");
             }
             this.BuscarTodosOsEstados();
             this.CamposInterface(_Estado, Dominio.Status.Consultando);

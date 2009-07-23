@@ -111,7 +111,7 @@ namespace GerenciadorFinanceiro.GUI
             if (CmbCidade.SelectedItem == null)
                 throw new Exception("Escolha uma cidade.");
             int numero;
-            if (!int.TryParse(txtNumero.Text, numero))
+            if  (!int.TryParse(txtNumero.Text,out numero))
                 throw new Exception("Campo número inválido.");
             Dominio.Endereco end = new GerenciadorFinanceiro.Dominio.Endereco();
             end.Cidade = (Dominio.Cidade)CmbCidade.SelectedItem;
