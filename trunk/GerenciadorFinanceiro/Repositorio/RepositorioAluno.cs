@@ -64,7 +64,7 @@ namespace GerenciadorFinanceiro.Repositorio
 
         public void DeletarObjeto(GerenciadorFinanceiro.Dominio.Aluno objeto)
         {
-            string sSqlDelete = "delete from TB_Aluno where IdAluno = @IdAluno";
+            string sSqlDelete = "Update TB_Aluno set Ativo = 0 where IdAluno = @IdAluno";
             try
             {
                 this.AbrirConexao();

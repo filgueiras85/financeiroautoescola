@@ -8,7 +8,12 @@ namespace GerenciadorFinanceiro.Dominio
     class Aluno
     {
 
-        public Aluno() {}
+        public Aluno() 
+        {
+            TelefoneCelular = string.Empty; TelefoneComercial = string.Empty; TelefoneResidencial = string.Empty;
+            DataNascimento = DateTime.Now; Endereco = new Endereco(); SSP = string.Empty; NomeMae = string.Empty;
+            NomePai = string.Empty; Referencia = string.Empty; Observacao = string.Empty;
+        }
 
         public int IdAluno { get; set; }
 
