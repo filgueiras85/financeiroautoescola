@@ -116,6 +116,7 @@
             this.DGVeiculos.Location = new System.Drawing.Point(12, 287);
             this.DGVeiculos.Name = "DGVeiculos";
             this.DGVeiculos.ReadOnly = true;
+            this.DGVeiculos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGVeiculos.Size = new System.Drawing.Size(690, 167);
             this.DGVeiculos.TabIndex = 11;
             this.DGVeiculos.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DGVeiculos_CellFormatting);
