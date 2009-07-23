@@ -11,12 +11,12 @@ namespace GerenciadorFinanceiro.Repositorio
 
         public void SalvarObjeto(GerenciadorFinanceiro.Dominio.Veiculo objeto)
         {
-            string sSqlInsert = "insert into TB_Veiculo (Placa, Renavam, Chassi, Ano, Modelo, Cor, Observacao, IdTipoVeiculo, IdModeloVeiculo, PathFoto)" +
-                                " values (@Placa, @Renavam, @Chassi, @Ano, @Modelo, @Cor, @Observacao, @IdTipoVeiculo, @IdModeloVeiculo, @PathFoto)";
+            string sSqlInsert = "insert into TB_Veiculo (Placa, Renavam, Chassi, Ano, Modelo, Cor, Observacao, IdTipoVeiculo, IdModeloVeiculo, PathFoto, Combustivel)" +
+                                " values (@Placa, @Renavam, @Chassi, @Ano, @Modelo, @Cor, @Observacao, @IdTipoVeiculo, @IdModeloVeiculo, @PathFoto, @Combustivel)";
             try
             {
                 this.AbrirConexao();
-                this.Execute(sSqlInsert, objeto.Placa, objeto.Renavam, objeto.Chassi, objeto.Ano, objeto.Modelo, objeto.Cor, objeto.Observacao, objeto.TipoVeiculo.IdTipoVeiculo, objeto.ModeloVeiculo.IdModeloVeiculo, objeto.PathFoto);
+                this.Execute(sSqlInsert, objeto.Placa, objeto.Renavam, objeto.Chassi, objeto.Ano, objeto.Modelo, objeto.Cor, objeto.Observacao, objeto.TipoVeiculo.IdTipoVeiculo, objeto.ModeloVeiculo.IdModeloVeiculo, objeto.PathFoto, objeto.Combustivel);
             }
             catch (Exception ex)
             {
@@ -31,12 +31,13 @@ namespace GerenciadorFinanceiro.Repositorio
         public void AtualizarObjeto(GerenciadorFinanceiro.Dominio.Veiculo objeto)
         {
             string sSqlUpdate = "update TB_Veiculo set Placa = @Placa, Renavam = @Renavam, Chassi = @Chassi, " +
-                                "Ano = @Ano, Modelo = @Modelo, Cor = @Cor, Observacao = @Observacao, IdTipoVeiculo = @IdTipoVeiculo " + 
-                                "IdModeloVeiculo = @IdModeloVeiculo, PathFoto = @PathFoto where IdVeiculo = @IdVeiculo";
+                                "Ano = @Ano, Modelo = @Modelo, Cor = @Cor, Observacao = @Observacao, IdTipoVeiculo = @IdTipoVeiculo " +
+                                "IdModeloVeiculo = @IdModeloVeiculo, PathFoto = @PathFoto, Combustivel = @Combustivel where IdVeiculo = @IdVeiculo";
             try
             {
                 this.AbrirConexao();
-                this.Execute(sSqlUpdate, objeto.Placa, objeto.Renavam, objeto.Chassi, objeto.Ano, objeto.Modelo, objeto.Cor, objeto.Observacao, objeto.TipoVeiculo.IdTipoVeiculo, objeto.ModeloVeiculo.IdModeloVeiculo, objeto.PathFoto, objeto.IdVeiculo);
+                this.Execute(sSqlUpdate, objeto.Placa, objeto.Renavam, objeto.Chassi, objeto.Ano, objeto.Modelo, objeto.Cor, objeto.Observacao, 
+                    objeto.TipoVeiculo.IdTipoVeiculo, objeto.ModeloVeiculo.IdModeloVeiculo, objeto.PathFoto, objeto.Combustivel, objeto.IdVeiculo);
             }
             catch (Exception ex)
             {
@@ -85,6 +86,7 @@ namespace GerenciadorFinanceiro.Repositorio
                     veiculo.Cor = (string)reader["Cor"];
                     veiculo.Observacao = (string)reader["Observacao"];
                     veiculo.PathFoto = (string)reader["PathFoto"];
+                    veiculo.Combustivel = (string)reader["Combustivel"];
                     veiculo.TipoVeiculo = new Repositorio.RepositorioTipoVeiculo().BuscarObjetoPorId((int)reader["IdTipoVeiculo"]);
                     veiculo.ModeloVeiculo = new RepositorioModeloVeiculo().BuscarObjetoPorId((int)reader["IdModeloVeiculo"]);
                 }
@@ -121,6 +123,7 @@ namespace GerenciadorFinanceiro.Repositorio
                     veiculo.Cor = (string)reader["Cor"];
                     veiculo.Observacao = (string)reader["Observacao"];
                     veiculo.PathFoto = (string)reader["PathFoto"];
+                    veiculo.Combustivel = (string)reader["Combustivel"];
                     veiculo.TipoVeiculo = new Repositorio.RepositorioTipoVeiculo().BuscarObjetoPorId((int)reader["IdTipoVeiculo"]);
                     veiculo.ModeloVeiculo = new RepositorioModeloVeiculo().BuscarObjetoPorId((int)reader["IdModeloVeiculo"]);
                     listVeiculos.Add(veiculo);
