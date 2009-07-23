@@ -55,7 +55,6 @@
             this.StatusStrip = new System.Windows.Forms.StatusStrip();
             this.LblStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.CmbCombustivel = new System.Windows.Forms.ComboBox();
-            this.ctrNavigator1 = new GerenciadorFinanceiro.Controles.CtrNavigator();
             this.idVeiculo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Placa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Renavam = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,6 +66,7 @@
             this.ModeloVeiculo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TipoVeiculo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Observacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ctrNavigator1 = new GerenciadorFinanceiro.Controles.CtrNavigator();
             ((System.ComponentModel.ISupportInitialize)(this.DGVeiculos)).BeginInit();
             this.GrpImagens.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcbFotoVeiculo)).BeginInit();
@@ -225,6 +225,7 @@
             // 
             this.TxtAno.BackColor = System.Drawing.Color.White;
             this.TxtAno.Location = new System.Drawing.Point(228, 121);
+            this.TxtAno.MaxLength = 4;
             this.TxtAno.Name = "TxtAno";
             this.TxtAno.Size = new System.Drawing.Size(53, 20);
             this.TxtAno.TabIndex = 6;
@@ -309,6 +310,7 @@
             // 
             this.TxtAnoModelo.BackColor = System.Drawing.Color.White;
             this.TxtAnoModelo.Location = new System.Drawing.Point(344, 121);
+            this.TxtAnoModelo.MaxLength = 4;
             this.TxtAnoModelo.Name = "TxtAnoModelo";
             this.TxtAnoModelo.Size = new System.Drawing.Size(53, 20);
             this.TxtAnoModelo.TabIndex = 7;
@@ -344,21 +346,6 @@
             this.CmbCombustivel.Name = "CmbCombustivel";
             this.CmbCombustivel.Size = new System.Drawing.Size(301, 21);
             this.CmbCombustivel.TabIndex = 4;
-            // 
-            // ctrNavigator1
-            // 
-            this.ctrNavigator1.DataSource = null;
-            this.ctrNavigator1.Indice = -1;
-            this.ctrNavigator1.Location = new System.Drawing.Point(15, 239);
-            this.ctrNavigator1.Name = "ctrNavigator1";
-            this.ctrNavigator1.Size = new System.Drawing.Size(547, 42);
-            this.ctrNavigator1.TabIndex = 10;
-            this.ctrNavigator1.ExcluirRegistro += new GerenciadorFinanceiro.Controles.CtrNavigator.Excluir(this.ctrNavigator1_ExcluirRegistro);
-            this.ctrNavigator1.EventoNovo += new GerenciadorFinanceiro.Controles.CtrNavigator.Novo(this.ctrNavigator1_EventoNovo);
-            this.ctrNavigator1.MudaRegistroSelecionado += new GerenciadorFinanceiro.Controles.CtrNavigator.MudaRegistro(this.ctrNavigator1_MudaRegistroSelecionado);
-            this.ctrNavigator1.CancelarAcao += new GerenciadorFinanceiro.Controles.CtrNavigator.Cancelar(this.ctrNavigator1_CancelarAcao);
-            this.ctrNavigator1.SalvarRegistro += new GerenciadorFinanceiro.Controles.CtrNavigator.Salvar(this.ctrNavigator1_SalvarRegistro);
-            this.ctrNavigator1.EditarRegistro += new GerenciadorFinanceiro.Controles.CtrNavigator.Editar(this.ctrNavigator1_EditarRegistro);
             // 
             // idVeiculo
             // 
@@ -441,6 +428,21 @@
             this.Observacao.HeaderText = "Observação";
             this.Observacao.Name = "Observacao";
             this.Observacao.ReadOnly = true;
+            // 
+            // ctrNavigator1
+            // 
+            this.ctrNavigator1.DataSource = null;
+            this.ctrNavigator1.Indice = -1;
+            this.ctrNavigator1.Location = new System.Drawing.Point(15, 239);
+            this.ctrNavigator1.Name = "ctrNavigator1";
+            this.ctrNavigator1.Size = new System.Drawing.Size(547, 42);
+            this.ctrNavigator1.TabIndex = 10;
+            this.ctrNavigator1.ExcluirRegistro += new GerenciadorFinanceiro.Controles.CtrNavigator.Excluir(this.ctrNavigator1_ExcluirRegistro);
+            this.ctrNavigator1.EventoNovo += new GerenciadorFinanceiro.Controles.CtrNavigator.Novo(this.ctrNavigator1_EventoNovo);
+            this.ctrNavigator1.MudaRegistroSelecionado += new GerenciadorFinanceiro.Controles.CtrNavigator.MudaRegistro(this.ctrNavigator1_MudaRegistroSelecionado);
+            this.ctrNavigator1.CancelarAcao += new GerenciadorFinanceiro.Controles.CtrNavigator.Cancelar(this.ctrNavigator1_CancelarAcao);
+            this.ctrNavigator1.SalvarRegistro += new GerenciadorFinanceiro.Controles.CtrNavigator.Salvar(this.ctrNavigator1_SalvarRegistro);
+            this.ctrNavigator1.EditarRegistro += new GerenciadorFinanceiro.Controles.CtrNavigator.Editar(this.ctrNavigator1_EditarRegistro);
             // 
             // FrmVeiculo
             // 

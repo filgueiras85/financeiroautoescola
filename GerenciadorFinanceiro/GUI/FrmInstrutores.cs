@@ -44,7 +44,7 @@ namespace GerenciadorFinanceiro.GUI
             TxtRG.Text = instrutor.RG;
             TxtCPF.Text = instrutor.CPF;
             TxtRua.Text = instrutor.Endereco.Rua;
-            //TxtNumero.Text = (String)instrutor.Endereco.Numero;
+            TxtNumero.Text = instrutor.Endereco.Numero.ToString();
             TxtComplemento.Text = instrutor.Endereco.Complemento;
             TxtBairro.Text = instrutor.Endereco.Bairro;
             TxtCEP.Text = instrutor.Endereco.CEP;
@@ -176,7 +176,7 @@ namespace GerenciadorFinanceiro.GUI
             this._Instrutor.CPF = TxtCPF.Text;
             Dominio.Endereco end = new Dominio.Endereco();
             end.Rua = TxtRua.Text;
-            //end.Numero = (int)TxtNumero.Text;
+            end.Numero = int.Parse(TxtNumero.Text);
             end.Complemento = TxtComplemento.Text;
             end.Bairro = TxtBairro.Text;
             end.CEP = TxtCEP.Text;

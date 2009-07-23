@@ -43,9 +43,9 @@ namespace GerenciadorFinanceiro.GUI
             TxtRenavam.Text = veiculo.Renavam;
             TxtChassi.Text = veiculo.Chassi;
             CmbCombustivel.SelectedText = veiculo.Combustivel;
-            //TxtAno.Text = veiculo.Ano;
+            TxtAno.Text = veiculo.Ano.ToString();
             TxtCor.Text = veiculo.Cor;
-            //TxtAnoModelo.Text = veiculo.Modelo;
+            TxtAnoModelo.Text = veiculo.Modelo.ToString();
             TxtObservacao.Text = veiculo.Observacao;
             if (veiculo.TipoVeiculo.IdTipoVeiculo > 0)
             {
@@ -173,8 +173,8 @@ namespace GerenciadorFinanceiro.GUI
             this._Veiculo.TipoVeiculo = (Dominio.TipoVeiculo)CmbTipo.SelectedItem;
             this._Veiculo.Combustivel = CmbCombustivel.Text;
             this._Veiculo.Cor = TxtCor.Text;
-            //this._Veiculo.Ano = (int)TxtAno.Text;
-            //this._Veiculo.Modelo = TxtAnoModelo.Text;
+            this._Veiculo.Ano = int.Parse(TxtAno.Text);
+            this._Veiculo.Modelo = int.Parse(TxtAnoModelo.Text);
             this._Veiculo.ModeloVeiculo = (Dominio.ModeloVeiculo)CmbModelo.SelectedItem;
             this._Veiculo.Observacao = TxtObservacao.Text;
             this._Veiculo.PathFoto = "";
