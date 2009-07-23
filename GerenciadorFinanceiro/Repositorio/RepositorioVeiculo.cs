@@ -11,12 +11,12 @@ namespace GerenciadorFinanceiro.Repositorio
 
         public void SalvarObjeto(GerenciadorFinanceiro.Dominio.Veiculo objeto)
         {
-            string sSqlInsert = "insert into TB_Veiculo (Placa, Renavam, Chassi, Ano, Modelo, Cor, Observacao, IdTipoVeiculo, IdModeloVeiculo)" +
-                                " values (@Placa, @Renavam, @Chassi, @Ano, @Modelo, @Cor, @Observacao, @IdTipoVeiculo, @IdModeloVeiculo)";
+            string sSqlInsert = "insert into TB_Veiculo (Placa, Renavam, Chassi, Ano, Modelo, Cor, Observacao, IdTipoVeiculo, IdModeloVeiculo, PathFoto)" +
+                                " values (@Placa, @Renavam, @Chassi, @Ano, @Modelo, @Cor, @Observacao, @IdTipoVeiculo, @IdModeloVeiculo, @PathFoto)";
             try
             {
                 this.AbrirConexao();
-                this.Execute(sSqlInsert, objeto.Placa, objeto.Renavam, objeto.Chassi, objeto.Ano, objeto.Modelo, objeto.Cor, objeto.TipoVeiculo.IdTipoVeiculo, objeto.ModeloVeiculo.IdModeloVeiculo);
+                this.Execute(sSqlInsert, objeto.Placa, objeto.Renavam, objeto.Chassi, objeto.Ano, objeto.Modelo, objeto.Cor, objeto.TipoVeiculo.IdTipoVeiculo, objeto.ModeloVeiculo.IdModeloVeiculo, objeto.PathFoto);
             }
             catch (Exception ex)
             {
@@ -32,11 +32,11 @@ namespace GerenciadorFinanceiro.Repositorio
         {
             string sSqlUpdate = "update TB_Veiculo set Placa = @Placa, Renavam = @Renavam, Chassi = @Chassi, " +
                                 "Ano = @Ano, Modelo = @Modelo, Cor = @Cor, Observacao = @Observacao, IdTipoVeiculo = @IdTipoVeiculo " + 
-                                "IdModeloVeiculo = @IdModeloVeiculo where IdVeiculo = @IdVeiculo";
+                                "IdModeloVeiculo = @IdModeloVeiculo, PathFoto = @PathFoto where IdVeiculo = @IdVeiculo";
             try
             {
                 this.AbrirConexao();
-                this.Execute(sSqlUpdate, objeto.Placa, objeto.Renavam, objeto.Chassi, objeto.Ano, objeto.Modelo, objeto.Cor, objeto.Observacao, objeto.TipoVeiculo.IdTipoVeiculo, objeto.ModeloVeiculo.IdModeloVeiculo, objeto.IdVeiculo);
+                this.Execute(sSqlUpdate, objeto.Placa, objeto.Renavam, objeto.Chassi, objeto.Ano, objeto.Modelo, objeto.Cor, objeto.Observacao, objeto.TipoVeiculo.IdTipoVeiculo, objeto.ModeloVeiculo.IdModeloVeiculo, objeto.PathFoto, objeto.IdVeiculo);
             }
             catch (Exception ex)
             {
@@ -84,6 +84,7 @@ namespace GerenciadorFinanceiro.Repositorio
                     veiculo.Modelo = (int)reader["Modelo"];
                     veiculo.Cor = (string)reader["Cor"];
                     veiculo.Observacao = (string)reader["Observacao"];
+                    veiculo.PathFoto = (string)reader["PathFoto"];
                     veiculo.TipoVeiculo = new Repositorio.RepositorioTipoVeiculo().BuscarObjetoPorId((int)reader["IdTipoVeiculo"]);
                     veiculo.ModeloVeiculo = new RepositorioModeloVeiculo().BuscarObjetoPorId((int)reader["IdModeloVeiculo"]);
                 }
@@ -119,6 +120,7 @@ namespace GerenciadorFinanceiro.Repositorio
                     veiculo.Modelo = (int)reader["Modelo"];
                     veiculo.Cor = (string)reader["Cor"];
                     veiculo.Observacao = (string)reader["Observacao"];
+                    veiculo.PathFoto = (string)reader["PathFoto"];
                     veiculo.TipoVeiculo = new Repositorio.RepositorioTipoVeiculo().BuscarObjetoPorId((int)reader["IdTipoVeiculo"]);
                     veiculo.ModeloVeiculo = new RepositorioModeloVeiculo().BuscarObjetoPorId((int)reader["IdModeloVeiculo"]);
                     listVeiculos.Add(veiculo);
