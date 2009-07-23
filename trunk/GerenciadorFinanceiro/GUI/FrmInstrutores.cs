@@ -18,26 +18,111 @@ namespace GerenciadorFinanceiro.GUI
 
         private List<Dominio.Instrutor> _ListaInstrutor = new List<GerenciadorFinanceiro.Dominio.Instrutor>();
         private List<Dominio.Cidade> _ListaCidade = new List<GerenciadorFinanceiro.Dominio.Cidade>();
+        private List<Dominio.Estado> _ListaEstados = new List<GerenciadorFinanceiro.Dominio.Estado>();
         private Dominio.Instrutor _Instrutor = new Dominio.Instrutor();
+
+        private void EnabledCampos(bool enabled)
+        {           
+            foreach (Control ctr in this.Controls)
+            {
+                if (ctr is ComboBox)
+                    ((ComboBox)ctr).Enabled = enabled;
+                else if (ctr is TextBox)
+                    ((TextBox)ctr).Enabled = enabled;
+                else if (ctr is MaskedTextBox)
+                    ((MaskedTextBox)ctr).Enabled = enabled;
+                else if (ctr is Button)
+                    ((Button)ctr).Enabled = enabled;
+            }
+        }
+
+        private void CamposInterface(Dominio.Instrutor instrutor, Dominio.Status status)
+        {
+            TxtNomeInstrutor.Text = instrutor.Nome;
+            TxtTelefoneResidencial.Text = instrutor.TelefoneResidencial;
+            TxtTelefoneCelular.Text = instrutor.TelefoneCelular;
+            TxtRG.Text = instrutor.RG;
+            TxtCPF.Text = instrutor.CPF;
+            TxtRua.Text = instrutor.Endereco.Rua;
+            //TxtNumero.Text = (String)instrutor.Endereco.Numero;
+            TxtComplemento.Text = instrutor.Endereco.Complemento;
+            TxtBairro.Text = instrutor.Endereco.Bairro;
+            TxtCEP.Text = instrutor.Endereco.CEP;
+            if (instrutor.Endereco.Cidade.IdCidade > 0)
+            {
+                CmbEstado.SelectedValue = instrutor.Endereco.Cidade.Estado.IdEstado;
+                CmbCidade.SelectedValue = instrutor.Endereco.Cidade.IdCidade;
+            }
+            else
+            {
+                CmbEstado.SelectedIndex = 0;
+                CmbCidade.SelectedIndex = 0;
+            }
+            TxtObservacaoInstrutor.Text = instrutor.Observacao;
+          
+            if (status == Dominio.Status.Inserindo)
+            {
+                this.EnabledCampos(true);
+                LblStatus.Text = "Status : Inserindo";
+            }
+            else if (status == Dominio.Status.Editando)
+            {
+                this.EnabledCampos(true);
+                LblStatus.Text = "Status : Editando";
+            }
+            else if (status == Dominio.Status.Excluindo)
+            {
+                this.EnabledCampos(false);
+                LblStatus.Text = "Status : Excluindo";
+            }
+            else
+            {
+                this.EnabledCampos(false);
+                LblStatus.Text = "Status : Consultando";
+            }
+        }
 
         private void BuscarTodosOsInstrutores()
         {
-            Repositorio.RepositorioInstrutor repInstrutor = new Repositorio.RepositorioInstrutor();
-            _ListaInstrutor = repInstrutor.BuscarTodos();
+            _ListaInstrutor = new Repositorio.RepositorioInstrutor().BuscarTodos();
             DGInstrutores.DataSource = _ListaInstrutor;
             this.ctrNavigator1.DataSource = _ListaInstrutor;
         }
 
+        private void BuscarTodosOsEstados()
+        {
+            _ListaEstados = new Repositorio.RepositorioEstado().BuscarTodos();
+            CmbEstado.DisplayMember = "SiglaEstado";
+            CmbEstado.ValueMember = "IdEstado";
+            CmbEstado.DataSource = _ListaEstados;
+        }
+
+        private void BuscarTodasAsCidadesPorEstado(Dominio.Estado est)
+        {
+            _ListaCidade = new Repositorio.RepositorioCidade().BuscarCidadesPorEstado(est);
+            CmbCidade.DisplayMember = "NomeCidade";
+            CmbCidade.ValueMember = "IdCidade";
+            CmbCidade.DataSource = _ListaCidade;
+        }
+
         private void FrmInstrutores_Load(object sender, EventArgs e)
         {
+            this.BuscarTodosOsEstados();
             this.BuscarTodosOsInstrutores();            
             this.Refresh();
         }
 
         private void ctrNavigator1_MudaRegistroSelecionado(object objetoAtual)
         {
-            Dominio.Instrutor instrutor = (Dominio.Instrutor)objetoAtual;
-            this.TxtNomeInstrutor.Text = instrutor.Nome;
+            //Dominio.Instrutor instrutor = (Dominio.Instrutor)objetoAtual;
+            //this.TxtNomeInstrutor.Text = instrutor.Nome;
+            for (int i = 0; i < DGInstrutores.Rows.Count; i++)
+            {
+                if (i == ctrNavigator1.Indice)
+                    DGInstrutores.Rows[i].Selected = true;
+                else
+                    DGInstrutores.Rows[i].Selected = false;
+            }
         }
 
         private void DGInstrutores_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -58,6 +143,92 @@ namespace GerenciadorFinanceiro.GUI
                     }
                 }
             }
+        }
+
+        private void CmbEstado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.BuscarTodasAsCidadesPorEstado((Dominio.Estado)CmbEstado.SelectedItem);
+        }
+
+        private void ctrNavigator1_EventoNovo()
+        {
+            _Instrutor = null;
+            _Instrutor = new Dominio.Instrutor();
+            this.CamposInterface(_Instrutor, GerenciadorFinanceiro.Dominio.Status.Inserindo);
+        }
+
+        private void ctrNavigator1_EditarRegistro(object objEditar)
+        {
+            this.CamposInterface(_Instrutor, GerenciadorFinanceiro.Dominio.Status.Editando);
+        }
+
+        private void ctrNavigator1_CancelarAcao()
+        {
+            this.CamposInterface(_Instrutor, GerenciadorFinanceiro.Dominio.Status.Consultando);
+        }
+
+        private void ctrNavigator1_SalvarRegistro(object objSalvar)
+        {
+            this._Instrutor.Nome = TxtNomeInstrutor.Text;
+            this._Instrutor.TelefoneResidencial = TxtTelefoneResidencial.Text;
+            this._Instrutor.TelefoneCelular = TxtTelefoneCelular.Text;
+            this._Instrutor.RG = TxtRG.Text;
+            this._Instrutor.CPF = TxtCPF.Text;
+            Dominio.Endereco end = new Dominio.Endereco();
+            end.Rua = TxtRua.Text;
+            //end.Numero = (int)TxtNumero.Text;
+            end.Complemento = TxtComplemento.Text;
+            end.Bairro = TxtBairro.Text;
+            end.CEP = TxtCEP.Text;
+            end.Cidade = (Dominio.Cidade)CmbCidade.SelectedItem;
+            end.Cidade.Estado = (Dominio.Estado)CmbEstado.SelectedItem;
+            this._Instrutor.Endereco = end;
+            this._Instrutor.Observacao = TxtObservacaoInstrutor.Text;
+            try
+            {
+                if (_Instrutor.IdInstrutor == 0)
+                    new Repositorio.RepositorioInstrutor().SalvarObjeto(_Instrutor);
+                else
+                    new Repositorio.RepositorioInstrutor().AtualizarObjeto(_Instrutor);
+            }
+            catch (Exception ex)
+            {
+
+            }
+            this.BuscarTodosOsInstrutores();
+            this.CamposInterface(_Instrutor, Dominio.Status.Consultando);
+        }
+
+        private void ctrNavigator1_ExcluirRegistro(object objExcluir)
+        {
+            this.CamposInterface(_Instrutor, GerenciadorFinanceiro.Dominio.Status.Excluindo);
+            //TODO: Confirmação de exclusao
+            try
+            {
+                new Repositorio.RepositorioInstrutor().DeletarObjeto(_Instrutor);
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        private void DGInstrutores_SelectionChanged(object sender, EventArgs e)
+        {
+            if (this.DGInstrutores.Rows.Count > 0)
+            {
+                if (DGInstrutores.SelectedRows.Count > 0)
+                {
+                    _Instrutor = (Dominio.Instrutor)DGInstrutores.SelectedRows[0].DataBoundItem;
+                    ctrNavigator1.Indice = DGInstrutores.SelectedRows[0].Index;
+                }
+            }
+            else
+            {
+                _Instrutor = null;
+                _Instrutor = new Dominio.Instrutor();
+            }
+            this.CamposInterface(_Instrutor, Dominio.Status.Consultando);
         }
      }
 }

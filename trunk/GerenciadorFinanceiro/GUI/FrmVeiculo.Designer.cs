@@ -28,20 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.TxtCor = new System.Windows.Forms.TextBox();
             this.DGVeiculos = new System.Windows.Forms.DataGridView();
-            this.idVeiculo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Placa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Renavam = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Chassi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Combustivel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ano = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Modelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Observacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CmbModelo = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -57,24 +47,30 @@
             this.TxtRenavam = new System.Windows.Forms.TextBox();
             this.TxtPlaca = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.TxtCombustivel = new System.Windows.Forms.TextBox();
             this.GrpImagens = new System.Windows.Forms.GroupBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.ctrNavigator1 = new GerenciadorFinanceiro.Controles.CtrNavigator();
             this.label10 = new System.Windows.Forms.Label();
             this.TxtAnoModelo = new System.Windows.Forms.TextBox();
             this.StatusStrip = new System.Windows.Forms.StatusStrip();
             this.LblStatus = new System.Windows.Forms.ToolStripStatusLabel();
+            this.BtnLocalizarFotoInstrutor = new System.Windows.Forms.Button();
+            this.PcbFotoVeiculo = new System.Windows.Forms.PictureBox();
+            this.CmbCombustivel = new System.Windows.Forms.ComboBox();
+            this.idVeiculo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Placa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Renavam = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Chassi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Combustivel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ano = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Modelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ModeloVeiculo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TipoVeiculo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Observacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DGVeiculos)).BeginInit();
             this.GrpImagens.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.StatusStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PcbFotoVeiculo)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -89,6 +85,7 @@
             // 
             // TxtCor
             // 
+            this.TxtCor.BackColor = System.Drawing.Color.White;
             this.TxtCor.Location = new System.Drawing.Point(96, 121);
             this.TxtCor.Name = "TxtCor";
             this.TxtCor.Size = new System.Drawing.Size(92, 20);
@@ -98,8 +95,8 @@
             // 
             this.DGVeiculos.AllowUserToAddRows = false;
             this.DGVeiculos.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DGVeiculos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DGVeiculos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DGVeiculos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
@@ -109,84 +106,25 @@
             this.Placa,
             this.Renavam,
             this.Chassi,
-            this.Tipo,
             this.Cor,
             this.Combustivel,
             this.Ano,
             this.Modelo,
+            this.ModeloVeiculo,
+            this.TipoVeiculo,
             this.Observacao});
             this.DGVeiculos.Location = new System.Drawing.Point(12, 287);
             this.DGVeiculos.Name = "DGVeiculos";
             this.DGVeiculos.ReadOnly = true;
-            this.DGVeiculos.Size = new System.Drawing.Size(646, 167);
+            this.DGVeiculos.Size = new System.Drawing.Size(690, 167);
             this.DGVeiculos.TabIndex = 11;
-            // 
-            // idVeiculo
-            // 
-            this.idVeiculo.HeaderText = "Código";
-            this.idVeiculo.Name = "idVeiculo";
-            this.idVeiculo.ReadOnly = true;
-            this.idVeiculo.Width = 50;
-            // 
-            // Placa
-            // 
-            this.Placa.HeaderText = "Placa";
-            this.Placa.Name = "Placa";
-            this.Placa.ReadOnly = true;
-            this.Placa.Width = 50;
-            // 
-            // Renavam
-            // 
-            this.Renavam.HeaderText = "Renavam";
-            this.Renavam.Name = "Renavam";
-            this.Renavam.ReadOnly = true;
-            // 
-            // Chassi
-            // 
-            this.Chassi.HeaderText = "Chassi";
-            this.Chassi.Name = "Chassi";
-            this.Chassi.ReadOnly = true;
-            // 
-            // Tipo
-            // 
-            this.Tipo.HeaderText = "Tipo";
-            this.Tipo.Name = "Tipo";
-            this.Tipo.ReadOnly = true;
-            // 
-            // Cor
-            // 
-            this.Cor.HeaderText = "Cor";
-            this.Cor.Name = "Cor";
-            this.Cor.ReadOnly = true;
-            this.Cor.Width = 60;
-            // 
-            // Combustivel
-            // 
-            this.Combustivel.HeaderText = "Combustível";
-            this.Combustivel.Name = "Combustivel";
-            this.Combustivel.ReadOnly = true;
-            // 
-            // Ano
-            // 
-            this.Ano.HeaderText = "Ano";
-            this.Ano.Name = "Ano";
-            this.Ano.ReadOnly = true;
-            this.Ano.Width = 60;
-            // 
-            // Modelo
-            // 
-            this.Modelo.HeaderText = "Modelo";
-            this.Modelo.Name = "Modelo";
-            this.Modelo.ReadOnly = true;
-            // 
-            // Observacao
-            // 
-            this.Observacao.HeaderText = "Observação";
-            this.Observacao.Name = "Observacao";
-            this.Observacao.ReadOnly = true;
+            this.DGVeiculos.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DGVeiculos_CellFormatting);
+            this.DGVeiculos.SelectionChanged += new System.EventHandler(this.DGVeiculos_SelectionChanged);
             // 
             // CmbModelo
             // 
+            this.CmbModelo.BackColor = System.Drawing.Color.White;
+            this.CmbModelo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbModelo.FormattingEnabled = true;
             this.CmbModelo.Location = new System.Drawing.Point(96, 148);
             this.CmbModelo.Name = "CmbModelo";
@@ -255,6 +193,8 @@
             // 
             // CmbTipo
             // 
+            this.CmbTipo.BackColor = System.Drawing.Color.White;
+            this.CmbTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbTipo.FormattingEnabled = true;
             this.CmbTipo.Location = new System.Drawing.Point(96, 66);
             this.CmbTipo.Name = "CmbTipo";
@@ -273,6 +213,7 @@
             // 
             // TxtObservacao
             // 
+            this.TxtObservacao.BackColor = System.Drawing.Color.White;
             this.TxtObservacao.Location = new System.Drawing.Point(96, 176);
             this.TxtObservacao.Multiline = true;
             this.TxtObservacao.Name = "TxtObservacao";
@@ -281,6 +222,7 @@
             // 
             // TxtAno
             // 
+            this.TxtAno.BackColor = System.Drawing.Color.White;
             this.TxtAno.Location = new System.Drawing.Point(228, 121);
             this.TxtAno.Name = "TxtAno";
             this.TxtAno.Size = new System.Drawing.Size(53, 20);
@@ -288,6 +230,7 @@
             // 
             // TxtChassi
             // 
+            this.TxtChassi.BackColor = System.Drawing.Color.White;
             this.TxtChassi.Location = new System.Drawing.Point(96, 39);
             this.TxtChassi.Name = "TxtChassi";
             this.TxtChassi.Size = new System.Drawing.Size(301, 20);
@@ -295,6 +238,7 @@
             // 
             // TxtRenavam
             // 
+            this.TxtRenavam.BackColor = System.Drawing.Color.White;
             this.TxtRenavam.Location = new System.Drawing.Point(258, 12);
             this.TxtRenavam.Name = "TxtRenavam";
             this.TxtRenavam.Size = new System.Drawing.Size(139, 20);
@@ -302,6 +246,7 @@
             // 
             // TxtPlaca
             // 
+            this.TxtPlaca.BackColor = System.Drawing.Color.White;
             this.TxtPlaca.Location = new System.Drawing.Point(96, 12);
             this.TxtPlaca.Name = "TxtPlaca";
             this.TxtPlaca.Size = new System.Drawing.Size(88, 20);
@@ -317,57 +262,16 @@
             this.label9.TabIndex = 28;
             this.label9.Text = "Combustível :";
             // 
-            // TxtCombustivel
-            // 
-            this.TxtCombustivel.Location = new System.Drawing.Point(96, 94);
-            this.TxtCombustivel.Name = "TxtCombustivel";
-            this.TxtCombustivel.Size = new System.Drawing.Size(301, 20);
-            this.TxtCombustivel.TabIndex = 29;
-            // 
             // GrpImagens
             // 
-            this.GrpImagens.Controls.Add(this.pictureBox4);
-            this.GrpImagens.Controls.Add(this.pictureBox3);
-            this.GrpImagens.Controls.Add(this.pictureBox2);
-            this.GrpImagens.Controls.Add(this.pictureBox1);
+            this.GrpImagens.Controls.Add(this.BtnLocalizarFotoInstrutor);
+            this.GrpImagens.Controls.Add(this.PcbFotoVeiculo);
             this.GrpImagens.Location = new System.Drawing.Point(403, 6);
             this.GrpImagens.Name = "GrpImagens";
-            this.GrpImagens.Size = new System.Drawing.Size(255, 228);
+            this.GrpImagens.Size = new System.Drawing.Size(299, 228);
             this.GrpImagens.TabIndex = 30;
             this.GrpImagens.TabStop = false;
-            this.GrpImagens.Text = "Fotos do Veículo ";
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Location = new System.Drawing.Point(17, 122);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(100, 100);
-            this.pictureBox4.TabIndex = 3;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Location = new System.Drawing.Point(132, 19);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(100, 100);
-            this.pictureBox3.TabIndex = 2;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Location = new System.Drawing.Point(132, 122);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(100, 100);
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(17, 19);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 100);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.GrpImagens.Text = "Foto do Veículo ";
             // 
             // ctrNavigator1
             // 
@@ -377,6 +281,12 @@
             this.ctrNavigator1.Name = "ctrNavigator1";
             this.ctrNavigator1.Size = new System.Drawing.Size(547, 42);
             this.ctrNavigator1.TabIndex = 31;
+            this.ctrNavigator1.ExcluirRegistro += new GerenciadorFinanceiro.Controles.CtrNavigator.Excluir(this.ctrNavigator1_ExcluirRegistro);
+            this.ctrNavigator1.EventoNovo += new GerenciadorFinanceiro.Controles.CtrNavigator.Novo(this.ctrNavigator1_EventoNovo);
+            this.ctrNavigator1.MudaRegistroSelecionado += new GerenciadorFinanceiro.Controles.CtrNavigator.MudaRegistro(this.ctrNavigator1_MudaRegistroSelecionado);
+            this.ctrNavigator1.CancelarAcao += new GerenciadorFinanceiro.Controles.CtrNavigator.Cancelar(this.ctrNavigator1_CancelarAcao);
+            this.ctrNavigator1.SalvarRegistro += new GerenciadorFinanceiro.Controles.CtrNavigator.Salvar(this.ctrNavigator1_SalvarRegistro);
+            this.ctrNavigator1.EditarRegistro += new GerenciadorFinanceiro.Controles.CtrNavigator.Editar(this.ctrNavigator1_EditarRegistro);
             // 
             // label10
             // 
@@ -390,6 +300,7 @@
             // 
             // TxtAnoModelo
             // 
+            this.TxtAnoModelo.BackColor = System.Drawing.Color.White;
             this.TxtAnoModelo.Location = new System.Drawing.Point(344, 121);
             this.TxtAnoModelo.Name = "TxtAnoModelo";
             this.TxtAnoModelo.Size = new System.Drawing.Size(53, 20);
@@ -401,7 +312,7 @@
             this.LblStatus});
             this.StatusStrip.Location = new System.Drawing.Point(0, 468);
             this.StatusStrip.Name = "StatusStrip";
-            this.StatusStrip.Size = new System.Drawing.Size(671, 22);
+            this.StatusStrip.Size = new System.Drawing.Size(715, 22);
             this.StatusStrip.TabIndex = 34;
             this.StatusStrip.Text = "statusStrip1";
             // 
@@ -412,17 +323,125 @@
             this.LblStatus.Size = new System.Drawing.Size(124, 17);
             this.LblStatus.Text = "Status : Consultando";
             // 
+            // BtnLocalizarFotoInstrutor
+            // 
+            this.BtnLocalizarFotoInstrutor.Location = new System.Drawing.Point(135, 199);
+            this.BtnLocalizarFotoInstrutor.Name = "BtnLocalizarFotoInstrutor";
+            this.BtnLocalizarFotoInstrutor.Size = new System.Drawing.Size(28, 26);
+            this.BtnLocalizarFotoInstrutor.TabIndex = 2;
+            this.BtnLocalizarFotoInstrutor.UseVisualStyleBackColor = true;
+            // 
+            // PcbFotoVeiculo
+            // 
+            this.PcbFotoVeiculo.BackColor = System.Drawing.Color.White;
+            this.PcbFotoVeiculo.Location = new System.Drawing.Point(11, 19);
+            this.PcbFotoVeiculo.Name = "PcbFotoVeiculo";
+            this.PcbFotoVeiculo.Size = new System.Drawing.Size(278, 174);
+            this.PcbFotoVeiculo.TabIndex = 1;
+            this.PcbFotoVeiculo.TabStop = false;
+            // 
+            // CmbCombustivel
+            // 
+            this.CmbCombustivel.BackColor = System.Drawing.Color.White;
+            this.CmbCombustivel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbCombustivel.FormattingEnabled = true;
+            this.CmbCombustivel.Location = new System.Drawing.Point(96, 94);
+            this.CmbCombustivel.Name = "CmbCombustivel";
+            this.CmbCombustivel.Size = new System.Drawing.Size(301, 21);
+            this.CmbCombustivel.TabIndex = 35;
+            // 
+            // idVeiculo
+            // 
+            this.idVeiculo.DataPropertyName = "IdVeiculo";
+            this.idVeiculo.HeaderText = "Código";
+            this.idVeiculo.Name = "idVeiculo";
+            this.idVeiculo.ReadOnly = true;
+            this.idVeiculo.Width = 50;
+            // 
+            // Placa
+            // 
+            this.Placa.DataPropertyName = "Placa";
+            this.Placa.HeaderText = "Placa";
+            this.Placa.Name = "Placa";
+            this.Placa.ReadOnly = true;
+            this.Placa.Width = 50;
+            // 
+            // Renavam
+            // 
+            this.Renavam.DataPropertyName = "Renavam";
+            this.Renavam.HeaderText = "Renavam";
+            this.Renavam.Name = "Renavam";
+            this.Renavam.ReadOnly = true;
+            // 
+            // Chassi
+            // 
+            this.Chassi.DataPropertyName = "Chassi";
+            this.Chassi.HeaderText = "Chassi";
+            this.Chassi.Name = "Chassi";
+            this.Chassi.ReadOnly = true;
+            // 
+            // Cor
+            // 
+            this.Cor.HeaderText = "Cor";
+            this.Cor.Name = "Cor";
+            this.Cor.ReadOnly = true;
+            this.Cor.Width = 60;
+            // 
+            // Combustivel
+            // 
+            this.Combustivel.DataPropertyName = "Combustivel";
+            this.Combustivel.HeaderText = "Combustível";
+            this.Combustivel.Name = "Combustivel";
+            this.Combustivel.ReadOnly = true;
+            // 
+            // Ano
+            // 
+            this.Ano.DataPropertyName = "Ano";
+            this.Ano.HeaderText = "Ano";
+            this.Ano.Name = "Ano";
+            this.Ano.ReadOnly = true;
+            this.Ano.Width = 60;
+            // 
+            // Modelo
+            // 
+            this.Modelo.DataPropertyName = "Modelo";
+            this.Modelo.HeaderText = "Modelo";
+            this.Modelo.Name = "Modelo";
+            this.Modelo.ReadOnly = true;
+            // 
+            // ModeloVeiculo
+            // 
+            this.ModeloVeiculo.DataPropertyName = "ModeloVeiculo";
+            this.ModeloVeiculo.HeaderText = "Modelo Veículo";
+            this.ModeloVeiculo.Name = "ModeloVeiculo";
+            this.ModeloVeiculo.ReadOnly = true;
+            this.ModeloVeiculo.Width = 150;
+            // 
+            // TipoVeiculo
+            // 
+            this.TipoVeiculo.DataPropertyName = "TipoVeiculo";
+            this.TipoVeiculo.HeaderText = "Tipo";
+            this.TipoVeiculo.Name = "TipoVeiculo";
+            this.TipoVeiculo.ReadOnly = true;
+            // 
+            // Observacao
+            // 
+            this.Observacao.DataPropertyName = "Observacao";
+            this.Observacao.HeaderText = "Observação";
+            this.Observacao.Name = "Observacao";
+            this.Observacao.ReadOnly = true;
+            // 
             // FrmVeiculo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(671, 490);
+            this.ClientSize = new System.Drawing.Size(715, 490);
+            this.Controls.Add(this.CmbCombustivel);
             this.Controls.Add(this.StatusStrip);
             this.Controls.Add(this.TxtAnoModelo);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.ctrNavigator1);
             this.Controls.Add(this.GrpImagens);
-            this.Controls.Add(this.TxtCombustivel);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.TxtPlaca);
             this.Controls.Add(this.TxtRenavam);
@@ -448,12 +467,9 @@
             this.Load += new System.EventHandler(this.FrmVeiculo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DGVeiculos)).EndInit();
             this.GrpImagens.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.StatusStrip.ResumeLayout(false);
             this.StatusStrip.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PcbFotoVeiculo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -479,26 +495,25 @@
         private System.Windows.Forms.TextBox TxtRenavam;
         private System.Windows.Forms.TextBox TxtPlaca;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox TxtCombustivel;
         private System.Windows.Forms.GroupBox GrpImagens;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idVeiculo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Placa;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Renavam;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Chassi;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Tipo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Combustivel;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ano;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Modelo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Observacao;
         private GerenciadorFinanceiro.Controles.CtrNavigator ctrNavigator1;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox TxtAnoModelo;
         private System.Windows.Forms.StatusStrip StatusStrip;
         private System.Windows.Forms.ToolStripStatusLabel LblStatus;
+        private System.Windows.Forms.Button BtnLocalizarFotoInstrutor;
+        private System.Windows.Forms.PictureBox PcbFotoVeiculo;
+        private System.Windows.Forms.ComboBox CmbCombustivel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idVeiculo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Placa;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Renavam;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Chassi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Combustivel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ano;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Modelo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ModeloVeiculo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TipoVeiculo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Observacao;
     }
 }

@@ -12,17 +12,17 @@ namespace GerenciadorFinanceiro.Repositorio
 
         public void SalvarObjeto(GerenciadorFinanceiro.Dominio.Instrutor objeto)
         {
-            string sSqlInsert = "insert into TB_Instrutor (Nome, TelefoneResidencial, TelefoneCelular, RG, " + 
-                                "CPF, Rua, Numero, Complemento, Bairro, CEP, IdCidade) " +
+            string sSqlInsert = "insert into TB_Instrutor (Nome, TelefoneResidencial, TelefoneCelular, RG, " +
+                                "CPF, Rua, Numero, Complemento, Bairro, CEP, IdCidade, PathFoto, Observacao) " +
                                 "values (@Nome, @TelefoneResidencial, @TelefoneCelular, @RG, @CPF, " +
-                                "@Rua, @Numero, @Complemento, @Bairro, @CEP, @IdCidade)";
+                                "@Rua, @Numero, @Complemento, @Bairro, @CEP, @IdCidade, @PathFoto, @Observacao)";
             try
             {
                 this.AbrirConexao();
                 this.Execute(sSqlInsert, objeto.Nome, objeto.TelefoneResidencial, objeto.TelefoneCelular,
                              objeto.RG, objeto.CPF, objeto.Endereco.Rua, objeto.Endereco.Numero, 
                              objeto.Endereco.Complemento, objeto.Endereco.Bairro, objeto.Endereco.CEP,
-                             objeto.Endereco.Cidade.IdCidade);
+                             objeto.Endereco.Cidade.IdCidade, objeto.PathFoto, objeto.Observacao);
             }
             catch (Exception ex)
             {
@@ -38,14 +38,15 @@ namespace GerenciadorFinanceiro.Repositorio
         {
             string sSqlUpdate = "update TB_Instrutor set Nome = @Nome, TelefoneResidencial = @TelefoneResidencial, " + 
                                 "TelefoneCelular = @TelefoneCelular, RG = @RG, CPF = @CPF, Rua = @Rua, Numero = @Numero, " + 
-                                "Complemento = @Complemento, Bairro = @Bairro, CEP = @CEP, IdCidade = @IdCidade " +
-                                "where IdInstrutor = @IdInstrutor)";
+                                "Complemento = @Complemento, Bairro = @Bairro, CEP = @CEP, IdCidade = @IdCidade, " +
+                                "Observacao = @Observacao, PathFoto = @PathFoto where IdInstrutor = @IdInstrutor";
             try
             {
                 this.AbrirConexao();
                 this.Execute(sSqlUpdate, objeto.Nome, objeto.TelefoneResidencial, objeto.TelefoneCelular, objeto.RG,
                             objeto.CPF, objeto.Endereco.Rua, objeto.Endereco.Numero, objeto.Endereco.Complemento, 
-                            objeto.Endereco.Bairro, objeto.Endereco.CEP, objeto.Endereco.Cidade.IdCidade, objeto.IdInstrutor);
+                            objeto.Endereco.Bairro, objeto.Endereco.CEP, objeto.Endereco.Cidade.IdCidade,
+                            objeto.Observacao, objeto.PathFoto, objeto.IdInstrutor);
             }
             catch (Exception ex)
             {
@@ -97,6 +98,8 @@ namespace GerenciadorFinanceiro.Repositorio
                     endereco.Complemento = (string)reader["Complemento"];
                     endereco.Bairro = (string)reader["Bairro"];
                     endereco.CEP = (string)reader["CEP"];
+                    instrutor.PathFoto = (string)reader["PathFoto"];
+                    instrutor.Observacao = (string)reader["Observacao"];
                     endereco.Cidade = new Repositorio.RepositorioCidade().BuscarObjetoPorId((int)reader["IdCidade"]);
                     instrutor.Endereco = endereco;
                     endereco = null;
@@ -139,6 +142,8 @@ namespace GerenciadorFinanceiro.Repositorio
                     endereco.CEP = (string)reader["CEP"];
                     endereco.Cidade = new Repositorio.RepositorioCidade().BuscarObjetoPorId((int)reader["IdCidade"]);
                     instrutor.Endereco = endereco;
+                    instrutor.PathFoto = (string)reader["PathFoto"];
+                    instrutor.Observacao = (string)reader["Observacao"];
                     endereco = null;    
                     listaInstrutor.Add(instrutor);
                     instrutor = null;

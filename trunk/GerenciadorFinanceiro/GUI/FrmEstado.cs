@@ -125,18 +125,7 @@ namespace GerenciadorFinanceiro.GUI
                 if (DGEstados.SelectedRows.Count > 0)
                 {
                     _Estado = (Dominio.Estado)DGEstados.SelectedRows[0].DataBoundItem;
-                    try
-                    {
-                        ctrNavigator1.Indice = DGEstados.SelectedRows[0].Index;
-                    }
-                    catch (Exception ex)
-                    {
-                    }
-                }
-                else
-                {
-                    _Estado = null;
-                    _Estado = new Dominio.Estado();
+                    ctrNavigator1.Indice = DGEstados.SelectedRows[0].Index;
                 }
             }
             else
