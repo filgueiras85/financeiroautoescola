@@ -130,14 +130,12 @@ namespace GerenciadorFinanceiro.GUI
                 if (this.DGTipoVeiculo.SelectedRows.Count > 0)
                 {
                     this._TipoVeiculo = (Dominio.TipoVeiculo)this.DGTipoVeiculo.SelectedRows[0].DataBoundItem;
-                }
-                else
-                {
-                    this._TipoVeiculo = new Dominio.TipoVeiculo();
+                    ctrNavigator1.Indice = DGInstrutores.SelectedRows[0].Index;
                 }
             }
             else
             {
+                this._TipoVeiculo = null;
                 this._TipoVeiculo = new Dominio.TipoVeiculo();
             }
             this.CamposInterface(_TipoVeiculo, GerenciadorFinanceiro.Dominio.Status.Consultando);

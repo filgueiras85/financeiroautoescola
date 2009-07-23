@@ -23,5 +23,8 @@ namespace GerenciadorFinanceiro.Dominio
 
         public Endereco Endereco { get; set; }
 
+        public String Observacao { get; set; }
+
+        public String PathFoto { get; set; }
     }
 }

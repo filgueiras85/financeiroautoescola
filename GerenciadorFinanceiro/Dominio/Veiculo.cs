@@ -17,6 +17,8 @@ namespace GerenciadorFinanceiro.Dominio
 
         public String Chassi { get; set; }
 
+        public String Combustivel { get; set; }
+
         public int Ano { get; set; }
 
         public int Modelo { get; set; }

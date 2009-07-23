@@ -127,7 +127,7 @@ namespace GerenciadorFinanceiro.Repositorio
             try
             {
                 this.AbrirConexao();
-                var reader = this.ExecuteReader(sSqlSelect);
+                var reader = this.ExecuteReader(sSqlSelect, estado.IdEstado);
                 Dominio.Cidade Cid;
                 while (reader.Read())
                 {

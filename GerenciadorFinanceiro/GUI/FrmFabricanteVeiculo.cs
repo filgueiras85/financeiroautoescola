@@ -125,21 +125,12 @@ namespace GerenciadorFinanceiro.GUI
                 if (DGFabricantes.SelectedRows.Count > 0)
                 {
                     _FabricanteVeiculo = (Dominio.FabricanteVeiculo)DGFabricantes.SelectedRows[0].DataBoundItem;
-                    try
-                    {
-                        ctrNavigator1.Indice = DGFabricantes.SelectedRows[0].Index;
-                    }
-                    catch (Exception ex)
-                    {
-                    }
-                }
-                else
-                {
-                    _FabricanteVeiculo = new Dominio.FabricanteVeiculo();
+                    ctrNavigator1.Indice = DGFabricantes.SelectedRows[0].Index;
                 }
             }
             else
             {
+                _FabricanteVeiculo = null;
                 _FabricanteVeiculo = new Dominio.FabricanteVeiculo();
             }
             this.CamposInterface(_FabricanteVeiculo, Dominio.Status.Consultando);
