@@ -137,6 +137,7 @@ namespace GerenciadorFinanceiro.GUI
         private void FrmAluno_Load(object sender, EventArgs e)
         {
             BuscarTodosOsEstados();
+            this.CamposInterface(GerenciadorFinanceiro.Dominio.Status.Consultando);
         }
 
         private void ctrNavigator1_CancelarAcao()
@@ -181,9 +182,12 @@ namespace GerenciadorFinanceiro.GUI
                     new Repositorio.RepositorioAluno().SalvarObjeto(_Aluno);
                 else
                     new Repositorio.RepositorioAluno().SalvarObjeto(_Aluno);
+                this.CamposInterface(GerenciadorFinanceiro.Dominio.Status.Consultando);
+
             }
             catch (Exception ex)
             {
+                this.CamposInterface(GerenciadorFinanceiro.Dominio.Status.Inserindo);
                 MessageBox.Show(ex.Message, "Atenção!");
             }
         }
