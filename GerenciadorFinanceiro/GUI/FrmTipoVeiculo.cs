@@ -37,21 +37,21 @@ namespace GerenciadorFinanceiro.GUI
             this.ctrNavigator1.DataSource = _ListTipoVeiculo;
         }
 
-        private void CamposInterface(Dominio.TipoVeiculo tipo, Dominio.Status status)
+        private void CamposInterface(Dominio.TipoVeiculo tipo, Status status)
         {
             TxtDescricao.Text = tipo.Descricao;
             TxtDescricao.Focus();
-            if (status == Dominio.Status.Inserindo)
+            if (status == Status.Inserindo)
             {
                 TxtDescricao.Enabled = true;
                 LblStatus.Text = "Status : Inserindo";
             }
-            else if (status == Dominio.Status.Editando)
+            else if (status == Status.Editando)
             {
                 TxtDescricao.Enabled = true;
                 LblStatus.Text = "Status : Editando";
             }
-            else if (status == Dominio.Status.Excluindo)
+            else if (status == Status.Excluindo)
             {
                 TxtDescricao.Enabled = false;
                 LblStatus.Text = "Status : Excluindo";
@@ -67,14 +67,14 @@ namespace GerenciadorFinanceiro.GUI
         {
             _TipoVeiculo = null;
             _TipoVeiculo = new Dominio.TipoVeiculo();
-            this.CamposInterface(_TipoVeiculo, GerenciadorFinanceiro.Dominio.Status.Inserindo);
+            this.CamposInterface(_TipoVeiculo, Status.Inserindo);
         }
 
         private void ctrNavigator1_CancelarAcao()
         {
             if (DGTipoVeiculo.SelectedRows.Count > 0)
                 _TipoVeiculo = (Dominio.TipoVeiculo)DGTipoVeiculo.SelectedRows[0].DataBoundItem;
-            this.CamposInterface(_TipoVeiculo, GerenciadorFinanceiro.Dominio.Status.Consultando);
+            this.CamposInterface(_TipoVeiculo, Status.Consultando);
         }
 
         private void ctrNavigator1_SalvarRegistro(object objSalvar)
@@ -93,13 +93,13 @@ namespace GerenciadorFinanceiro.GUI
                 MessageBox.Show(ex.Message, "Atenção!");
             }
             this.BuscarTodosTiposVeiculos();
-            this.CamposInterface(_TipoVeiculo, Dominio.Status.Consultando);
+            this.CamposInterface(_TipoVeiculo, Status.Consultando);
         }
 
         private void ctrNavigator1_ExcluirRegistro(object objExcluir)
         {
 
-            this.CamposInterface(_TipoVeiculo, GerenciadorFinanceiro.Dominio.Status.Excluindo);
+            this.CamposInterface(_TipoVeiculo, Status.Excluindo);
             if (MessageBox.Show("Deseja excluir o registro.", "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 try
@@ -116,7 +116,7 @@ namespace GerenciadorFinanceiro.GUI
 
         private void ctrNavigator1_EditarRegistro(object objEditar)
         {
-            this.CamposInterface(_TipoVeiculo, GerenciadorFinanceiro.Dominio.Status.Editando);
+            this.CamposInterface(_TipoVeiculo, Status.Editando);
         }
 
         private void FrmTipoVeiculo_Load(object sender, EventArgs e)
@@ -141,7 +141,7 @@ namespace GerenciadorFinanceiro.GUI
                 this._TipoVeiculo = null;
                 this._TipoVeiculo = new Dominio.TipoVeiculo();
             }
-            this.CamposInterface(_TipoVeiculo, GerenciadorFinanceiro.Dominio.Status.Consultando);
+            this.CamposInterface(_TipoVeiculo, Status.Consultando);
         }
 
         private void ctrNavigator1_MudaRegistroSelecionado(object objetoAtual)

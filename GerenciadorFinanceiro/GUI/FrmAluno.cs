@@ -22,7 +22,7 @@ namespace GerenciadorFinanceiro.GUI
 
         #region "Controla Alterações"
 
-        private void CamposInterface(Dominio.Status status)
+        private void CamposInterface(Status status)
         {
             TxtNome.Text = _Aluno.NomeAluno;
             txtRua.Text = _Aluno.Endereco.Rua;
@@ -41,17 +41,17 @@ namespace GerenciadorFinanceiro.GUI
             txtNomePai.Text = _Aluno.NomePai;
             txtObservacao.Text = _Aluno.Observacao;           
 
-            if (status == Dominio.Status.Inserindo)
+            if (status == Status.Inserindo)
             {
                 this.EnabledCampos(true);
                 LblStatus.Text = "Status : Inserindo";
             }
-            else if (status == Dominio.Status.Editando)
+            else if (status == Status.Editando)
             {
                 this.EnabledCampos(true);
                 LblStatus.Text = "Status : Editando";
             }
-            else if (status == Dominio.Status.Excluindo)
+            else if (status == Status.Excluindo)
             {
                 this.EnabledCampos(false);
                 LblStatus.Text = "Status : Excluindo";
@@ -137,31 +137,31 @@ namespace GerenciadorFinanceiro.GUI
         private void FrmAluno_Load(object sender, EventArgs e)
         {
             BuscarTodosOsEstados();
-            this.CamposInterface(GerenciadorFinanceiro.Dominio.Status.Consultando);
+            this.CamposInterface(Status.Consultando);
         }
 
         private void ctrNavigator1_CancelarAcao()
         {
-            this.CamposInterface( GerenciadorFinanceiro.Dominio.Status.Consultando);
+            this.CamposInterface(Status.Consultando);
         }
 
         private void ctrNavigator1_EditarRegistro(object objEditar)
         {
-            this.CamposInterface(GerenciadorFinanceiro.Dominio.Status.Editando);
+            this.CamposInterface(Status.Editando);
         }
 
         private void ctrNavigator1_EventoNovo()
         {
             this._Aluno = null;
             this._Aluno = new Dominio.Aluno();
-            this.CamposInterface(GerenciadorFinanceiro.Dominio.Status.Inserindo);
+            this.CamposInterface(Status.Inserindo);
         }
 
         private void ctrNavigator1_ExcluirRegistro(object objExcluir)
         {
             if (MessageBox.Show("Deseja excluir o registro.", "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                this.CamposInterface(GerenciadorFinanceiro.Dominio.Status.Excluindo);
+                this.CamposInterface(Status.Excluindo);
                 try
                 {
                     new Repositorio.RepositorioAluno().DeletarObjeto(_Aluno);
@@ -182,12 +182,12 @@ namespace GerenciadorFinanceiro.GUI
                     new Repositorio.RepositorioAluno().SalvarObjeto(_Aluno);
                 else
                     new Repositorio.RepositorioAluno().SalvarObjeto(_Aluno);
-                this.CamposInterface(GerenciadorFinanceiro.Dominio.Status.Consultando);
+                this.CamposInterface(Status.Consultando);
 
             }
             catch (Exception ex)
             {
-                this.CamposInterface(GerenciadorFinanceiro.Dominio.Status.Inserindo);
+                this.CamposInterface(Status.Inserindo);
                 MessageBox.Show(ex.Message, "Atenção!");
             }
         }

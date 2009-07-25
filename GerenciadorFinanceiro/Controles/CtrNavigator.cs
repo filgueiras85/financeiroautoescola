@@ -78,7 +78,7 @@ namespace GerenciadorFinanceiro.Controles
                     _Indice = 0;
             }
             this.EnabledNavegator();
-            this.EnabledButons(GerenciadorFinanceiro.Dominio.Status.Consultando);
+            this.EnabledButons(Status.Consultando);
         }
 
         public CtrNavigator()
@@ -89,15 +89,15 @@ namespace GerenciadorFinanceiro.Controles
 
         private void BtnNovo_Click(object sender, EventArgs e)
         {
-            this.EnabledButons(GerenciadorFinanceiro.Dominio.Status.Inserindo);
+            this.EnabledButons(Status.Inserindo);
             if (EventoNovo != null)
                 EventoNovo();
         }
 
 
-        private void EnabledButons(Dominio.Status status)
+        private void EnabledButons(Status status)
         {
-            if (status == GerenciadorFinanceiro.Dominio.Status.Consultando)
+            if (status == Status.Consultando)
             {
                 this.BtnNovo.Enabled = true;
                 this.BtnCancelar.Enabled = false;
@@ -105,7 +105,7 @@ namespace GerenciadorFinanceiro.Controles
                 this.BtnEditar.Enabled = true;
                 this.BtnExcluir.Enabled = true;
             }
-            else if (status == GerenciadorFinanceiro.Dominio.Status.Editando)
+            else if (status == Status.Editando)
             {
                 this.BtnNovo.Enabled = false;
                 this.BtnEditar.Enabled = false;
@@ -113,7 +113,7 @@ namespace GerenciadorFinanceiro.Controles
                 this.BtnSalvar.Enabled = true;
                 this.BtnExcluir.Enabled = false;
             }
-            else if (status == GerenciadorFinanceiro.Dominio.Status.Excluindo)
+            else if (status == Status.Excluindo)
             {
                 this.BtnNovo.Enabled = false;
                 this.BtnEditar.Enabled = false;
@@ -121,7 +121,7 @@ namespace GerenciadorFinanceiro.Controles
                 this.BtnSalvar.Enabled = false;
                 this.BtnExcluir.Enabled = true;
             }
-            else if (status == GerenciadorFinanceiro.Dominio.Status.Inserindo)
+            else if (status == Status.Inserindo)
             {
                 this.BtnNovo.Enabled = false;
                 this.BtnEditar.Enabled = false;
@@ -133,28 +133,28 @@ namespace GerenciadorFinanceiro.Controles
 
         private void BtnEditar_Click(object sender, EventArgs e)
         {
-            this.EnabledButons(GerenciadorFinanceiro.Dominio.Status.Editando);
+            this.EnabledButons(Status.Editando);
             if (EditarRegistro != null)
                 EditarRegistro(_ObjetoAtual);
         }
 
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
-            this.EnabledButons(GerenciadorFinanceiro.Dominio.Status.Consultando);
+            this.EnabledButons(Status.Consultando);
             if (CancelarAcao != null)
                 CancelarAcao();
         }
 
         private void BtnSalvar_Click(object sender, EventArgs e)
         {
-            this.EnabledButons(GerenciadorFinanceiro.Dominio.Status.Consultando);
+            this.EnabledButons(Status.Consultando);
             if (SalvarRegistro != null)
                 SalvarRegistro(_ObjetoAtual);
         }
 
         private void BtnExcluir_Click(object sender, EventArgs e)
         {
-            this.EnabledButons(GerenciadorFinanceiro.Dominio.Status.Consultando);
+            this.EnabledButons(Status.Consultando);
             if (ExcluirRegistro != null)
                 ExcluirRegistro(_ObjetoAtual);
         }
@@ -216,7 +216,7 @@ namespace GerenciadorFinanceiro.Controles
                         MudaRegistroSelecionado(_ObjetoAtual);
                 }
             }
-            this.EnabledButons(GerenciadorFinanceiro.Dominio.Status.Consultando);
+            this.EnabledButons(Status.Consultando);
         }
 
         private void BtnAnterior_Click(object sender, EventArgs e)
@@ -232,7 +232,7 @@ namespace GerenciadorFinanceiro.Controles
                         MudaRegistroSelecionado(_ObjetoAtual);
                 }
             }
-            this.EnabledButons(GerenciadorFinanceiro.Dominio.Status.Consultando);
+            this.EnabledButons(Status.Consultando);
         }
 
         private void BtnPrimeiro_Click(object sender, EventArgs e)
@@ -248,7 +248,7 @@ namespace GerenciadorFinanceiro.Controles
                         MudaRegistroSelecionado(_ObjetoAtual);
                 }
             }
-            this.EnabledButons(GerenciadorFinanceiro.Dominio.Status.Consultando);
+            this.EnabledButons(Status.Consultando);
         }
 
         private void BtnUltimo_Click(object sender, EventArgs e)
@@ -264,7 +264,7 @@ namespace GerenciadorFinanceiro.Controles
                         MudaRegistroSelecionado(_ObjetoAtual);
                 }
             }
-            this.EnabledButons(GerenciadorFinanceiro.Dominio.Status.Consultando);
+            this.EnabledButons(Status.Consultando);
         }
     }
 }

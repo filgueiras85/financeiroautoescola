@@ -37,7 +37,7 @@ namespace GerenciadorFinanceiro.GUI
             }
         }
 
-        private void CamposInterface(Dominio.Veiculo veiculo, Dominio.Status status)
+        private void CamposInterface(Dominio.Veiculo veiculo, Status status)
         {
             TxtPlaca.Text = veiculo.Placa;
             TxtRenavam.Text = veiculo.Renavam;
@@ -58,17 +58,17 @@ namespace GerenciadorFinanceiro.GUI
                 CmbModelo.SelectedIndex = 0;
             }
 
-            if (status == Dominio.Status.Inserindo)
+            if (status == Status.Inserindo)
             {
                 this.EnabledCampos(true);
                 LblStatus.Text = "Status : Inserindo";
             }
-            else if (status == Dominio.Status.Editando)
+            else if (status == Status.Editando)
             {
                 this.EnabledCampos(true);
                 LblStatus.Text = "Status : Editando";
             }
-            else if (status == Dominio.Status.Excluindo)
+            else if (status == Status.Excluindo)
             {
                 this.EnabledCampos(false);
                 LblStatus.Text = "Status : Excluindo";
@@ -108,7 +108,7 @@ namespace GerenciadorFinanceiro.GUI
             this.BuscarTodosOsTiposVeiculo();
             this.BuscarTodosOsModelosVeiculos();
             this.BuscarTodosOsVeiculos();
-            this.CamposInterface(_Veiculo, GerenciadorFinanceiro.Dominio.Status.Consultando);
+            this.CamposInterface(_Veiculo, Status.Consultando);
         }
 
         private void ctrNavigator1_MudaRegistroSelecionado(object objetoAtual)
@@ -152,17 +152,17 @@ namespace GerenciadorFinanceiro.GUI
         {
             _Veiculo = null;
             _Veiculo = new Dominio.Veiculo();
-            this.CamposInterface(_Veiculo, GerenciadorFinanceiro.Dominio.Status.Inserindo);
+            this.CamposInterface(_Veiculo, Status.Inserindo);
         }
 
         private void ctrNavigator1_EditarRegistro(object objEditar)
         {
-            this.CamposInterface(_Veiculo, GerenciadorFinanceiro.Dominio.Status.Editando);
+            this.CamposInterface(_Veiculo, Status.Editando);
         }
 
         private void ctrNavigator1_CancelarAcao()
         {
-            this.CamposInterface(_Veiculo, GerenciadorFinanceiro.Dominio.Status.Consultando);
+            this.CamposInterface(_Veiculo, Status.Consultando);
         }
 
         private void ctrNavigator1_SalvarRegistro(object objSalvar)
@@ -190,12 +190,12 @@ namespace GerenciadorFinanceiro.GUI
                 MessageBox.Show(ex.Message, "Atenção!");
             }
             this.BuscarTodosOsVeiculos();
-            this.CamposInterface(_Veiculo, Dominio.Status.Consultando);
+            this.CamposInterface(_Veiculo, Status.Consultando);
         }
 
         private void ctrNavigator1_ExcluirRegistro(object objExcluir)
         {
-            this.CamposInterface(_Veiculo, GerenciadorFinanceiro.Dominio.Status.Excluindo);
+            this.CamposInterface(_Veiculo, Status.Excluindo);
             if (MessageBox.Show("Deseja excluir o registro.", "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 try
@@ -226,7 +226,7 @@ namespace GerenciadorFinanceiro.GUI
                 _Veiculo = null;
                 _Veiculo = new Dominio.Veiculo();
             }
-            this.CamposInterface(_Veiculo, Dominio.Status.Consultando);
+            this.CamposInterface(_Veiculo, Status.Consultando);
         }
 
     }
