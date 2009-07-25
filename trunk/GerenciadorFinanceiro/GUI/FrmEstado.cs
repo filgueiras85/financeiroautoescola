@@ -26,24 +26,24 @@ namespace GerenciadorFinanceiro.GUI
             this.ctrNavigator1.DataSource = _ListEstados;
         }
 
-        private void CamposInterface(Dominio.Estado estado, Dominio.Status status)
+        private void CamposInterface(Dominio.Estado estado, Status status)
         {
             TxtNomeEstado.Text = estado.NomeEstado;
             TxtNomeEstado.Focus();
             TxtSiglaUF.Text = estado.SiglaEstado;
-            if (status == Dominio.Status.Inserindo)
+            if (status == Status.Inserindo)
             {
                 TxtNomeEstado.Enabled = true;
                 TxtSiglaUF.Enabled = true;
                 LblStatus.Text = "Status : Inserindo";
             }
-            else if (status == Dominio.Status.Editando)
+            else if (status == Status.Editando)
             {
                 TxtNomeEstado.Enabled = true;
                 TxtSiglaUF.Enabled = true;
                 LblStatus.Text = "Status : Editando";
             }
-            else if (status == Dominio.Status.Excluindo)
+            else if (status == Status.Excluindo)
             {
                 TxtNomeEstado.Enabled = false;
                 TxtSiglaUF.Enabled = false;
@@ -61,17 +61,17 @@ namespace GerenciadorFinanceiro.GUI
         {
             _Estado = null;
             _Estado = new Dominio.Estado();
-            this.CamposInterface(_Estado, GerenciadorFinanceiro.Dominio.Status.Inserindo);
+            this.CamposInterface(_Estado, Status.Inserindo);
         }
 
         private void ctrNavigator1_EditarRegistro(object objEditar)
         {
-            this.CamposInterface(_Estado, GerenciadorFinanceiro.Dominio.Status.Editando);
+            this.CamposInterface(_Estado, Status.Editando);
         }
 
         private void ctrNavigator1_ExcluirRegistro(object objExcluir)
         {
-            this.CamposInterface(_Estado, GerenciadorFinanceiro.Dominio.Status.Excluindo);
+            this.CamposInterface(_Estado, Status.Excluindo);
             if (MessageBox.Show("Deseja excluir o registro.", "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 try
@@ -91,7 +91,7 @@ namespace GerenciadorFinanceiro.GUI
             
             if (DGEstados.SelectedRows.Count > 0)
                 _Estado = (Dominio.Estado)DGEstados.SelectedRows[0].DataBoundItem;
-            this.CamposInterface(_Estado, GerenciadorFinanceiro.Dominio.Status.Consultando);
+            this.CamposInterface(_Estado, Status.Consultando);
         }
 
         private void ctrNavigator1_SalvarRegistro(object objSalvar)
@@ -111,13 +111,13 @@ namespace GerenciadorFinanceiro.GUI
                 MessageBox.Show(ex.Message, "Atenção!");
             }
             this.BuscarTodosOsEstados();
-            this.CamposInterface(_Estado, Dominio.Status.Consultando);
+            this.CamposInterface(_Estado, Status.Consultando);
         }
 
         private void FrmEstado_Load(object sender, EventArgs e)
         {
             this.BuscarTodosOsEstados();
-            this.CamposInterface(_Estado, Dominio.Status.Consultando);
+            this.CamposInterface(_Estado, Status.Consultando);
         }
 
         private void DGEstados_SelectionChanged(object sender, EventArgs e)
@@ -136,7 +136,7 @@ namespace GerenciadorFinanceiro.GUI
                 _Estado = null;
                 _Estado = new Dominio.Estado();
             }
-            this.CamposInterface(_Estado, Dominio.Status.Consultando);
+            this.CamposInterface(_Estado, Status.Consultando);
         }
 
         private void ctrNavigator1_MudaRegistroSelecionado(object objetoAtual)

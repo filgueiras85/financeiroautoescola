@@ -36,26 +36,26 @@ namespace GerenciadorFinanceiro.GUI
             ctrNavigator1.DataSource = _ListCidades;
         }
 
-        private void CamposInterface(Dominio.Cidade cidade, Dominio.Status status)
+        private void CamposInterface(Dominio.Cidade cidade, Status status)
         {
             TxtNomeCidade.Text = cidade.NomeCidade;
             if (cidade.Estado != null)
                 CmbEstados.SelectedValue = cidade.Estado.IdEstado;
             else
                 CmbEstados.SelectedIndex = 0;
-            if (status == Dominio.Status.Inserindo)
+            if (status == Status.Inserindo)
             {
                 TxtNomeCidade.Enabled = true;
                 CmbEstados.Enabled = true;
                 LblStatus.Text = "Status : Inserindo";
             }
-            else if (status == Dominio.Status.Editando)
+            else if (status == Status.Editando)
             {
                 TxtNomeCidade.Enabled = true;
                 CmbEstados.Enabled = true;
                 LblStatus.Text = "Status : Editando";
             }
-            else if (status == Dominio.Status.Excluindo)
+            else if (status == Status.Excluindo)
             {
                 TxtNomeCidade.Enabled = false;
                 TxtNomeCidade.Enabled = false;
@@ -84,17 +84,17 @@ namespace GerenciadorFinanceiro.GUI
         {
             _Cidade = null;
             _Cidade = new Dominio.Cidade();
-            this.CamposInterface(_Cidade, GerenciadorFinanceiro.Dominio.Status.Inserindo);
+            this.CamposInterface(_Cidade, Status.Inserindo);
         }
 
         private void ctrNavigator1_EditarRegistro(object objEditar)
         {
-            this.CamposInterface(_Cidade, GerenciadorFinanceiro.Dominio.Status.Editando);
+            this.CamposInterface(_Cidade, Status.Editando);
         }
 
         private void ctrNavigator1_CancelarAcao()
         {
-            this.CamposInterface(_Cidade, GerenciadorFinanceiro.Dominio.Status.Consultando);
+            this.CamposInterface(_Cidade, Status.Consultando);
         }
 
         private void ctrNavigator1_SalvarRegistro(object objSalvar)
@@ -114,12 +114,12 @@ namespace GerenciadorFinanceiro.GUI
                 MessageBox.Show(ex.Message, "Atenção!");
             }
             this.BuscarTodasAsCidades();
-            this.CamposInterface(_Cidade, Dominio.Status.Consultando);
+            this.CamposInterface(_Cidade, Status.Consultando);
         }
 
         private void ctrNavigator1_ExcluirRegistro(object objExcluir)
         {
-            this.CamposInterface(_Cidade, GerenciadorFinanceiro.Dominio.Status.Excluindo);
+            this.CamposInterface(_Cidade, Status.Excluindo);
             if (MessageBox.Show("Deseja excluir o registro.", "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 try
@@ -150,7 +150,7 @@ namespace GerenciadorFinanceiro.GUI
                 _Cidade = null;
                 _Cidade = new Dominio.Cidade();
             }
-            this.CamposInterface(_Cidade, Dominio.Status.Consultando);
+            this.CamposInterface(_Cidade, Status.Consultando);
         }
 
         private void DGCidades_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)

@@ -19,20 +19,20 @@ namespace GerenciadorFinanceiro.GUI
         private List<Dominio.FabricanteVeiculo> _ListaFabricanteVeiculo;
         private Dominio.FabricanteVeiculo _FabricanteVeiculo;
 
-        private void CamposInterface(Dominio.FabricanteVeiculo fabVeiculo, Dominio.Status status)
+        private void CamposInterface(Dominio.FabricanteVeiculo fabVeiculo, Status status)
         {
             TxtDescricao.Text = fabVeiculo.Descricao;
-            if (status == Dominio.Status.Inserindo)
+            if (status == Status.Inserindo)
             {
                 TxtDescricao.Enabled = true;
                 LblStatus.Text = "Status : Inserindo";
             }
-            else if (status == Dominio.Status.Editando)
+            else if (status == Status.Editando)
             {
                 TxtDescricao.Enabled = true;
                 LblStatus.Text = "Status : Editando";
             }
-            else if (status == Dominio.Status.Excluindo)
+            else if (status == Status.Excluindo)
             {
                 TxtDescricao.Enabled = false;
                 LblStatus.Text = "Status : Excluindo";
@@ -57,23 +57,23 @@ namespace GerenciadorFinanceiro.GUI
         {
             this.BuscarTodosFabricantesVeiculos();
             _FabricanteVeiculo = new Dominio.FabricanteVeiculo();
-            this.CamposInterface(_FabricanteVeiculo, Dominio.Status.Consultando);
+            this.CamposInterface(_FabricanteVeiculo, Status.Consultando);
         }
 
         private void ctrNavigator1_EventoNovo()
         {
             _FabricanteVeiculo = new Dominio.FabricanteVeiculo();
-            this.CamposInterface(_FabricanteVeiculo, Dominio.Status.Inserindo);
+            this.CamposInterface(_FabricanteVeiculo, Status.Inserindo);
         }
 
         private void ctrNavigator1_EditarRegistro(object objEditar)
         {
-            this.CamposInterface(_FabricanteVeiculo, Dominio.Status.Editando);            
+            this.CamposInterface(_FabricanteVeiculo, Status.Editando);            
         }
 
         private void ctrNavigator1_CancelarAcao()
         {
-            this.CamposInterface(_FabricanteVeiculo, GerenciadorFinanceiro.Dominio.Status.Consultando);
+            this.CamposInterface(_FabricanteVeiculo, Status.Consultando);
         }
 
         private void ctrNavigator1_SalvarRegistro(object objSalvar)
@@ -91,12 +91,12 @@ namespace GerenciadorFinanceiro.GUI
                 MessageBox.Show(ex.Message, "Atenção!");
             }
             this.BuscarTodosFabricantesVeiculos();
-            this.CamposInterface(_FabricanteVeiculo, Dominio.Status.Consultando);
+            this.CamposInterface(_FabricanteVeiculo, Status.Consultando);
         }
 
         private void ctrNavigator1_ExcluirRegistro(object objExcluir)
         {
-            this.CamposInterface(_FabricanteVeiculo, GerenciadorFinanceiro.Dominio.Status.Excluindo);
+            this.CamposInterface(_FabricanteVeiculo, Status.Excluindo);
             if (MessageBox.Show("Deseja excluir o registro.", "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 try
@@ -138,7 +138,7 @@ namespace GerenciadorFinanceiro.GUI
                 _FabricanteVeiculo = null;
                 _FabricanteVeiculo = new Dominio.FabricanteVeiculo();
             }
-            this.CamposInterface(_FabricanteVeiculo, Dominio.Status.Consultando);
+            this.CamposInterface(_FabricanteVeiculo, Status.Consultando);
         }
     }
 }

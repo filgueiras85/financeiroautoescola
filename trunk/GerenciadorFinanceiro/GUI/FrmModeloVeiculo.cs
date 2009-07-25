@@ -39,29 +39,29 @@ namespace GerenciadorFinanceiro.GUI
         {
             this.ListarTodosOsFabricantesVeiculos();
             this.ListarTodosOsModelosDeVeiculos();
-            this.CamposInterface(_ModeloVeiculo, GerenciadorFinanceiro.Dominio.Status.Consultando);
+            this.CamposInterface(_ModeloVeiculo, Status.Consultando);
         }
 
-        private void CamposInterface(Dominio.ModeloVeiculo modeloVeiculo, Dominio.Status status)
+        private void CamposInterface(Dominio.ModeloVeiculo modeloVeiculo, Status status)
         {
             TxtDescricao.Text = modeloVeiculo.Descricao;
             if (modeloVeiculo.Fabricante != null)
                 CmbFabricanteVeiculo.SelectedValue = modeloVeiculo.Fabricante.IdFabricanteVeiculo;
             else
                 CmbFabricanteVeiculo.SelectedIndex = 0;
-            if (status == Dominio.Status.Inserindo)
+            if (status == Status.Inserindo)
             {
                 TxtDescricao.Enabled = true;
                 CmbFabricanteVeiculo.Enabled = true;
                 LblStatus.Text = "Status : Inserindo";
             }
-            else if (status == Dominio.Status.Editando)
+            else if (status == Status.Editando)
             {
                 TxtDescricao.Enabled = true;
                 CmbFabricanteVeiculo.Enabled = true;
                 LblStatus.Text = "Status : Editando";
             }
-            else if (status == Dominio.Status.Excluindo)
+            else if (status == Status.Excluindo)
             {
                 TxtDescricao.Enabled = false;
                 CmbFabricanteVeiculo.Enabled = false;
@@ -79,12 +79,12 @@ namespace GerenciadorFinanceiro.GUI
         {
             _ModeloVeiculo = null;
             _ModeloVeiculo = new Dominio.ModeloVeiculo();
-            this.CamposInterface(_ModeloVeiculo, GerenciadorFinanceiro.Dominio.Status.Inserindo);
+            this.CamposInterface(_ModeloVeiculo, Status.Inserindo);
         }
 
         private void ctrNavigator1_CancelarAcao()
         {
-            this.CamposInterface(_ModeloVeiculo, GerenciadorFinanceiro.Dominio.Status.Consultando);
+            this.CamposInterface(_ModeloVeiculo, Status.Consultando);
         }
 
         private void DGModelos_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -118,12 +118,12 @@ namespace GerenciadorFinanceiro.GUI
                 _ModeloVeiculo = null;
                 _ModeloVeiculo = new Dominio.ModeloVeiculo();
             }
-            this.CamposInterface(_ModeloVeiculo, Dominio.Status.Consultando);
+            this.CamposInterface(_ModeloVeiculo, Status.Consultando);
         }
 
         private void ctrNavigator1_EditarRegistro(object objEditar)
         {
-            this.CamposInterface(_ModeloVeiculo, GerenciadorFinanceiro.Dominio.Status.Editando);
+            this.CamposInterface(_ModeloVeiculo, Status.Editando);
         }
 
         private void ctrNavigator1_SalvarRegistro(object objSalvar)
@@ -143,12 +143,12 @@ namespace GerenciadorFinanceiro.GUI
                 MessageBox.Show(ex.Message, "Atenção!");
             }
             this.ListarTodosOsModelosDeVeiculos();
-            this.CamposInterface(_ModeloVeiculo, Dominio.Status.Consultando);
+            this.CamposInterface(_ModeloVeiculo, Status.Consultando);
         }
 
         private void ctrNavigator1_ExcluirRegistro(object objExcluir)
         {
-            this.CamposInterface(_ModeloVeiculo, GerenciadorFinanceiro.Dominio.Status.Excluindo);
+            this.CamposInterface(_ModeloVeiculo, Status.Excluindo);
             if (MessageBox.Show("Deseja excluir o registro.", "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 try
