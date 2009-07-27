@@ -24,9 +24,9 @@ namespace GerenciadorFinanceiro.TratamentoErros
                 default:
                     break;
 
-                    if (reThrow)
-                        throw new Exception(mensagem, ex);
             }
+            if (reThrow)
+                throw new Exception(mensagem, ex);
         
         }
 

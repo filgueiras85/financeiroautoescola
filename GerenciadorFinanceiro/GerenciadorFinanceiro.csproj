@@ -80,6 +80,7 @@
     <Compile Include="Dominio\Instrutor.cs" />
     <Compile Include="Dominio\ModeloVeiculo.cs" />
     <Compile Include="Dominio\Servico.cs" />
+    <Compile Include="Dominio\TipoServico.cs" />
     <Compile Include="Dominio\TipoVeiculo.cs" />
     <Compile Include="Dominio\Usuario.cs" />
     <Compile Include="Dominio\UsuarioLogado.cs" />

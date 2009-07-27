@@ -39,8 +39,7 @@ namespace GerenciadorFinanceiro.GUI
         private void CamposInterface(Status status)
         {
             TxtDescricao.Text = _Servico.Descricao;
-            txtValor.Text = _Servico.Valor.ToString();
-            txtObservacao.Text = _Servico.Observacao;
+            txtValor.Text = _Servico.Valor.ToString();            
 
             if (status == Status.Inserindo)
             {
@@ -71,8 +70,7 @@ namespace GerenciadorFinanceiro.GUI
             double valor;
             if (!double.TryParse(txtValor.Text, out valor))
                 throw new Exception("O campo valor tem um número inválido.");
-            _Servico.Descricao = TxtDescricao.Text;            
-            _Servico.Observacao = txtObservacao.Text;
+            _Servico.Descricao = TxtDescricao.Text;                        
             _Servico.Valor = valor;
         }
 
