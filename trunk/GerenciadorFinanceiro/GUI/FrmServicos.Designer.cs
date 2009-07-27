@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtObservacao = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtValor = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -43,33 +41,19 @@
             this.Observacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StatusStrip = new System.Windows.Forms.StatusStrip();
             this.LblStatus = new System.Windows.Forms.ToolStripStatusLabel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.cmbTipoServico = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DGServicos)).BeginInit();
             this.StatusStrip.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(10, 86);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(79, 15);
-            this.label5.TabIndex = 26;
-            this.label5.Text = "Observação:";
-            // 
-            // txtObservacao
-            // 
-            this.txtObservacao.BackColor = System.Drawing.Color.White;
-            this.txtObservacao.Location = new System.Drawing.Point(100, 84);
-            this.txtObservacao.Name = "txtObservacao";
-            this.txtObservacao.Size = new System.Drawing.Size(388, 20);
-            this.txtObservacao.TabIndex = 23;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(49, 60);
+            this.label2.Location = new System.Drawing.Point(65, 43);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 15);
             this.label2.TabIndex = 25;
@@ -78,7 +62,7 @@
             // txtValor
             // 
             this.txtValor.BackColor = System.Drawing.Color.White;
-            this.txtValor.Location = new System.Drawing.Point(100, 58);
+            this.txtValor.Location = new System.Drawing.Point(113, 41);
             this.txtValor.Name = "txtValor";
             this.txtValor.Size = new System.Drawing.Size(222, 20);
             this.txtValor.TabIndex = 22;
@@ -87,7 +71,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(26, 34);
+            this.label1.Location = new System.Drawing.Point(37, 14);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(68, 15);
             this.label1.TabIndex = 24;
@@ -96,7 +80,7 @@
             // TxtDescricao
             // 
             this.TxtDescricao.BackColor = System.Drawing.Color.White;
-            this.TxtDescricao.Location = new System.Drawing.Point(100, 32);
+            this.TxtDescricao.Location = new System.Drawing.Point(113, 12);
             this.TxtDescricao.Name = "TxtDescricao";
             this.TxtDescricao.Size = new System.Drawing.Size(222, 20);
             this.TxtDescricao.TabIndex = 21;
@@ -105,7 +89,7 @@
             // 
             this.ctrNavigator1.DataSource = null;
             this.ctrNavigator1.Indice = -1;
-            this.ctrNavigator1.Location = new System.Drawing.Point(12, 121);
+            this.ctrNavigator1.Location = new System.Drawing.Point(12, 126);
             this.ctrNavigator1.Name = "ctrNavigator1";
             this.ctrNavigator1.Size = new System.Drawing.Size(547, 42);
             this.ctrNavigator1.TabIndex = 27;
@@ -131,11 +115,11 @@
             this.Descricao,
             this.Valor,
             this.Observacao});
-            this.DGServicos.Location = new System.Drawing.Point(12, 180);
+            this.DGServicos.Location = new System.Drawing.Point(12, 174);
             this.DGServicos.Name = "DGServicos";
             this.DGServicos.ReadOnly = true;
             this.DGServicos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGServicos.Size = new System.Drawing.Size(638, 211);
+            this.DGServicos.Size = new System.Drawing.Size(638, 226);
             this.DGServicos.TabIndex = 28;
             // 
             // Codigo
@@ -169,7 +153,7 @@
             // 
             this.StatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.LblStatus});
-            this.StatusStrip.Location = new System.Drawing.Point(0, 408);
+            this.StatusStrip.Location = new System.Drawing.Point(0, 411);
             this.StatusStrip.Name = "StatusStrip";
             this.StatusStrip.Size = new System.Drawing.Size(677, 22);
             this.StatusStrip.TabIndex = 32;
@@ -182,16 +166,55 @@
             this.LblStatus.Size = new System.Drawing.Size(124, 17);
             this.LblStatus.Text = "Status : Consultando";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(26, 101);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(79, 15);
+            this.label3.TabIndex = 34;
+            this.label3.Text = "Observação:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.Color.White;
+            this.textBox1.Location = new System.Drawing.Point(113, 100);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(374, 20);
+            this.textBox1.TabIndex = 33;
+            // 
+            // cmbTipoServico
+            // 
+            this.cmbTipoServico.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbTipoServico.FormattingEnabled = true;
+            this.cmbTipoServico.Location = new System.Drawing.Point(113, 70);
+            this.cmbTipoServico.Name = "cmbTipoServico";
+            this.cmbTipoServico.Size = new System.Drawing.Size(222, 21);
+            this.cmbTipoServico.TabIndex = 35;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(9, 72);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(96, 15);
+            this.label4.TabIndex = 36;
+            this.label4.Text = "Tipo de serviço:";
+            // 
             // FrmServicos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(677, 430);
+            this.ClientSize = new System.Drawing.Size(677, 433);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.cmbTipoServico);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.StatusStrip);
             this.Controls.Add(this.ctrNavigator1);
             this.Controls.Add(this.DGServicos);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.txtObservacao);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtValor);
             this.Controls.Add(this.label1);
@@ -209,8 +232,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtObservacao;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtValor;
         private System.Windows.Forms.Label label1;
@@ -223,5 +244,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Observacao;
         private System.Windows.Forms.StatusStrip StatusStrip;
         private System.Windows.Forms.ToolStripStatusLabel LblStatus;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox cmbTipoServico;
+        private System.Windows.Forms.Label label4;
     }
 }
