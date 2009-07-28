@@ -9,17 +9,17 @@ using System.Windows.Forms;
 
 namespace GerenciadorFinanceiro.GUI
 {
-    public partial class FrmServicos : Form
+    public partial class FrmTipoServico : Form
     {
-        public FrmServicos()
+        public FrmTipoServico()
         {
             InitializeComponent();
+            _TipoServico = new GerenciadorFinanceiro.Dominio.TipoServico();
         }
-        
-        private List<Dominio.Servico> _ListaServicos;
-        private List<Dominio.TipoServico> _ListaTipoServico;
-        private Dominio.Servico _Servico = new Dominio.Servico();
 
+        private Dominio.TipoServico _TipoServico;
+        private List<Dominio.TipoServico> _ListaTipoServicos;
+        
         #region "Controlando alterações"
 
         private void EnabledCampos(bool enabled)
@@ -39,8 +39,7 @@ namespace GerenciadorFinanceiro.GUI
 
         private void CamposInterface(Status status)
         {
-            TxtDescricao.Text = _Servico.Descricao;
-            txtValor.Text = _Servico.Valor.ToString();            
+            TxtDescricao.Text = _TipoServico.Descricao;
 
             if (status == Status.Inserindo)
             {
@@ -68,54 +67,21 @@ namespace GerenciadorFinanceiro.GUI
         {
             if (TxtDescricao.Text.Trim() == string.Empty)
                 throw new Exception("O campo descrição está em branco.");
-            double valor;
-            if (!double.TryParse(txtValor.Text, out valor))
-                throw new Exception("O campo valor tem um número inválido.");
-            _Servico.Descricao = TxtDescricao.Text;                        
-            _Servico.Valor = valor;
+            _TipoServico.Descricao = TxtDescricao.Text;    
         }
 
-        private void BuscarTodosOsServicos()
-        {
-            _ListaServicos = new Repositorio.RepositorioServico().BuscarTodos();
-            DGServicos.DataSource = _ListaServicos;
-            this.ctrNavigator1.DataSource = _ListaServicos;
-        }
-
-        private void BuscarTiposDeServicos()
-        {
-            _ListaTipoServico = new Repositorio.RepositorioTipoServico().BuscarTodos();
-            cmbTipoServico.DataSource = _ListaServicos;
-            cmbTipoServico.DisplayMember = "Descricao";
-            cmbTipoServico.ValueMember = "IdTipoDescricao";
-        }
         #endregion
-
-        #region "Eventos formulario"
-
-        private void FrmServicos_Load(object sender, EventArgs e)
-        {
-            this.BuscarTodosOsServicos();
-            BuscarTiposDeServicos();
-            this.CamposInterface(Status.Consultando);
-        }
-
-
-
-        #endregion 
-
-        private void ctrNavigator1_CancelarAcao()
-        {
-            this.CamposInterface(Status.Consultando);
-        }
 
         private void ctrNavigator1_EditarRegistro(object objEditar)
         {
+            if(objEditar !=null)
+                _TipoServico = (Dominio.TipoServico)objEditar;
             this.CamposInterface(Status.Editando);
         }
 
         private void ctrNavigator1_EventoNovo()
         {
+            _TipoServico = new GerenciadorFinanceiro.Dominio.TipoServico();
             this.CamposInterface(Status.Inserindo);
         }
 
@@ -123,38 +89,49 @@ namespace GerenciadorFinanceiro.GUI
         {
             if (MessageBox.Show("Deseja excluir o registro.", "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
+                if(objExcluir!=null)
+                    _TipoServico = (Dominio.TipoServico)objExcluir;
                 this.CamposInterface(Status.Excluindo);
                 try
                 {
-                    new Repositorio.RepositorioServico().DeletarObjeto((Dominio.Servico)objExcluir);
+                    new Repositorio.RepositorioTipoServico().DeletarObjeto(_TipoServico);
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Atenção!");
                 }
-            }
+            
+            }            
         }
 
         private void ctrNavigator1_MudaRegistroSelecionado(object objetoAtual)
         {
-            _Servico = (Dominio.Servico)objetoAtual;
-            DGServicos.CurrentCell = DGServicos.Rows[ctrNavigator1.Indice].Cells[0];
+
         }
 
         private void ctrNavigator1_SalvarRegistro(object objSalvar)
         {
             try
             {
-                this.ValidaCampos();
-                if (_Servico.IdServico == 0)
-                    new Repositorio.RepositorioServico().SalvarObjeto(_Servico);
+                if(objSalvar!=null)
+                    _TipoServico = (Dominio.TipoServico)objSalvar;
+                ValidaCampos();
+                if (_TipoServico.IdTipoServico == 0)
+                    new Repositorio.RepositorioTipoServico().SalvarObjeto(_TipoServico);
                 else
-                    new Repositorio.RepositorioServico().AtualizarObjeto(_Servico);
+                    new Repositorio.RepositorioTipoServico().AtualizarObjeto(_TipoServico);
+                MessageBox.Show("Registro salvo com suceso!", "OK");
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro ao tentar salvar o Servico solicitado.", ex);
+                MessageBox.Show(ex.Message, "Atenção!");
             }
+        }
+
+        private void FrmTipoServico_Load(object sender, EventArgs e)
+        {
+            _ListaTipoServicos = new Repositorio.RepositorioTipoServico().BuscarTodos();
+            DGServicos.DataSource = _ListaTipoServicos;
         }
     }
 }
