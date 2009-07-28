@@ -85,9 +85,9 @@ namespace GerenciadorFinanceiro.GUI
         private void BuscarTiposDeServicos()
         {
             _ListaTipoServico = new Repositorio.RepositorioTipoServico().BuscarTodos();
-            cmbTipoServico.DataSource = _ListaServicos;
+            cmbTipoServico.DataSource = _ListaTipoServico;
             cmbTipoServico.DisplayMember = "Descricao";
-            cmbTipoServico.ValueMember = "IdTipoDescricao";
+            cmbTipoServico.ValueMember = "IdTipoServico";
         }
         #endregion
 
