@@ -67,9 +67,30 @@ namespace GerenciadorFinanceiro.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap Alunos {
+            get {
+                object obj = ResourceManager.GetObject("Alunos", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap anterior {
             get {
                 object obj = ResourceManager.GetObject("anterior", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap attach1616 {
+            get {
+                object obj = ResourceManager.GetObject("attach1616", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap button_cancel_excluir {
+            get {
+                object obj = ResourceManager.GetObject("button_cancel_excluir", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -105,6 +126,13 @@ namespace GerenciadorFinanceiro.Properties {
         internal static System.Drawing.Bitmap Login {
             get {
                 object obj = ResourceManager.GetObject("Login", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap mail_send {
+            get {
+                object obj = ResourceManager.GetObject("mail_send", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

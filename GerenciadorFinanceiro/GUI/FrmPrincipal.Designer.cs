@@ -42,6 +42,7 @@
             this.veículosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.alunosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tiposDeServiçosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.servicosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relatóriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configuraçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,7 +50,8 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.LblDataHora = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton9 = new System.Windows.Forms.ToolStripButton();
+            this.Timer = new System.Windows.Forms.Timer(this.components);
+            this.BtnAlunos = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
@@ -58,8 +60,7 @@
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.Timer = new System.Windows.Forms.Timer(this.components);
-            this.servicosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.enviarEmailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -83,6 +84,8 @@
             // 
             // sistemaToolStripMenuItem
             // 
+            this.sistemaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.enviarEmailToolStripMenuItem});
             this.sistemaToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.sistemaToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.sistemaToolStripMenuItem.Name = "sistemaToolStripMenuItem";
@@ -171,6 +174,13 @@
             this.tiposDeServiçosToolStripMenuItem.Text = "Tipos de serviços";
             this.tiposDeServiçosToolStripMenuItem.Click += new System.EventHandler(this.tiposDeServiçosToolStripMenuItem_Click);
             // 
+            // servicosToolStripMenuItem
+            // 
+            this.servicosToolStripMenuItem.Name = "servicosToolStripMenuItem";
+            this.servicosToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.servicosToolStripMenuItem.Text = "Servicos";
+            this.servicosToolStripMenuItem.Click += new System.EventHandler(this.servicosToolStripMenuItem_Click);
+            // 
             // consultasToolStripMenuItem
             // 
             this.consultasToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
@@ -218,14 +228,14 @@
             this.LblDataHora.Name = "LblDataHora";
             this.LblDataHora.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.LblDataHora.RightToLeftAutoMirrorImage = true;
-            this.LblDataHora.Size = new System.Drawing.Size(62, 17);
+            this.LblDataHora.Size = new System.Drawing.Size(58, 17);
             this.LblDataHora.Text = "Data HOra";
             // 
             // toolStrip1
             // 
             this.toolStrip1.AutoSize = false;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton9,
+            this.BtnAlunos,
             this.toolStripButton8,
             this.toolStripButton7,
             this.toolStripButton6,
@@ -241,15 +251,23 @@
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripButton9
+            // Timer
             // 
-            this.toolStripButton9.AutoSize = false;
-            this.toolStripButton9.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton9.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton9.Image")));
-            this.toolStripButton9.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton9.Name = "toolStripButton9";
-            this.toolStripButton9.Size = new System.Drawing.Size(47, 47);
-            this.toolStripButton9.Text = "toolStripButton1";
+            this.Timer.Enabled = true;
+            this.Timer.Interval = 1000;
+            this.Timer.Tick += new System.EventHandler(this.Timer_Tick);
+            // 
+            // BtnAlunos
+            // 
+            this.BtnAlunos.AutoSize = false;
+            this.BtnAlunos.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.BtnAlunos.Image = global::GerenciadorFinanceiro.Properties.Resources.Alunos;
+            this.BtnAlunos.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.BtnAlunos.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BtnAlunos.Name = "BtnAlunos";
+            this.BtnAlunos.Size = new System.Drawing.Size(47, 47);
+            this.BtnAlunos.Text = "Cadastro de Alunos";
+            this.BtnAlunos.Click += new System.EventHandler(this.BtnAlunos_Click);
             // 
             // toolStripButton8
             // 
@@ -331,18 +349,12 @@
             this.toolStripButton1.Size = new System.Drawing.Size(47, 47);
             this.toolStripButton1.Text = "toolStripButton1";
             // 
-            // Timer
+            // enviarEmailToolStripMenuItem
             // 
-            this.Timer.Enabled = true;
-            this.Timer.Interval = 1000;
-            this.Timer.Tick += new System.EventHandler(this.Timer_Tick);
-            // 
-            // servicosToolStripMenuItem
-            // 
-            this.servicosToolStripMenuItem.Name = "servicosToolStripMenuItem";
-            this.servicosToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
-            this.servicosToolStripMenuItem.Text = "Servicos";
-            this.servicosToolStripMenuItem.Click += new System.EventHandler(this.servicosToolStripMenuItem_Click);
+            this.enviarEmailToolStripMenuItem.Name = "enviarEmailToolStripMenuItem";
+            this.enviarEmailToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.enviarEmailToolStripMenuItem.Text = "Enviar Email";
+            this.enviarEmailToolStripMenuItem.Click += new System.EventHandler(this.enviarEmailToolStripMenuItem_Click);
             // 
             // FrmPrincipal
             // 
@@ -358,6 +370,7 @@
             this.Name = "FrmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gerenciador Financeiro";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmPrincipal_FormClosed);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
@@ -380,7 +393,7 @@
         private System.Windows.Forms.ToolStripMenuItem ajudaToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton toolStripButton9;
+        private System.Windows.Forms.ToolStripButton BtnAlunos;
         private System.Windows.Forms.ToolStripButton toolStripButton8;
         private System.Windows.Forms.ToolStripButton toolStripButton7;
         private System.Windows.Forms.ToolStripButton toolStripButton6;
@@ -401,6 +414,7 @@
         private System.Windows.Forms.ToolStripMenuItem alunosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tiposDeServiçosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem servicosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem enviarEmailToolStripMenuItem;
     }
 }
 

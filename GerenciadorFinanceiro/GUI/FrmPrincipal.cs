@@ -157,5 +157,34 @@ namespace GerenciadorFinanceiro
             form.Show();
         }
 
+        private void BtnAlunos_Click(object sender, EventArgs e)
+        {
+            if (this.MdiChildren.Length > 0)
+            {
+                this.MdiChildren[0].Close();
+            }
+            GUI.FrmAluno form = new GerenciadorFinanceiro.GUI.FrmAluno();
+            form.MdiParent = this;
+            form.WindowState = FormWindowState.Maximized;
+            form.Show();
+        }
+
+        private void FrmPrincipal_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void enviarEmailToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (this.MdiChildren.Length > 0)
+            {
+                this.MdiChildren[0].Close();
+            }
+            GUI.FrmEmail form = new GerenciadorFinanceiro.GUI.FrmEmail();
+            form.MdiParent = this;
+            form.WindowState = FormWindowState.Maximized;
+            form.Show();
+        }
+
     }
 }
