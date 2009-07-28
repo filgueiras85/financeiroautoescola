@@ -52,7 +52,7 @@ namespace GerenciadorFinanceiro.Repositorio
 
         public void DeletarObjeto(GerenciadorFinanceiro.Dominio.Usuario objeto)
         {
-            string sSqlDelete = "delete from TB_Usuario where IdUsuario = @IdUsuario";
+            string sSqlDelete = "update TB_Usuario set Ativo = 0 where IdUsuario = @IdUsuario";
             try
             {
                 this.AbrirConexao();
@@ -100,7 +100,7 @@ namespace GerenciadorFinanceiro.Repositorio
 
         public List<GerenciadorFinanceiro.Dominio.Usuario> BuscarTodos()
         {
-            string sSqlSelect = "select * from TB_Usuario order by Nome";
+            string sSqlSelect = "select * from TB_Usuario where Ativo = 1 order by Nome";
             List<Dominio.Usuario> ListUsuarios = new List<GerenciadorFinanceiro.Dominio.Usuario>();
             try
             {
@@ -137,7 +137,7 @@ namespace GerenciadorFinanceiro.Repositorio
 
         internal GerenciadorFinanceiro.Dominio.Usuario ObterUsuarioPorUsernameAndPassword(string username, string password)
         {
-            string sqlConsulta = "select * from TB_Usuario where Username = @Username and Senha = @Senha";
+            string sqlConsulta = "select * from TB_Usuario where Ativo = 1 and Username = @Username and Senha = @Senha";
             try
             {
                 this.AbrirConexao();
@@ -172,7 +172,7 @@ namespace GerenciadorFinanceiro.Repositorio
         }
             internal GerenciadorFinanceiro.Dominio.Usuario ObterUsuarioPorEmail(string email)
         {
-            string sqlConsulta = "select * from TB_Usuario where Email = @Email";
+            string sqlConsulta = "select * from TB_Usuario where Ativo = 1 and Email = @Email";
             try
             {
                 this.AbrirConexao();

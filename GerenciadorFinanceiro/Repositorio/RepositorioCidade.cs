@@ -47,7 +47,7 @@ namespace GerenciadorFinanceiro.Repositorio
 
         public void DeletarObjeto(GerenciadorFinanceiro.Dominio.Cidade objeto)
         {
-            string sSqlDelete = "delete from TB_Cidade where IdCidade = @IdCidade";
+            string sSqlDelete = "Update TB_Cidade set Ativo = 0 where IdCidade = @IdCidade";
             try
             {
                 this.AbrirConexao();
@@ -91,7 +91,7 @@ namespace GerenciadorFinanceiro.Repositorio
 
         public List<GerenciadorFinanceiro.Dominio.Cidade> BuscarTodos()
         {
-            string sSqlSelect = "select * from TB_Cidade order by NomeCidade";
+            string sSqlSelect = "select * from TB_Cidade where Ativo = 1 order by NomeCidade";
             List<Dominio.Cidade> listaCid = new List<GerenciadorFinanceiro.Dominio.Cidade>();
             try
             {
@@ -122,7 +122,7 @@ namespace GerenciadorFinanceiro.Repositorio
 
         public List<Dominio.Cidade> BuscarCidadesPorEstado(Dominio.Estado estado)
         {
-            string sSqlSelect = "select * from TB_Cidade where IdEstado = @IdEstado";
+            string sSqlSelect = "select * from TB_Cidade where Ativo = 1 and IdEstado = @IdEstado";
             List<Dominio.Cidade> listaCid = new List<GerenciadorFinanceiro.Dominio.Cidade>();
             try
             {

@@ -49,7 +49,7 @@ namespace GerenciadorFinanceiro.Repositorio
 
         public void DeletarObjeto(GerenciadorFinanceiro.Dominio.Servico objeto)
         {
-            string sSqlDelete = "delete from TB_Servico where IdServico = @IdServico";
+            string sSqlDelete = "update TB_Servico set Ativo = 0 where IdServico = @IdServico";
             try
             {
                 this.AbrirConexao();
@@ -94,7 +94,7 @@ namespace GerenciadorFinanceiro.Repositorio
 
         public List<GerenciadorFinanceiro.Dominio.Servico> BuscarTodos()
         {
-            string sSqlSelect = "select * from TB_Servico order by Descricao";
+            string sSqlSelect = "select * from TB_Servico where Ativo = 1 order by Descricao";
             List<Dominio.Servico> ListServicos = new List<GerenciadorFinanceiro.Dominio.Servico>();
             try
             {
