@@ -56,7 +56,7 @@ namespace GerenciadorFinanceiro.GUI
         private void EnviarEmail()
         {
             this.AdicionarAnexos();
-            new Servicos.Email().enviaMensagemEmail("alcenir@zyoncore.com.br", "Alcenir Moretto", TxtDestinatario.Text,
+            new Servicos.Email().EnviarEmail("alcenir@zyoncore.com.br", "Alcenir Moretto", TxtDestinatario.Text,
                                                     TxtAssunto.Text, TxtMensagem.Text, "smtp.zyoncore.com.br", "@MCH9482@", _ListaAnexos);
         }
 

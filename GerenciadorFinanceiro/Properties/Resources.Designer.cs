@@ -81,6 +81,13 @@ namespace GerenciadorFinanceiro.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap apply {
+            get {
+                object obj = ResourceManager.GetObject("apply", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap attach1616 {
             get {
                 object obj = ResourceManager.GetObject("attach1616", resourceCulture);

@@ -16,6 +16,8 @@ namespace GerenciadorFinanceiro.GUI
             InitializeComponent();
         }
 
+        private Dominio.Usuario _Usuario; 
+
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -46,11 +48,30 @@ namespace GerenciadorFinanceiro.GUI
 
         private void LnkEsqueciMinhaSenha_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            GrpLogin.Visible = false;
+            GrpEsqueciMinhaSenha.Visible = true;
+        }
+
+        private void BtnCancelarEsqueciMinhaSenha_Click(object sender, EventArgs e)
+        {
+            GrpEsqueciMinhaSenha.Visible = false;
+            GrpLogin.Visible = true;
+        }
+
+        private void BtnEnviarEmail_Click(object sender, EventArgs e)
+        {
             try
             {
-                new Servicos.Email().enviaMensagemEmail("alcenir@zyoncore.com.br", "Alcenir Moretto", "alcenir_moretto@yahoo.com.br",
-                    "Esqueci Minha Senha", "Username = admin, Senha = admin", "smtp.zyoncore.com.br", "@MCH9482@", null);
-                MessageBox.Show("Email enviado com sucesso !", "Esqueci minha Senha", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                _Usuario = new Repositorio.RepositorioUsuario().ObterUsuarioPorEmail(TxtEmail.Text);
+
+                if (_Usuario != null)
+                {
+                    new Servicos.Email().EnviarEmail("alcenir@zyoncore.com.br", "Alcenir Moretto", _Usuario.Email,
+                        "Esqueci Minha Senha", "Username = " + _Usuario.UserName + ", Senha = " + _Usuario.Senha, "smtp.zyoncore.com.br", "@MCH9482@", null);
+                    MessageBox.Show("Email enviado com sucesso !", "Esqueci minha Senha", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                    MessageBox.Show("Usuário não cadastrado.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {

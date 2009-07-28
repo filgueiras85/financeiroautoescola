@@ -304,6 +304,7 @@
     <Content Include="BancoDados\DBGerenciador.sdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\apply.png" />
     <None Include="Resources\mail_send.png" />
     <None Include="Resources\button_cancel_excluir.png" />
     <None Include="Resources\attach1616.png" />

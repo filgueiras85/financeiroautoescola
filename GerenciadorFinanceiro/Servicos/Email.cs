@@ -3,19 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Net.Mail;
-// ===========================================================
-// Auctor : <Alcenir Moretto>
-// Data Criação: 27/10/2008
-// objetivo, enviar email para clientes solicitando a confirmação
-// do recebimento e leitura.
-// ===========================================================
 
 namespace GerenciadorFinanceiro.Servicos
 {
     class Email
     {
        
-        public void enviaMensagemEmail(string emailRemetente, string remetente, string destinatario, 
+        public void EnviarEmail(string emailRemetente, string remetente, string destinatario, 
                                               string assunto, string mensagem, string servidorSMTP, string autenticacao, 
                                               List<System.Net.Mail.Attachment> anexos)
         {

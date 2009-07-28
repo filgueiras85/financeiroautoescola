@@ -134,14 +134,49 @@ namespace GerenciadorFinanceiro.Repositorio
 
         #endregion
 
-        
+
         internal GerenciadorFinanceiro.Dominio.Usuario ObterUsuarioPorUsernameAndPassword(string username, string password)
         {
             string sqlConsulta = "select * from TB_Usuario where Username = @Username and Senha = @Senha";
             try
             {
                 this.AbrirConexao();
-                var reader = this.ExecuteReader(sqlConsulta, username, password );                
+                var reader = this.ExecuteReader(sqlConsulta, username, password);
+                Dominio.Usuario usuario = new Dominio.Usuario();
+                int flag = 0;
+                while (reader.Read())
+                {
+                    flag = 1;
+                    usuario.IdUsuario = (int)reader["IdUsuario"];
+                    usuario.Nome = (string)reader["Nome"];
+                    usuario.Email = (string)reader["Email"];
+                    usuario.Telefone = (string)reader["Telefone"];
+                    usuario.Celular = (string)reader["Celular"];
+                    usuario.UserName = username;
+                    usuario.Senha = password;
+                }
+                if (flag == 1)
+                    return usuario;
+                else
+                    return null;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Nao foi possivel verificar o Usuario e Senha! Tente novamente!", ex);
+            }
+            finally
+            {
+                this.FecharConexao();
+            }
+
+        }
+            internal GerenciadorFinanceiro.Dominio.Usuario ObterUsuarioPorEmail(string email)
+        {
+            string sqlConsulta = "select * from TB_Usuario where Email = @Email";
+            try
+            {
+                this.AbrirConexao();
+                var reader = this.ExecuteReader(sqlConsulta, email);                
                 Dominio.Usuario usuario = new Dominio.Usuario();
                 int flag = 0;
                 while (reader.Read())
@@ -152,8 +187,8 @@ namespace GerenciadorFinanceiro.Repositorio
                     usuario.Email  = (string)reader["Email"];
                     usuario.Telefone = (string)reader["Telefone"];
                     usuario.Celular = (string)reader["Celular"];
-                    usuario.UserName = username;
-                    usuario.Senha = password;                        
+                    usuario.UserName = (string)reader["Username"]; ;
+                    usuario.Senha = (string)reader["Senha"]; ;                        
                 }
                 if (flag ==1)
                     return usuario;
@@ -162,11 +197,11 @@ namespace GerenciadorFinanceiro.Repositorio
             }
             catch (Exception ex)
             {
-                throw new Exception("Nao foi possivel verificar o Usuario e Senha! Tente novamente!", ex);
+                throw new Exception("Nao foi possivel verificar o Usuario ! Tente novamente!", ex);
             }
             finally {
                 this.FecharConexao();
-            }          
+            } 
         }
     }
 }
