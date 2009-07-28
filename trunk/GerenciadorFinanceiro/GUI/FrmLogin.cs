@@ -43,5 +43,19 @@ namespace GerenciadorFinanceiro.GUI
                 MessageBox.Show(ex.Message,"Mensagem!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void LnkEsqueciMinhaSenha_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            try
+            {
+                new Servicos.Email().enviaMensagemEmail("alcenir@zyoncore.com.br", "Alcenir Moretto", "alcenir_moretto@yahoo.com.br",
+                    "Esqueci Minha Senha", "Username = admin, Senha = admin", "smtp.zyoncore.com.br", "@MCH9482@", null);
+                MessageBox.Show("Email enviado com sucesso !", "Esqueci minha Senha", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

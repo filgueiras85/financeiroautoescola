@@ -76,6 +76,7 @@
             this.LnkEsqueciMinhaSenha.TabIndex = 4;
             this.LnkEsqueciMinhaSenha.TabStop = true;
             this.LnkEsqueciMinhaSenha.Text = "Esqueci Minha Senha";
+            this.LnkEsqueciMinhaSenha.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LnkEsqueciMinhaSenha_LinkClicked);
             // 
             // BtnCancelar
             // 
