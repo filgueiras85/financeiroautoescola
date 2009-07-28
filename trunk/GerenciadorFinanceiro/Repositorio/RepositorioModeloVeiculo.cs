@@ -48,7 +48,7 @@ namespace GerenciadorFinanceiro.Repositorio
 
         public void DeletarObjeto(GerenciadorFinanceiro.Dominio.ModeloVeiculo objeto)
         {
-            string sSqlDelete = "delete from TB_Modelo_Veiculo where IdModeloVeiculo = @IdModeloVeiculo";
+            string sSqlDelete = "update TB_Modelo_Veiculo set Ativo = 0 where IdModeloVeiculo = @IdModeloVeiculo";
             try
             {
                 this.AbrirConexao();
@@ -92,7 +92,7 @@ namespace GerenciadorFinanceiro.Repositorio
 
         public List<GerenciadorFinanceiro.Dominio.ModeloVeiculo> BuscarTodos()
         {
-            string sSqlSelect = "select * from TB_Modelo_Veiculo order by Descricao";
+            string sSqlSelect = "select * from TB_Modelo_Veiculo where Ativo = 1 order by Descricao";
             List<Dominio.ModeloVeiculo> listaModeloVeiculo = new List<GerenciadorFinanceiro.Dominio.ModeloVeiculo>();
             try
             {

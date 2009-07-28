@@ -126,7 +126,7 @@ namespace GerenciadorFinanceiro.Repositorio
 
         public List<GerenciadorFinanceiro.Dominio.Aluno> BuscarTodos()
         {
-            string sSqlSelect = "select * from TB_Aluno order by Nome";
+            string sSqlSelect = "select * from TB_Aluno where Ativo = 1 order by Nome";
             List<Dominio.Aluno> listAlunos = new List<GerenciadorFinanceiro.Dominio.Aluno>();
             try
             {

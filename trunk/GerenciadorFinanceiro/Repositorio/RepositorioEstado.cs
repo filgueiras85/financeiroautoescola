@@ -48,7 +48,7 @@ namespace GerenciadorFinanceiro.Repositorio
 
         public void DeletarObjeto(GerenciadorFinanceiro.Dominio.Estado objeto)
         {
-            string sSqlDelete = "delete from TB_Estado where IdEstado = @IdEstado";
+            string sSqlDelete = "update TB_Estado set Ativo = 0 where IdEstado = @IdEstado";
             try
             {
                 this.AbrirConexao();
@@ -66,7 +66,7 @@ namespace GerenciadorFinanceiro.Repositorio
 
         public Dominio.Estado BuscarObjetoPorId(int id)
         {
-            string sSqlSelect = "select * from TB_Estado where IdEstado = @IdEstado";
+            string sSqlSelect = "select * from TB_Estado where Ativo = 1 and IdEstado = @IdEstado";
             try
             {
                 this.AbrirConexao();
@@ -92,7 +92,7 @@ namespace GerenciadorFinanceiro.Repositorio
 
         public List<GerenciadorFinanceiro.Dominio.Estado> BuscarTodos()
         {
-            string sSqlSelect = "select * from TB_Estado order by NomeEstado";
+            string sSqlSelect = "select * from TB_Estado where Ativo = 1 order by NomeEstado";
             List<Dominio.Estado> listaEst = new List<GerenciadorFinanceiro.Dominio.Estado>();
             try
             {

@@ -60,7 +60,7 @@ namespace GerenciadorFinanceiro.Repositorio
 
         public void DeletarObjeto(GerenciadorFinanceiro.Dominio.Instrutor objeto)
         {
-            string sSqlDelete = "delete from TB_Instrutor where IdInstrutor = @IdInstrutor";
+            string sSqlDelete = "update TB_Instrutor set Ativo = 0 where IdInstrutor = @IdInstrutor";
             try
             {
                 this.AbrirConexao();
@@ -118,7 +118,7 @@ namespace GerenciadorFinanceiro.Repositorio
 
         public List<GerenciadorFinanceiro.Dominio.Instrutor> BuscarTodos()
         {
-            string sSqlSelect = "select * from TB_Instrutor order by Nome";
+            string sSqlSelect = "select * from TB_Instrutor where Ativo = 1 order by Nome";
             List<Dominio.Instrutor> listaInstrutor = new List<GerenciadorFinanceiro.Dominio.Instrutor>();
             try
             {

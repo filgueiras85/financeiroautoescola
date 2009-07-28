@@ -92,7 +92,7 @@ namespace GerenciadorFinanceiro.Repositorio
 
         public List<GerenciadorFinanceiro.Dominio.TipoServico> BuscarTodos()
         {
-            string sqlSelect = "select * from TB_TipoServico where Ativo = 1";
+            string sqlSelect = "select * from TB_TipoServico where Ativo = 1 order by Descricao";
             try
             {
                 this.AbrirConexao();
