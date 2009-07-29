@@ -171,5 +171,12 @@ namespace GerenciadorFinanceiro.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        internal static System.Drawing.Bitmap viewmag {
+            get {
+                object obj = ResourceManager.GetObject("viewmag", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

@@ -359,6 +359,7 @@
             // 
             // BtnLocalizarFotoInstrutor
             // 
+            this.BtnLocalizarFotoInstrutor.Image = global::GerenciadorFinanceiro.Properties.Resources.viewmag;
             this.BtnLocalizarFotoInstrutor.Location = new System.Drawing.Point(95, 264);
             this.BtnLocalizarFotoInstrutor.Name = "BtnLocalizarFotoInstrutor";
             this.BtnLocalizarFotoInstrutor.Size = new System.Drawing.Size(28, 26);
