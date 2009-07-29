@@ -228,6 +228,5 @@ namespace GerenciadorFinanceiro.GUI
             }
             this.CamposInterface(_Veiculo, Status.Consultando);
         }
-
     }
 }

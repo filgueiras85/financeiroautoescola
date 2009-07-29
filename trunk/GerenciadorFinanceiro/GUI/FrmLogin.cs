@@ -14,6 +14,12 @@ namespace GerenciadorFinanceiro.GUI
         public FrmLogin()
         {
             InitializeComponent();
+            if (GerenciadorFinanceiro.Properties.Settings.Default.LocalDB.Trim() == string.Empty)
+            {
+                Configuracao.FrmConfiguracao config = new GerenciadorFinanceiro.Configuracao.FrmConfiguracao(true);
+                if (config.ShowDialog() != DialogResult.OK)
+                    Environment.Exit(0);
+            }           
         }
 
         private Dominio.Usuario _Usuario; 

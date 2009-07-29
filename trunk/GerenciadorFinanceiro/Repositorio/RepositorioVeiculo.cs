@@ -15,8 +15,8 @@ namespace GerenciadorFinanceiro.Repositorio
                                 " values (@Placa, @Renavam, @Chassi, @Ano, @Modelo, @Cor, @Observacao, @IdTipoVeiculo, @IdModeloVeiculo, @PathFoto, @Combustivel)";
             try
             {
-                this.AbrirConexao();
-                this.Execute(sSqlInsert, objeto.Placa, objeto.Renavam, objeto.Chassi, objeto.Ano, objeto.Modelo, objeto.Cor, objeto.Observacao, objeto.TipoVeiculo.IdTipoVeiculo, objeto.ModeloVeiculo.IdModeloVeiculo, objeto.PathFoto, objeto.Combustivel);
+                Conection.AbrirConexao();
+                Conection.Execute(sSqlInsert, objeto.Placa, objeto.Renavam, objeto.Chassi, objeto.Ano, objeto.Modelo, objeto.Cor, objeto.Observacao, objeto.TipoVeiculo.IdTipoVeiculo, objeto.ModeloVeiculo.IdModeloVeiculo, objeto.PathFoto, objeto.Combustivel);
             }
             catch (Exception ex)
             {
@@ -24,7 +24,7 @@ namespace GerenciadorFinanceiro.Repositorio
             }
             finally
             {
-                this.FecharConexao();
+                Conection.FecharConexao();
             }
         }
 
@@ -35,8 +35,8 @@ namespace GerenciadorFinanceiro.Repositorio
                                 "IdModeloVeiculo = @IdModeloVeiculo, PathFoto = @PathFoto, Combustivel = @Combustivel where IdVeiculo = @IdVeiculo";
             try
             {
-                this.AbrirConexao();
-                this.Execute(sSqlUpdate, objeto.Placa, objeto.Renavam, objeto.Chassi, objeto.Ano, objeto.Modelo, objeto.Cor, objeto.Observacao, 
+                Conection.AbrirConexao();
+                Conection.Execute(sSqlUpdate, objeto.Placa, objeto.Renavam, objeto.Chassi, objeto.Ano, objeto.Modelo, objeto.Cor, objeto.Observacao, 
                     objeto.TipoVeiculo.IdTipoVeiculo, objeto.ModeloVeiculo.IdModeloVeiculo, objeto.PathFoto, objeto.Combustivel, objeto.IdVeiculo);
             }
             catch (Exception ex)
@@ -45,7 +45,7 @@ namespace GerenciadorFinanceiro.Repositorio
             }
             finally
             {
-                this.FecharConexao();
+                Conection.FecharConexao();
             }
         }
 
@@ -54,8 +54,8 @@ namespace GerenciadorFinanceiro.Repositorio
             string sSqlDelete = "update TB_Veiculo set Ativo = 0 where IdVeiculo = @IdVeiculo";
             try
             {
-                this.AbrirConexao();
-                this.Execute(sSqlDelete, objeto.IdVeiculo);
+                Conection.AbrirConexao();
+                Conection.Execute(sSqlDelete, objeto.IdVeiculo);
             }
             catch (Exception ex)
             {
@@ -63,7 +63,7 @@ namespace GerenciadorFinanceiro.Repositorio
             }
             finally
             {
-                this.FecharConexao();
+                Conection.FecharConexao();
             }
         }
 
@@ -72,8 +72,8 @@ namespace GerenciadorFinanceiro.Repositorio
             string sSqlSelect = "select * from TB_Veiculo where IdVeiculo = @IdVeiculo";
             try
             {
-                this.AbrirConexao();
-                var reader = this.ExecuteReader(sSqlSelect, id);
+                Conection.AbrirConexao();
+                var reader = Conection.ExecuteReader(sSqlSelect, id);
                 Dominio.Veiculo veiculo = new Dominio.Veiculo();
                 while (reader.Read())
                 {
@@ -98,7 +98,7 @@ namespace GerenciadorFinanceiro.Repositorio
             }
             finally
             {
-                this.FecharConexao();
+                Conection.FecharConexao();
             }
         }
 
@@ -108,8 +108,8 @@ namespace GerenciadorFinanceiro.Repositorio
             List<Dominio.Veiculo> listVeiculos = new List<GerenciadorFinanceiro.Dominio.Veiculo>();
             try
             {
-                this.AbrirConexao();
-                var reader = this.ExecuteReader(sSqlSelect);
+                Conection.AbrirConexao();
+                var reader = Conection.ExecuteReader(sSqlSelect);
                 Dominio.Veiculo veiculo;
                 while (reader.Read())
                 {
@@ -137,7 +137,7 @@ namespace GerenciadorFinanceiro.Repositorio
             }
             finally
             {
-                this.FecharConexao();
+                Conection.FecharConexao();
             }
         }
 

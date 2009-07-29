@@ -35,11 +35,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.TxtNomeCidade = new System.Windows.Forms.TextBox();
             this.DGCidades = new System.Windows.Forms.DataGridView();
-            this.CmbEstados = new System.Windows.Forms.ComboBox();
             this.IdCidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NomeCidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CmbEstados = new System.Windows.Forms.ComboBox();
             this.ctrNavigator1 = new GerenciadorFinanceiro.Controles.CtrNavigator();
+            this.btnNovoEstado = new System.Windows.Forms.Button();
             this.StatusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGCidades)).BeginInit();
             this.SuspendLayout();
@@ -112,16 +113,6 @@
             this.DGCidades.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DGCidades_CellFormatting);
             this.DGCidades.SelectionChanged += new System.EventHandler(this.DGCidades_SelectionChanged);
             // 
-            // CmbEstados
-            // 
-            this.CmbEstados.BackColor = System.Drawing.Color.White;
-            this.CmbEstados.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbEstados.FormattingEnabled = true;
-            this.CmbEstados.Location = new System.Drawing.Point(100, 37);
-            this.CmbEstados.Name = "CmbEstados";
-            this.CmbEstados.Size = new System.Drawing.Size(402, 21);
-            this.CmbEstados.TabIndex = 21;
-            // 
             // IdCidade
             // 
             this.IdCidade.DataPropertyName = "IdCidade";
@@ -146,6 +137,16 @@
             this.Estado.ReadOnly = true;
             this.Estado.Width = 190;
             // 
+            // CmbEstados
+            // 
+            this.CmbEstados.BackColor = System.Drawing.Color.White;
+            this.CmbEstados.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbEstados.FormattingEnabled = true;
+            this.CmbEstados.Location = new System.Drawing.Point(100, 37);
+            this.CmbEstados.Name = "CmbEstados";
+            this.CmbEstados.Size = new System.Drawing.Size(402, 21);
+            this.CmbEstados.TabIndex = 21;
+            // 
             // ctrNavigator1
             // 
             this.ctrNavigator1.DataSource = null;
@@ -161,11 +162,21 @@
             this.ctrNavigator1.SalvarRegistro += new GerenciadorFinanceiro.Controles.CtrNavigator.Salvar(this.ctrNavigator1_SalvarRegistro);
             this.ctrNavigator1.EditarRegistro += new GerenciadorFinanceiro.Controles.CtrNavigator.Editar(this.ctrNavigator1_EditarRegistro);
             // 
+            // btnNovoEstado
+            // 
+            this.btnNovoEstado.Image = global::GerenciadorFinanceiro.Properties.Resources.file_add;
+            this.btnNovoEstado.Location = new System.Drawing.Point(508, 35);
+            this.btnNovoEstado.Name = "btnNovoEstado";
+            this.btnNovoEstado.Size = new System.Drawing.Size(31, 24);
+            this.btnNovoEstado.TabIndex = 38;
+            this.btnNovoEstado.UseVisualStyleBackColor = true;
+            // 
             // FrmCidade
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(578, 324);
+            this.Controls.Add(this.btnNovoEstado);
             this.Controls.Add(this.CmbEstados);
             this.Controls.Add(this.ctrNavigator1);
             this.Controls.Add(this.LblSiglaEstado);
@@ -197,5 +208,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn IdCidade;
         private System.Windows.Forms.DataGridViewTextBoxColumn NomeCidade;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
+        private System.Windows.Forms.Button btnNovoEstado;
     }
 }

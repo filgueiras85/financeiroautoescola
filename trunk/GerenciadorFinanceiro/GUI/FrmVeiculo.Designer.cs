@@ -32,6 +32,17 @@
             this.label1 = new System.Windows.Forms.Label();
             this.TxtCor = new System.Windows.Forms.TextBox();
             this.DGVeiculos = new System.Windows.Forms.DataGridView();
+            this.idVeiculo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Placa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Renavam = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Chassi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Combustivel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ano = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Modelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ModeloVeiculo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TipoVeiculo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Observacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CmbModelo = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -55,18 +66,9 @@
             this.StatusStrip = new System.Windows.Forms.StatusStrip();
             this.LblStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.CmbCombustivel = new System.Windows.Forms.ComboBox();
-            this.idVeiculo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Placa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Renavam = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Chassi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Combustivel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ano = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Modelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ModeloVeiculo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TipoVeiculo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Observacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ctrNavigator1 = new GerenciadorFinanceiro.Controles.CtrNavigator();
+            this.btnNovoTipoVeiculo = new System.Windows.Forms.Button();
+            this.btnNovoModelo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DGVeiculos)).BeginInit();
             this.GrpImagens.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcbFotoVeiculo)).BeginInit();
@@ -122,6 +124,88 @@
             this.DGVeiculos.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DGVeiculos_CellFormatting);
             this.DGVeiculos.SelectionChanged += new System.EventHandler(this.DGVeiculos_SelectionChanged);
             // 
+            // idVeiculo
+            // 
+            this.idVeiculo.DataPropertyName = "IdVeiculo";
+            this.idVeiculo.HeaderText = "Código";
+            this.idVeiculo.Name = "idVeiculo";
+            this.idVeiculo.ReadOnly = true;
+            this.idVeiculo.Width = 50;
+            // 
+            // Placa
+            // 
+            this.Placa.DataPropertyName = "Placa";
+            this.Placa.HeaderText = "Placa";
+            this.Placa.Name = "Placa";
+            this.Placa.ReadOnly = true;
+            this.Placa.Width = 80;
+            // 
+            // Renavam
+            // 
+            this.Renavam.DataPropertyName = "Renavam";
+            this.Renavam.HeaderText = "Renavam";
+            this.Renavam.Name = "Renavam";
+            this.Renavam.ReadOnly = true;
+            // 
+            // Chassi
+            // 
+            this.Chassi.DataPropertyName = "Chassi";
+            this.Chassi.HeaderText = "Chassi";
+            this.Chassi.Name = "Chassi";
+            this.Chassi.ReadOnly = true;
+            // 
+            // Cor
+            // 
+            this.Cor.DataPropertyName = "Cor";
+            this.Cor.HeaderText = "Cor";
+            this.Cor.Name = "Cor";
+            this.Cor.ReadOnly = true;
+            this.Cor.Width = 60;
+            // 
+            // Combustivel
+            // 
+            this.Combustivel.DataPropertyName = "Combustivel";
+            this.Combustivel.HeaderText = "Combustível";
+            this.Combustivel.Name = "Combustivel";
+            this.Combustivel.ReadOnly = true;
+            // 
+            // Ano
+            // 
+            this.Ano.DataPropertyName = "Ano";
+            this.Ano.HeaderText = "Ano";
+            this.Ano.Name = "Ano";
+            this.Ano.ReadOnly = true;
+            this.Ano.Width = 60;
+            // 
+            // Modelo
+            // 
+            this.Modelo.DataPropertyName = "Modelo";
+            this.Modelo.HeaderText = "Modelo";
+            this.Modelo.Name = "Modelo";
+            this.Modelo.ReadOnly = true;
+            // 
+            // ModeloVeiculo
+            // 
+            this.ModeloVeiculo.DataPropertyName = "ModeloVeiculo";
+            this.ModeloVeiculo.HeaderText = "Modelo Veículo";
+            this.ModeloVeiculo.Name = "ModeloVeiculo";
+            this.ModeloVeiculo.ReadOnly = true;
+            this.ModeloVeiculo.Width = 150;
+            // 
+            // TipoVeiculo
+            // 
+            this.TipoVeiculo.DataPropertyName = "TipoVeiculo";
+            this.TipoVeiculo.HeaderText = "Tipo";
+            this.TipoVeiculo.Name = "TipoVeiculo";
+            this.TipoVeiculo.ReadOnly = true;
+            // 
+            // Observacao
+            // 
+            this.Observacao.DataPropertyName = "Observacao";
+            this.Observacao.HeaderText = "Observação";
+            this.Observacao.Name = "Observacao";
+            this.Observacao.ReadOnly = true;
+            // 
             // CmbModelo
             // 
             this.CmbModelo.BackColor = System.Drawing.Color.White;
@@ -129,7 +213,7 @@
             this.CmbModelo.FormattingEnabled = true;
             this.CmbModelo.Location = new System.Drawing.Point(96, 148);
             this.CmbModelo.Name = "CmbModelo";
-            this.CmbModelo.Size = new System.Drawing.Size(301, 21);
+            this.CmbModelo.Size = new System.Drawing.Size(264, 21);
             this.CmbModelo.TabIndex = 8;
             // 
             // label2
@@ -199,7 +283,7 @@
             this.CmbTipo.FormattingEnabled = true;
             this.CmbTipo.Location = new System.Drawing.Point(96, 66);
             this.CmbTipo.Name = "CmbTipo";
-            this.CmbTipo.Size = new System.Drawing.Size(301, 21);
+            this.CmbTipo.Size = new System.Drawing.Size(264, 21);
             this.CmbTipo.TabIndex = 3;
             // 
             // label8
@@ -347,88 +431,6 @@
             this.CmbCombustivel.Size = new System.Drawing.Size(301, 21);
             this.CmbCombustivel.TabIndex = 4;
             // 
-            // idVeiculo
-            // 
-            this.idVeiculo.DataPropertyName = "IdVeiculo";
-            this.idVeiculo.HeaderText = "Código";
-            this.idVeiculo.Name = "idVeiculo";
-            this.idVeiculo.ReadOnly = true;
-            this.idVeiculo.Width = 50;
-            // 
-            // Placa
-            // 
-            this.Placa.DataPropertyName = "Placa";
-            this.Placa.HeaderText = "Placa";
-            this.Placa.Name = "Placa";
-            this.Placa.ReadOnly = true;
-            this.Placa.Width = 80;
-            // 
-            // Renavam
-            // 
-            this.Renavam.DataPropertyName = "Renavam";
-            this.Renavam.HeaderText = "Renavam";
-            this.Renavam.Name = "Renavam";
-            this.Renavam.ReadOnly = true;
-            // 
-            // Chassi
-            // 
-            this.Chassi.DataPropertyName = "Chassi";
-            this.Chassi.HeaderText = "Chassi";
-            this.Chassi.Name = "Chassi";
-            this.Chassi.ReadOnly = true;
-            // 
-            // Cor
-            // 
-            this.Cor.DataPropertyName = "Cor";
-            this.Cor.HeaderText = "Cor";
-            this.Cor.Name = "Cor";
-            this.Cor.ReadOnly = true;
-            this.Cor.Width = 60;
-            // 
-            // Combustivel
-            // 
-            this.Combustivel.DataPropertyName = "Combustivel";
-            this.Combustivel.HeaderText = "Combustível";
-            this.Combustivel.Name = "Combustivel";
-            this.Combustivel.ReadOnly = true;
-            // 
-            // Ano
-            // 
-            this.Ano.DataPropertyName = "Ano";
-            this.Ano.HeaderText = "Ano";
-            this.Ano.Name = "Ano";
-            this.Ano.ReadOnly = true;
-            this.Ano.Width = 60;
-            // 
-            // Modelo
-            // 
-            this.Modelo.DataPropertyName = "Modelo";
-            this.Modelo.HeaderText = "Modelo";
-            this.Modelo.Name = "Modelo";
-            this.Modelo.ReadOnly = true;
-            // 
-            // ModeloVeiculo
-            // 
-            this.ModeloVeiculo.DataPropertyName = "ModeloVeiculo";
-            this.ModeloVeiculo.HeaderText = "Modelo Veículo";
-            this.ModeloVeiculo.Name = "ModeloVeiculo";
-            this.ModeloVeiculo.ReadOnly = true;
-            this.ModeloVeiculo.Width = 150;
-            // 
-            // TipoVeiculo
-            // 
-            this.TipoVeiculo.DataPropertyName = "TipoVeiculo";
-            this.TipoVeiculo.HeaderText = "Tipo";
-            this.TipoVeiculo.Name = "TipoVeiculo";
-            this.TipoVeiculo.ReadOnly = true;
-            // 
-            // Observacao
-            // 
-            this.Observacao.DataPropertyName = "Observacao";
-            this.Observacao.HeaderText = "Observação";
-            this.Observacao.Name = "Observacao";
-            this.Observacao.ReadOnly = true;
-            // 
             // ctrNavigator1
             // 
             this.ctrNavigator1.DataSource = null;
@@ -444,11 +446,31 @@
             this.ctrNavigator1.SalvarRegistro += new GerenciadorFinanceiro.Controles.CtrNavigator.Salvar(this.ctrNavigator1_SalvarRegistro);
             this.ctrNavigator1.EditarRegistro += new GerenciadorFinanceiro.Controles.CtrNavigator.Editar(this.ctrNavigator1_EditarRegistro);
             // 
+            // btnNovoTipoVeiculo
+            // 
+            this.btnNovoTipoVeiculo.Image = global::GerenciadorFinanceiro.Properties.Resources.file_add;
+            this.btnNovoTipoVeiculo.Location = new System.Drawing.Point(366, 65);
+            this.btnNovoTipoVeiculo.Name = "btnNovoTipoVeiculo";
+            this.btnNovoTipoVeiculo.Size = new System.Drawing.Size(31, 24);
+            this.btnNovoTipoVeiculo.TabIndex = 38;
+            this.btnNovoTipoVeiculo.UseVisualStyleBackColor = true;
+            // 
+            // btnNovoModelo
+            // 
+            this.btnNovoModelo.Image = global::GerenciadorFinanceiro.Properties.Resources.file_add;
+            this.btnNovoModelo.Location = new System.Drawing.Point(366, 146);
+            this.btnNovoModelo.Name = "btnNovoModelo";
+            this.btnNovoModelo.Size = new System.Drawing.Size(31, 24);
+            this.btnNovoModelo.TabIndex = 39;
+            this.btnNovoModelo.UseVisualStyleBackColor = true;
+            // 
             // FrmVeiculo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(715, 490);
+            this.Controls.Add(this.btnNovoModelo);
+            this.Controls.Add(this.btnNovoTipoVeiculo);
             this.Controls.Add(this.CmbCombustivel);
             this.Controls.Add(this.StatusStrip);
             this.Controls.Add(this.TxtAnoModelo);
@@ -528,5 +550,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ModeloVeiculo;
         private System.Windows.Forms.DataGridViewTextBoxColumn TipoVeiculo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Observacao;
+        private System.Windows.Forms.Button btnNovoTipoVeiculo;
+        private System.Windows.Forms.Button btnNovoModelo;
     }
 }

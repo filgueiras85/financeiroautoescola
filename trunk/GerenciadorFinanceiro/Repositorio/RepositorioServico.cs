@@ -11,12 +11,12 @@ namespace GerenciadorFinanceiro.Repositorio
 
         public void SalvarObjeto(GerenciadorFinanceiro.Dominio.Servico objeto)
         {
-            string sSqlInsert = "insert into TB_Servico (Descricao, Valor, Observacao)" +
-                                " values (@Descricao, @Valor, @Observacao)";
+            string sSqlInsert = "insert into TB_Servico (Descricao, Valor, Observacao, IdTipoServico)" +
+                                " values (@Descricao, @Valor, @Observacao, @idTipoServico)";
             try
             {
-                this.AbrirConexao();
-                this.Execute(sSqlInsert, objeto.Descricao, objeto.Valor, objeto.Observacao);
+                Conection.AbrirConexao();
+                Conection.Execute(sSqlInsert, objeto.Descricao, objeto.Valor, objeto.Observacao, objeto.Tipo.IdTipoServico);
             }
             catch (Exception ex)
             {
@@ -24,7 +24,7 @@ namespace GerenciadorFinanceiro.Repositorio
             }
             finally
             {
-                this.FecharConexao();
+                Conection.FecharConexao();
             }
         }
 
@@ -34,8 +34,8 @@ namespace GerenciadorFinanceiro.Repositorio
                                 "Observacao = @Observacao where IdServico = @IdServico";
             try
             {
-                this.AbrirConexao();
-                this.Execute(sSqlUpdate, objeto.Descricao, objeto.Valor, objeto.Observacao, objeto.IdServico);
+                Conection.AbrirConexao();
+                Conection.Execute(sSqlUpdate, objeto.Descricao, objeto.Valor, objeto.Observacao, objeto.IdServico);
             }
             catch (Exception ex)
             {
@@ -43,7 +43,7 @@ namespace GerenciadorFinanceiro.Repositorio
             }
             finally
             {
-                this.FecharConexao();
+                Conection.FecharConexao();
             }
         }
 
@@ -52,8 +52,8 @@ namespace GerenciadorFinanceiro.Repositorio
             string sSqlDelete = "update TB_Servico set Ativo = 0 where IdServico = @IdServico";
             try
             {
-                this.AbrirConexao();
-                this.Execute(sSqlDelete, objeto.IdServico);
+                Conection.AbrirConexao();
+                Conection.Execute(sSqlDelete, objeto.IdServico);
             }
             catch (Exception ex)
             {
@@ -61,7 +61,7 @@ namespace GerenciadorFinanceiro.Repositorio
             }
             finally
             {
-                this.FecharConexao();
+                Conection.FecharConexao();
             }
         }
 
@@ -70,8 +70,8 @@ namespace GerenciadorFinanceiro.Repositorio
             string sSqlSelect = "select * from TB_Servico where IdServico = @IdServico";
             try
             {
-                this.AbrirConexao();
-                var reader = this.ExecuteReader(sSqlSelect, id);
+                Conection.AbrirConexao();
+                var reader = Conection.ExecuteReader(sSqlSelect, id);
                 Dominio.Servico servico = new Dominio.Servico();
                 while (reader.Read())
                 {
@@ -88,7 +88,7 @@ namespace GerenciadorFinanceiro.Repositorio
             }
             finally
             {
-                this.FecharConexao();
+                Conection.FecharConexao();
             }
         }
 
@@ -98,8 +98,8 @@ namespace GerenciadorFinanceiro.Repositorio
             List<Dominio.Servico> ListServicos = new List<GerenciadorFinanceiro.Dominio.Servico>();
             try
             {
-                this.AbrirConexao();
-                var reader = this.ExecuteReader(sSqlSelect);
+                Conection.AbrirConexao();
+                var reader = Conection.ExecuteReader(sSqlSelect);
                 Dominio.Servico servico;
                 while (reader.Read())
                 {
@@ -119,7 +119,7 @@ namespace GerenciadorFinanceiro.Repositorio
             }
             finally
             {
-                this.FecharConexao();
+                Conection.FecharConexao();
             }
         }
 

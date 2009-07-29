@@ -40,6 +40,7 @@
             this.StatusStrip = new System.Windows.Forms.StatusStrip();
             this.LblStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.ctrNavigator1 = new GerenciadorFinanceiro.Controles.CtrNavigator();
+            this.btnNovoFabricante = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DGModelos)).BeginInit();
             this.StatusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -160,11 +161,21 @@
             this.ctrNavigator1.SalvarRegistro += new GerenciadorFinanceiro.Controles.CtrNavigator.Salvar(this.ctrNavigator1_SalvarRegistro);
             this.ctrNavigator1.EditarRegistro += new GerenciadorFinanceiro.Controles.CtrNavigator.Editar(this.ctrNavigator1_EditarRegistro);
             // 
+            // btnNovoFabricante
+            // 
+            this.btnNovoFabricante.Image = global::GerenciadorFinanceiro.Properties.Resources.file_add;
+            this.btnNovoFabricante.Location = new System.Drawing.Point(502, 39);
+            this.btnNovoFabricante.Name = "btnNovoFabricante";
+            this.btnNovoFabricante.Size = new System.Drawing.Size(31, 24);
+            this.btnNovoFabricante.TabIndex = 38;
+            this.btnNovoFabricante.UseVisualStyleBackColor = true;
+            // 
             // FrmModeloVeiculo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(578, 324);
+            this.Controls.Add(this.btnNovoFabricante);
             this.Controls.Add(this.StatusStrip);
             this.Controls.Add(this.ctrNavigator1);
             this.Controls.Add(this.DGModelos);
@@ -198,5 +209,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn idModeloVeiculo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descricao;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fabricante;
+        private System.Windows.Forms.Button btnNovoFabricante;
     }
 }

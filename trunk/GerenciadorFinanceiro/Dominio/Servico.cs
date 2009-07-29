@@ -7,7 +7,10 @@ namespace GerenciadorFinanceiro.Dominio
 {
     class Servico
     {
-        public Servico() { }
+        public Servico()
+        {
+            Observacao = string.Empty;
+        }
                 
         public int IdServico { get; set; }
 

@@ -20,8 +20,8 @@ namespace GerenciadorFinanceiro.Repositorio
                                 "@SSP, @NomePai, @NomeMae, @Referencia, @Observacao)";
             try
             {
-                this.AbrirConexao();
-                this.Execute(sSqlInsert, objeto.NomeAluno, objeto.CPF_CNPJ, objeto.RG_InscEstadual, objeto.TelefoneResidencial,
+                Conection.AbrirConexao();
+                Conection.Execute(sSqlInsert, objeto.NomeAluno, objeto.CPF_CNPJ, objeto.RG_InscEstadual, objeto.TelefoneResidencial,
                             objeto.TelefoneComercial, objeto.TelefoneCelular, objeto.DataNascimento, objeto.Endereco.Rua,
                             objeto.Endereco.Numero, objeto.Endereco.Complemento, objeto.Endereco.Bairro, objeto.Endereco.CEP,
                             objeto.Endereco.Cidade.IdCidade, objeto.SSP, objeto.NomePai, objeto.NomeMae, objeto.Referencia, objeto.Observacao);
@@ -32,7 +32,7 @@ namespace GerenciadorFinanceiro.Repositorio
             }
             finally
             {
-                this.FecharConexao();
+                Conection.FecharConexao();
             }
         }
 
@@ -45,8 +45,8 @@ namespace GerenciadorFinanceiro.Repositorio
                                 "Referencia = @Referencia, Observacao = @Observacao where IdAluno = @IdAluno)";
             try
             {
-                this.AbrirConexao();
-                this.Execute(sSqlUpdate, objeto.NomeAluno, objeto.CPF_CNPJ, objeto.RG_InscEstadual, objeto.TelefoneResidencial,
+                Conection.AbrirConexao();
+                Conection.Execute(sSqlUpdate, objeto.NomeAluno, objeto.CPF_CNPJ, objeto.RG_InscEstadual, objeto.TelefoneResidencial,
                             objeto.TelefoneComercial, objeto.TelefoneCelular, objeto.DataNascimento, objeto.Endereco.Rua,
                             objeto.Endereco.Numero, objeto.Endereco.Complemento, objeto.Endereco.Bairro, objeto.Endereco.CEP,
                             objeto.Endereco.Cidade.IdCidade, objeto.SSP, objeto.NomePai, objeto.NomeMae, objeto.Referencia, 
@@ -58,7 +58,7 @@ namespace GerenciadorFinanceiro.Repositorio
             }
             finally
             {
-                this.FecharConexao();
+                Conection.FecharConexao();
             }
         }
 
@@ -67,8 +67,8 @@ namespace GerenciadorFinanceiro.Repositorio
             string sSqlDelete = "Update TB_Aluno set Ativo = 0 where IdAluno = @IdAluno";
             try
             {
-                this.AbrirConexao();
-                this.Execute(sSqlDelete, objeto.IdAluno);
+                Conection.AbrirConexao();
+                Conection.Execute(sSqlDelete, objeto.IdAluno);
             }
             catch (Exception ex)
             {
@@ -76,7 +76,7 @@ namespace GerenciadorFinanceiro.Repositorio
             }
             finally
             {
-                this.FecharConexao();
+                Conection.FecharConexao();
             }
         }
 
@@ -85,8 +85,8 @@ namespace GerenciadorFinanceiro.Repositorio
             string sSqlSelect = "select * from TB_Aluno where IdAluno = @IdAluno";
             try
             {
-                this.AbrirConexao();
-                var reader = this.ExecuteReader(sSqlSelect, id);
+                Conection.AbrirConexao();
+                var reader = Conection.ExecuteReader(sSqlSelect, id);
                 Dominio.Aluno aluno = new Dominio.Aluno();
                 Dominio.Endereco endereco = new Dominio.Endereco();
                 while (reader.Read())
@@ -120,7 +120,7 @@ namespace GerenciadorFinanceiro.Repositorio
             }
             finally
             {
-                this.FecharConexao();
+                Conection.FecharConexao();
             }
         }
 
@@ -130,8 +130,8 @@ namespace GerenciadorFinanceiro.Repositorio
             List<Dominio.Aluno> listAlunos = new List<GerenciadorFinanceiro.Dominio.Aluno>();
             try
             {
-                this.AbrirConexao();
-                var reader = this.ExecuteReader(sSqlSelect);
+                Conection.AbrirConexao();
+                var reader = Conection.ExecuteReader(sSqlSelect);
                 Dominio.Aluno aluno;
                 Dominio.Endereco endereco;
                 while (reader.Read())
@@ -170,7 +170,7 @@ namespace GerenciadorFinanceiro.Repositorio
             }
             finally
             {
-                this.FecharConexao();
+                Conection.FecharConexao();
             }
         }
 

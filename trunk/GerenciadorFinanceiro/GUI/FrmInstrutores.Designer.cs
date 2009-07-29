@@ -58,8 +58,8 @@
             this.label10 = new System.Windows.Forms.Label();
             this.TxtObservacaoInstrutor = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.PcbFotoInstrutor = new System.Windows.Forms.PictureBox();
             this.BtnLocalizarFotoInstrutor = new System.Windows.Forms.Button();
+            this.PcbFotoInstrutor = new System.Windows.Forms.PictureBox();
             this.TxtTelefoneResidencial = new System.Windows.Forms.MaskedTextBox();
             this.TxtTelefoneCelular = new System.Windows.Forms.MaskedTextBox();
             this.TxtCEP = new System.Windows.Forms.MaskedTextBox();
@@ -72,6 +72,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.TxtCPF = new System.Windows.Forms.MaskedTextBox();
             this.ctrNavigator1 = new GerenciadorFinanceiro.Controles.CtrNavigator();
+            this.btnNovaCidade = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DGInstrutores)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcbFotoInstrutor)).BeginInit();
@@ -121,7 +122,7 @@
             this.DGInstrutores.Name = "DGInstrutores";
             this.DGInstrutores.ReadOnly = true;
             this.DGInstrutores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGInstrutores.Size = new System.Drawing.Size(767, 176);
+            this.DGInstrutores.Size = new System.Drawing.Size(782, 176);
             this.DGInstrutores.TabIndex = 12;
             this.DGInstrutores.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DGInstrutores_CellFormatting);
             this.DGInstrutores.SelectionChanged += new System.EventHandler(this.DGInstrutores_SelectionChanged);
@@ -323,7 +324,7 @@
             this.CmbCidade.FormattingEnabled = true;
             this.CmbCidade.Location = new System.Drawing.Point(203, 175);
             this.CmbCidade.Name = "CmbCidade";
-            this.CmbCidade.Size = new System.Drawing.Size(339, 21);
+            this.CmbCidade.Size = new System.Drawing.Size(302, 21);
             this.CmbCidade.TabIndex = 6;
             // 
             // label10
@@ -349,12 +350,20 @@
             // 
             this.groupBox1.Controls.Add(this.BtnLocalizarFotoInstrutor);
             this.groupBox1.Controls.Add(this.PcbFotoInstrutor);
-            this.groupBox1.Location = new System.Drawing.Point(561, 12);
+            this.groupBox1.Location = new System.Drawing.Point(571, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(218, 296);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Foto do Instrutor ";
+            // 
+            // BtnLocalizarFotoInstrutor
+            // 
+            this.BtnLocalizarFotoInstrutor.Location = new System.Drawing.Point(95, 264);
+            this.BtnLocalizarFotoInstrutor.Name = "BtnLocalizarFotoInstrutor";
+            this.BtnLocalizarFotoInstrutor.Size = new System.Drawing.Size(28, 26);
+            this.BtnLocalizarFotoInstrutor.TabIndex = 0;
+            this.BtnLocalizarFotoInstrutor.UseVisualStyleBackColor = true;
             // 
             // PcbFotoInstrutor
             // 
@@ -364,14 +373,6 @@
             this.PcbFotoInstrutor.Size = new System.Drawing.Size(195, 238);
             this.PcbFotoInstrutor.TabIndex = 0;
             this.PcbFotoInstrutor.TabStop = false;
-            // 
-            // BtnLocalizarFotoInstrutor
-            // 
-            this.BtnLocalizarFotoInstrutor.Location = new System.Drawing.Point(95, 264);
-            this.BtnLocalizarFotoInstrutor.Name = "BtnLocalizarFotoInstrutor";
-            this.BtnLocalizarFotoInstrutor.Size = new System.Drawing.Size(28, 26);
-            this.BtnLocalizarFotoInstrutor.TabIndex = 0;
-            this.BtnLocalizarFotoInstrutor.UseVisualStyleBackColor = true;
             // 
             // TxtTelefoneResidencial
             // 
@@ -427,7 +428,7 @@
             this.LblStatus});
             this.StatusStrip.Location = new System.Drawing.Point(0, 502);
             this.StatusStrip.Name = "StatusStrip";
-            this.StatusStrip.Size = new System.Drawing.Size(792, 22);
+            this.StatusStrip.Size = new System.Drawing.Size(807, 22);
             this.StatusStrip.TabIndex = 31;
             this.StatusStrip.Text = "statusStrip1";
             // 
@@ -490,11 +491,21 @@
             this.ctrNavigator1.SalvarRegistro += new GerenciadorFinanceiro.Controles.CtrNavigator.Salvar(this.ctrNavigator1_SalvarRegistro);
             this.ctrNavigator1.EditarRegistro += new GerenciadorFinanceiro.Controles.CtrNavigator.Editar(this.ctrNavigator1_EditarRegistro);
             // 
+            // btnNovaCidade
+            // 
+            this.btnNovaCidade.Image = global::GerenciadorFinanceiro.Properties.Resources.file_add;
+            this.btnNovaCidade.Location = new System.Drawing.Point(511, 174);
+            this.btnNovaCidade.Name = "btnNovaCidade";
+            this.btnNovaCidade.Size = new System.Drawing.Size(31, 24);
+            this.btnNovaCidade.TabIndex = 38;
+            this.btnNovaCidade.UseVisualStyleBackColor = true;
+            // 
             // FrmInstrutores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(792, 524);
+            this.ClientSize = new System.Drawing.Size(807, 524);
+            this.Controls.Add(this.btnNovaCidade);
             this.Controls.Add(this.TxtCPF);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
@@ -585,5 +596,6 @@
         private System.Windows.Forms.TextBox TxtRG;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.MaskedTextBox TxtCPF;
+        private System.Windows.Forms.Button btnNovaCidade;
     }
 }

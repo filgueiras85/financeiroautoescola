@@ -63,6 +63,7 @@
             this.StatusStrip = new System.Windows.Forms.StatusStrip();
             this.LblStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.ctrNavigator1 = new GerenciadorFinanceiro.Controles.CtrNavigator();
+            this.btnNovaCidade = new System.Windows.Forms.Button();
             this.StatusStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -393,11 +394,21 @@
             this.ctrNavigator1.SalvarRegistro += new GerenciadorFinanceiro.Controles.CtrNavigator.Salvar(this.ctrNavigator1_SalvarRegistro);
             this.ctrNavigator1.EditarRegistro += new GerenciadorFinanceiro.Controles.CtrNavigator.Editar(this.ctrNavigator1_EditarRegistro);
             // 
+            // btnNovaCidade
+            // 
+            this.btnNovaCidade.Image = global::GerenciadorFinanceiro.Properties.Resources.file_add;
+            this.btnNovaCidade.Location = new System.Drawing.Point(682, 109);
+            this.btnNovaCidade.Name = "btnNovaCidade";
+            this.btnNovaCidade.Size = new System.Drawing.Size(31, 24);
+            this.btnNovaCidade.TabIndex = 48;
+            this.btnNovaCidade.UseVisualStyleBackColor = true;
+            // 
             // FrmAluno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(767, 437);
+            this.Controls.Add(this.btnNovaCidade);
             this.Controls.Add(this.StatusStrip);
             this.Controls.Add(this.CmbCidade);
             this.Controls.Add(this.CmbEstado);
@@ -479,5 +490,6 @@
         private System.Windows.Forms.ComboBox CmbCidade;
         private System.Windows.Forms.StatusStrip StatusStrip;
         private System.Windows.Forms.ToolStripStatusLabel LblStatus;
+        private System.Windows.Forms.Button btnNovaCidade;
     }
 }

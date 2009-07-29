@@ -17,6 +17,8 @@ namespace GerenciadorFinanceiro.GUI
         }
         
         private List<Dominio.Servico> _ListaServicos;
+        private BindingSource _ListSource;
+
         private List<Dominio.TipoServico> _ListaTipoServico;
         private Dominio.Servico _Servico = new Dominio.Servico();
 
@@ -71,15 +73,20 @@ namespace GerenciadorFinanceiro.GUI
             double valor;
             if (!double.TryParse(txtValor.Text, out valor))
                 throw new Exception("O campo valor tem um número inválido.");
+            if (cmbTipoServico.SelectedItem == null)
+                throw new Exception("Por favor escolha um tipo de serviço.");
+            _Servico.Tipo = (Dominio.TipoServico)cmbTipoServico.SelectedItem;
             _Servico.Descricao = TxtDescricao.Text;                        
             _Servico.Valor = valor;
+            _Servico.Observacao = txtObservacao.Text;
         }
 
         private void BuscarTodosOsServicos()
         {
             _ListaServicos = new Repositorio.RepositorioServico().BuscarTodos();
-            DGServicos.DataSource = _ListaServicos;
             this.ctrNavigator1.DataSource = _ListaServicos;
+            _ListSource = new BindingSource(_ListaServicos, "");
+            DGServicos.DataSource = _ListSource;
         }
 
         private void BuscarTiposDeServicos()
@@ -95,9 +102,17 @@ namespace GerenciadorFinanceiro.GUI
 
         private void FrmServicos_Load(object sender, EventArgs e)
         {
-            this.BuscarTodosOsServicos();
-            BuscarTiposDeServicos();
-            this.CamposInterface(Status.Consultando);
+            try
+            {
+                this.BuscarTodosOsServicos();
+                BuscarTiposDeServicos();
+                this.CamposInterface(Status.Consultando);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+            }            
         }
 
 
@@ -147,13 +162,19 @@ namespace GerenciadorFinanceiro.GUI
             {
                 this.ValidaCampos();
                 if (_Servico.IdServico == 0)
+                {
                     new Repositorio.RepositorioServico().SalvarObjeto(_Servico);
+                    _ListaServicos.Add(_Servico);
+                }
                 else
                     new Repositorio.RepositorioServico().AtualizarObjeto(_Servico);
+
+                _ListSource.ResetBindings(true);
+                MessageBox.Show("Registro salvo com sucesso.", "Atenção.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro ao tentar salvar o Servico solicitado.", ex);
+                MessageBox.Show(ex.Message, "Atenção.", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }

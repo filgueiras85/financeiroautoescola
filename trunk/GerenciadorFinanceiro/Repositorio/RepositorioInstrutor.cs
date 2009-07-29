@@ -18,8 +18,8 @@ namespace GerenciadorFinanceiro.Repositorio
                                 "@Rua, @Numero, @Complemento, @Bairro, @CEP, @IdCidade, @PathFoto, @Observacao)";
             try
             {
-                this.AbrirConexao();
-                this.Execute(sSqlInsert, objeto.Nome, objeto.TelefoneResidencial, objeto.TelefoneCelular,
+                Conection.AbrirConexao();
+                Conection.Execute(sSqlInsert, objeto.Nome, objeto.TelefoneResidencial, objeto.TelefoneCelular,
                              objeto.RG, objeto.CPF, objeto.Endereco.Rua, objeto.Endereco.Numero, 
                              objeto.Endereco.Complemento, objeto.Endereco.Bairro, objeto.Endereco.CEP,
                              objeto.Endereco.Cidade.IdCidade, objeto.PathFoto, objeto.Observacao);
@@ -30,7 +30,7 @@ namespace GerenciadorFinanceiro.Repositorio
             }
             finally
             {
-                this.FecharConexao();
+                Conection.FecharConexao();
             }
         }
 
@@ -42,8 +42,8 @@ namespace GerenciadorFinanceiro.Repositorio
                                 "Observacao = @Observacao, PathFoto = @PathFoto where IdInstrutor = @IdInstrutor";
             try
             {
-                this.AbrirConexao();
-                this.Execute(sSqlUpdate, objeto.Nome, objeto.TelefoneResidencial, objeto.TelefoneCelular, objeto.RG,
+                Conection.AbrirConexao();
+                Conection.Execute(sSqlUpdate, objeto.Nome, objeto.TelefoneResidencial, objeto.TelefoneCelular, objeto.RG,
                             objeto.CPF, objeto.Endereco.Rua, objeto.Endereco.Numero, objeto.Endereco.Complemento, 
                             objeto.Endereco.Bairro, objeto.Endereco.CEP, objeto.Endereco.Cidade.IdCidade,
                             objeto.Observacao, objeto.PathFoto, objeto.IdInstrutor);
@@ -54,7 +54,7 @@ namespace GerenciadorFinanceiro.Repositorio
             }
             finally
             {
-                this.FecharConexao();
+                Conection.FecharConexao();
             }
         }
 
@@ -63,8 +63,8 @@ namespace GerenciadorFinanceiro.Repositorio
             string sSqlDelete = "update TB_Instrutor set Ativo = 0 where IdInstrutor = @IdInstrutor";
             try
             {
-                this.AbrirConexao();
-                this.Execute(sSqlDelete, objeto.IdInstrutor);
+                Conection.AbrirConexao();
+                Conection.Execute(sSqlDelete, objeto.IdInstrutor);
             }
             catch (Exception ex)
             {
@@ -72,7 +72,7 @@ namespace GerenciadorFinanceiro.Repositorio
             }
             finally
             {
-                this.FecharConexao();
+                Conection.FecharConexao();
             }
         }
 
@@ -81,8 +81,8 @@ namespace GerenciadorFinanceiro.Repositorio
             string sSqlSelect = "select * from TB_Instrutor where IdInstrutor = @IdInstrutor";
             try
             {
-                this.AbrirConexao();
-                var reader = this.ExecuteReader(sSqlSelect, id);
+                Conection.AbrirConexao();
+                var reader = Conection.ExecuteReader(sSqlSelect, id);
                 Dominio.Instrutor instrutor = new Dominio.Instrutor();
                 while (reader.Read())
                 {
@@ -112,7 +112,7 @@ namespace GerenciadorFinanceiro.Repositorio
             }
             finally
             {
-                this.FecharConexao();
+                Conection.FecharConexao();
             }
         }
 
@@ -122,8 +122,8 @@ namespace GerenciadorFinanceiro.Repositorio
             List<Dominio.Instrutor> listaInstrutor = new List<GerenciadorFinanceiro.Dominio.Instrutor>();
             try
             {
-                this.AbrirConexao();
-                var reader = this.ExecuteReader(sSqlSelect);
+                Conection.AbrirConexao();
+                var reader = Conection.ExecuteReader(sSqlSelect);
                 Dominio.Instrutor instrutor;                
                 while (reader.Read())
                 {
@@ -156,7 +156,7 @@ namespace GerenciadorFinanceiro.Repositorio
             }
             finally
             {
-                this.FecharConexao();
+                Conection.FecharConexao();
             }
         }
 
