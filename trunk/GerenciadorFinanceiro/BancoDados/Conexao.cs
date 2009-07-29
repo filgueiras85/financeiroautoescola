@@ -11,6 +11,7 @@ namespace GerenciadorFinanceiro.BancoDados
 
         private string _StrConexao;
         private System.Data.SqlServerCe.SqlCeConnection _Conexao;
+        private System.Data.SqlServerCe.SqlCeTransaction _Transaction;
         
         public Conexao()
         {
@@ -40,6 +41,42 @@ namespace GerenciadorFinanceiro.BancoDados
                 _Conexao.Close();
         }
 
+        public void BeginTransaction(System.Data.IsolationLevel isolation)
+        {
+            try
+            {
+                _Transaction = _Conexao.BeginTransaction(isolation);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Não foi possível iniciar a transação.", ex);
+            }           
+        }
+
+
+        public void Commit()
+        {
+            try
+            {
+                _Transaction.Commit();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Não foi possível executar o commit da transação.", ex);
+            }
+        }
+        
+        public void Rollback()
+        {
+            try
+            {
+                _Transaction.Rollback();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Não foi possível executar o rollback da transação.", ex);
+            }
+        }
 
         public void Execute(string sql, params  object[] parametros)
         {
