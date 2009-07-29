@@ -14,10 +14,9 @@ namespace GerenciadorFinanceiro.Repositorio
             string sqlInsert = "insert into TB_TipoServico (Descricao) values (@descricao)";
             try
             {
-                this.AbrirConexao();
-                this.Execute(sqlInsert, objeto.Descricao);
-                objeto.IdTipoServico = (int)this.ExecuteScalar("Select @@Identity");
-
+                Conection.AbrirConexao();
+                Conection.Execute(sqlInsert, objeto.Descricao);
+                objeto.IdTipoServico = Convert.ToInt32(Conection.ExecuteScalar("Select @@Identity"));
             }
             catch (Exception ex)
             {
@@ -25,7 +24,7 @@ namespace GerenciadorFinanceiro.Repositorio
             }
             finally
             {
-                this.FecharConexao();
+                Conection.FecharConexao();
             }
         }
 
@@ -34,8 +33,8 @@ namespace GerenciadorFinanceiro.Repositorio
             string sqlUpdate = "Update TB_TipoServico  set Descricao = @descricao where IdTipoServico = @id";
             try
             {
-                this.AbrirConexao();
-                this.Execute(sqlUpdate, objeto.Descricao, objeto.IdTipoServico );
+                Conection.AbrirConexao();
+                Conection.Execute(sqlUpdate, objeto.Descricao, objeto.IdTipoServico);
             }
             catch (Exception ex)
             {
@@ -43,7 +42,7 @@ namespace GerenciadorFinanceiro.Repositorio
             }
             finally
             {
-                this.FecharConexao();
+                Conection.FecharConexao();
             }
         }
 
@@ -52,8 +51,8 @@ namespace GerenciadorFinanceiro.Repositorio
             string sqlDelete = "Update TB_TipoServico set Ativo = 0 where IdTipoServico = @id";
             try
             {
-                this.AbrirConexao();
-                this.Execute(sqlDelete, objeto.IdTipoServico);
+                Conection.AbrirConexao();
+                Conection.Execute(sqlDelete, objeto.IdTipoServico);
             }
             catch (Exception ex)
             {
@@ -61,7 +60,7 @@ namespace GerenciadorFinanceiro.Repositorio
             }
             finally
             {
-                this.FecharConexao();
+                Conection.FecharConexao();
             }
         }
 
@@ -70,8 +69,8 @@ namespace GerenciadorFinanceiro.Repositorio
             string sqlSelect = "select * from TB_TipoServico where IdTipoServico = @id";
             try
             {
-                this.AbrirConexao();
-                var reader = this.ExecuteReader(sqlSelect, id);
+                Conection.AbrirConexao();
+                var reader = Conection.ExecuteReader(sqlSelect, id);
                 Dominio.TipoServico tipoServico = new GerenciadorFinanceiro.Dominio.TipoServico();
                 while (reader.Read())
                 {
@@ -86,7 +85,7 @@ namespace GerenciadorFinanceiro.Repositorio
             }
             finally
             {
-                this.FecharConexao();
+                Conection.FecharConexao();
             }
         }
 
@@ -95,8 +94,8 @@ namespace GerenciadorFinanceiro.Repositorio
             string sqlSelect = "select * from TB_TipoServico where Ativo = 1 order by Descricao";
             try
             {
-                this.AbrirConexao();
-                var reader = this.ExecuteReader(sqlSelect);
+                Conection.AbrirConexao();
+                var reader = Conection.ExecuteReader(sqlSelect);
                 List<Dominio.TipoServico> lista = new List<GerenciadorFinanceiro.Dominio.TipoServico>();
                 while (reader.Read())
                 {
@@ -113,7 +112,7 @@ namespace GerenciadorFinanceiro.Repositorio
             }
             finally
             {
-                this.FecharConexao();
+                Conection.FecharConexao();
             }
         }
 

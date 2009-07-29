@@ -18,6 +18,8 @@ namespace GerenciadorFinanceiro.GUI
         }
 
         private Dominio.TipoServico _TipoServico;
+
+        private BindingSource _ListSource;
         private List<Dominio.TipoServico> _ListaTipoServicos;
         
         #region "Controlando alterações"
@@ -117,9 +119,13 @@ namespace GerenciadorFinanceiro.GUI
                     _TipoServico = (Dominio.TipoServico)objSalvar;
                 ValidaCampos();
                 if (_TipoServico.IdTipoServico == 0)
+                {
                     new Repositorio.RepositorioTipoServico().SalvarObjeto(_TipoServico);
+                    _ListaTipoServicos.Add(_TipoServico);
+                }
                 else
                     new Repositorio.RepositorioTipoServico().AtualizarObjeto(_TipoServico);
+                _ListSource.ResetBindings(true);
                 MessageBox.Show("Registro salvo com suceso!", "OK");
             }
             catch (Exception ex)
@@ -130,8 +136,18 @@ namespace GerenciadorFinanceiro.GUI
 
         private void FrmTipoServico_Load(object sender, EventArgs e)
         {
-            _ListaTipoServicos = new Repositorio.RepositorioTipoServico().BuscarTodos();
-            DGServicos.DataSource = _ListaTipoServicos;
+            try
+            {                
+                _ListaTipoServicos = new Repositorio.RepositorioTipoServico().BuscarTodos();
+                _ListSource = new BindingSource(_ListaTipoServicos, "");
+                DGServicos.DataSource = _ListSource;
+                this.CamposInterface(Status.Consultando);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+            }            
         }
     }
 }

@@ -15,8 +15,8 @@ namespace GerenciadorFinanceiro.Repositorio
             string sSqlInsert = "insert into TB_Modelo_Veiculo (Descricao, IdFabricanteVeiculo) values (@Descricao, @IdFabricante)";
             try
             {
-                this.AbrirConexao();
-                this.Execute(sSqlInsert, objeto.Descricao, objeto.Fabricante.IdFabricanteVeiculo);
+                Conection.AbrirConexao();
+                Conection.Execute(sSqlInsert, objeto.Descricao, objeto.Fabricante.IdFabricanteVeiculo);
             }
             catch (Exception ex)
             {
@@ -24,7 +24,7 @@ namespace GerenciadorFinanceiro.Repositorio
             }
             finally
             {
-                this.FecharConexao();
+                Conection.FecharConexao();
             }
         }
 
@@ -33,8 +33,8 @@ namespace GerenciadorFinanceiro.Repositorio
             string sSqlUpdate = "update TB_Modelo_Veiculo set Descricao = @Descricao, IdFabricanteVeiculo = @IdFabricante where IdModeloVeiculo = @IdModeloVeiculo";
             try
             {
-                this.AbrirConexao();
-                this.Execute(sSqlUpdate, objeto.Descricao, objeto.Fabricante.IdFabricanteVeiculo, objeto.IdModeloVeiculo);
+                Conection.AbrirConexao();
+                Conection.Execute(sSqlUpdate, objeto.Descricao, objeto.Fabricante.IdFabricanteVeiculo, objeto.IdModeloVeiculo);
             }
             catch (Exception ex)
             {
@@ -42,7 +42,7 @@ namespace GerenciadorFinanceiro.Repositorio
             }
             finally
             {
-                this.FecharConexao();
+                Conection.FecharConexao();
             }
         }
 
@@ -51,8 +51,8 @@ namespace GerenciadorFinanceiro.Repositorio
             string sSqlDelete = "update TB_Modelo_Veiculo set Ativo = 0 where IdModeloVeiculo = @IdModeloVeiculo";
             try
             {
-                this.AbrirConexao();
-                this.Execute(sSqlDelete, objeto.IdModeloVeiculo);
+                Conection.AbrirConexao();
+                Conection.Execute(sSqlDelete, objeto.IdModeloVeiculo);
             }
             catch (Exception ex)
             {
@@ -60,7 +60,7 @@ namespace GerenciadorFinanceiro.Repositorio
             }
             finally
             {
-                this.FecharConexao();
+                Conection.FecharConexao();
             }
         }
 
@@ -69,8 +69,8 @@ namespace GerenciadorFinanceiro.Repositorio
             string sSqlSelect = "select * from TB_Modelo_Veiculo where IdModeloVeiculo = @IdModeloVeiculo";
             try
             {
-                this.AbrirConexao();
-                var reader = this.ExecuteReader(sSqlSelect, id);
+                Conection.AbrirConexao();
+                var reader = Conection.ExecuteReader(sSqlSelect, id);
                 Dominio.ModeloVeiculo modeloVeiculo = new Dominio.ModeloVeiculo();
                 while (reader.Read())
                 {
@@ -86,7 +86,7 @@ namespace GerenciadorFinanceiro.Repositorio
             }
             finally
             {
-                this.FecharConexao();
+                Conection.FecharConexao();
             }
         }
 
@@ -96,8 +96,8 @@ namespace GerenciadorFinanceiro.Repositorio
             List<Dominio.ModeloVeiculo> listaModeloVeiculo = new List<GerenciadorFinanceiro.Dominio.ModeloVeiculo>();
             try
             {
-                this.AbrirConexao();
-                var reader = this.ExecuteReader(sSqlSelect);
+                Conection.AbrirConexao();
+                var reader = Conection.ExecuteReader(sSqlSelect);
                 Dominio.ModeloVeiculo modeloVeiculo;
                 while (reader.Read())
                 {
@@ -116,7 +116,7 @@ namespace GerenciadorFinanceiro.Repositorio
             }
             finally
             {
-                this.FecharConexao();
+                Conection.FecharConexao();
             }
         }
 

@@ -10,15 +10,12 @@ namespace GerenciadorFinanceiro.Dominio
         public FormaPagamento()
         {
         }
-
-
+        
         public int Id { get; set; }
 
         public string Descricao { get; set; }
 
-        public int QuantidadeParcela { get; set; }
-
-        public int MyProperty { get; set; }
+        public int QuantidadeParcela { get; set; }        
 
     }
 }

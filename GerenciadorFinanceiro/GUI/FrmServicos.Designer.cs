@@ -34,17 +34,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.TxtDescricao = new System.Windows.Forms.TextBox();
             this.DGServicos = new System.Windows.Forms.DataGridView();
-            this.StatusStrip = new System.Windows.Forms.StatusStrip();
-            this.LblStatus = new System.Windows.Forms.ToolStripStatusLabel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.cmbTipoServico = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.ctrNavigator1 = new GerenciadorFinanceiro.Controles.CtrNavigator();
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Observacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StatusStrip = new System.Windows.Forms.StatusStrip();
+            this.LblStatus = new System.Windows.Forms.ToolStripStatusLabel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtObservacao = new System.Windows.Forms.TextBox();
+            this.cmbTipoServico = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.ctrNavigator1 = new GerenciadorFinanceiro.Controles.CtrNavigator();
+            this.btnNovoTipoServico = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DGServicos)).BeginInit();
             this.StatusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -107,6 +108,37 @@
             this.DGServicos.Size = new System.Drawing.Size(638, 226);
             this.DGServicos.TabIndex = 28;
             // 
+            // Codigo
+            // 
+            this.Codigo.DataPropertyName = "IdServico";
+            this.Codigo.HeaderText = "Codigo";
+            this.Codigo.Name = "Codigo";
+            this.Codigo.ReadOnly = true;
+            this.Codigo.Visible = false;
+            // 
+            // Descricao
+            // 
+            this.Descricao.DataPropertyName = "Descricao";
+            this.Descricao.HeaderText = "Descricao";
+            this.Descricao.Name = "Descricao";
+            this.Descricao.ReadOnly = true;
+            this.Descricao.Width = 250;
+            // 
+            // Valor
+            // 
+            this.Valor.DataPropertyName = "Valor";
+            this.Valor.HeaderText = "Valor";
+            this.Valor.Name = "Valor";
+            this.Valor.ReadOnly = true;
+            // 
+            // Observacao
+            // 
+            this.Observacao.DataPropertyName = "Observacao";
+            this.Observacao.HeaderText = "Observação";
+            this.Observacao.Name = "Observacao";
+            this.Observacao.ReadOnly = true;
+            this.Observacao.Width = 300;
+            // 
             // StatusStrip
             // 
             this.StatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -134,13 +166,13 @@
             this.label3.TabIndex = 34;
             this.label3.Text = "Observação:";
             // 
-            // textBox1
+            // txtObservacao
             // 
-            this.textBox1.BackColor = System.Drawing.Color.White;
-            this.textBox1.Location = new System.Drawing.Point(113, 100);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(374, 20);
-            this.textBox1.TabIndex = 33;
+            this.txtObservacao.BackColor = System.Drawing.Color.White;
+            this.txtObservacao.Location = new System.Drawing.Point(113, 100);
+            this.txtObservacao.Name = "txtObservacao";
+            this.txtObservacao.Size = new System.Drawing.Size(374, 20);
+            this.txtObservacao.TabIndex = 33;
             // 
             // cmbTipoServico
             // 
@@ -176,46 +208,25 @@
             this.ctrNavigator1.SalvarRegistro += new GerenciadorFinanceiro.Controles.CtrNavigator.Salvar(this.ctrNavigator1_SalvarRegistro);
             this.ctrNavigator1.EditarRegistro += new GerenciadorFinanceiro.Controles.CtrNavigator.Editar(this.ctrNavigator1_EditarRegistro);
             // 
-            // Codigo
+            // btnNovoTipoServico
             // 
-            this.Codigo.DataPropertyName = "IdServico";
-            this.Codigo.HeaderText = "Codigo";
-            this.Codigo.Name = "Codigo";
-            this.Codigo.ReadOnly = true;
-            this.Codigo.Visible = false;
-            // 
-            // Descricao
-            // 
-            this.Descricao.DataPropertyName = "Descricao";
-            this.Descricao.HeaderText = "Descricao";
-            this.Descricao.Name = "Descricao";
-            this.Descricao.ReadOnly = true;
-            this.Descricao.Width = 250;
-            // 
-            // Valor
-            // 
-            this.Valor.DataPropertyName = "Valor";
-            this.Valor.HeaderText = "Valor";
-            this.Valor.Name = "Valor";
-            this.Valor.ReadOnly = true;
-            // 
-            // Observacao
-            // 
-            this.Observacao.DataPropertyName = "Observacao";
-            this.Observacao.HeaderText = "Observação";
-            this.Observacao.Name = "Observacao";
-            this.Observacao.ReadOnly = true;
-            this.Observacao.Width = 300;
+            this.btnNovoTipoServico.Image = global::GerenciadorFinanceiro.Properties.Resources.file_add;
+            this.btnNovoTipoServico.Location = new System.Drawing.Point(341, 69);
+            this.btnNovoTipoServico.Name = "btnNovoTipoServico";
+            this.btnNovoTipoServico.Size = new System.Drawing.Size(31, 24);
+            this.btnNovoTipoServico.TabIndex = 37;
+            this.btnNovoTipoServico.UseVisualStyleBackColor = true;            
             // 
             // FrmServicos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(677, 433);
+            this.Controls.Add(this.btnNovoTipoServico);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.cmbTipoServico);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtObservacao);
             this.Controls.Add(this.StatusStrip);
             this.Controls.Add(this.ctrNavigator1);
             this.Controls.Add(this.DGServicos);
@@ -224,7 +235,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TxtDescricao);
             this.Name = "FrmServicos";
-            this.Text = "FrmServicos";
+            this.Text = "Serviços";
             this.Load += new System.EventHandler(this.FrmServicos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DGServicos)).EndInit();
             this.StatusStrip.ResumeLayout(false);
@@ -245,12 +256,13 @@
         private System.Windows.Forms.StatusStrip StatusStrip;
         private System.Windows.Forms.ToolStripStatusLabel LblStatus;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtObservacao;
         private System.Windows.Forms.ComboBox cmbTipoServico;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descricao;
         private System.Windows.Forms.DataGridViewTextBoxColumn Valor;
         private System.Windows.Forms.DataGridViewTextBoxColumn Observacao;
+        private System.Windows.Forms.Button btnNovoTipoServico;
     }
 }

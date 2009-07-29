@@ -16,8 +16,8 @@ namespace GerenciadorFinanceiro.Repositorio
                                " values (@Nome, @Email, @Telefone, @Celular, @Username, @Senha)";
             try
             {
-                this.AbrirConexao();
-                this.Execute(sSqlInsert, objeto.Nome, objeto.Email, objeto.Telefone, objeto.Celular, objeto.UserName, objeto.Senha);
+                Conection.AbrirConexao();
+                Conection.Execute(sSqlInsert, objeto.Nome, objeto.Email, objeto.Telefone, objeto.Celular, objeto.UserName, objeto.Senha);
             }
             catch (Exception ex)
             {
@@ -25,7 +25,7 @@ namespace GerenciadorFinanceiro.Repositorio
             }
             finally
             {
-                this.FecharConexao();
+                Conection.FecharConexao();
             }
         }
 
@@ -36,8 +36,8 @@ namespace GerenciadorFinanceiro.Repositorio
                                 "where IdUsuario = @IdUsuario";
             try
             {
-                this.AbrirConexao();
-                this.Execute(sSqlUpdate, objeto.Nome, objeto.Email, objeto.Telefone, objeto.Celular, 
+                Conection.AbrirConexao();
+                Conection.Execute(sSqlUpdate, objeto.Nome, objeto.Email, objeto.Telefone, objeto.Celular, 
                              objeto.UserName, objeto.Senha, objeto.IdUsuario);
             }
             catch (Exception ex)
@@ -46,7 +46,7 @@ namespace GerenciadorFinanceiro.Repositorio
             }
             finally
             {
-                this.FecharConexao();
+                Conection.FecharConexao();
             }
         }
 
@@ -55,8 +55,8 @@ namespace GerenciadorFinanceiro.Repositorio
             string sSqlDelete = "update TB_Usuario set Ativo = 0 where IdUsuario = @IdUsuario";
             try
             {
-                this.AbrirConexao();
-                this.Execute(sSqlDelete, objeto.IdUsuario);
+                Conection.AbrirConexao();
+                Conection.Execute(sSqlDelete, objeto.IdUsuario);
             }
             catch (Exception ex)
             {
@@ -64,7 +64,7 @@ namespace GerenciadorFinanceiro.Repositorio
             }
             finally
             {
-                this.FecharConexao();
+                Conection.FecharConexao();
             }
         }
 
@@ -73,8 +73,8 @@ namespace GerenciadorFinanceiro.Repositorio
             string sSqlSelect = "select * from TB_Usuario where IdUsuario = @IdUsuario";
             try
             {
-                this.AbrirConexao();
-                var reader = this.ExecuteReader(sSqlSelect, id);
+                Conection.AbrirConexao();
+                var reader = Conection.ExecuteReader(sSqlSelect, id);
                 Dominio.Usuario usuario = new Dominio.Usuario();
                 while (reader.Read())
                 {
@@ -94,7 +94,7 @@ namespace GerenciadorFinanceiro.Repositorio
             }
             finally
             {
-                this.FecharConexao();
+                Conection.FecharConexao();
             }
         }
 
@@ -104,8 +104,8 @@ namespace GerenciadorFinanceiro.Repositorio
             List<Dominio.Usuario> ListUsuarios = new List<GerenciadorFinanceiro.Dominio.Usuario>();
             try
             {
-                this.AbrirConexao();
-                var reader = this.ExecuteReader(sSqlSelect);
+                Conection.AbrirConexao();
+                var reader = Conection.ExecuteReader(sSqlSelect);
                 Dominio.Usuario usuario;
                 while (reader.Read())
                 {
@@ -128,7 +128,7 @@ namespace GerenciadorFinanceiro.Repositorio
             }
             finally
             {
-                this.FecharConexao();
+                Conection.FecharConexao();
             }
         }
 
@@ -140,8 +140,8 @@ namespace GerenciadorFinanceiro.Repositorio
             string sqlConsulta = "select * from TB_Usuario where Ativo = 1 and Username = @Username and Senha = @Senha";
             try
             {
-                this.AbrirConexao();
-                var reader = this.ExecuteReader(sqlConsulta, username, password);
+                Conection.AbrirConexao();
+                var reader = Conection.ExecuteReader(sqlConsulta, username, password);
                 Dominio.Usuario usuario = new Dominio.Usuario();
                 int flag = 0;
                 while (reader.Read())
@@ -166,7 +166,7 @@ namespace GerenciadorFinanceiro.Repositorio
             }
             finally
             {
-                this.FecharConexao();
+                Conection.FecharConexao();
             }
 
         }
@@ -175,8 +175,8 @@ namespace GerenciadorFinanceiro.Repositorio
             string sqlConsulta = "select * from TB_Usuario where Ativo = 1 and Email = @Email";
             try
             {
-                this.AbrirConexao();
-                var reader = this.ExecuteReader(sqlConsulta, email);                
+                Conection.AbrirConexao();
+                var reader = Conection.ExecuteReader(sqlConsulta, email);                
                 Dominio.Usuario usuario = new Dominio.Usuario();
                 int flag = 0;
                 while (reader.Read())
@@ -200,7 +200,7 @@ namespace GerenciadorFinanceiro.Repositorio
                 throw new Exception("Nao foi possivel verificar o Usuario ! Tente novamente!", ex);
             }
             finally {
-                this.FecharConexao();
+                Conection.FecharConexao();
             } 
         }
     }

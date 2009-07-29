@@ -15,8 +15,8 @@ namespace GerenciadorFinanceiro.Repositorio
             string sSqlInsert = "insert into TB_Estado (NomeEstado, Sigla) values (@NomeEstado, @Sigla)";
             try
             {
-                this.AbrirConexao();
-                this.Execute(sSqlInsert, objeto.NomeEstado, objeto.SiglaEstado);
+                Conection.AbrirConexao();
+                Conection.Execute(sSqlInsert, objeto.NomeEstado, objeto.SiglaEstado);
             }
             catch (Exception ex)
             {
@@ -24,7 +24,7 @@ namespace GerenciadorFinanceiro.Repositorio
             }
             finally
             {
-                this.FecharConexao();
+                Conection.FecharConexao();
             }
         }
 
@@ -33,8 +33,8 @@ namespace GerenciadorFinanceiro.Repositorio
             string sSqlUpdate = "update TB_Estado set NomeEstado = @NomeEstado, Sigla = @Sigla where IdEstado = @IdEstado";
             try
             {
-                this.AbrirConexao();
-                this.Execute(sSqlUpdate, objeto.NomeEstado, objeto.SiglaEstado, objeto.IdEstado);
+                Conection.AbrirConexao();
+                Conection.Execute(sSqlUpdate, objeto.NomeEstado, objeto.SiglaEstado, objeto.IdEstado);
             }
             catch (Exception ex)
             {
@@ -42,7 +42,7 @@ namespace GerenciadorFinanceiro.Repositorio
             }
             finally
             {
-                this.FecharConexao();
+                Conection.FecharConexao();
             }
         }
 
@@ -51,8 +51,8 @@ namespace GerenciadorFinanceiro.Repositorio
             string sSqlDelete = "update TB_Estado set Ativo = 0 where IdEstado = @IdEstado";
             try
             {
-                this.AbrirConexao();
-                this.Execute(sSqlDelete, objeto.IdEstado);
+                Conection.AbrirConexao();
+                Conection.Execute(sSqlDelete, objeto.IdEstado);
             }
             catch (Exception ex)
             {
@@ -60,7 +60,7 @@ namespace GerenciadorFinanceiro.Repositorio
             }
             finally
             {
-                this.FecharConexao();
+                Conection.FecharConexao();
             }
         }
 
@@ -69,8 +69,8 @@ namespace GerenciadorFinanceiro.Repositorio
             string sSqlSelect = "select * from TB_Estado where Ativo = 1 and IdEstado = @IdEstado";
             try
             {
-                this.AbrirConexao();
-                var reader = this.ExecuteReader(sSqlSelect, id);
+                Conection.AbrirConexao();
+                var reader = Conection.ExecuteReader(sSqlSelect, id);
                 Dominio.Estado Est = new Dominio.Estado();
                 while (reader.Read())
                 {
@@ -86,7 +86,7 @@ namespace GerenciadorFinanceiro.Repositorio
             }
             finally
             {
-                this.FecharConexao();
+                Conection.FecharConexao();
             }
         }
 
@@ -96,8 +96,8 @@ namespace GerenciadorFinanceiro.Repositorio
             List<Dominio.Estado> listaEst = new List<GerenciadorFinanceiro.Dominio.Estado>();
             try
             {
-                this.AbrirConexao();
-                var reader = this.ExecuteReader(sSqlSelect);
+                Conection.AbrirConexao();
+                var reader = Conection.ExecuteReader(sSqlSelect);
                 Dominio.Estado Est;
                 while (reader.Read())
                 {
@@ -116,7 +116,7 @@ namespace GerenciadorFinanceiro.Repositorio
             }
             finally
             {
-                this.FecharConexao();
+                Conection.FecharConexao();
             }
         }
 

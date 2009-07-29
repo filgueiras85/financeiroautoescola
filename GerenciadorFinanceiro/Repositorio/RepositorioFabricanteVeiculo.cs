@@ -14,8 +14,8 @@ namespace GerenciadorFinanceiro.Repositorio
             string sSqlInsert = "insert into TB_Fabricante_Veiculo (Descricao) values (@Descricao)";
             try
             {
-                this.AbrirConexao();
-                this.Execute(sSqlInsert, objeto.Descricao);
+                Conection.AbrirConexao();
+                Conection.Execute(sSqlInsert, objeto.Descricao);
             }
             catch (Exception ex)
             {
@@ -23,7 +23,7 @@ namespace GerenciadorFinanceiro.Repositorio
             }
             finally
             {
-                this.FecharConexao();
+                Conection.FecharConexao();
             }
         }
 
@@ -32,8 +32,8 @@ namespace GerenciadorFinanceiro.Repositorio
             string sSqlUpdate = "update TB_Fabricante_Veiculo set Descricao = @Descricao where IdFabricanteVeiculo = @IdFabricanteVeiculo";
             try
             {
-                this.AbrirConexao();
-                this.Execute(sSqlUpdate, objeto.Descricao, objeto.IdFabricanteVeiculo);
+                Conection.AbrirConexao();
+                Conection.Execute(sSqlUpdate, objeto.Descricao, objeto.IdFabricanteVeiculo);
             }
             catch (Exception ex)
             {
@@ -41,7 +41,7 @@ namespace GerenciadorFinanceiro.Repositorio
             }
             finally
             {
-                this.FecharConexao();
+                Conection.FecharConexao();
             }
         }
 
@@ -50,8 +50,8 @@ namespace GerenciadorFinanceiro.Repositorio
             string sSqlDelete = "update TB_Fabricante_Veiculo set Ativo = 0 where IdFabricanteVeiculo = @IdFabricanteVeiculo";
             try
             {
-                this.AbrirConexao();
-                this.Execute(sSqlDelete, objeto.IdFabricanteVeiculo);
+                Conection.AbrirConexao();
+                Conection.Execute(sSqlDelete, objeto.IdFabricanteVeiculo);
             }
             catch (Exception ex)
             {
@@ -59,7 +59,7 @@ namespace GerenciadorFinanceiro.Repositorio
             }
             finally
             {
-                this.FecharConexao();
+                Conection.FecharConexao();
             }
         }
 
@@ -68,8 +68,8 @@ namespace GerenciadorFinanceiro.Repositorio
             string sSqlSelect = "select * from TB_Fabricante_Veiculo where IdFabricanteVeiculo = @IdFabricanteVeiculo";
             try
             {
-                this.AbrirConexao();
-                var reader = this.ExecuteReader(sSqlSelect, id);
+                Conection.AbrirConexao();
+                var reader = Conection.ExecuteReader(sSqlSelect, id);
                 Dominio.FabricanteVeiculo fabVeiculo = new Dominio.FabricanteVeiculo();
                 while (reader.Read())
                 {
@@ -84,7 +84,7 @@ namespace GerenciadorFinanceiro.Repositorio
             }
             finally
             {
-                this.FecharConexao();
+                Conection.FecharConexao();
             }
         }
 
@@ -94,8 +94,8 @@ namespace GerenciadorFinanceiro.Repositorio
             List<Dominio.FabricanteVeiculo> listaFabVeiculo = new List<GerenciadorFinanceiro.Dominio.FabricanteVeiculo>();
             try
             {
-                this.AbrirConexao();
-                var reader = this.ExecuteReader(sSqlSelect);
+                Conection.AbrirConexao();
+                var reader = Conection.ExecuteReader(sSqlSelect);
                 Dominio.FabricanteVeiculo fabVeiculo;
                 while (reader.Read())
                 {
@@ -113,7 +113,7 @@ namespace GerenciadorFinanceiro.Repositorio
             }
             finally
             {
-                this.FecharConexao();
+                Conection.FecharConexao();
             }
         }
 
