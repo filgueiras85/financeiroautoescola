@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.BtnUltimo = new System.Windows.Forms.Button();
             this.BtnProximo = new System.Windows.Forms.Button();
             this.BtnAnterior = new System.Windows.Forms.Button();
@@ -43,11 +41,6 @@
             this.PnlBotoes.SuspendLayout();
             this.SuspendLayout();
             // 
-            // toolTip
-            // 
-            this.toolTip.IsBalloon = true;
-            this.toolTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            // 
             // BtnUltimo
             // 
             this.BtnUltimo.Image = global::GerenciadorFinanceiro.Properties.Resources.ultimo;
@@ -55,7 +48,6 @@
             this.BtnUltimo.Name = "BtnUltimo";
             this.BtnUltimo.Size = new System.Drawing.Size(35, 28);
             this.BtnUltimo.TabIndex = 3;
-            this.toolTip.SetToolTip(this.BtnUltimo, "Último");
             this.BtnUltimo.UseVisualStyleBackColor = true;
             this.BtnUltimo.Click += new System.EventHandler(this.BtnUltimo_Click);
             // 
@@ -66,7 +58,6 @@
             this.BtnProximo.Name = "BtnProximo";
             this.BtnProximo.Size = new System.Drawing.Size(35, 28);
             this.BtnProximo.TabIndex = 2;
-            this.toolTip.SetToolTip(this.BtnProximo, "Próximo");
             this.BtnProximo.UseVisualStyleBackColor = true;
             this.BtnProximo.Click += new System.EventHandler(this.BtnProximo_Click);
             // 
@@ -77,7 +68,6 @@
             this.BtnAnterior.Name = "BtnAnterior";
             this.BtnAnterior.Size = new System.Drawing.Size(35, 28);
             this.BtnAnterior.TabIndex = 1;
-            this.toolTip.SetToolTip(this.BtnAnterior, "Anterior");
             this.BtnAnterior.UseVisualStyleBackColor = true;
             this.BtnAnterior.Click += new System.EventHandler(this.BtnAnterior_Click);
             // 
@@ -88,7 +78,6 @@
             this.BtnPrimeiro.Name = "BtnPrimeiro";
             this.BtnPrimeiro.Size = new System.Drawing.Size(35, 28);
             this.BtnPrimeiro.TabIndex = 0;
-            this.toolTip.SetToolTip(this.BtnPrimeiro, "Primeiro");
             this.BtnPrimeiro.UseVisualStyleBackColor = true;
             this.BtnPrimeiro.Click += new System.EventHandler(this.BtnPrimeiro_Click);
             // 
@@ -188,7 +177,6 @@
         private System.Windows.Forms.Button BtnAnterior;
         private System.Windows.Forms.Button BtnProximo;
         private System.Windows.Forms.Button BtnUltimo;
-        private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.Button BtnNovo;
         private System.Windows.Forms.Button BtnEditar;
         private System.Windows.Forms.Button BtnCancelar;

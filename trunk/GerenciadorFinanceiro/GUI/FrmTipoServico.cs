@@ -108,7 +108,7 @@ namespace GerenciadorFinanceiro.GUI
 
         private void ctrNavigator1_MudaRegistroSelecionado(object objetoAtual)
         {
-
+            DGServicos.Rows[ctrNavigator1.Indice].Selected = true;
         }
 
         private void ctrNavigator1_SalvarRegistro(object objSalvar)

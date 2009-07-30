@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.TxtNomeInstrutor = new System.Windows.Forms.TextBox();
             this.DGInstrutores = new System.Windows.Forms.DataGridView();
@@ -102,8 +102,8 @@
             // 
             this.DGInstrutores.AllowUserToAddRows = false;
             this.DGInstrutores.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DGInstrutores.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DGInstrutores.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DGInstrutores.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
@@ -120,6 +120,7 @@
             this.Telefone,
             this.Celular});
             this.DGInstrutores.Location = new System.Drawing.Point(12, 314);
+            this.DGInstrutores.MultiSelect = false;
             this.DGInstrutores.Name = "DGInstrutores";
             this.DGInstrutores.ReadOnly = true;
             this.DGInstrutores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;

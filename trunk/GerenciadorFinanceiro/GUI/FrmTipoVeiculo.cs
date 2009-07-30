@@ -159,13 +159,7 @@ namespace GerenciadorFinanceiro.GUI
 
         private void ctrNavigator1_MudaRegistroSelecionado(object objetoAtual)
         {
-            for (int i = 0; i < DGTipoVeiculo.Rows.Count; i++)
-            {
-                if (i == ctrNavigator1.Indice)
-                    DGTipoVeiculo.Rows[i].Selected = true;
-                else
-                    DGTipoVeiculo.Rows[i].Selected = false;
-            }
+            DGTipoVeiculo.Rows[ctrNavigator1.Indice].Selected = true; 
         }
 
     }

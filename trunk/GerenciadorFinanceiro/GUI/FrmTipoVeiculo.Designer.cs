@@ -73,6 +73,7 @@
             this.IdTipoVeiculo,
             this.Descricao});
             this.DGTipoVeiculo.Location = new System.Drawing.Point(15, 97);
+            this.DGTipoVeiculo.MultiSelect = false;
             this.DGTipoVeiculo.Name = "DGTipoVeiculo";
             this.DGTipoVeiculo.ReadOnly = true;
             this.DGTipoVeiculo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;

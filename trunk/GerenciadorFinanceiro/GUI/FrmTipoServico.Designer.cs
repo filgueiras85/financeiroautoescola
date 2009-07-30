@@ -32,11 +32,11 @@
             this.StatusStrip = new System.Windows.Forms.StatusStrip();
             this.LblStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.DGServicos = new System.Windows.Forms.DataGridView();
-            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.TxtDescricao = new System.Windows.Forms.TextBox();
             this.ctrNavigator1 = new GerenciadorFinanceiro.Controles.CtrNavigator();
+            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StatusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGServicos)).BeginInit();
             this.SuspendLayout();
@@ -47,7 +47,7 @@
             this.LblStatus});
             this.StatusStrip.Location = new System.Drawing.Point(0, 283);
             this.StatusStrip.Name = "StatusStrip";
-            this.StatusStrip.Size = new System.Drawing.Size(626, 22);
+            this.StatusStrip.Size = new System.Drawing.Size(577, 22);
             this.StatusStrip.TabIndex = 43;
             this.StatusStrip.Text = "statusStrip1";
             // 
@@ -71,29 +71,13 @@
             this.Codigo,
             this.Descricao});
             this.DGServicos.Location = new System.Drawing.Point(14, 86);
+            this.DGServicos.MultiSelect = false;
             this.DGServicos.Name = "DGServicos";
             this.DGServicos.ReadOnly = true;
             this.DGServicos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGServicos.Size = new System.Drawing.Size(597, 181);
+            this.DGServicos.Size = new System.Drawing.Size(547, 181);
             this.DGServicos.TabIndex = 42;
             this.DGServicos.SelectionChanged += new System.EventHandler(this.DGServicos_SelectionChanged);
-            // 
-            // Codigo
-            // 
-            this.Codigo.DataPropertyName = "IdTipoServico";
-            this.Codigo.HeaderText = "Codigo";
-            this.Codigo.Name = "Codigo";
-            this.Codigo.ReadOnly = true;
-            this.Codigo.Visible = false;
-            this.Codigo.Width = 250;
-            // 
-            // Descricao
-            // 
-            this.Descricao.DataPropertyName = "Descricao";
-            this.Descricao.HeaderText = "Descricao";
-            this.Descricao.Name = "Descricao";
-            this.Descricao.ReadOnly = true;
-            this.Descricao.Width = 350;
             // 
             // label1
             // 
@@ -128,11 +112,26 @@
             this.ctrNavigator1.SalvarRegistro += new GerenciadorFinanceiro.Controles.CtrNavigator.Salvar(this.ctrNavigator1_SalvarRegistro);
             this.ctrNavigator1.EditarRegistro += new GerenciadorFinanceiro.Controles.CtrNavigator.Editar(this.ctrNavigator1_EditarRegistro);
             // 
+            // Codigo
+            // 
+            this.Codigo.DataPropertyName = "IdTipoServico";
+            this.Codigo.HeaderText = "Codigo";
+            this.Codigo.Name = "Codigo";
+            this.Codigo.ReadOnly = true;
+            // 
+            // Descricao
+            // 
+            this.Descricao.DataPropertyName = "Descricao";
+            this.Descricao.HeaderText = "Descricao";
+            this.Descricao.Name = "Descricao";
+            this.Descricao.ReadOnly = true;
+            this.Descricao.Width = 350;
+            // 
             // FrmTipoServico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(626, 305);
+            this.ClientSize = new System.Drawing.Size(577, 305);
             this.Controls.Add(this.StatusStrip);
             this.Controls.Add(this.ctrNavigator1);
             this.Controls.Add(this.DGServicos);

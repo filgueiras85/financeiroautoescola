@@ -121,13 +121,7 @@ namespace GerenciadorFinanceiro.GUI
 
         private void ctrNavigator1_MudaRegistroSelecionado(object objetoAtual)
         {
-            for (int i = 0; i < DGFormaPagamento.Rows.Count; i++)
-            {
-                if (i == ctrNavigator1.Indice)
-                    DGFormaPagamento.Rows[i].Selected = true;
-                else
-                    DGFormaPagamento.Rows[i].Selected = false;
-            }
+            DGFormaPagamento.Rows[ctrNavigator1.Indice].Selected = true; 
         }
 
         private void ctrNavigator1_SalvarRegistro(object objSalvar)

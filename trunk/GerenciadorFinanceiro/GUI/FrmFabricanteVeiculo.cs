@@ -142,13 +142,7 @@ namespace GerenciadorFinanceiro.GUI
 
         private void ctrNavigator1_MudaRegistroSelecionado(object objetoAtual)
         {
-            for (int i = 0; i < DGFabricantes.Rows.Count; i++)
-            {
-                if (i == ctrNavigator1.Indice)
-                    DGFabricantes.Rows[i].Selected = true;
-                else
-                    DGFabricantes.Rows[i].Selected = false;
-            }
+            DGFabricantes.Rows[ctrNavigator1.Indice].Selected = true; 
         }
 
         private void DGFabricantes_SelectionChanged(object sender, EventArgs e)

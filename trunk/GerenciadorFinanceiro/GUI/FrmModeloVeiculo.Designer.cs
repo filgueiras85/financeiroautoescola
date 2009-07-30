@@ -97,6 +97,7 @@
             this.Descricao,
             this.Fabricante});
             this.DGModelos.Location = new System.Drawing.Point(20, 112);
+            this.DGModelos.MultiSelect = false;
             this.DGModelos.Name = "DGModelos";
             this.DGModelos.ReadOnly = true;
             this.DGModelos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;

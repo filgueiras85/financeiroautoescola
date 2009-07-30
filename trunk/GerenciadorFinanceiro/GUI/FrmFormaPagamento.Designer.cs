@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.DGFormaPagamento = new System.Windows.Forms.DataGridView();
+            this.ColId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColDescricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TxtDescricao = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.StatusStrip = new System.Windows.Forms.StatusStrip();
             this.LblStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.ctrNavigator1 = new GerenciadorFinanceiro.Controles.CtrNavigator();
-            this.ColId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColDescricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DGFormaPagamento)).BeginInit();
             this.StatusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -51,12 +51,28 @@
             this.ColId,
             this.ColDescricao});
             this.DGFormaPagamento.Location = new System.Drawing.Point(21, 90);
+            this.DGFormaPagamento.MultiSelect = false;
             this.DGFormaPagamento.Name = "DGFormaPagamento";
             this.DGFormaPagamento.ReadOnly = true;
             this.DGFormaPagamento.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGFormaPagamento.Size = new System.Drawing.Size(527, 153);
             this.DGFormaPagamento.TabIndex = 1;
             this.DGFormaPagamento.SelectionChanged += new System.EventHandler(this.DGFormaPagamento_SelectionChanged);
+            // 
+            // ColId
+            // 
+            this.ColId.DataPropertyName = "Id";
+            this.ColId.HeaderText = "Código";
+            this.ColId.Name = "ColId";
+            this.ColId.ReadOnly = true;
+            // 
+            // ColDescricao
+            // 
+            this.ColDescricao.DataPropertyName = "Descricao";
+            this.ColDescricao.HeaderText = "Descrição";
+            this.ColDescricao.Name = "ColDescricao";
+            this.ColDescricao.ReadOnly = true;
+            this.ColDescricao.Width = 350;
             // 
             // TxtDescricao
             // 
@@ -108,21 +124,6 @@
             this.ctrNavigator1.CancelarAcao += new GerenciadorFinanceiro.Controles.CtrNavigator.Cancelar(this.ctrNavigator1_CancelarAcao);
             this.ctrNavigator1.SalvarRegistro += new GerenciadorFinanceiro.Controles.CtrNavigator.Salvar(this.ctrNavigator1_SalvarRegistro);
             this.ctrNavigator1.EditarRegistro += new GerenciadorFinanceiro.Controles.CtrNavigator.Editar(this.ctrNavigator1_EditarRegistro);
-            // 
-            // ColId
-            // 
-            this.ColId.DataPropertyName = "Id";
-            this.ColId.HeaderText = "Código";
-            this.ColId.Name = "ColId";
-            this.ColId.ReadOnly = true;
-            // 
-            // ColDescricao
-            // 
-            this.ColDescricao.DataPropertyName = "Descricao";
-            this.ColDescricao.HeaderText = "Descrição";
-            this.ColDescricao.Name = "ColDescricao";
-            this.ColDescricao.ReadOnly = true;
-            this.ColDescricao.Width = 350;
             // 
             // FrmFormaPagamento
             // 

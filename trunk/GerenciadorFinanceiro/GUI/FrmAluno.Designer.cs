@@ -404,6 +404,7 @@
             this.btnNovaCidade.Size = new System.Drawing.Size(31, 24);
             this.btnNovaCidade.TabIndex = 8;
             this.btnNovaCidade.UseVisualStyleBackColor = true;
+            this.btnNovaCidade.Click += new System.EventHandler(this.btnNovaCidade_Click);
             // 
             // label17
             // 
