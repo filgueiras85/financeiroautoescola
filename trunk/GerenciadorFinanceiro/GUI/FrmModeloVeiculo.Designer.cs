@@ -169,6 +169,7 @@
             this.btnNovoFabricante.Size = new System.Drawing.Size(31, 24);
             this.btnNovoFabricante.TabIndex = 38;
             this.btnNovoFabricante.UseVisualStyleBackColor = true;
+            this.btnNovoFabricante.Click += new System.EventHandler(this.btnNovoFabricante_Click);
             // 
             // FrmModeloVeiculo
             // 
@@ -185,6 +186,7 @@
             this.Controls.Add(this.TxtDescricao);
             this.MinimizeBox = false;
             this.Name = "FrmModeloVeiculo";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Modelos de Veiculos";
             this.Load += new System.EventHandler(this.FrmModeloVeiculo_Load);

@@ -94,6 +94,7 @@
             this.NomeEstado,
             this.SiglaEstado});
             this.DGEstados.Location = new System.Drawing.Point(12, 109);
+            this.DGEstados.MultiSelect = false;
             this.DGEstados.Name = "DGEstados";
             this.DGEstados.ReadOnly = true;
             this.DGEstados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -173,7 +174,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TxtNomeEstado);
             this.Controls.Add(this.DGEstados);
+            this.MinimizeBox = false;
             this.Name = "FrmEstado";
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Estados";
             this.Load += new System.EventHandler(this.FrmEstado_Load);
             this.StatusStrip.ResumeLayout(false);

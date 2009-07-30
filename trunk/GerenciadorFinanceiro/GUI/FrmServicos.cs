@@ -121,6 +121,8 @@ namespace GerenciadorFinanceiro.GUI
 
         private void ctrNavigator1_CancelarAcao()
         {
+            if (DGServicos.SelectedRows.Count > 0)
+                _Servico = (Dominio.Servico)DGServicos.SelectedRows[0].DataBoundItem;
             this.CamposInterface(Status.Consultando);
         }
 
@@ -131,6 +133,8 @@ namespace GerenciadorFinanceiro.GUI
 
         private void ctrNavigator1_EventoNovo()
         {
+            _Servico = null;
+            _Servico = new Dominio.Servico();
             this.CamposInterface(Status.Inserindo);
         }
 
@@ -176,6 +180,28 @@ namespace GerenciadorFinanceiro.GUI
             {
                 MessageBox.Show(ex.Message, "Atenção.", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void btnNovoTipoServico_Click(object sender, EventArgs e)
+        {
+            FrmTipoServico frm = new FrmTipoServico();
+            frm.ShowDialog();
+            frm.Dispose();
+            this.BuscarTiposDeServicos();
+        }
+
+        private void DGServicos_SelectionChanged(object sender, EventArgs e)
+        {
+            if (this.DGServicos.Rows.Count > 0)
+            {
+                if (DGServicos.SelectedRows.Count > 0)
+                {
+                    _Servico = (Dominio.Servico)DGServicos.SelectedRows[0].DataBoundItem;
+                    if (ctrNavigator1.DataSource != null)
+                        ctrNavigator1.Indice = DGServicos.SelectedRows[0].Index;
+                }
+            }
+            this.CamposInterface(Status.Consultando);
         }
     }
 }

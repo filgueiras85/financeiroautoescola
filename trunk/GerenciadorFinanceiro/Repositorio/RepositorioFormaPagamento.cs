@@ -12,12 +12,11 @@ namespace GerenciadorFinanceiro.Repositorio
 
         public void SalvarObjeto(GerenciadorFinanceiro.Dominio.FormaPagamento objeto)
         {
-            string sSqlInsert = "insert into TB_Forma_Pagamento (Descricao, QuantidadeParcelas) values (@descr, @qnt)";
+            string sSqlInsert = "insert into TB_Forma_Pagamento (Descricao) values (@descr)";
             try
             {
                 Conection.AbrirConexao();
-                Conection.Execute(sSqlInsert, objeto.Descricao, objeto.QuantidadeParcela);
-                objeto.Id = (int)Conection.ExecuteScalar("Select @@identity");
+                Conection.Execute(sSqlInsert, objeto.Descricao);
             }
             catch (Exception ex)
             {
@@ -31,11 +30,11 @@ namespace GerenciadorFinanceiro.Repositorio
 
         public void AtualizarObjeto(GerenciadorFinanceiro.Dominio.FormaPagamento objeto)
         {
-            string sSqlUpdate = "update TB_Forma_Pagamento set Descricao = @Descricao , QuantidadeParcelas = @qnt where IdFormaPagamento = @Id";
+            string sSqlUpdate = "update TB_Forma_Pagamento set Descricao = @Descricao where IdFormaPagamento = @Id";
             try
             {
                 Conection.AbrirConexao();
-                Conection.Execute(sSqlUpdate, objeto.Descricao, objeto.QuantidadeParcela, objeto.Id);
+                Conection.Execute(sSqlUpdate, objeto.Descricao, objeto.Id);
             }
             catch (Exception ex)
             {
@@ -77,7 +76,6 @@ namespace GerenciadorFinanceiro.Repositorio
                 {
                     pagamento.Id = (int)reader["IdFormaPagamento"];
                     pagamento.Descricao = (string)reader["Descricao"];
-                    pagamento.QuantidadeParcela = (int)reader["QuantidadeParcelas"];
                 }
                 return pagamento;
             }
@@ -93,7 +91,7 @@ namespace GerenciadorFinanceiro.Repositorio
 
         public List<GerenciadorFinanceiro.Dominio.FormaPagamento> BuscarTodos()
         {
-            string sSqlSelect = "select * from TB_Forma_Pagamento where Ativo = 1";
+            string sSqlSelect = "select * from TB_Forma_Pagamento where Ativo = 1 order by Descricao";
             try
             {
                 Conection.AbrirConexao();
@@ -104,7 +102,6 @@ namespace GerenciadorFinanceiro.Repositorio
                     Dominio.FormaPagamento pagamento = new GerenciadorFinanceiro.Dominio.FormaPagamento();
                     pagamento.Id = (int)reader["IdFormaPagamento"];
                     pagamento.Descricao = (string)reader["Descricao"];
-                    pagamento.QuantidadeParcela = (int)reader["QuantidadeParcelas"];
                     lista.Add(pagamento);
                 }
                 return lista;

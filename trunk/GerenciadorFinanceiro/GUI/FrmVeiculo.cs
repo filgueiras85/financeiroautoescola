@@ -22,6 +22,36 @@ namespace GerenciadorFinanceiro.GUI
             InitializeComponent();
         }
 
+        #region " Campos Interface "
+
+        private void ValidaDados()
+        {
+            if (TxtPlaca.Text.Trim() == String.Empty)
+                throw new Exception("O campo placa é obrigatório.");
+            if (TxtCor.Text.Trim() == String.Empty)
+                throw new Exception("O campo cor é obrigatório.");
+            if (TxtAno.Text.Trim() == String.Empty)
+                throw new Exception("O campo ano é obrigatório.");
+            if (CmbTipo.SelectedValue == null)
+                throw new Exception("O campo tipo é obrigatório.");
+            if (CmbModelo.SelectedValue == null)
+                throw new Exception("O campo modelo é obrigatório.");
+            if (CmbCombustivel.SelectedText == String.Empty)
+                throw new Exception("O campo combustível é obrigatório.");
+            this._Veiculo.Placa = TxtPlaca.Text;
+            this._Veiculo.Renavam = TxtRenavam.Text;
+            this._Veiculo.Chassi = TxtChassi.Text;
+            this._Veiculo.TipoVeiculo = (Dominio.TipoVeiculo)CmbTipo.SelectedItem;
+            this._Veiculo.Combustivel = CmbCombustivel.Text;
+            this._Veiculo.Cor = TxtCor.Text;
+            this._Veiculo.Ano = int.Parse(TxtAno.Text);
+            this._Veiculo.Modelo = int.Parse(TxtAnoModelo.Text);
+            this._Veiculo.ModeloVeiculo = (Dominio.ModeloVeiculo)CmbModelo.SelectedItem;
+            this._Veiculo.Observacao = TxtObservacao.Text;
+            if (this._Veiculo.PathFoto == null)
+                this._Veiculo.PathFoto = "";
+        }
+
         private void EnabledCampos(bool enabled)
         {
             foreach (Control ctr in this.Controls)
@@ -37,27 +67,28 @@ namespace GerenciadorFinanceiro.GUI
             }
         }
 
-        private void CamposInterface(Dominio.Veiculo veiculo, Status status)
+        private void CamposInterface(Status status)
         {
-            TxtPlaca.Text = veiculo.Placa;
-            TxtRenavam.Text = veiculo.Renavam;
-            TxtChassi.Text = veiculo.Chassi;
-            CmbCombustivel.SelectedText = veiculo.Combustivel;
-            TxtAno.Text = veiculo.Ano.ToString();
-            TxtCor.Text = veiculo.Cor;
-            TxtAnoModelo.Text = veiculo.Modelo.ToString();
-            TxtObservacao.Text = veiculo.Observacao;
-            if (veiculo.TipoVeiculo.IdTipoVeiculo > 0)
+            if (_Veiculo == null)
+                _Veiculo  = new Dominio.Veiculo();
+            TxtPlaca.Text = _Veiculo.Placa;
+            TxtRenavam.Text = _Veiculo.Renavam;
+            TxtChassi.Text = _Veiculo.Chassi;
+            CmbCombustivel.SelectedText = _Veiculo.Combustivel;
+            TxtAno.Text = _Veiculo.Ano.ToString();
+            TxtCor.Text = _Veiculo.Cor;
+            TxtAnoModelo.Text = _Veiculo.Modelo.ToString();
+            TxtObservacao.Text = _Veiculo.Observacao;
+            if (_Veiculo.TipoVeiculo.IdTipoVeiculo > 0)
             {
-                CmbTipo.SelectedValue = veiculo.TipoVeiculo.IdTipoVeiculo;
-                CmbModelo.SelectedValue = veiculo.ModeloVeiculo.IdModeloVeiculo;
+                CmbTipo.SelectedValue = _Veiculo.TipoVeiculo.IdTipoVeiculo;
+                CmbModelo.SelectedValue = _Veiculo.ModeloVeiculo.IdModeloVeiculo;
             }
             else
             {
                 CmbTipo.SelectedIndex = 0;
                 CmbModelo.SelectedIndex = 0;
             }
-
             if (status == Status.Inserindo)
             {
                 this.EnabledCampos(true);
@@ -79,6 +110,8 @@ namespace GerenciadorFinanceiro.GUI
                 LblStatus.Text = "Status : Consultando";
             }
         }
+
+        #endregion
 
         private void BuscarTodosOsVeiculos()
         {
@@ -108,7 +141,7 @@ namespace GerenciadorFinanceiro.GUI
             this.BuscarTodosOsTiposVeiculo();
             this.BuscarTodosOsModelosVeiculos();
             this.BuscarTodosOsVeiculos();
-            this.CamposInterface(_Veiculo, Status.Consultando);
+            this.CamposInterface(Status.Consultando);
         }
 
         private void ctrNavigator1_MudaRegistroSelecionado(object objetoAtual)
@@ -152,62 +185,55 @@ namespace GerenciadorFinanceiro.GUI
         {
             _Veiculo = null;
             _Veiculo = new Dominio.Veiculo();
-            this.CamposInterface(_Veiculo, Status.Inserindo);
+            this.CamposInterface(Status.Inserindo);
         }
 
         private void ctrNavigator1_EditarRegistro(object objEditar)
         {
-            this.CamposInterface(_Veiculo, Status.Editando);
+            this.CamposInterface(Status.Editando);
         }
 
         private void ctrNavigator1_CancelarAcao()
         {
-            this.CamposInterface(_Veiculo, Status.Consultando);
+            if (DGVeiculos.SelectedRows.Count > 0)
+                _Veiculo = (Dominio.Veiculo)DGVeiculos.SelectedRows[0].DataBoundItem;
+            this.CamposInterface(Status.Consultando);
         }
 
         private void ctrNavigator1_SalvarRegistro(object objSalvar)
         {
-            this._Veiculo.Placa = TxtPlaca.Text;
-            this._Veiculo.Renavam = TxtRenavam.Text;
-            this._Veiculo.Chassi = TxtChassi.Text;
-            this._Veiculo.TipoVeiculo = (Dominio.TipoVeiculo)CmbTipo.SelectedItem;
-            this._Veiculo.Combustivel = CmbCombustivel.Text;
-            this._Veiculo.Cor = TxtCor.Text;
-            this._Veiculo.Ano = int.Parse(TxtAno.Text);
-            this._Veiculo.Modelo = int.Parse(TxtAnoModelo.Text);
-            this._Veiculo.ModeloVeiculo = (Dominio.ModeloVeiculo)CmbModelo.SelectedItem;
-            this._Veiculo.Observacao = TxtObservacao.Text;
-            this._Veiculo.PathFoto = "";
             try
             {
+                this.ValidaDados();
                 if (_Veiculo.IdVeiculo == 0)
                     new Repositorio.RepositorioVeiculo().SalvarObjeto(_Veiculo);
                 else
                     new Repositorio.RepositorioVeiculo().AtualizarObjeto(_Veiculo);
+                this.BuscarTodosOsVeiculos();
+                this.CamposInterface(Status.Consultando);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Atenção!");
             }
-            this.BuscarTodosOsVeiculos();
-            this.CamposInterface(_Veiculo, Status.Consultando);
         }
 
         private void ctrNavigator1_ExcluirRegistro(object objExcluir)
         {
-            this.CamposInterface(_Veiculo, Status.Excluindo);
+            this.CamposInterface(Status.Excluindo);
             if (MessageBox.Show("Deseja excluir o registro.", "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 try
                 {
                     new Repositorio.RepositorioVeiculo().DeletarObjeto(_Veiculo);
+                    this.BuscarTodosOsVeiculos();
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Atenção!");
-                }
-                this.BuscarTodosOsVeiculos();
+                }                
             }
+            this.CamposInterface(Status.Consultando);
         }
 
         private void DGVeiculos_SelectionChanged(object sender, EventArgs e)
@@ -221,12 +247,29 @@ namespace GerenciadorFinanceiro.GUI
                         ctrNavigator1.Indice = DGVeiculos.SelectedRows[0].Index;
                 }
             }
-            else
-            {
-                _Veiculo = null;
-                _Veiculo = new Dominio.Veiculo();
-            }
-            this.CamposInterface(_Veiculo, Status.Consultando);
+            this.CamposInterface(Status.Consultando);
+        }
+
+        private void btnNovoTipoVeiculo_Click(object sender, EventArgs e)
+        {
+            FrmTipoServico frm = new FrmTipoServico();
+            frm.ShowDialog();
+            frm.Dispose();
+            this.BuscarTodosOsTiposVeiculo();
+        }
+
+        private void btnNovoModelo_Click(object sender, EventArgs e)
+        {
+            FrmModeloVeiculo frm = new FrmModeloVeiculo();
+            frm.ShowDialog();
+            frm.Dispose();
+            this.BuscarTodosOsModelosVeiculos();
+        }
+
+        private void BtnLocalizarFotoInstrutor_Click(object sender, EventArgs e)
+        {
+            if (openFile.ShowDialog() == DialogResult.OK)
+                _Veiculo.PathFoto = openFile.FileName;
         }
     }
 }

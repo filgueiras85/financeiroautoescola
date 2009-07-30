@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label2 = new System.Windows.Forms.Label();
             this.txtValor = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -90,8 +90,8 @@
             // 
             this.DGServicos.AllowUserToAddRows = false;
             this.DGServicos.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DGServicos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DGServicos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.DGServicos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
@@ -101,12 +101,13 @@
             this.Descricao,
             this.Valor,
             this.Observacao});
-            this.DGServicos.Location = new System.Drawing.Point(12, 174);
+            this.DGServicos.Location = new System.Drawing.Point(12, 218);
             this.DGServicos.Name = "DGServicos";
             this.DGServicos.ReadOnly = true;
             this.DGServicos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGServicos.Size = new System.Drawing.Size(638, 226);
+            this.DGServicos.Size = new System.Drawing.Size(547, 218);
             this.DGServicos.TabIndex = 28;
+            this.DGServicos.SelectionChanged += new System.EventHandler(this.DGServicos_SelectionChanged);
             // 
             // Codigo
             // 
@@ -143,9 +144,9 @@
             // 
             this.StatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.LblStatus});
-            this.StatusStrip.Location = new System.Drawing.Point(0, 411);
+            this.StatusStrip.Location = new System.Drawing.Point(0, 448);
             this.StatusStrip.Name = "StatusStrip";
-            this.StatusStrip.Size = new System.Drawing.Size(677, 22);
+            this.StatusStrip.Size = new System.Drawing.Size(573, 22);
             this.StatusStrip.TabIndex = 32;
             this.StatusStrip.Text = "statusStrip1";
             // 
@@ -170,8 +171,9 @@
             // 
             this.txtObservacao.BackColor = System.Drawing.Color.White;
             this.txtObservacao.Location = new System.Drawing.Point(113, 100);
+            this.txtObservacao.Multiline = true;
             this.txtObservacao.Name = "txtObservacao";
-            this.txtObservacao.Size = new System.Drawing.Size(374, 20);
+            this.txtObservacao.Size = new System.Drawing.Size(374, 64);
             this.txtObservacao.TabIndex = 33;
             // 
             // cmbTipoServico
@@ -197,7 +199,7 @@
             // 
             this.ctrNavigator1.DataSource = null;
             this.ctrNavigator1.Indice = -1;
-            this.ctrNavigator1.Location = new System.Drawing.Point(12, 126);
+            this.ctrNavigator1.Location = new System.Drawing.Point(12, 170);
             this.ctrNavigator1.Name = "ctrNavigator1";
             this.ctrNavigator1.Size = new System.Drawing.Size(547, 42);
             this.ctrNavigator1.TabIndex = 27;
@@ -215,13 +217,14 @@
             this.btnNovoTipoServico.Name = "btnNovoTipoServico";
             this.btnNovoTipoServico.Size = new System.Drawing.Size(31, 24);
             this.btnNovoTipoServico.TabIndex = 37;
-            this.btnNovoTipoServico.UseVisualStyleBackColor = true;            
+            this.btnNovoTipoServico.UseVisualStyleBackColor = true;
+            this.btnNovoTipoServico.Click += new System.EventHandler(this.btnNovoTipoServico_Click);
             // 
             // FrmServicos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(677, 433);
+            this.ClientSize = new System.Drawing.Size(573, 470);
             this.Controls.Add(this.btnNovoTipoServico);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.cmbTipoServico);
@@ -234,7 +237,10 @@
             this.Controls.Add(this.txtValor);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TxtDescricao);
+            this.MinimizeBox = false;
             this.Name = "FrmServicos";
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Serviços";
             this.Load += new System.EventHandler(this.FrmServicos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DGServicos)).EndInit();

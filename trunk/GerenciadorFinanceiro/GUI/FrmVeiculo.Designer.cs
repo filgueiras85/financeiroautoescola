@@ -69,6 +69,7 @@
             this.ctrNavigator1 = new GerenciadorFinanceiro.Controles.CtrNavigator();
             this.btnNovoTipoVeiculo = new System.Windows.Forms.Button();
             this.btnNovoModelo = new System.Windows.Forms.Button();
+            this.openFile = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.DGVeiculos)).BeginInit();
             this.GrpImagens.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcbFotoVeiculo)).BeginInit();
@@ -371,6 +372,7 @@
             this.BtnLocalizarFotoInstrutor.Size = new System.Drawing.Size(28, 26);
             this.BtnLocalizarFotoInstrutor.TabIndex = 0;
             this.BtnLocalizarFotoInstrutor.UseVisualStyleBackColor = true;
+            this.BtnLocalizarFotoInstrutor.Click += new System.EventHandler(this.BtnLocalizarFotoInstrutor_Click);
             // 
             // PcbFotoVeiculo
             // 
@@ -426,7 +428,8 @@
             "Alcool",
             "Diesel",
             "Flex",
-            "Gasolina"});
+            "Gasolina",
+            "Gás"});
             this.CmbCombustivel.Location = new System.Drawing.Point(96, 94);
             this.CmbCombustivel.Name = "CmbCombustivel";
             this.CmbCombustivel.Size = new System.Drawing.Size(301, 21);
@@ -455,6 +458,7 @@
             this.btnNovoTipoVeiculo.Size = new System.Drawing.Size(31, 24);
             this.btnNovoTipoVeiculo.TabIndex = 38;
             this.btnNovoTipoVeiculo.UseVisualStyleBackColor = true;
+            this.btnNovoTipoVeiculo.Click += new System.EventHandler(this.btnNovoTipoVeiculo_Click);
             // 
             // btnNovoModelo
             // 
@@ -464,6 +468,11 @@
             this.btnNovoModelo.Size = new System.Drawing.Size(31, 24);
             this.btnNovoModelo.TabIndex = 39;
             this.btnNovoModelo.UseVisualStyleBackColor = true;
+            this.btnNovoModelo.Click += new System.EventHandler(this.btnNovoModelo_Click);
+            // 
+            // openFile
+            // 
+            this.openFile.FileName = "openFileDialog1";
             // 
             // FrmVeiculo
             // 
@@ -498,6 +507,7 @@
             this.Controls.Add(this.TxtCor);
             this.MinimizeBox = false;
             this.Name = "FrmVeiculo";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Veículos";
             this.Load += new System.EventHandler(this.FrmVeiculo_Load);
@@ -553,5 +563,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Observacao;
         private System.Windows.Forms.Button btnNovoTipoVeiculo;
         private System.Windows.Forms.Button btnNovoModelo;
+        private System.Windows.Forms.OpenFileDialog openFile;
     }
 }

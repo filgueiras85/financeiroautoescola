@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipal));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.sistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.enviarEmailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.instrutorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tipoDeVeiculosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,6 +44,7 @@
             this.alunosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tiposDeServiçosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.servicosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.usuáriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relatóriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configuraçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,7 +52,6 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.LblDataHora = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.Timer = new System.Windows.Forms.Timer(this.components);
             this.BtnAlunos = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
@@ -60,7 +61,8 @@
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.enviarEmailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Timer = new System.Windows.Forms.Timer(this.components);
+            this.formaDePagamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -92,6 +94,13 @@
             this.sistemaToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
             this.sistemaToolStripMenuItem.Text = "Sistema";
             // 
+            // enviarEmailToolStripMenuItem
+            // 
+            this.enviarEmailToolStripMenuItem.Name = "enviarEmailToolStripMenuItem";
+            this.enviarEmailToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.enviarEmailToolStripMenuItem.Text = "Enviar Email";
+            this.enviarEmailToolStripMenuItem.Click += new System.EventHandler(this.enviarEmailToolStripMenuItem_Click);
+            // 
             // cadastrosToolStripMenuItem
             // 
             this.cadastrosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -104,7 +113,9 @@
             this.veículosToolStripMenuItem,
             this.alunosToolStripMenuItem,
             this.tiposDeServiçosToolStripMenuItem,
-            this.servicosToolStripMenuItem});
+            this.servicosToolStripMenuItem,
+            this.usuáriosToolStripMenuItem,
+            this.formaDePagamentoToolStripMenuItem});
             this.cadastrosToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.cadastrosToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
@@ -181,6 +192,13 @@
             this.servicosToolStripMenuItem.Text = "Servicos";
             this.servicosToolStripMenuItem.Click += new System.EventHandler(this.servicosToolStripMenuItem_Click);
             // 
+            // usuáriosToolStripMenuItem
+            // 
+            this.usuáriosToolStripMenuItem.Name = "usuáriosToolStripMenuItem";
+            this.usuáriosToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.usuáriosToolStripMenuItem.Text = "Usuários";
+            this.usuáriosToolStripMenuItem.Click += new System.EventHandler(this.usuáriosToolStripMenuItem_Click);
+            // 
             // consultasToolStripMenuItem
             // 
             this.consultasToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
@@ -250,12 +268,6 @@
             this.toolStrip1.Size = new System.Drawing.Size(994, 50);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
-            // 
-            // Timer
-            // 
-            this.Timer.Enabled = true;
-            this.Timer.Interval = 1000;
-            this.Timer.Tick += new System.EventHandler(this.Timer_Tick);
             // 
             // BtnAlunos
             // 
@@ -349,12 +361,18 @@
             this.toolStripButton1.Size = new System.Drawing.Size(47, 47);
             this.toolStripButton1.Text = "toolStripButton1";
             // 
-            // enviarEmailToolStripMenuItem
+            // Timer
             // 
-            this.enviarEmailToolStripMenuItem.Name = "enviarEmailToolStripMenuItem";
-            this.enviarEmailToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.enviarEmailToolStripMenuItem.Text = "Enviar Email";
-            this.enviarEmailToolStripMenuItem.Click += new System.EventHandler(this.enviarEmailToolStripMenuItem_Click);
+            this.Timer.Enabled = true;
+            this.Timer.Interval = 30000;
+            this.Timer.Tick += new System.EventHandler(this.Timer_Tick);
+            // 
+            // formaDePagamentoToolStripMenuItem
+            // 
+            this.formaDePagamentoToolStripMenuItem.Name = "formaDePagamentoToolStripMenuItem";
+            this.formaDePagamentoToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.formaDePagamentoToolStripMenuItem.Text = "Forma de Pagamento";
+            this.formaDePagamentoToolStripMenuItem.Click += new System.EventHandler(this.formaDePagamentoToolStripMenuItem_Click);
             // 
             // FrmPrincipal
             // 
@@ -415,6 +433,8 @@
         private System.Windows.Forms.ToolStripMenuItem tiposDeServiçosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem servicosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem enviarEmailToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem usuáriosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem formaDePagamentoToolStripMenuItem;
     }
 }
 

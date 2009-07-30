@@ -39,8 +39,8 @@
             this.NomeCidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CmbEstados = new System.Windows.Forms.ComboBox();
-            this.ctrNavigator1 = new GerenciadorFinanceiro.Controles.CtrNavigator();
             this.btnNovoEstado = new System.Windows.Forms.Button();
+            this.ctrNavigator1 = new GerenciadorFinanceiro.Controles.CtrNavigator();
             this.StatusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGCidades)).BeginInit();
             this.SuspendLayout();
@@ -105,6 +105,7 @@
             this.NomeCidade,
             this.Estado});
             this.DGCidades.Location = new System.Drawing.Point(12, 109);
+            this.DGCidades.MultiSelect = false;
             this.DGCidades.Name = "DGCidades";
             this.DGCidades.ReadOnly = true;
             this.DGCidades.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -147,6 +148,16 @@
             this.CmbEstados.Size = new System.Drawing.Size(402, 21);
             this.CmbEstados.TabIndex = 21;
             // 
+            // btnNovoEstado
+            // 
+            this.btnNovoEstado.Image = global::GerenciadorFinanceiro.Properties.Resources.file_add;
+            this.btnNovoEstado.Location = new System.Drawing.Point(508, 35);
+            this.btnNovoEstado.Name = "btnNovoEstado";
+            this.btnNovoEstado.Size = new System.Drawing.Size(31, 24);
+            this.btnNovoEstado.TabIndex = 38;
+            this.btnNovoEstado.UseVisualStyleBackColor = true;
+            this.btnNovoEstado.Click += new System.EventHandler(this.btnNovoEstado_Click);
+            // 
             // ctrNavigator1
             // 
             this.ctrNavigator1.DataSource = null;
@@ -162,15 +173,6 @@
             this.ctrNavigator1.SalvarRegistro += new GerenciadorFinanceiro.Controles.CtrNavigator.Salvar(this.ctrNavigator1_SalvarRegistro);
             this.ctrNavigator1.EditarRegistro += new GerenciadorFinanceiro.Controles.CtrNavigator.Editar(this.ctrNavigator1_EditarRegistro);
             // 
-            // btnNovoEstado
-            // 
-            this.btnNovoEstado.Image = global::GerenciadorFinanceiro.Properties.Resources.file_add;
-            this.btnNovoEstado.Location = new System.Drawing.Point(508, 35);
-            this.btnNovoEstado.Name = "btnNovoEstado";
-            this.btnNovoEstado.Size = new System.Drawing.Size(31, 24);
-            this.btnNovoEstado.TabIndex = 38;
-            this.btnNovoEstado.UseVisualStyleBackColor = true;
-            // 
             // FrmCidade
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -184,7 +186,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TxtNomeCidade);
             this.Controls.Add(this.DGCidades);
+            this.MinimizeBox = false;
             this.Name = "FrmCidade";
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Cidades";
             this.Load += new System.EventHandler(this.FrmCidade_Load);
             this.StatusStrip.ResumeLayout(false);

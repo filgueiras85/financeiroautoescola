@@ -13,9 +13,7 @@ namespace GerenciadorFinanceiro.Dominio
         
         public int Id { get; set; }
 
-        public string Descricao { get; set; }
-
-        public int QuantidadeParcela { get; set; }        
+        public string Descricao { get; set; }      
 
     }
 }
