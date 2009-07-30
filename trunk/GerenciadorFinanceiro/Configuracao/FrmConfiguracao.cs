@@ -18,6 +18,13 @@ namespace GerenciadorFinanceiro.Configuracao
         {
             InitializeComponent();
             _PrimeiraVez = inicial;
+            if (_PrimeiraVez)
+                this.Height = 335;
+            else
+            {
+                this.Height = 250;
+                this.GrpUsuario.Visible = false;
+            }
         }
 
         private void ValidaCampos()
@@ -47,6 +54,33 @@ namespace GerenciadorFinanceiro.Configuracao
             }            
         }
 
+        private void FrmConfiguracao_Load(object sender, EventArgs e)
+        {
+            txtLocalBanco.Text = GerenciadorFinanceiro.Properties.Settings.Default.LocalDB;
+            txtBackup.Text = GerenciadorFinanceiro.Properties.Settings.Default.LocalBackupDB;
+            chkRealizarBackup.Checked = GerenciadorFinanceiro.Properties.Settings.Default.RealizarBackup;
+        }
+
+        private void BtnLocalBackup_Click(object sender, EventArgs e)
+        {
+            folderBrowser.SelectedPath = txtBackup.Text;
+            if (folderBrowser.ShowDialog() == DialogResult.OK)
+                txtBackup.Text = folderBrowser.SelectedPath;
+        }
+
+        private void BtnLocalBancoDados_Click(object sender, EventArgs e)
+        {
+            folderBrowser.SelectedPath = txtLocalBanco.Text;
+            if (folderBrowser.ShowDialog() == DialogResult.OK)
+                txtLocalBanco.Text = folderBrowser.SelectedPath;
+        }
+
+        private void BtnRealizarBackupAgora_Click(object sender, EventArgs e)
+        {
+            this.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+            new Servicos.Backup().RealizarBackupBancoDados(txtLocalBanco.Text, txtBackup.Text);
+            this.Cursor = System.Windows.Forms.Cursors.Default;
+        }
         
     }
 }
