@@ -102,6 +102,7 @@
             this.Valor,
             this.Observacao});
             this.DGServicos.Location = new System.Drawing.Point(12, 218);
+            this.DGServicos.MultiSelect = false;
             this.DGServicos.Name = "DGServicos";
             this.DGServicos.ReadOnly = true;
             this.DGServicos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;

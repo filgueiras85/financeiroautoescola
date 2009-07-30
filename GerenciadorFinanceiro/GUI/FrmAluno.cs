@@ -203,6 +203,14 @@ namespace GerenciadorFinanceiro.GUI
         }
 
 #endregion 
+
+        private void btnNovaCidade_Click(object sender, EventArgs e)
+        {
+            FrmCidade frm = new FrmCidade();
+            frm.ShowDialog();
+            frm.Dispose();
+            this.BuscarTodasAsCidadesPorEstado((Dominio.Estado)CmbEstado.SelectedItem);
+        }
               
 
 

@@ -146,13 +146,7 @@ namespace GerenciadorFinanceiro.GUI
 
         private void ctrNavigator1_MudaRegistroSelecionado(object objetoAtual)
         {
-            for (int i = 0; i < DGVeiculos.Rows.Count; i++)
-            {
-                if (i == ctrNavigator1.Indice)
-                    DGVeiculos.Rows[i].Selected = true;
-                else
-                    DGVeiculos.Rows[i].Selected = false;
-            }
+            DGVeiculos.Rows[ctrNavigator1.Indice].Selected = true; 
         }
 
         private void DGVeiculos_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)

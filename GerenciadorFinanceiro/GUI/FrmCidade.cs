@@ -98,13 +98,7 @@ namespace GerenciadorFinanceiro.GUI
 
         private void ctrNavigator1_MudaRegistroSelecionado(object objetoAtual)
         {
-            for (int i = 0; i < DGCidades.Rows.Count; i++)
-            {
-                if (i == ctrNavigator1.Indice)
-                    DGCidades.Rows[i].Selected = true;
-                else
-                    DGCidades.Rows[i].Selected = false;
-            }
+            DGCidades.Rows[ctrNavigator1.Indice].Selected = true; 
         }
 
         private void ctrNavigator1_EventoNovo()
