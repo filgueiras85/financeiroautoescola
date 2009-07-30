@@ -55,6 +55,8 @@ namespace GerenciadorFinanceiro.GUI
 
         private void EnviarEmail()
         {
+            if (new Servicos.Email().ValidaEmail(TxtDestinatario.Text.Trim()) == false)
+                throw new Exception("Email inválido.");
             this.AdicionarAnexos();
             new Servicos.Email().EnviarEmail("alcenir@zyoncore.com.br", "Alcenir Moretto", TxtDestinatario.Text,
                                                     TxtAssunto.Text, TxtMensagem.Text, "smtp.zyoncore.com.br", "@MCH9482@", _ListaAnexos);

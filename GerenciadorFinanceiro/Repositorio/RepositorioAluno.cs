@@ -14,17 +14,17 @@ namespace GerenciadorFinanceiro.Repositorio
         {
             string sSqlInsert = "insert into TB_Aluno (Nome, CPF_CNPJ, RG_InscricaoEstadual, TelefoneResidencial, " +
                                 "TelefoneComercial, TelefoneCelular, DataNascimento, Rua, Numero, Complemento, " +
-                                "Bairro, CEP, IdCidade, SSP, NomePai, NomeMae, Referencia, Observacao) " +
+                                "Bairro, CEP, IdCidade, SSP, NomePai, NomeMae, Referencia, Observacao, Email) " +
                                 "values (@Nome, @CPF_CNPJ, @RG_InscricaoEstadual, @TelefoneResidencial, @TelefoneComercial, " +
                                 "@TelefoneCelular, @DataNascimento, @Rua, @Numero, @Complemento, @Bairro, @CEP, @IdCidade, " +
-                                "@SSP, @NomePai, @NomeMae, @Referencia, @Observacao)";
+                                "@SSP, @NomePai, @NomeMae, @Referencia, @Observacao, @Email)";
             try
             {
                 Conection.AbrirConexao();
                 Conection.Execute(sSqlInsert, objeto.NomeAluno, objeto.CPF_CNPJ, objeto.RG_InscEstadual, objeto.TelefoneResidencial,
                             objeto.TelefoneComercial, objeto.TelefoneCelular, objeto.DataNascimento, objeto.Endereco.Rua,
                             objeto.Endereco.Numero, objeto.Endereco.Complemento, objeto.Endereco.Bairro, objeto.Endereco.CEP,
-                            objeto.Endereco.Cidade.IdCidade, objeto.SSP, objeto.NomePai, objeto.NomeMae, objeto.Referencia, objeto.Observacao);
+                            objeto.Endereco.Cidade.IdCidade, objeto.SSP, objeto.NomePai, objeto.NomeMae, objeto.Referencia, objeto.Observacao, objeto.Email);
             }
             catch (Exception ex)
             {
@@ -42,7 +42,7 @@ namespace GerenciadorFinanceiro.Repositorio
                                 "TelefoneResidencial = @TelefoneResidencial, TelefoneComercial = @TelefoneComercial, TelefoneCelular = " +
                                 "@TelefoneCelular, DataNascimento = @DataNascimento, Rua = @Rua, Numero = @Numero, Complemento = @Complemento, " +
                                 "Bairro = @Bairro, CEP = @CEP, IdCidade = @IdCidade, SSP = @SSP, NomePai = @NomePai, NomeMae = @NomeMae, " +
-                                "Referencia = @Referencia, Observacao = @Observacao where IdAluno = @IdAluno)";
+                                "Referencia = @Referencia, Observacao = @Observacao, Email = @Email where IdAluno = @IdAluno)";
             try
             {
                 Conection.AbrirConexao();
@@ -50,7 +50,7 @@ namespace GerenciadorFinanceiro.Repositorio
                             objeto.TelefoneComercial, objeto.TelefoneCelular, objeto.DataNascimento, objeto.Endereco.Rua,
                             objeto.Endereco.Numero, objeto.Endereco.Complemento, objeto.Endereco.Bairro, objeto.Endereco.CEP,
                             objeto.Endereco.Cidade.IdCidade, objeto.SSP, objeto.NomePai, objeto.NomeMae, objeto.Referencia, 
-                            objeto.Observacao, objeto.IdAluno);
+                            objeto.Observacao, objeto.Email, objeto.IdAluno);
             }
             catch (Exception ex)
             {
@@ -111,6 +111,7 @@ namespace GerenciadorFinanceiro.Repositorio
                     aluno.NomeMae = (string)reader["NomeMae"];
                     aluno.Referencia = (string)reader["Referencia"];
                     aluno.Observacao = (string)reader["Observacao"];
+                    aluno.Email = (string)reader["Email"];
                 }
                 return aluno;
             }
@@ -159,6 +160,7 @@ namespace GerenciadorFinanceiro.Repositorio
                     aluno.NomeMae = (string)reader["NomeMae"];
                     aluno.Referencia = (string)reader["Referencia"];
                     aluno.Observacao = (string)reader["Observacao"];
+                    aluno.Email = (string)reader["Email"];
                     listAlunos.Add(aluno);
                     aluno = null;
                 }

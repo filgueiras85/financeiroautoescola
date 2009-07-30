@@ -25,6 +25,7 @@ namespace GerenciadorFinanceiro.GUI
         private void CamposInterface(Status status)
         {
             TxtNome.Text = _Aluno.NomeAluno;
+            TxtEmail.Text = _Aluno.Email;
             txtRua.Text = _Aluno.Endereco.Rua;
             txtNumero.Text = _Aluno.Endereco.Numero.ToString();
             txtBairro.Text = _Aluno.Endereco.Bairro;
@@ -102,6 +103,9 @@ namespace GerenciadorFinanceiro.GUI
             if (TxtNome.Text.Trim() == String.Empty)
                 throw new Exception("Campo nome em branco.");
             _Aluno.NomeAluno = TxtNome.Text;
+            if (new Servicos.Email().ValidaEmail(TxtEmail.Text.Trim()) == false)
+                throw new Exception("Email inválido.");
+            _Aluno.Email = TxtEmail.Text;
             if(TxtCPF.Text.Trim() == String.Empty  || TxtCPF.Text.Trim().Length != 14 )
                 throw new Exception("Cpf inválido.");
             _Aluno.CPF_CNPJ = TxtCPF.Text;

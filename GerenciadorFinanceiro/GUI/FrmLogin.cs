@@ -68,6 +68,9 @@ namespace GerenciadorFinanceiro.GUI
         {
             try
             {
+                if (new Servicos.Email().ValidaEmail(TxtEmail.Text.Trim()) == false)
+                    throw new Exception("Email inválido.");
+
                 _Usuario = new Repositorio.RepositorioUsuario().ObterUsuarioPorEmail(TxtEmail.Text);
 
                 if (_Usuario != null)
