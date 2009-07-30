@@ -21,6 +21,32 @@ namespace GerenciadorFinanceiro.GUI
         private List<Dominio.Estado> _ListaEstados = new List<GerenciadorFinanceiro.Dominio.Estado>();
         private Dominio.Instrutor _Instrutor = new Dominio.Instrutor();
 
+
+        private void ValidaDados()
+        {
+            if (TxtNomeInstrutor.Text.Trim() == String.Empty)
+                throw new Exception("O campo nome não pode ser nulo.");
+            if (CmbCidade.SelectedItem == null)
+                throw new Exception("O campo cidade não pode ser nulo.");
+            this._Instrutor.Nome = TxtNomeInstrutor.Text;
+            this._Instrutor.TelefoneResidencial = TxtTelefoneResidencial.Text;
+            this._Instrutor.TelefoneCelular = TxtTelefoneCelular.Text;
+            this._Instrutor.RG = TxtRG.Text;
+            this._Instrutor.CPF = TxtCPF.Text;
+            Dominio.Endereco end = new Dominio.Endereco();
+            end.Rua = TxtRua.Text;
+            end.Numero = int.Parse(TxtNumero.Text);
+            end.Complemento = TxtComplemento.Text;
+            end.Bairro = TxtBairro.Text;
+            end.CEP = TxtCEP.Text;
+            end.Cidade = (Dominio.Cidade)CmbCidade.SelectedItem;
+            end.Cidade.Estado = (Dominio.Estado)CmbEstado.SelectedItem;
+            this._Instrutor.Endereco = end;
+            this._Instrutor.Observacao = TxtObservacaoInstrutor.Text;
+            if (this._Instrutor.PathFoto == null)
+                this._Instrutor.PathFoto = "";
+        }
+
         private void EnabledCampos(bool enabled)
         {           
             foreach (Control ctr in this.Controls)
@@ -36,29 +62,31 @@ namespace GerenciadorFinanceiro.GUI
             }
         }
 
-        private void CamposInterface(Dominio.Instrutor instrutor, Status status)
+        private void CamposInterface(Status status)
         {
-            TxtNomeInstrutor.Text = instrutor.Nome;
-            TxtTelefoneResidencial.Text = instrutor.TelefoneResidencial;
-            TxtTelefoneCelular.Text = instrutor.TelefoneCelular;
-            TxtRG.Text = instrutor.RG;
-            TxtCPF.Text = instrutor.CPF;
-            TxtRua.Text = instrutor.Endereco.Rua;
-            TxtNumero.Text = instrutor.Endereco.Numero.ToString();
-            TxtComplemento.Text = instrutor.Endereco.Complemento;
-            TxtBairro.Text = instrutor.Endereco.Bairro;
-            TxtCEP.Text = instrutor.Endereco.CEP;
-            if (instrutor.Endereco.Cidade.IdCidade > 0)
+            if (_Instrutor == null)
+                _Instrutor = new Dominio.Instrutor();
+            TxtNomeInstrutor.Text = _Instrutor.Nome;
+            TxtTelefoneResidencial.Text = _Instrutor.TelefoneResidencial;
+            TxtTelefoneCelular.Text = _Instrutor.TelefoneCelular;
+            TxtRG.Text = _Instrutor.RG;
+            TxtCPF.Text = _Instrutor.CPF;
+            TxtRua.Text = _Instrutor.Endereco.Rua;
+            TxtNumero.Text = _Instrutor.Endereco.Numero.ToString();
+            TxtComplemento.Text = _Instrutor.Endereco.Complemento;
+            TxtBairro.Text = _Instrutor.Endereco.Bairro;
+            TxtCEP.Text = _Instrutor.Endereco.CEP;
+            if (_Instrutor.Endereco.Cidade.IdCidade > 0)
             {
-                CmbEstado.SelectedValue = instrutor.Endereco.Cidade.Estado.IdEstado;
-                CmbCidade.SelectedValue = instrutor.Endereco.Cidade.IdCidade;
+                CmbEstado.SelectedValue = _Instrutor.Endereco.Cidade.Estado.IdEstado;
+                CmbCidade.SelectedValue = _Instrutor.Endereco.Cidade.IdCidade;
             }
             else
             {
                 CmbEstado.SelectedIndex = 0;
                 CmbCidade.SelectedIndex = 0;
             }
-            TxtObservacaoInstrutor.Text = instrutor.Observacao;
+            TxtObservacaoInstrutor.Text = _Instrutor.Observacao;
           
             if (status == Status.Inserindo)
             {
@@ -114,8 +142,6 @@ namespace GerenciadorFinanceiro.GUI
 
         private void ctrNavigator1_MudaRegistroSelecionado(object objetoAtual)
         {
-            //Dominio.Instrutor instrutor = (Dominio.Instrutor)objetoAtual;
-            //this.TxtNomeInstrutor.Text = instrutor.Nome;
             for (int i = 0; i < DGInstrutores.Rows.Count; i++)
             {
                 if (i == ctrNavigator1.Indice)
@@ -154,67 +180,55 @@ namespace GerenciadorFinanceiro.GUI
         {
             _Instrutor = null;
             _Instrutor = new Dominio.Instrutor();
-            this.CamposInterface(_Instrutor, Status.Inserindo);
+            this.CamposInterface(Status.Inserindo);
         }
 
         private void ctrNavigator1_EditarRegistro(object objEditar)
         {
-            this.CamposInterface(_Instrutor, Status.Editando);
+            this.CamposInterface(Status.Editando);
         }
 
         private void ctrNavigator1_CancelarAcao()
         {
-            this.CamposInterface(_Instrutor, Status.Consultando);
+            if (DGInstrutores.SelectedRows.Count > 0)
+                _Instrutor = (Dominio.Instrutor)DGInstrutores.SelectedRows[0].DataBoundItem;
+            this.CamposInterface(Status.Consultando);
         }
 
         private void ctrNavigator1_SalvarRegistro(object objSalvar)
         {
-            this._Instrutor.Nome = TxtNomeInstrutor.Text;
-            this._Instrutor.TelefoneResidencial = TxtTelefoneResidencial.Text;
-            this._Instrutor.TelefoneCelular = TxtTelefoneCelular.Text;
-            this._Instrutor.RG = TxtRG.Text;
-            this._Instrutor.CPF = TxtCPF.Text;
-            Dominio.Endereco end = new Dominio.Endereco();
-            end.Rua = TxtRua.Text;
-            end.Numero = int.Parse(TxtNumero.Text);
-            end.Complemento = TxtComplemento.Text;
-            end.Bairro = TxtBairro.Text;
-            end.CEP = TxtCEP.Text;
-            end.Cidade = (Dominio.Cidade)CmbCidade.SelectedItem;
-            end.Cidade.Estado = (Dominio.Estado)CmbEstado.SelectedItem;
-            this._Instrutor.Endereco = end;
-            this._Instrutor.Observacao = TxtObservacaoInstrutor.Text;
-            this._Instrutor.PathFoto = "";
             try
             {
+                this.ValidaDados();
                 if (_Instrutor.IdInstrutor == 0)
                     new Repositorio.RepositorioInstrutor().SalvarObjeto(_Instrutor);
                 else
                     new Repositorio.RepositorioInstrutor().AtualizarObjeto(_Instrutor);
+                this.BuscarTodosOsInstrutores();
+                this.CamposInterface(Status.Consultando);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Atenção!");
             }
-            this.BuscarTodosOsInstrutores();
-            this.CamposInterface(_Instrutor, Status.Consultando);
         }
 
         private void ctrNavigator1_ExcluirRegistro(object objExcluir)
         {
-            this.CamposInterface(_Instrutor, Status.Excluindo);
+            this.CamposInterface(Status.Excluindo);
             if (MessageBox.Show("Deseja excluir o registro.", "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 try
                 {
                     new Repositorio.RepositorioInstrutor().DeletarObjeto(_Instrutor);
+                    this.BuscarTodosOsInstrutores();
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Atenção!");
                 }
-                this.BuscarTodosOsInstrutores();
             }
+            this.CamposInterface(Status.Consultando);
         }
 
         private void DGInstrutores_SelectionChanged(object sender, EventArgs e)
@@ -228,12 +242,21 @@ namespace GerenciadorFinanceiro.GUI
                         ctrNavigator1.Indice = DGInstrutores.SelectedRows[0].Index;
                 }
             }
-            else
-            {
-                _Instrutor = null;
-                _Instrutor = new Dominio.Instrutor();
-            }
-            this.CamposInterface(_Instrutor, Status.Consultando);
+            this.CamposInterface(Status.Consultando);
+        }
+
+        private void BtnLocalizarFotoInstrutor_Click(object sender, EventArgs e)
+        {
+            if (openFile.ShowDialog() == DialogResult.OK)
+                _Instrutor.PathFoto = openFile.FileName;
+        }
+
+        private void btnNovaCidade_Click(object sender, EventArgs e)
+        {
+            FrmCidade frm = new FrmCidade();
+            frm.ShowDialog();
+            frm.Dispose();
+            this.BuscarTodasAsCidadesPorEstado((Dominio.Estado)CmbEstado.SelectedItem);
         }
      }
 }

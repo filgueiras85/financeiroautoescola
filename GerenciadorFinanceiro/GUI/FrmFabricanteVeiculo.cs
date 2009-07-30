@@ -19,36 +19,62 @@ namespace GerenciadorFinanceiro.GUI
         private List<Dominio.FabricanteVeiculo> _ListaFabricanteVeiculo;
         private Dominio.FabricanteVeiculo _FabricanteVeiculo;
 
-        private void CamposInterface(Dominio.FabricanteVeiculo fabVeiculo, Status status)
+        #region " Eventos da Interface "
+
+        private void ValidaDados()
         {
-            TxtDescricao.Text = fabVeiculo.Descricao;
+            if (TxtDescricao.Text.Trim() == String.Empty)
+                throw new Exception("O campo descrição é obrigatório.");
+            _FabricanteVeiculo.Descricao = TxtDescricao.Text;
+        }
+
+        private void EnabledCampos(bool enabled)
+        {
+            foreach (Control ctr in this.Controls)
+            {
+                if (ctr is ComboBox)
+                    ((ComboBox)ctr).Enabled = enabled;
+                else if (ctr is TextBox)
+                    ((TextBox)ctr).Enabled = enabled;
+                else if (ctr is MaskedTextBox)
+                    ((MaskedTextBox)ctr).Enabled = enabled;
+                else if (ctr is Button)
+                    ((Button)ctr).Enabled = enabled;
+            }
+        }
+
+        private void CamposInterface(Status status)
+        {
+            if (_FabricanteVeiculo == null)
+                _FabricanteVeiculo = new Dominio.FabricanteVeiculo();
+            TxtDescricao.Text = _FabricanteVeiculo.Descricao;
             if (status == Status.Inserindo)
             {
-                TxtDescricao.Enabled = true;
+                this.EnabledCampos(true);
                 LblStatus.Text = "Status : Inserindo";
             }
             else if (status == Status.Editando)
             {
-                TxtDescricao.Enabled = true;
+                this.EnabledCampos(true);
                 LblStatus.Text = "Status : Editando";
             }
             else if (status == Status.Excluindo)
             {
-                TxtDescricao.Enabled = false;
+                this.EnabledCampos(false);
                 LblStatus.Text = "Status : Excluindo";
             }
             else
             {
-                TxtDescricao.Enabled = false;
+                this.EnabledCampos(false);
                 LblStatus.Text = "Status : Consultando";
             }
-            this.Refresh();
         }
+
+        #endregion
 
         private void BuscarTodosFabricantesVeiculos()
         {
-            Repositorio.RepositorioFabricanteVeiculo repFabVeiculo = new Repositorio.RepositorioFabricanteVeiculo();
-            _ListaFabricanteVeiculo = repFabVeiculo.BuscarTodos();
+            _ListaFabricanteVeiculo = new Repositorio.RepositorioFabricanteVeiculo().BuscarTodos();
             this.DGFabricantes.DataSource = _ListaFabricanteVeiculo;
             this.ctrNavigator1.DataSource = _ListaFabricanteVeiculo;
         }
@@ -57,58 +83,61 @@ namespace GerenciadorFinanceiro.GUI
         {
             this.BuscarTodosFabricantesVeiculos();
             _FabricanteVeiculo = new Dominio.FabricanteVeiculo();
-            this.CamposInterface(_FabricanteVeiculo, Status.Consultando);
+            this.CamposInterface(Status.Consultando);
         }
 
         private void ctrNavigator1_EventoNovo()
         {
             _FabricanteVeiculo = new Dominio.FabricanteVeiculo();
-            this.CamposInterface(_FabricanteVeiculo, Status.Inserindo);
+            this.CamposInterface(Status.Inserindo);
         }
 
         private void ctrNavigator1_EditarRegistro(object objEditar)
         {
-            this.CamposInterface(_FabricanteVeiculo, Status.Editando);            
+            this.CamposInterface(Status.Editando);            
         }
 
         private void ctrNavigator1_CancelarAcao()
         {
-            this.CamposInterface(_FabricanteVeiculo, Status.Consultando);
+            if (DGFabricantes.SelectedRows.Count > 0)
+                _FabricanteVeiculo = (Dominio.FabricanteVeiculo)DGFabricantes.SelectedRows[0].DataBoundItem;
+            this.CamposInterface(Status.Consultando);
         }
 
         private void ctrNavigator1_SalvarRegistro(object objSalvar)
         {
-            this._FabricanteVeiculo.Descricao = TxtDescricao.Text;
             try
             {
+                this.ValidaDados();
                 if (_FabricanteVeiculo.IdFabricanteVeiculo == 0)
                     new Repositorio.RepositorioFabricanteVeiculo().SalvarObjeto(_FabricanteVeiculo);
                 else
                     new Repositorio.RepositorioFabricanteVeiculo().AtualizarObjeto(_FabricanteVeiculo);
+                this.BuscarTodosFabricantesVeiculos();
+                this.CamposInterface(Status.Consultando);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Atenção!");
             }
-            this.BuscarTodosFabricantesVeiculos();
-            this.CamposInterface(_FabricanteVeiculo, Status.Consultando);
         }
 
         private void ctrNavigator1_ExcluirRegistro(object objExcluir)
         {
-            this.CamposInterface(_FabricanteVeiculo, Status.Excluindo);
+            this.CamposInterface(Status.Excluindo);
             if (MessageBox.Show("Deseja excluir o registro.", "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 try
                 {
                     new Repositorio.RepositorioFabricanteVeiculo().DeletarObjeto(_FabricanteVeiculo);
+                    this.BuscarTodosFabricantesVeiculos();
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Atenção!");
-                }
-                this.BuscarTodosFabricantesVeiculos();
+                }               
             }
+            this.CamposInterface(Status.Consultando);
         }
 
         private void ctrNavigator1_MudaRegistroSelecionado(object objetoAtual)
@@ -133,12 +162,7 @@ namespace GerenciadorFinanceiro.GUI
                         ctrNavigator1.Indice = DGFabricantes.SelectedRows[0].Index;
                 }
             }
-            else
-            {
-                _FabricanteVeiculo = null;
-                _FabricanteVeiculo = new Dominio.FabricanteVeiculo();
-            }
-            this.CamposInterface(_FabricanteVeiculo, Status.Consultando);
+            this.CamposInterface(Status.Consultando);
         }
     }
 }

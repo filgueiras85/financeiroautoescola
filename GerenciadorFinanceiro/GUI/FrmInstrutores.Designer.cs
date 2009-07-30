@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.TxtNomeInstrutor = new System.Windows.Forms.TextBox();
             this.DGInstrutores = new System.Windows.Forms.DataGridView();
@@ -73,6 +73,7 @@
             this.TxtCPF = new System.Windows.Forms.MaskedTextBox();
             this.ctrNavigator1 = new GerenciadorFinanceiro.Controles.CtrNavigator();
             this.btnNovaCidade = new System.Windows.Forms.Button();
+            this.openFile = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.DGInstrutores)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcbFotoInstrutor)).BeginInit();
@@ -101,8 +102,8 @@
             // 
             this.DGInstrutores.AllowUserToAddRows = false;
             this.DGInstrutores.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DGInstrutores.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DGInstrutores.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.DGInstrutores.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
@@ -221,7 +222,7 @@
             this.TxtComplemento.Location = new System.Drawing.Point(254, 123);
             this.TxtComplemento.Name = "TxtComplemento";
             this.TxtComplemento.Size = new System.Drawing.Size(288, 20);
-            this.TxtComplemento.TabIndex = 3;
+            this.TxtComplemento.TabIndex = 7;
             // 
             // label3
             // 
@@ -269,7 +270,7 @@
             this.TxtBairro.Location = new System.Drawing.Point(92, 149);
             this.TxtBairro.Name = "TxtBairro";
             this.TxtBairro.Size = new System.Drawing.Size(335, 20);
-            this.TxtBairro.TabIndex = 4;
+            this.TxtBairro.TabIndex = 8;
             // 
             // label7
             // 
@@ -287,7 +288,7 @@
             this.TxtNumero.Location = new System.Drawing.Point(92, 123);
             this.TxtNumero.Name = "TxtNumero";
             this.TxtNumero.Size = new System.Drawing.Size(60, 20);
-            this.TxtNumero.TabIndex = 2;
+            this.TxtNumero.TabIndex = 6;
             // 
             // label8
             // 
@@ -305,7 +306,7 @@
             this.TxtRua.Location = new System.Drawing.Point(92, 97);
             this.TxtRua.Name = "TxtRua";
             this.TxtRua.Size = new System.Drawing.Size(450, 20);
-            this.TxtRua.TabIndex = 1;
+            this.TxtRua.TabIndex = 5;
             // 
             // label9
             // 
@@ -325,7 +326,7 @@
             this.CmbCidade.Location = new System.Drawing.Point(203, 175);
             this.CmbCidade.Name = "CmbCidade";
             this.CmbCidade.Size = new System.Drawing.Size(302, 21);
-            this.CmbCidade.TabIndex = 6;
+            this.CmbCidade.TabIndex = 11;
             // 
             // label10
             // 
@@ -344,7 +345,7 @@
             this.TxtObservacaoInstrutor.Multiline = true;
             this.TxtObservacaoInstrutor.Name = "TxtObservacaoInstrutor";
             this.TxtObservacaoInstrutor.Size = new System.Drawing.Size(450, 61);
-            this.TxtObservacaoInstrutor.TabIndex = 9;
+            this.TxtObservacaoInstrutor.TabIndex = 13;
             // 
             // groupBox1
             // 
@@ -365,6 +366,7 @@
             this.BtnLocalizarFotoInstrutor.Size = new System.Drawing.Size(28, 26);
             this.BtnLocalizarFotoInstrutor.TabIndex = 0;
             this.BtnLocalizarFotoInstrutor.UseVisualStyleBackColor = true;
+            this.BtnLocalizarFotoInstrutor.Click += new System.EventHandler(this.BtnLocalizarFotoInstrutor_Click);
             // 
             // PcbFotoInstrutor
             // 
@@ -382,7 +384,7 @@
             this.TxtTelefoneResidencial.Mask = "(99)0000-0000";
             this.TxtTelefoneResidencial.Name = "TxtTelefoneResidencial";
             this.TxtTelefoneResidencial.Size = new System.Drawing.Size(108, 20);
-            this.TxtTelefoneResidencial.TabIndex = 7;
+            this.TxtTelefoneResidencial.TabIndex = 1;
             // 
             // TxtTelefoneCelular
             // 
@@ -391,7 +393,7 @@
             this.TxtTelefoneCelular.Mask = "(99) 0000-0000";
             this.TxtTelefoneCelular.Name = "TxtTelefoneCelular";
             this.TxtTelefoneCelular.Size = new System.Drawing.Size(108, 20);
-            this.TxtTelefoneCelular.TabIndex = 8;
+            this.TxtTelefoneCelular.TabIndex = 2;
             // 
             // TxtCEP
             // 
@@ -400,7 +402,7 @@
             this.TxtCEP.Mask = "00.000-999";
             this.TxtCEP.Name = "TxtCEP";
             this.TxtCEP.Size = new System.Drawing.Size(69, 20);
-            this.TxtCEP.TabIndex = 5;
+            this.TxtCEP.TabIndex = 9;
             // 
             // label11
             // 
@@ -420,7 +422,7 @@
             this.CmbEstado.Location = new System.Drawing.Point(92, 175);
             this.CmbEstado.Name = "CmbEstado";
             this.CmbEstado.Size = new System.Drawing.Size(50, 21);
-            this.CmbEstado.TabIndex = 30;
+            this.CmbEstado.TabIndex = 10;
             this.CmbEstado.SelectedIndexChanged += new System.EventHandler(this.CmbEstado_SelectedIndexChanged);
             // 
             // StatusStrip
@@ -456,7 +458,7 @@
             this.TxtRG.Location = new System.Drawing.Point(92, 71);
             this.TxtRG.Name = "TxtRG";
             this.TxtRG.Size = new System.Drawing.Size(108, 20);
-            this.TxtRG.TabIndex = 32;
+            this.TxtRG.TabIndex = 3;
             // 
             // label13
             // 
@@ -475,7 +477,7 @@
             this.TxtCPF.Mask = "000.000.000-00";
             this.TxtCPF.Name = "TxtCPF";
             this.TxtCPF.Size = new System.Drawing.Size(108, 20);
-            this.TxtCPF.TabIndex = 36;
+            this.TxtCPF.TabIndex = 4;
             // 
             // ctrNavigator1
             // 
@@ -484,7 +486,7 @@
             this.ctrNavigator1.Location = new System.Drawing.Point(12, 267);
             this.ctrNavigator1.Name = "ctrNavigator1";
             this.ctrNavigator1.Size = new System.Drawing.Size(547, 42);
-            this.ctrNavigator1.TabIndex = 11;
+            this.ctrNavigator1.TabIndex = 14;
             this.ctrNavigator1.ExcluirRegistro += new GerenciadorFinanceiro.Controles.CtrNavigator.Excluir(this.ctrNavigator1_ExcluirRegistro);
             this.ctrNavigator1.EventoNovo += new GerenciadorFinanceiro.Controles.CtrNavigator.Novo(this.ctrNavigator1_EventoNovo);
             this.ctrNavigator1.MudaRegistroSelecionado += new GerenciadorFinanceiro.Controles.CtrNavigator.MudaRegistro(this.ctrNavigator1_MudaRegistroSelecionado);
@@ -498,8 +500,13 @@
             this.btnNovaCidade.Location = new System.Drawing.Point(511, 174);
             this.btnNovaCidade.Name = "btnNovaCidade";
             this.btnNovaCidade.Size = new System.Drawing.Size(31, 24);
-            this.btnNovaCidade.TabIndex = 38;
+            this.btnNovaCidade.TabIndex = 12;
             this.btnNovaCidade.UseVisualStyleBackColor = true;
+            this.btnNovaCidade.Click += new System.EventHandler(this.btnNovaCidade_Click);
+            // 
+            // openFile
+            // 
+            this.openFile.FileName = "openFileDialog1";
             // 
             // FrmInstrutores
             // 
@@ -539,6 +546,7 @@
             this.Controls.Add(this.TxtNomeInstrutor);
             this.MinimizeBox = false;
             this.Name = "FrmInstrutores";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Instrutores";
             this.Load += new System.EventHandler(this.FrmInstrutores_Load);
@@ -598,5 +606,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.MaskedTextBox TxtCPF;
         private System.Windows.Forms.Button btnNovaCidade;
+        private System.Windows.Forms.OpenFileDialog openFile;
     }
 }

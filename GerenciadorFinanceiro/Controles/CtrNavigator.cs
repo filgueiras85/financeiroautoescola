@@ -147,7 +147,6 @@ namespace GerenciadorFinanceiro.Controles
 
         private void BtnSalvar_Click(object sender, EventArgs e)
         {
-            this.EnabledButons(Status.Consultando);
             if (SalvarRegistro != null)
                 SalvarRegistro(_ObjetoAtual);
         }
@@ -163,15 +162,6 @@ namespace GerenciadorFinanceiro.Controles
         {
             if (_Lista != null)
             {
-                //if (EventoNovo != null | EditarRegistro != null)
-                //{
-                //    this.BtnPrimeiro.Enabled = false;
-                //    this.BtnAnterior.Enabled = false;
-                //    this.BtnProximo.Enabled = false;
-                //    this.BtnUltimo.Enabled = false;
-                //}
-                //else
-                //{
                 if (_Indice <= 0)
                 {
                     this.BtnPrimeiro.Enabled = false;
@@ -193,7 +183,6 @@ namespace GerenciadorFinanceiro.Controles
                     this.BtnUltimo.Enabled = false;
                 }
             }
-            //}
             else
             {
                 this.BtnPrimeiro.Enabled = false;

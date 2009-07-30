@@ -51,6 +51,7 @@
             this.idFabricanteVeiculo,
             this.Descricao});
             this.DGFabricantes.Location = new System.Drawing.Point(16, 84);
+            this.DGFabricantes.MultiSelect = false;
             this.DGFabricantes.Name = "DGFabricantes";
             this.DGFabricantes.ReadOnly = true;
             this.DGFabricantes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -137,6 +138,7 @@
             this.Controls.Add(this.DGFabricantes);
             this.MinimizeBox = false;
             this.Name = "FrmFabricanteVeiculo";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Fabricante de Veículos";
             this.Load += new System.EventHandler(this.FrmFabricanteVeiculo_Load);

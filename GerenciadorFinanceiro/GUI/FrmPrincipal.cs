@@ -30,6 +30,7 @@ namespace GerenciadorFinanceiro
 
 
             LblDataHora.Text = data + "  " + DateTime.Now.Hour + ":" + DateTime.Now.Minute + ":" + DateTime.Now.Second;
+            
         }
 
         private void instrutorToolStripMenuItem_Click(object sender, EventArgs e)
@@ -181,6 +182,30 @@ namespace GerenciadorFinanceiro
                 this.MdiChildren[0].Close();
             }
             GUI.FrmEmail form = new GerenciadorFinanceiro.GUI.FrmEmail();
+            form.MdiParent = this;
+            form.WindowState = FormWindowState.Maximized;
+            form.Show();
+        }
+
+        private void usuáriosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (this.MdiChildren.Length > 0)
+            {
+                this.MdiChildren[0].Close();
+            }
+            Configuracao.FrmUsuario  form = new GerenciadorFinanceiro.Configuracao.FrmUsuario();
+            form.MdiParent = this;
+            form.WindowState = FormWindowState.Maximized;
+            form.Show();
+        }
+
+        private void formaDePagamentoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (this.MdiChildren.Length > 0)
+            {
+                this.MdiChildren[0].Close();
+            }
+            GUI.FrmFormaPagamento form = new GerenciadorFinanceiro.GUI.FrmFormaPagamento();
             form.MdiParent = this;
             form.WindowState = FormWindowState.Maximized;
             form.Show();

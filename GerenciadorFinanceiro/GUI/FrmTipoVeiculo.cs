@@ -13,22 +13,65 @@ namespace GerenciadorFinanceiro.GUI
     {
 
         private List<Dominio.TipoVeiculo> _ListTipoVeiculo = new List<GerenciadorFinanceiro.Dominio.TipoVeiculo>();
-        private Dominio.TipoVeiculo _TipoVeiculo = new Dominio.TipoVeiculo();
-
-
+        private Dominio.TipoVeiculo _TipoVeiculo;
+        
         public FrmTipoVeiculo()
         {
             InitializeComponent();
-        }       
+        }
 
-        private bool ValidaDados()
+        #region " Eventos da Interface "
+
+        private void ValidaDados()
         {
-            if (TxtDescricao.Text.Length  > 3) {
-                return true;
-            } else {
-                return false;
+            if (TxtDescricao.Text.Trim() == String.Empty)
+                throw new Exception("O campo descrição é obrigatório.");
+            _TipoVeiculo.Descricao = TxtDescricao.Text;
+        }
+
+        private void EnabledCampos(bool enabled)
+        {
+            foreach (Control ctr in this.Controls)
+            {
+                if (ctr is ComboBox)
+                    ((ComboBox)ctr).Enabled = enabled;
+                else if (ctr is TextBox)
+                    ((TextBox)ctr).Enabled = enabled;
+                else if (ctr is MaskedTextBox)
+                    ((MaskedTextBox)ctr).Enabled = enabled;
+                else if (ctr is Button)
+                    ((Button)ctr).Enabled = enabled;
             }
         }
+
+        private void CamposInterface(Status status)
+        {
+            if (_TipoVeiculo == null)
+                _TipoVeiculo = new Dominio.TipoVeiculo();
+            TxtDescricao.Text = _TipoVeiculo.Descricao;
+            if (status == Status.Inserindo)
+            {
+                this.EnabledCampos(true);
+                LblStatus.Text = "Status : Inserindo";
+            }
+            else if (status == Status.Editando)
+            {
+                this.EnabledCampos(true);
+                LblStatus.Text = "Status : Editando";
+            }
+            else if (status == Status.Excluindo)
+            {
+                this.EnabledCampos(false);
+                LblStatus.Text = "Status : Excluindo";
+            }
+            else
+            {
+                this.EnabledCampos(false);
+                LblStatus.Text = "Status : Consultando";
+            }
+        }
+
+        #endregion
 
         private void BuscarTodosTiposVeiculos()
         {
@@ -37,91 +80,66 @@ namespace GerenciadorFinanceiro.GUI
             this.ctrNavigator1.DataSource = _ListTipoVeiculo;
         }
 
-        private void CamposInterface(Dominio.TipoVeiculo tipo, Status status)
-        {
-            TxtDescricao.Text = tipo.Descricao;
-            TxtDescricao.Focus();
-            if (status == Status.Inserindo)
-            {
-                TxtDescricao.Enabled = true;
-                LblStatus.Text = "Status : Inserindo";
-            }
-            else if (status == Status.Editando)
-            {
-                TxtDescricao.Enabled = true;
-                LblStatus.Text = "Status : Editando";
-            }
-            else if (status == Status.Excluindo)
-            {
-                TxtDescricao.Enabled = false;
-                LblStatus.Text = "Status : Excluindo";
-            }
-            else
-            {
-                TxtDescricao.Enabled = false;
-                LblStatus.Text = "Status : Consultando";
-            }
-        }
-
         private void ctrNavigator1_EventoNovo()
         {
             _TipoVeiculo = null;
             _TipoVeiculo = new Dominio.TipoVeiculo();
-            this.CamposInterface(_TipoVeiculo, Status.Inserindo);
+            this.CamposInterface(Status.Inserindo);
         }
 
         private void ctrNavigator1_CancelarAcao()
         {
             if (DGTipoVeiculo.SelectedRows.Count > 0)
                 _TipoVeiculo = (Dominio.TipoVeiculo)DGTipoVeiculo.SelectedRows[0].DataBoundItem;
-            this.CamposInterface(_TipoVeiculo, Status.Consultando);
+            this.CamposInterface(Status.Consultando);
         }
 
         private void ctrNavigator1_SalvarRegistro(object objSalvar)
         {
-            //TODO:Validar Campos
-            this._TipoVeiculo.Descricao = TxtDescricao.Text;
             try
             {
+                this.ValidaDados();
                 if (_TipoVeiculo.IdTipoVeiculo == 0)
                     new Repositorio.RepositorioTipoVeiculo().SalvarObjeto(_TipoVeiculo);
                 else
                     new Repositorio.RepositorioTipoVeiculo().AtualizarObjeto(_TipoVeiculo);
+                this.BuscarTodosTiposVeiculos();
+                this.CamposInterface(Status.Consultando);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Atenção!");
             }
-            this.BuscarTodosTiposVeiculos();
-            this.CamposInterface(_TipoVeiculo, Status.Consultando);
         }
 
         private void ctrNavigator1_ExcluirRegistro(object objExcluir)
         {
 
-            this.CamposInterface(_TipoVeiculo, Status.Excluindo);
+            this.CamposInterface(Status.Excluindo);
             if (MessageBox.Show("Deseja excluir o registro.", "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 try
                 {
                     new Repositorio.RepositorioTipoVeiculo().DeletarObjeto(_TipoVeiculo);
+                    this.BuscarTodosTiposVeiculos();
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Atenção!");
                 }
-                this.BuscarTodosTiposVeiculos();
             }
+            this.CamposInterface(Status.Consultando);
         }
 
         private void ctrNavigator1_EditarRegistro(object objEditar)
         {
-            this.CamposInterface(_TipoVeiculo, Status.Editando);
+            this.CamposInterface(Status.Editando);
         }
 
         private void FrmTipoVeiculo_Load(object sender, EventArgs e)
         {
-            this.BuscarTodosTiposVeiculos();            
+            this.BuscarTodosTiposVeiculos();
+            this.CamposInterface(Status.Consultando);
         }
 
 
@@ -136,12 +154,7 @@ namespace GerenciadorFinanceiro.GUI
                         this.ctrNavigator1.Indice = DGTipoVeiculo.SelectedRows[0].Index;
                 }
             }
-            else
-            {
-                this._TipoVeiculo = null;
-                this._TipoVeiculo = new Dominio.TipoVeiculo();
-            }
-            this.CamposInterface(_TipoVeiculo, Status.Consultando);
+            this.CamposInterface(Status.Consultando);
         }
 
         private void ctrNavigator1_MudaRegistroSelecionado(object objetoAtual)

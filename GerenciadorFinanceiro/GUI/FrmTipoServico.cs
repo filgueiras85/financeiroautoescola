@@ -149,5 +149,26 @@ namespace GerenciadorFinanceiro.GUI
                 this.Close();
             }            
         }
+
+        private void ctrNavigator1_CancelarAcao()
+        {
+            if (DGServicos.SelectedRows.Count > 0)
+                _TipoServico = (Dominio.TipoServico)DGServicos.SelectedRows[0].DataBoundItem;
+            this.CamposInterface(Status.Consultando);
+        }
+
+        private void DGServicos_SelectionChanged(object sender, EventArgs e)
+        {
+            if (this.DGServicos.Rows.Count > 0)
+            {
+                if (DGServicos.SelectedRows.Count > 0)
+                {
+                    _TipoServico = (Dominio.TipoServico)DGServicos.SelectedRows[0].DataBoundItem;
+                    if (ctrNavigator1.DataSource != null)
+                        ctrNavigator1.Indice = DGServicos.SelectedRows[0].Index;
+                }
+            }
+            this.CamposInterface(Status.Consultando);
+        }
     }
 }
