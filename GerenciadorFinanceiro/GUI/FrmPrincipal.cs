@@ -211,5 +211,19 @@ namespace GerenciadorFinanceiro
             form.Show();
         }
 
+        private void configurarBackupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Configuracao.FrmConfiguracao frm = new Configuracao.FrmConfiguracao(false);
+            frm.ShowDialog();
+            frm.Dispose();
+        }
+
+        private void restaurarBancoDeDadosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+            new Servicos.Backup().RestaurarBancoDados();
+            this.Cursor = System.Windows.Forms.Cursors.Default;
+        }
+
     }
 }

@@ -295,6 +295,7 @@
     <Compile Include="Repositorio\RepositorioUsuario.cs" />
     <Compile Include="Repositorio\RepositorioAluno.cs" />
     <Compile Include="Repositorio\RepositorioVeiculo.cs" />
+    <Compile Include="Servicos\Backup.cs" />
     <Compile Include="Servicos\Email.cs" />
     <Compile Include="TratamentoErros\TratadorErro.cs" />
   </ItemGroup>
