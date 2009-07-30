@@ -103,7 +103,7 @@
             this.txtRua.Location = new System.Drawing.Point(94, 63);
             this.txtRua.Name = "txtRua";
             this.txtRua.Size = new System.Drawing.Size(450, 20);
-            this.txtRua.TabIndex = 1;
+            this.txtRua.TabIndex = 2;
             // 
             // label3
             // 
@@ -121,7 +121,7 @@
             this.txtNumero.Location = new System.Drawing.Point(94, 90);
             this.txtNumero.Name = "txtNumero";
             this.txtNumero.Size = new System.Drawing.Size(55, 20);
-            this.txtNumero.TabIndex = 2;
+            this.txtNumero.TabIndex = 3;
             // 
             // label4
             // 
@@ -139,7 +139,7 @@
             this.txtComplemento.Location = new System.Drawing.Point(251, 90);
             this.txtComplemento.Name = "txtComplemento";
             this.txtComplemento.Size = new System.Drawing.Size(293, 20);
-            this.txtComplemento.TabIndex = 3;
+            this.txtComplemento.TabIndex = 4;
             // 
             // label5
             // 
@@ -157,7 +157,7 @@
             this.txtBairro.Location = new System.Drawing.Point(94, 117);
             this.txtBairro.Name = "txtBairro";
             this.txtBairro.Size = new System.Drawing.Size(450, 20);
-            this.txtBairro.TabIndex = 4;
+            this.txtBairro.TabIndex = 5;
             // 
             // label6
             // 
@@ -235,7 +235,7 @@
             this.txtRg.Location = new System.Drawing.Point(251, 198);
             this.txtRg.Name = "txtRg";
             this.txtRg.Size = new System.Drawing.Size(137, 20);
-            this.txtRg.TabIndex = 12;
+            this.txtRg.TabIndex = 13;
             // 
             // label13
             // 
@@ -253,7 +253,7 @@
             this.txtSSP.Location = new System.Drawing.Point(442, 198);
             this.txtSSP.Name = "txtSSP";
             this.txtSSP.Size = new System.Drawing.Size(102, 20);
-            this.txtSSP.TabIndex = 13;
+            this.txtSSP.TabIndex = 14;
             // 
             // TxtTelefoneResidencial
             // 
@@ -262,7 +262,7 @@
             this.TxtTelefoneResidencial.Mask = "(99)0000-0000";
             this.TxtTelefoneResidencial.Name = "TxtTelefoneResidencial";
             this.TxtTelefoneResidencial.Size = new System.Drawing.Size(93, 20);
-            this.TxtTelefoneResidencial.TabIndex = 8;
+            this.TxtTelefoneResidencial.TabIndex = 9;
             // 
             // txtCelular
             // 
@@ -271,7 +271,7 @@
             this.txtCelular.Mask = "(99)0000-0000";
             this.txtCelular.Name = "txtCelular";
             this.txtCelular.Size = new System.Drawing.Size(108, 20);
-            this.txtCelular.TabIndex = 9;
+            this.txtCelular.TabIndex = 10;
             // 
             // TxtCPF
             // 
@@ -280,7 +280,7 @@
             this.TxtCPF.Mask = "000.000.000-00";
             this.TxtCPF.Name = "TxtCPF";
             this.TxtCPF.Size = new System.Drawing.Size(108, 20);
-            this.TxtCPF.TabIndex = 11;
+            this.TxtCPF.TabIndex = 12;
             // 
             // txtDataNasc
             // 
@@ -288,7 +288,7 @@
             this.txtDataNasc.Location = new System.Drawing.Point(442, 170);
             this.txtDataNasc.Name = "txtDataNasc";
             this.txtDataNasc.Size = new System.Drawing.Size(102, 20);
-            this.txtDataNasc.TabIndex = 10;
+            this.txtDataNasc.TabIndex = 11;
             // 
             // label14
             // 
@@ -306,7 +306,7 @@
             this.txtNomeMae.Location = new System.Drawing.Point(94, 225);
             this.txtNomeMae.Name = "txtNomeMae";
             this.txtNomeMae.Size = new System.Drawing.Size(450, 20);
-            this.txtNomeMae.TabIndex = 14;
+            this.txtNomeMae.TabIndex = 15;
             // 
             // label15
             // 
@@ -324,7 +324,7 @@
             this.txtNomePai.Location = new System.Drawing.Point(94, 252);
             this.txtNomePai.Name = "txtNomePai";
             this.txtNomePai.Size = new System.Drawing.Size(450, 20);
-            this.txtNomePai.TabIndex = 15;
+            this.txtNomePai.TabIndex = 16;
             // 
             // label16
             // 
@@ -343,7 +343,7 @@
             this.txtObservacao.Multiline = true;
             this.txtObservacao.Name = "txtObservacao";
             this.txtObservacao.Size = new System.Drawing.Size(450, 83);
-            this.txtObservacao.TabIndex = 16;
+            this.txtObservacao.TabIndex = 17;
             // 
             // CmbEstado
             // 
@@ -352,7 +352,7 @@
             this.CmbEstado.Location = new System.Drawing.Point(94, 144);
             this.CmbEstado.Name = "CmbEstado";
             this.CmbEstado.Size = new System.Drawing.Size(55, 21);
-            this.CmbEstado.TabIndex = 5;
+            this.CmbEstado.TabIndex = 6;
             this.CmbEstado.SelectedIndexChanged += new System.EventHandler(this.cmbEstado_SelectedIndexChanged);
             // 
             // CmbCidade
@@ -363,7 +363,7 @@
             this.CmbCidade.Location = new System.Drawing.Point(251, 144);
             this.CmbCidade.Name = "CmbCidade";
             this.CmbCidade.Size = new System.Drawing.Size(259, 21);
-            this.CmbCidade.TabIndex = 6;
+            this.CmbCidade.TabIndex = 7;
             // 
             // StatusStrip
             // 
@@ -372,7 +372,7 @@
             this.StatusStrip.Location = new System.Drawing.Point(0, 414);
             this.StatusStrip.Name = "StatusStrip";
             this.StatusStrip.Size = new System.Drawing.Size(590, 22);
-            this.StatusStrip.TabIndex = 17;
+            this.StatusStrip.TabIndex = 19;
             this.StatusStrip.Text = "statusStrip1";
             // 
             // LblStatus
@@ -389,7 +389,7 @@
             this.ctrNavigator1.Location = new System.Drawing.Point(8, 367);
             this.ctrNavigator1.Name = "ctrNavigator1";
             this.ctrNavigator1.Size = new System.Drawing.Size(547, 42);
-            this.ctrNavigator1.TabIndex = 17;
+            this.ctrNavigator1.TabIndex = 18;
             this.ctrNavigator1.ExcluirRegistro += new GerenciadorFinanceiro.Controles.CtrNavigator.Excluir(this.ctrNavigator1_ExcluirRegistro);
             this.ctrNavigator1.EventoNovo += new GerenciadorFinanceiro.Controles.CtrNavigator.Novo(this.ctrNavigator1_EventoNovo);
             this.ctrNavigator1.CancelarAcao += new GerenciadorFinanceiro.Controles.CtrNavigator.Cancelar(this.ctrNavigator1_CancelarAcao);
@@ -402,7 +402,7 @@
             this.btnNovaCidade.Location = new System.Drawing.Point(513, 141);
             this.btnNovaCidade.Name = "btnNovaCidade";
             this.btnNovaCidade.Size = new System.Drawing.Size(31, 24);
-            this.btnNovaCidade.TabIndex = 7;
+            this.btnNovaCidade.TabIndex = 8;
             this.btnNovaCidade.UseVisualStyleBackColor = true;
             // 
             // label17
@@ -421,7 +421,7 @@
             this.TxtEmail.Location = new System.Drawing.Point(94, 38);
             this.TxtEmail.Name = "TxtEmail";
             this.TxtEmail.Size = new System.Drawing.Size(450, 20);
-            this.TxtEmail.TabIndex = 48;
+            this.TxtEmail.TabIndex = 1;
             // 
             // FrmAluno
             // 

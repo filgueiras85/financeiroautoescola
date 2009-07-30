@@ -29,6 +29,13 @@
         private void InitializeComponent()
         {
             this.DGUsuarios = new System.Windows.Forms.DataGridView();
+            this.ColId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColTelefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColCelular = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColUsername = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColSenha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TxtTelefoneCelular = new System.Windows.Forms.MaskedTextBox();
             this.txtTelefone = new System.Windows.Forms.MaskedTextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -43,13 +50,6 @@
             this.txtSenha = new System.Windows.Forms.TextBox();
             this.StatusStrip = new System.Windows.Forms.StatusStrip();
             this.LblStatus = new System.Windows.Forms.ToolStripStatusLabel();
-            this.ColId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColTelefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColCelular = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColUsername = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColSenha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ctrNavigator1 = new GerenciadorFinanceiro.Controles.CtrNavigator();
             ((System.ComponentModel.ISupportInitialize)(this.DGUsuarios)).BeginInit();
             this.StatusStrip.SuspendLayout();
@@ -76,138 +76,8 @@
             this.DGUsuarios.ReadOnly = true;
             this.DGUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGUsuarios.Size = new System.Drawing.Size(592, 237);
-            this.DGUsuarios.TabIndex = 1;
+            this.DGUsuarios.TabIndex = 7;
             this.DGUsuarios.SelectionChanged += new System.EventHandler(this.DGUsuarios_SelectionChanged);
-            // 
-            // TxtTelefoneCelular
-            // 
-            this.TxtTelefoneCelular.BackColor = System.Drawing.Color.White;
-            this.TxtTelefoneCelular.Location = new System.Drawing.Point(271, 78);
-            this.TxtTelefoneCelular.Mask = "(99) 0000-0000";
-            this.TxtTelefoneCelular.Name = "TxtTelefoneCelular";
-            this.TxtTelefoneCelular.Size = new System.Drawing.Size(108, 20);
-            this.TxtTelefoneCelular.TabIndex = 20;
-            // 
-            // txtTelefone
-            // 
-            this.txtTelefone.BackColor = System.Drawing.Color.White;
-            this.txtTelefone.Location = new System.Drawing.Point(90, 78);
-            this.txtTelefone.Mask = "(99)0000-0000";
-            this.txtTelefone.Name = "txtTelefone";
-            this.txtTelefone.Size = new System.Drawing.Size(108, 20);
-            this.txtTelefone.TabIndex = 19;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(28, 80);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(62, 15);
-            this.label4.TabIndex = 23;
-            this.label4.Text = "Telefone :";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(217, 80);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 15);
-            this.label3.TabIndex = 22;
-            this.label3.Text = "Celular :";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(44, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 15);
-            this.label1.TabIndex = 21;
-            this.label1.Text = "Nome :";
-            // 
-            // TxtNome
-            // 
-            this.TxtNome.BackColor = System.Drawing.Color.White;
-            this.TxtNome.Location = new System.Drawing.Point(90, 24);
-            this.TxtNome.Name = "TxtNome";
-            this.TxtNome.Size = new System.Drawing.Size(450, 20);
-            this.TxtNome.TabIndex = 18;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(45, 53);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 15);
-            this.label2.TabIndex = 25;
-            this.label2.Text = "Email :";
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.BackColor = System.Drawing.Color.White;
-            this.txtEmail.Location = new System.Drawing.Point(90, 51);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(450, 20);
-            this.txtEmail.TabIndex = 24;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(33, 107);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(57, 15);
-            this.label5.TabIndex = 26;
-            this.label5.Text = "Usuário :";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(40, 134);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(49, 15);
-            this.label6.TabIndex = 27;
-            this.label6.Text = "Senha :";
-            // 
-            // txtUsername
-            // 
-            this.txtUsername.BackColor = System.Drawing.Color.White;
-            this.txtUsername.Location = new System.Drawing.Point(90, 105);
-            this.txtUsername.MaxLength = 30;
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(160, 20);
-            this.txtUsername.TabIndex = 28;
-            // 
-            // txtSenha
-            // 
-            this.txtSenha.BackColor = System.Drawing.Color.White;
-            this.txtSenha.Location = new System.Drawing.Point(90, 132);
-            this.txtSenha.MaxLength = 20;
-            this.txtSenha.Name = "txtSenha";
-            this.txtSenha.Size = new System.Drawing.Size(160, 20);
-            this.txtSenha.TabIndex = 29;
-            this.txtSenha.UseSystemPasswordChar = true;
-            // 
-            // StatusStrip
-            // 
-            this.StatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.LblStatus});
-            this.StatusStrip.Location = new System.Drawing.Point(0, 460);
-            this.StatusStrip.Name = "StatusStrip";
-            this.StatusStrip.Size = new System.Drawing.Size(616, 22);
-            this.StatusStrip.TabIndex = 30;
-            this.StatusStrip.Text = "statusStrip1";
-            // 
-            // LblStatus
-            // 
-            this.LblStatus.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
-            this.LblStatus.Name = "LblStatus";
-            this.LblStatus.Size = new System.Drawing.Size(124, 17);
-            this.LblStatus.Text = "Status : Consultando";
             // 
             // ColId
             // 
@@ -262,6 +132,136 @@
             this.ColSenha.ReadOnly = true;
             this.ColSenha.Visible = false;
             // 
+            // TxtTelefoneCelular
+            // 
+            this.TxtTelefoneCelular.BackColor = System.Drawing.Color.White;
+            this.TxtTelefoneCelular.Location = new System.Drawing.Point(271, 78);
+            this.TxtTelefoneCelular.Mask = "(99) 0000-0000";
+            this.TxtTelefoneCelular.Name = "TxtTelefoneCelular";
+            this.TxtTelefoneCelular.Size = new System.Drawing.Size(108, 20);
+            this.TxtTelefoneCelular.TabIndex = 3;
+            // 
+            // txtTelefone
+            // 
+            this.txtTelefone.BackColor = System.Drawing.Color.White;
+            this.txtTelefone.Location = new System.Drawing.Point(90, 78);
+            this.txtTelefone.Mask = "(99)0000-0000";
+            this.txtTelefone.Name = "txtTelefone";
+            this.txtTelefone.Size = new System.Drawing.Size(108, 20);
+            this.txtTelefone.TabIndex = 2;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(28, 80);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(62, 15);
+            this.label4.TabIndex = 23;
+            this.label4.Text = "Telefone :";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(217, 80);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(53, 15);
+            this.label3.TabIndex = 22;
+            this.label3.Text = "Celular :";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(44, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(46, 15);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "Nome :";
+            // 
+            // TxtNome
+            // 
+            this.TxtNome.BackColor = System.Drawing.Color.White;
+            this.TxtNome.Location = new System.Drawing.Point(90, 24);
+            this.TxtNome.Name = "TxtNome";
+            this.TxtNome.Size = new System.Drawing.Size(450, 20);
+            this.TxtNome.TabIndex = 0;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(45, 53);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(44, 15);
+            this.label2.TabIndex = 25;
+            this.label2.Text = "Email :";
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.BackColor = System.Drawing.Color.White;
+            this.txtEmail.Location = new System.Drawing.Point(90, 51);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(450, 20);
+            this.txtEmail.TabIndex = 1;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(33, 107);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(57, 15);
+            this.label5.TabIndex = 26;
+            this.label5.Text = "Usuário :";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(40, 134);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(49, 15);
+            this.label6.TabIndex = 27;
+            this.label6.Text = "Senha :";
+            // 
+            // txtUsername
+            // 
+            this.txtUsername.BackColor = System.Drawing.Color.White;
+            this.txtUsername.Location = new System.Drawing.Point(90, 105);
+            this.txtUsername.MaxLength = 30;
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(160, 20);
+            this.txtUsername.TabIndex = 4;
+            // 
+            // txtSenha
+            // 
+            this.txtSenha.BackColor = System.Drawing.Color.White;
+            this.txtSenha.Location = new System.Drawing.Point(90, 132);
+            this.txtSenha.MaxLength = 20;
+            this.txtSenha.Name = "txtSenha";
+            this.txtSenha.Size = new System.Drawing.Size(160, 20);
+            this.txtSenha.TabIndex = 5;
+            this.txtSenha.UseSystemPasswordChar = true;
+            // 
+            // StatusStrip
+            // 
+            this.StatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.LblStatus});
+            this.StatusStrip.Location = new System.Drawing.Point(0, 460);
+            this.StatusStrip.Name = "StatusStrip";
+            this.StatusStrip.Size = new System.Drawing.Size(616, 22);
+            this.StatusStrip.TabIndex = 30;
+            this.StatusStrip.Text = "statusStrip1";
+            // 
+            // LblStatus
+            // 
+            this.LblStatus.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
+            this.LblStatus.Name = "LblStatus";
+            this.LblStatus.Size = new System.Drawing.Size(124, 17);
+            this.LblStatus.Text = "Status : Consultando";
+            // 
             // ctrNavigator1
             // 
             this.ctrNavigator1.DataSource = null;
@@ -269,7 +269,7 @@
             this.ctrNavigator1.Location = new System.Drawing.Point(12, 158);
             this.ctrNavigator1.Name = "ctrNavigator1";
             this.ctrNavigator1.Size = new System.Drawing.Size(549, 42);
-            this.ctrNavigator1.TabIndex = 0;
+            this.ctrNavigator1.TabIndex = 6;
             this.ctrNavigator1.ExcluirRegistro += new GerenciadorFinanceiro.Controles.CtrNavigator.Excluir(this.ctrNavigator1_ExcluirRegistro);
             this.ctrNavigator1.EventoNovo += new GerenciadorFinanceiro.Controles.CtrNavigator.Novo(this.ctrNavigator1_EventoNovo);
             this.ctrNavigator1.MudaRegistroSelecionado += new GerenciadorFinanceiro.Controles.CtrNavigator.MudaRegistro(this.ctrNavigator1_MudaRegistroSelecionado);

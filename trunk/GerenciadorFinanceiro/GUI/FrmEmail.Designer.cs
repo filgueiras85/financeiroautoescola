@@ -105,7 +105,7 @@
             this.TxtMensagem.Multiline = true;
             this.TxtMensagem.Name = "TxtMensagem";
             this.TxtMensagem.Size = new System.Drawing.Size(402, 186);
-            this.TxtMensagem.TabIndex = 5;
+            this.TxtMensagem.TabIndex = 3;
             // 
             // BtnEnviarEmail
             // 
@@ -126,7 +126,7 @@
             this.BtnRemoverAnexo.Location = new System.Drawing.Point(501, 125);
             this.BtnRemoverAnexo.Name = "BtnRemoverAnexo";
             this.BtnRemoverAnexo.Size = new System.Drawing.Size(131, 25);
-            this.BtnRemoverAnexo.TabIndex = 4;
+            this.BtnRemoverAnexo.TabIndex = 5;
             this.BtnRemoverAnexo.Text = "Remover Anexo";
             this.BtnRemoverAnexo.UseVisualStyleBackColor = true;
             this.BtnRemoverAnexo.Click += new System.EventHandler(this.BtnRemoverAnexo_Click);
@@ -138,7 +138,7 @@
             this.BtnAnexar.Location = new System.Drawing.Point(501, 94);
             this.BtnAnexar.Name = "BtnAnexar";
             this.BtnAnexar.Size = new System.Drawing.Size(131, 25);
-            this.BtnAnexar.TabIndex = 3;
+            this.BtnAnexar.TabIndex = 4;
             this.BtnAnexar.Text = "Anexar";
             this.BtnAnexar.UseVisualStyleBackColor = true;
             this.BtnAnexar.Click += new System.EventHandler(this.BtnAnexar_Click);
@@ -149,7 +149,7 @@
             this.ListAnexos.Location = new System.Drawing.Point(93, 66);
             this.ListAnexos.Name = "ListAnexos";
             this.ListAnexos.Size = new System.Drawing.Size(402, 82);
-            this.ListAnexos.TabIndex = 29;
+            this.ListAnexos.TabIndex = 2;
             // 
             // OpenFile
             // 

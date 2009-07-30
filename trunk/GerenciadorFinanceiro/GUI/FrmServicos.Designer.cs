@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label2 = new System.Windows.Forms.Label();
             this.txtValor = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -66,7 +66,7 @@
             this.txtValor.Location = new System.Drawing.Point(113, 41);
             this.txtValor.Name = "txtValor";
             this.txtValor.Size = new System.Drawing.Size(222, 20);
-            this.txtValor.TabIndex = 22;
+            this.txtValor.TabIndex = 1;
             // 
             // label1
             // 
@@ -84,14 +84,14 @@
             this.TxtDescricao.Location = new System.Drawing.Point(113, 12);
             this.TxtDescricao.Name = "TxtDescricao";
             this.TxtDescricao.Size = new System.Drawing.Size(222, 20);
-            this.TxtDescricao.TabIndex = 21;
+            this.TxtDescricao.TabIndex = 0;
             // 
             // DGServicos
             // 
             this.DGServicos.AllowUserToAddRows = false;
             this.DGServicos.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DGServicos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DGServicos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DGServicos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
@@ -106,7 +106,7 @@
             this.DGServicos.ReadOnly = true;
             this.DGServicos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGServicos.Size = new System.Drawing.Size(547, 218);
-            this.DGServicos.TabIndex = 28;
+            this.DGServicos.TabIndex = 6;
             this.DGServicos.SelectionChanged += new System.EventHandler(this.DGServicos_SelectionChanged);
             // 
             // Codigo
@@ -147,7 +147,7 @@
             this.StatusStrip.Location = new System.Drawing.Point(0, 448);
             this.StatusStrip.Name = "StatusStrip";
             this.StatusStrip.Size = new System.Drawing.Size(573, 22);
-            this.StatusStrip.TabIndex = 32;
+            this.StatusStrip.TabIndex = 7;
             this.StatusStrip.Text = "statusStrip1";
             // 
             // LblStatus
@@ -174,7 +174,7 @@
             this.txtObservacao.Multiline = true;
             this.txtObservacao.Name = "txtObservacao";
             this.txtObservacao.Size = new System.Drawing.Size(374, 64);
-            this.txtObservacao.TabIndex = 33;
+            this.txtObservacao.TabIndex = 4;
             // 
             // cmbTipoServico
             // 
@@ -183,7 +183,7 @@
             this.cmbTipoServico.Location = new System.Drawing.Point(113, 70);
             this.cmbTipoServico.Name = "cmbTipoServico";
             this.cmbTipoServico.Size = new System.Drawing.Size(222, 21);
-            this.cmbTipoServico.TabIndex = 35;
+            this.cmbTipoServico.TabIndex = 2;
             // 
             // label4
             // 
@@ -202,7 +202,7 @@
             this.ctrNavigator1.Location = new System.Drawing.Point(12, 170);
             this.ctrNavigator1.Name = "ctrNavigator1";
             this.ctrNavigator1.Size = new System.Drawing.Size(547, 42);
-            this.ctrNavigator1.TabIndex = 27;
+            this.ctrNavigator1.TabIndex = 5;
             this.ctrNavigator1.ExcluirRegistro += new GerenciadorFinanceiro.Controles.CtrNavigator.Excluir(this.ctrNavigator1_ExcluirRegistro);
             this.ctrNavigator1.EventoNovo += new GerenciadorFinanceiro.Controles.CtrNavigator.Novo(this.ctrNavigator1_EventoNovo);
             this.ctrNavigator1.MudaRegistroSelecionado += new GerenciadorFinanceiro.Controles.CtrNavigator.MudaRegistro(this.ctrNavigator1_MudaRegistroSelecionado);
@@ -216,7 +216,7 @@
             this.btnNovoTipoServico.Location = new System.Drawing.Point(341, 69);
             this.btnNovoTipoServico.Name = "btnNovoTipoServico";
             this.btnNovoTipoServico.Size = new System.Drawing.Size(31, 24);
-            this.btnNovoTipoServico.TabIndex = 37;
+            this.btnNovoTipoServico.TabIndex = 3;
             this.btnNovoTipoServico.UseVisualStyleBackColor = true;
             this.btnNovoTipoServico.Click += new System.EventHandler(this.btnNovoTipoServico_Click);
             // 

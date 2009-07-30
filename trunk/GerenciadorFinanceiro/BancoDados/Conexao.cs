@@ -21,7 +21,8 @@ namespace GerenciadorFinanceiro.BancoDados
 
         private void ConfiguraStringConexao()
         {
-            _StrConexao = "Data Source=" + System.IO.Path.Combine(System.Windows.Forms.Application.StartupPath, "BancoDados\\DBGerenciador.sdf");
+            //_StrConexao = "Data Source=" + System.IO.Path.Combine(System.Windows.Forms.Application.StartupPath, "BancoDados\\DBGerenciador.sdf");
+            _StrConexao = "Data Source=" +  System.IO.Path.Combine( GerenciadorFinanceiro.Properties.Settings.Default.LocalDB ,  "DBGerenciador.sdf");
         }
 
         public SqlCeConnection getConexao
