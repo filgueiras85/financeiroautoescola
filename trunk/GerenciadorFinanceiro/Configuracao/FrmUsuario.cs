@@ -26,8 +26,8 @@ namespace GerenciadorFinanceiro.Configuracao
         {
             if (TxtNome.Text.Trim()  == String.Empty)
                 throw new Exception("O campo nome é obrigatório.");
-            if (txtEmail.Text.Trim() == String.Empty)
-                throw new Exception("O campo email é obrigatório.");
+            if (new Servicos.Email().ValidaEmail(txtEmail.Text.Trim())== false)
+                throw new Exception("Email inválido.");
             if (txtUsername.Text.Trim() == String.Empty)
                 throw new Exception("O campo usuário é obrigatório.");
             if (txtSenha.Text.Trim() == String.Empty)

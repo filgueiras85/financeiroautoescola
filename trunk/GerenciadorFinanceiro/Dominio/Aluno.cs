@@ -43,5 +43,7 @@ namespace GerenciadorFinanceiro.Dominio
 
         public String Observacao { get; set; }
 
+        public String Email { get; set; }
+
     }
 }
