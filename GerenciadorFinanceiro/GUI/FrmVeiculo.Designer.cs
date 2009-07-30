@@ -92,7 +92,7 @@
             this.TxtCor.Location = new System.Drawing.Point(96, 121);
             this.TxtCor.Name = "TxtCor";
             this.TxtCor.Size = new System.Drawing.Size(92, 20);
-            this.TxtCor.TabIndex = 5;
+            this.TxtCor.TabIndex = 6;
             // 
             // DGVeiculos
             // 
@@ -121,7 +121,7 @@
             this.DGVeiculos.ReadOnly = true;
             this.DGVeiculos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGVeiculos.Size = new System.Drawing.Size(690, 167);
-            this.DGVeiculos.TabIndex = 11;
+            this.DGVeiculos.TabIndex = 14;
             this.DGVeiculos.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DGVeiculos_CellFormatting);
             this.DGVeiculos.SelectionChanged += new System.EventHandler(this.DGVeiculos_SelectionChanged);
             // 
@@ -215,7 +215,7 @@
             this.CmbModelo.Location = new System.Drawing.Point(96, 148);
             this.CmbModelo.Name = "CmbModelo";
             this.CmbModelo.Size = new System.Drawing.Size(264, 21);
-            this.CmbModelo.TabIndex = 8;
+            this.CmbModelo.TabIndex = 9;
             // 
             // label2
             // 
@@ -304,7 +304,7 @@
             this.TxtObservacao.Multiline = true;
             this.TxtObservacao.Name = "TxtObservacao";
             this.TxtObservacao.Size = new System.Drawing.Size(301, 58);
-            this.TxtObservacao.TabIndex = 9;
+            this.TxtObservacao.TabIndex = 11;
             // 
             // TxtAno
             // 
@@ -313,7 +313,7 @@
             this.TxtAno.MaxLength = 4;
             this.TxtAno.Name = "TxtAno";
             this.TxtAno.Size = new System.Drawing.Size(53, 20);
-            this.TxtAno.TabIndex = 6;
+            this.TxtAno.TabIndex = 7;
             // 
             // TxtChassi
             // 
@@ -360,7 +360,7 @@
             this.GrpImagens.Location = new System.Drawing.Point(403, 6);
             this.GrpImagens.Name = "GrpImagens";
             this.GrpImagens.Size = new System.Drawing.Size(299, 228);
-            this.GrpImagens.TabIndex = 30;
+            this.GrpImagens.TabIndex = 12;
             this.GrpImagens.TabStop = false;
             this.GrpImagens.Text = "Foto do Veículo ";
             // 
@@ -400,7 +400,7 @@
             this.TxtAnoModelo.MaxLength = 4;
             this.TxtAnoModelo.Name = "TxtAnoModelo";
             this.TxtAnoModelo.Size = new System.Drawing.Size(53, 20);
-            this.TxtAnoModelo.TabIndex = 7;
+            this.TxtAnoModelo.TabIndex = 8;
             // 
             // StatusStrip
             // 
@@ -409,7 +409,7 @@
             this.StatusStrip.Location = new System.Drawing.Point(0, 468);
             this.StatusStrip.Name = "StatusStrip";
             this.StatusStrip.Size = new System.Drawing.Size(715, 22);
-            this.StatusStrip.TabIndex = 34;
+            this.StatusStrip.TabIndex = 15;
             this.StatusStrip.Text = "statusStrip1";
             // 
             // LblStatus
@@ -433,7 +433,7 @@
             this.CmbCombustivel.Location = new System.Drawing.Point(96, 94);
             this.CmbCombustivel.Name = "CmbCombustivel";
             this.CmbCombustivel.Size = new System.Drawing.Size(301, 21);
-            this.CmbCombustivel.TabIndex = 4;
+            this.CmbCombustivel.TabIndex = 5;
             // 
             // ctrNavigator1
             // 
@@ -442,7 +442,7 @@
             this.ctrNavigator1.Location = new System.Drawing.Point(15, 239);
             this.ctrNavigator1.Name = "ctrNavigator1";
             this.ctrNavigator1.Size = new System.Drawing.Size(547, 42);
-            this.ctrNavigator1.TabIndex = 10;
+            this.ctrNavigator1.TabIndex = 13;
             this.ctrNavigator1.ExcluirRegistro += new GerenciadorFinanceiro.Controles.CtrNavigator.Excluir(this.ctrNavigator1_ExcluirRegistro);
             this.ctrNavigator1.EventoNovo += new GerenciadorFinanceiro.Controles.CtrNavigator.Novo(this.ctrNavigator1_EventoNovo);
             this.ctrNavigator1.MudaRegistroSelecionado += new GerenciadorFinanceiro.Controles.CtrNavigator.MudaRegistro(this.ctrNavigator1_MudaRegistroSelecionado);
@@ -456,7 +456,7 @@
             this.btnNovoTipoVeiculo.Location = new System.Drawing.Point(366, 65);
             this.btnNovoTipoVeiculo.Name = "btnNovoTipoVeiculo";
             this.btnNovoTipoVeiculo.Size = new System.Drawing.Size(31, 24);
-            this.btnNovoTipoVeiculo.TabIndex = 38;
+            this.btnNovoTipoVeiculo.TabIndex = 4;
             this.btnNovoTipoVeiculo.UseVisualStyleBackColor = true;
             this.btnNovoTipoVeiculo.Click += new System.EventHandler(this.btnNovoTipoVeiculo_Click);
             // 
@@ -466,7 +466,7 @@
             this.btnNovoModelo.Location = new System.Drawing.Point(366, 146);
             this.btnNovoModelo.Name = "btnNovoModelo";
             this.btnNovoModelo.Size = new System.Drawing.Size(31, 24);
-            this.btnNovoModelo.TabIndex = 39;
+            this.btnNovoModelo.TabIndex = 10;
             this.btnNovoModelo.UseVisualStyleBackColor = true;
             this.btnNovoModelo.Click += new System.EventHandler(this.btnNovoModelo_Click);
             // 

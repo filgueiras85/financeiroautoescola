@@ -89,7 +89,7 @@
             this.TxtNomeCidade.Location = new System.Drawing.Point(100, 12);
             this.TxtNomeCidade.Name = "TxtNomeCidade";
             this.TxtNomeCidade.Size = new System.Drawing.Size(402, 20);
-            this.TxtNomeCidade.TabIndex = 14;
+            this.TxtNomeCidade.TabIndex = 0;
             // 
             // DGCidades
             // 
@@ -110,7 +110,7 @@
             this.DGCidades.ReadOnly = true;
             this.DGCidades.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGCidades.Size = new System.Drawing.Size(547, 179);
-            this.DGCidades.TabIndex = 17;
+            this.DGCidades.TabIndex = 4;
             this.DGCidades.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DGCidades_CellFormatting);
             this.DGCidades.SelectionChanged += new System.EventHandler(this.DGCidades_SelectionChanged);
             // 
@@ -146,7 +146,7 @@
             this.CmbEstados.Location = new System.Drawing.Point(100, 37);
             this.CmbEstados.Name = "CmbEstados";
             this.CmbEstados.Size = new System.Drawing.Size(402, 21);
-            this.CmbEstados.TabIndex = 21;
+            this.CmbEstados.TabIndex = 1;
             // 
             // btnNovoEstado
             // 
@@ -154,7 +154,7 @@
             this.btnNovoEstado.Location = new System.Drawing.Point(508, 35);
             this.btnNovoEstado.Name = "btnNovoEstado";
             this.btnNovoEstado.Size = new System.Drawing.Size(31, 24);
-            this.btnNovoEstado.TabIndex = 38;
+            this.btnNovoEstado.TabIndex = 2;
             this.btnNovoEstado.UseVisualStyleBackColor = true;
             this.btnNovoEstado.Click += new System.EventHandler(this.btnNovoEstado_Click);
             // 
@@ -165,7 +165,7 @@
             this.ctrNavigator1.Location = new System.Drawing.Point(12, 61);
             this.ctrNavigator1.Name = "ctrNavigator1";
             this.ctrNavigator1.Size = new System.Drawing.Size(547, 42);
-            this.ctrNavigator1.TabIndex = 16;
+            this.ctrNavigator1.TabIndex = 3;
             this.ctrNavigator1.ExcluirRegistro += new GerenciadorFinanceiro.Controles.CtrNavigator.Excluir(this.ctrNavigator1_ExcluirRegistro);
             this.ctrNavigator1.EventoNovo += new GerenciadorFinanceiro.Controles.CtrNavigator.Novo(this.ctrNavigator1_EventoNovo);
             this.ctrNavigator1.MudaRegistroSelecionado += new GerenciadorFinanceiro.Controles.CtrNavigator.MudaRegistro(this.ctrNavigator1_MudaRegistroSelecionado);

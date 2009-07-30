@@ -61,7 +61,7 @@
             this.TxtDescricao.Location = new System.Drawing.Point(104, 12);
             this.TxtDescricao.Name = "TxtDescricao";
             this.TxtDescricao.Size = new System.Drawing.Size(392, 20);
-            this.TxtDescricao.TabIndex = 9;
+            this.TxtDescricao.TabIndex = 0;
             // 
             // CmbFabricanteVeiculo
             // 
@@ -71,7 +71,7 @@
             this.CmbFabricanteVeiculo.Location = new System.Drawing.Point(104, 39);
             this.CmbFabricanteVeiculo.Name = "CmbFabricanteVeiculo";
             this.CmbFabricanteVeiculo.Size = new System.Drawing.Size(392, 21);
-            this.CmbFabricanteVeiculo.TabIndex = 11;
+            this.CmbFabricanteVeiculo.TabIndex = 1;
             // 
             // label2
             // 
@@ -101,7 +101,7 @@
             this.DGModelos.ReadOnly = true;
             this.DGModelos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGModelos.Size = new System.Drawing.Size(538, 175);
-            this.DGModelos.TabIndex = 13;
+            this.DGModelos.TabIndex = 4;
             this.DGModelos.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DGModelos_CellFormatting);
             this.DGModelos.SelectionChanged += new System.EventHandler(this.DGModelos_SelectionChanged);
             // 
@@ -153,7 +153,7 @@
             this.ctrNavigator1.Location = new System.Drawing.Point(17, 66);
             this.ctrNavigator1.Name = "ctrNavigator1";
             this.ctrNavigator1.Size = new System.Drawing.Size(547, 42);
-            this.ctrNavigator1.TabIndex = 14;
+            this.ctrNavigator1.TabIndex = 3;
             this.ctrNavigator1.ExcluirRegistro += new GerenciadorFinanceiro.Controles.CtrNavigator.Excluir(this.ctrNavigator1_ExcluirRegistro);
             this.ctrNavigator1.EventoNovo += new GerenciadorFinanceiro.Controles.CtrNavigator.Novo(this.ctrNavigator1_EventoNovo);
             this.ctrNavigator1.MudaRegistroSelecionado += new GerenciadorFinanceiro.Controles.CtrNavigator.MudaRegistro(this.ctrNavigator1_MudaRegistroSelecionado);
@@ -167,7 +167,7 @@
             this.btnNovoFabricante.Location = new System.Drawing.Point(502, 39);
             this.btnNovoFabricante.Name = "btnNovoFabricante";
             this.btnNovoFabricante.Size = new System.Drawing.Size(31, 24);
-            this.btnNovoFabricante.TabIndex = 38;
+            this.btnNovoFabricante.TabIndex = 2;
             this.btnNovoFabricante.UseVisualStyleBackColor = true;
             this.btnNovoFabricante.Click += new System.EventHandler(this.btnNovoFabricante_Click);
             // 
