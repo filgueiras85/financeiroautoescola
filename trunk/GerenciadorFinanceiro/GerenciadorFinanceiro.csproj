@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{9B6CBD3E-42D9-44CC-A998-FA9422A29D55}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -90,6 +90,8 @@
       <DependentUpon>CtrNavigator.cs</DependentUpon>
     </Compile>
     <Compile Include="Dominio\Aluno.cs" />
+    <Compile Include="Dominio\Categoria.cs" />
+    <Compile Include="Dominio\CentroCustos.cs" />
     <Compile Include="Dominio\Cidade.cs" />
     <Compile Include="Dominio\Endereco.cs" />
     <Compile Include="Dominio\Enumeradores.cs" />
@@ -99,6 +101,7 @@
     <Compile Include="Dominio\Instrutor.cs" />
     <Compile Include="Dominio\ModeloVeiculo.cs" />
     <Compile Include="Dominio\Servico.cs" />
+    <Compile Include="Dominio\TipoDocumento.cs" />
     <Compile Include="Dominio\TipoServico.cs" />
     <Compile Include="Dominio\TipoVeiculo.cs" />
     <Compile Include="Dominio\Usuario.cs" />
@@ -109,6 +112,18 @@
     </Compile>
     <Compile Include="GUI\FrmAluno.Designer.cs">
       <DependentUpon>FrmAluno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmCadCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmCadCategoria.Designer.cs">
+      <DependentUpon>FrmCadCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmCategorias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmCategorias.Designer.cs">
+      <DependentUpon>FrmCategorias.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\FrmCidade.cs">
       <SubType>Form</SubType>
@@ -176,6 +191,12 @@
     <Compile Include="GUI\FrmServicos.Designer.cs">
       <DependentUpon>FrmServicos.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\FrmTipoDocumento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmTipoDocumento.Designer.cs">
+      <DependentUpon>FrmTipoDocumento.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FrmTipoServico.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -203,6 +224,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Configuracao\FrmRestaurarBackup.resx">
       <DependentUpon>FrmRestaurarBackup.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Configuracao\FrmUsuario.resx">
       <DependentUpon>FrmUsuario.cs</DependentUpon>
@@ -214,6 +236,14 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmAluno.resx">
       <DependentUpon>FrmAluno.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmCadCategoria.resx">
+      <DependentUpon>FrmCadCategoria.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmCategorias.resx">
+      <DependentUpon>FrmCategorias.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmCidade.resx">
@@ -260,6 +290,10 @@
       <DependentUpon>FrmServicos.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmTipoDocumento.resx">
+      <DependentUpon>FrmTipoDocumento.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmTipoServico.resx">
       <DependentUpon>FrmTipoServico.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -292,6 +326,8 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Repositorio\RepositorioBase.cs" />
+    <Compile Include="Repositorio\RepositorioCategoria.cs" />
+    <Compile Include="Repositorio\RepositorioCentroCustos.cs" />
     <Compile Include="Repositorio\RepositorioCidade.cs" />
     <Compile Include="Repositorio\RepositorioEstado.cs" />
     <Compile Include="Repositorio\RepositorioFabricanteVeiculo.cs" />
