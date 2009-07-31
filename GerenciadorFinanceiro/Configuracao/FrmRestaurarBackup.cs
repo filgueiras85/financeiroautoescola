@@ -20,8 +20,9 @@ namespace GerenciadorFinanceiro.Configuracao
         {        
             if (MessageBox.Show("Tem certeza que deseja restaurar o sistema da backup Selecionado ?  ","Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
+                String restaurar = System.IO.Path.Combine(Properties.Settings.Default.LocalBackupDB, CmbListaBackups.Text);
                 this.Cursor = System.Windows.Forms.Cursors.WaitCursor;
-                new Servicos.Backup().RestaurarBancoDados(CmbListaBackups.Text);
+                new Servicos.Backup().RestaurarBancoDados(restaurar);
                 this.Cursor = System.Windows.Forms.Cursors.Default;
                 this.Close();
             }
@@ -31,9 +32,12 @@ namespace GerenciadorFinanceiro.Configuracao
         {
             CmbListaBackups.Items.Clear();
             String[] registrosBackup = new Servicos.Backup().ListarTodosOsBackup();
-            for (int i = 0; i < registrosBackup.Length; i++)
-                CmbListaBackups.Items.Add(registrosBackup[i]);
-            CmbListaBackups.SelectedIndex = 0;
+            for (int i = registrosBackup.Length -1; i >=0 ; i--)
+                CmbListaBackups.Items.Add(registrosBackup[i].Substring(registrosBackup[i].Length - 17, 17));
+            if (CmbListaBackups.Items.Count > 0)
+                CmbListaBackups.SelectedIndex = 0;
+            else
+                MessageBox.Show("Nenhum registro de backup encontrado. ", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
     }
