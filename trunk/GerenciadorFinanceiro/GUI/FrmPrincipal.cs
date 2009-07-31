@@ -217,14 +217,7 @@ namespace GerenciadorFinanceiro
             frm.ShowDialog();
             frm.Dispose();
         }
-
-        private void restaurarBancoDeDadosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Configuracao.FrmRestaurarBackup frm = new Configuracao.FrmRestaurarBackup();
-            frm.ShowDialog();
-            frm.Dispose();
-        }
-
+        
         private void categoriasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (this.MdiChildren.Length > 0)
@@ -235,6 +228,13 @@ namespace GerenciadorFinanceiro
             form.MdiParent = this;
             form.WindowState = FormWindowState.Maximized;
             form.Show();
+        }
+
+        private void restaurarBancoDeDadosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Configuracao.FrmRestaurarBackup frm = new Configuracao.FrmRestaurarBackup();
+            frm.ShowDialog();
+            frm.Dispose();
         }
 
     }
