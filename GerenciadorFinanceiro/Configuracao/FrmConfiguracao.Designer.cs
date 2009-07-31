@@ -179,7 +179,7 @@
             this.Name = "FrmConfiguracao";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Configuracao";
+            this.Text = "Configurações";
             this.Load += new System.EventHandler(this.FrmConfiguracao_Load);
             this.GrpBancoDados.ResumeLayout(false);
             this.GrpBancoDados.PerformLayout();

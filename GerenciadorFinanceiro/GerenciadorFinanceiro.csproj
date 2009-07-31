@@ -71,6 +71,12 @@
     <Compile Include="Configuracao\FrmConfiguracao.Designer.cs">
       <DependentUpon>FrmConfiguracao.cs</DependentUpon>
     </Compile>
+    <Compile Include="Configuracao\FrmRestaurarBackup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuracao\FrmRestaurarBackup.Designer.cs">
+      <DependentUpon>FrmRestaurarBackup.cs</DependentUpon>
+    </Compile>
     <Compile Include="Configuracao\FrmUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -194,6 +200,9 @@
     <EmbeddedResource Include="Configuracao\FrmConfiguracao.resx">
       <DependentUpon>FrmConfiguracao.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuracao\FrmRestaurarBackup.resx">
+      <DependentUpon>FrmRestaurarBackup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Configuracao\FrmUsuario.resx">
       <DependentUpon>FrmUsuario.cs</DependentUpon>
