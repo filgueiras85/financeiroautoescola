@@ -225,5 +225,17 @@ namespace GerenciadorFinanceiro
             frm.Dispose();
         }
 
+        private void categoriasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (this.MdiChildren.Length > 0)
+            {
+                this.MdiChildren[0].Close();
+            }
+            GUI.FrmCategorias form = new GerenciadorFinanceiro.GUI.FrmCategorias();
+            form.MdiParent = this;
+            form.WindowState = FormWindowState.Maximized;
+            form.Show();
+        }
+
     }
 }

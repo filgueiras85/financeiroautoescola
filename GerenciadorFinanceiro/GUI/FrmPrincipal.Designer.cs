@@ -66,6 +66,7 @@
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.Timer = new System.Windows.Forms.Timer(this.components);
+            this.categoriasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -118,7 +119,8 @@
             this.tiposDeServiçosToolStripMenuItem,
             this.servicosToolStripMenuItem,
             this.usuáriosToolStripMenuItem,
-            this.formaDePagamentoToolStripMenuItem});
+            this.formaDePagamentoToolStripMenuItem,
+            this.categoriasToolStripMenuItem});
             this.cadastrosToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.cadastrosToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
@@ -241,21 +243,23 @@
             this.configurarBackupToolStripMenuItem,
             this.restaurarBancoDeDadosToolStripMenuItem});
             this.bancoDeDadosToolStripMenuItem.Name = "bancoDeDadosToolStripMenuItem";
-            this.bancoDeDadosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.bancoDeDadosToolStripMenuItem.Text = "Backup";
+    this.bancoDeDadosToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
+    this.bancoDeDadosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+this.bancoDeDadosToolStripMenuItem.Text = "Backup";
             // 
             // configurarBackupToolStripMenuItem
             // 
             this.configurarBackupToolStripMenuItem.Name = "configurarBackupToolStripMenuItem";
-            this.configurarBackupToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
-            this.configurarBackupToolStripMenuItem.Text = "Configurar Backup";
+this.configurarBackupToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+this.configurarBackupToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+this.configurarBackupToolStripMenuItem.Text = "Configurar Backup";
             this.configurarBackupToolStripMenuItem.Click += new System.EventHandler(this.configurarBackupToolStripMenuItem_Click);
             // 
             // restaurarBancoDeDadosToolStripMenuItem
             // 
             this.restaurarBancoDeDadosToolStripMenuItem.Name = "restaurarBancoDeDadosToolStripMenuItem";
-            this.restaurarBancoDeDadosToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
-            this.restaurarBancoDeDadosToolStripMenuItem.Text = "Restaurar Backup";
+            this.restaurarBancoDeDadosToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.restaurarBancoDeDadosToolStripMenuItem.Text = "Restaurar Banco de Dados";         
             this.restaurarBancoDeDadosToolStripMenuItem.Click += new System.EventHandler(this.restaurarBancoDeDadosToolStripMenuItem_Click);
             // 
             // ajudaToolStripMenuItem
@@ -281,7 +285,7 @@
             this.LblDataHora.Name = "LblDataHora";
             this.LblDataHora.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.LblDataHora.RightToLeftAutoMirrorImage = true;
-            this.LblDataHora.Size = new System.Drawing.Size(58, 17);
+            this.LblDataHora.Size = new System.Drawing.Size(62, 17);
             this.LblDataHora.Text = "Data HOra";
             // 
             // toolStrip1
@@ -402,6 +406,13 @@
             this.Timer.Interval = 30000;
             this.Timer.Tick += new System.EventHandler(this.Timer_Tick);
             // 
+            // categoriasToolStripMenuItem
+            // 
+            this.categoriasToolStripMenuItem.Name = "categoriasToolStripMenuItem";
+            this.categoriasToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.categoriasToolStripMenuItem.Text = "Categorias";
+            this.categoriasToolStripMenuItem.Click += new System.EventHandler(this.categoriasToolStripMenuItem_Click);
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -466,6 +477,7 @@
         private System.Windows.Forms.ToolStripMenuItem bancoDeDadosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem configurarBackupToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem restaurarBancoDeDadosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem categoriasToolStripMenuItem;
     }
 }
 
