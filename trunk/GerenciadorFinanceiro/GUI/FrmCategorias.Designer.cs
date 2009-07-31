@@ -28,12 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCategorias));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.treeViewReceitas = new System.Windows.Forms.TreeView();
             this.treeViewDespesas = new System.Windows.Forms.TreeView();
             this.BtnExcluir = new System.Windows.Forms.Button();
             this.BtnNovo = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -58,9 +61,12 @@
             // 
             // treeViewReceitas
             // 
+            this.treeViewReceitas.ImageIndex = 0;
+            this.treeViewReceitas.ImageList = this.imageList1;
             this.treeViewReceitas.LabelEdit = true;
             this.treeViewReceitas.Location = new System.Drawing.Point(3, 3);
             this.treeViewReceitas.Name = "treeViewReceitas";
+            this.treeViewReceitas.SelectedImageIndex = 0;
             this.treeViewReceitas.Size = new System.Drawing.Size(255, 458);
             this.treeViewReceitas.TabIndex = 0;
             this.treeViewReceitas.AfterLabelEdit += new System.Windows.Forms.NodeLabelEditEventHandler(this.treeViewReceitas_AfterLabelEdit);
@@ -109,6 +115,13 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Categorias";
             // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "Doc.png");
+            this.imageList1.Images.SetKeyName(1, "Folder.png");
+            // 
             // FrmCategorias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -136,5 +149,6 @@
         private System.Windows.Forms.Button BtnExcluir;
         private System.Windows.Forms.Button BtnNovo;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }

@@ -131,6 +131,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Name = "FrmCadCategoria";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Centro de Custos e Categoria";
             this.ResumeLayout(false);
             this.PerformLayout();

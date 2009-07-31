@@ -55,7 +55,7 @@ namespace GerenciadorFinanceiro.GUI
             if (objeto is Dominio.CentroCustos)
             {
                 Dominio.CentroCustos custo = (Dominio.CentroCustos)objeto;
-                treeViewReceitas.Nodes.Add(custo.Descricao).Tag = objeto;
+                treeViewReceitas.Nodes.Add(custo.Id.ToString(),custo.Descricao,1,1).Tag = objeto;
             }
             else
             {
@@ -65,7 +65,7 @@ namespace GerenciadorFinanceiro.GUI
                     Dominio.CentroCustos Ccustos = (Dominio.CentroCustos)treeViewReceitas.Nodes[i].Tag;
                     if (Ccustos.Id == cat.CategoriaPai.Id)
                     {
-                        treeViewReceitas.Nodes[i].Nodes.Add(cat.Descricao).Tag = cat;
+                        treeViewReceitas.Nodes[i].Nodes.Add(cat.Id.ToString() ,cat.Descricao,0).Tag = cat;
                         break;
                     }
                 }
@@ -99,7 +99,7 @@ namespace GerenciadorFinanceiro.GUI
             List<Dominio.CentroCustos> listaCustos = new Repositorio.RepositorioCentroCustos().BuscarTodos();
             for (int i = 0; i < listaCustos.Count; i++)
             {
-                treeViewReceitas.Nodes.Add(listaCustos[i].Descricao).Tag = listaCustos[i];
+                treeViewReceitas.Nodes.Add(listaCustos[i].Id.ToString(), listaCustos[i].Descricao,1,1).Tag = listaCustos[i];
             }
         }
 
