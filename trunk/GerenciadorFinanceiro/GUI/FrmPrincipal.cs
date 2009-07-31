@@ -220,9 +220,9 @@ namespace GerenciadorFinanceiro
 
         private void restaurarBancoDeDadosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Cursor = System.Windows.Forms.Cursors.WaitCursor;
-            new Servicos.Backup().RestaurarBancoDados();
-            this.Cursor = System.Windows.Forms.Cursors.Default;
+            Configuracao.FrmRestaurarBackup frm = new Configuracao.FrmRestaurarBackup();
+            frm.ShowDialog();
+            frm.Dispose();
         }
 
     }
