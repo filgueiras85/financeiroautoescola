@@ -100,7 +100,7 @@ namespace GerenciadorFinanceiro.Repositorio
 
         public List<GerenciadorFinanceiro.Dominio.Usuario> BuscarTodos()
         {
-            string sSqlSelect = "select * from TB_Usuario where Ativo = 1 order by Nome";
+            string sSqlSelect = "select * from TB_Usuario where Ativo = 1 and IdUsuario > 1 order by Nome";
             List<Dominio.Usuario> ListUsuarios = new List<GerenciadorFinanceiro.Dominio.Usuario>();
             try
             {

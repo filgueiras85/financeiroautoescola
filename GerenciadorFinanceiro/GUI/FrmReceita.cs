@@ -22,10 +22,10 @@ namespace GerenciadorFinanceiro.GUI
             InitializeComponent();
         }
 
-        //public void FrmReceita(Dominio.Receita receita)
+        //public FrmReceita(Dominio.Receita rec)
         //{
         //    InitializeComponent();
-        //    _Receita = receita;
+        //    _Receita = rec;
         //}
 
         private void PreencherFormulario()
@@ -116,6 +116,7 @@ namespace GerenciadorFinanceiro.GUI
             _Receita.Frequencia = CmbFrequencia.SelectedText;
             _Receita.QuantidadeParcela = int.Parse(TxtQntdParcelas.Text);
             _Receita.ValorTotalReceita = double.Parse(TxtValorTotal.Text);
+            _Receita.UltimoVencimento = DateTimePrimeiroVencimento.Value.AddDays((int.Parse(TxtQntdParcelas.Text) * (int)CmbFrequencia.SelectedValue));
         }
 
         private void PreencherGridParcelasDaReceita()

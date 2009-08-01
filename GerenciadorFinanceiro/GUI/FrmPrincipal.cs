@@ -172,6 +172,12 @@ namespace GerenciadorFinanceiro
 
         private void FrmPrincipal_FormClosed(object sender, FormClosedEventArgs e)
         {
+            if (Properties.Settings.Default.RealizarBackup)
+            {
+                this.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+                new Servicos.Backup().RealizarBackupBancoDados();
+                this.Cursor = System.Windows.Forms.Cursors.Default;
+            }
             Application.Exit();
         }
 
@@ -210,13 +216,6 @@ namespace GerenciadorFinanceiro
             form.WindowState = FormWindowState.Maximized;
             form.Show();
         }
-
-        private void configurarBackupToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Configuracao.FrmConfiguracao frm = new Configuracao.FrmConfiguracao(false);
-            frm.ShowDialog();
-            frm.Dispose();
-        }
         
         private void categoriasToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -247,6 +246,20 @@ namespace GerenciadorFinanceiro
             form.MdiParent = this;
             form.WindowState = FormWindowState.Maximized;
             form.Show();
+        }
+
+        private void configuraçõesDoSistemaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Configuracao.FrmConfiguracao frm = new Configuracao.FrmConfiguracao(false);
+            frm.ShowDialog();
+            frm.Dispose();
+        }
+
+        private void configurarBackupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+            new Servicos.Backup().RealizarBackupBancoDados();
+            this.Cursor = System.Windows.Forms.Cursors.Default;
         }
 
     }

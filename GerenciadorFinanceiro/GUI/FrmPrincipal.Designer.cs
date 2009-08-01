@@ -47,9 +47,11 @@
             this.usuáriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.formaDePagamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.categoriasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.receitasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relatóriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configuraçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.configuraçõesDoSistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bancoDeDadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configurarBackupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.restaurarBancoDeDadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -67,7 +69,6 @@
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.Timer = new System.Windows.Forms.Timer(this.components);
-            this.receitasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -220,6 +221,13 @@
             this.categoriasToolStripMenuItem.Text = "Categorias";
             this.categoriasToolStripMenuItem.Click += new System.EventHandler(this.categoriasToolStripMenuItem_Click);
             // 
+            // receitasToolStripMenuItem
+            // 
+            this.receitasToolStripMenuItem.Name = "receitasToolStripMenuItem";
+            this.receitasToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.receitasToolStripMenuItem.Text = "Receitas";
+            this.receitasToolStripMenuItem.Click += new System.EventHandler(this.receitasToolStripMenuItem_Click);
+            // 
             // consultasToolStripMenuItem
             // 
             this.consultasToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
@@ -239,6 +247,7 @@
             // configuraçõesToolStripMenuItem
             // 
             this.configuraçõesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.configuraçõesDoSistemaToolStripMenuItem,
             this.bancoDeDadosToolStripMenuItem});
             this.configuraçõesToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.configuraçõesToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
@@ -246,26 +255,33 @@
             this.configuraçõesToolStripMenuItem.Size = new System.Drawing.Size(87, 20);
             this.configuraçõesToolStripMenuItem.Text = "Configurações";
             // 
+            // configuraçõesDoSistemaToolStripMenuItem
+            // 
+            this.configuraçõesDoSistemaToolStripMenuItem.Name = "configuraçõesDoSistemaToolStripMenuItem";
+            this.configuraçõesDoSistemaToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
+            this.configuraçõesDoSistemaToolStripMenuItem.Text = "Configurações do Sistema";
+            this.configuraçõesDoSistemaToolStripMenuItem.Click += new System.EventHandler(this.configuraçõesDoSistemaToolStripMenuItem_Click);
+            // 
             // bancoDeDadosToolStripMenuItem
             // 
             this.bancoDeDadosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.configurarBackupToolStripMenuItem,
             this.restaurarBancoDeDadosToolStripMenuItem});
             this.bancoDeDadosToolStripMenuItem.Name = "bancoDeDadosToolStripMenuItem";
-            this.bancoDeDadosToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
+            this.bancoDeDadosToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
             this.bancoDeDadosToolStripMenuItem.Text = "Backup";
             // 
             // configurarBackupToolStripMenuItem
             // 
             this.configurarBackupToolStripMenuItem.Name = "configurarBackupToolStripMenuItem";
-            this.configurarBackupToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
-            this.configurarBackupToolStripMenuItem.Text = "Configurar Backup";
+            this.configurarBackupToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.configurarBackupToolStripMenuItem.Text = "Realizar Backup Agora";
             this.configurarBackupToolStripMenuItem.Click += new System.EventHandler(this.configurarBackupToolStripMenuItem_Click);
             // 
             // restaurarBancoDeDadosToolStripMenuItem
             // 
             this.restaurarBancoDeDadosToolStripMenuItem.Name = "restaurarBancoDeDadosToolStripMenuItem";
-            this.restaurarBancoDeDadosToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.restaurarBancoDeDadosToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.restaurarBancoDeDadosToolStripMenuItem.Text = "Restaurar Backup";
             this.restaurarBancoDeDadosToolStripMenuItem.Click += new System.EventHandler(this.restaurarBancoDeDadosToolStripMenuItem_Click);
             // 
@@ -413,13 +429,6 @@
             this.Timer.Interval = 30000;
             this.Timer.Tick += new System.EventHandler(this.Timer_Tick);
             // 
-            // receitasToolStripMenuItem
-            // 
-            this.receitasToolStripMenuItem.Name = "receitasToolStripMenuItem";
-            this.receitasToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
-            this.receitasToolStripMenuItem.Text = "Receitas";
-            this.receitasToolStripMenuItem.Click += new System.EventHandler(this.receitasToolStripMenuItem_Click);
-            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -486,6 +495,7 @@
         private System.Windows.Forms.ToolStripMenuItem restaurarBancoDeDadosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem categoriasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem receitasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem configuraçõesDoSistemaToolStripMenuItem;
     }
 }
 

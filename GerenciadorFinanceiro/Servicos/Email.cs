@@ -38,7 +38,7 @@ namespace GerenciadorFinanceiro.Servicos
                 // o nome do servidor
                 SmtpClient mSmtpClient = new SmtpClient(servidorSMTP);
                 // Envia solicitação de confirmação de recebimento do email.
-                mMailMessage.Headers.Add("Disposition-Notification-To", "<" + emailRemetente + ">");
+                //mMailMessage.Headers.Add("Disposition-Notification-To", "<" + emailRemetente + ">");
                 // Autenticação no servidor
                 mSmtpClient.UseDefaultCredentials = false;
                 mSmtpClient.Credentials = new System.Net.NetworkCredential(emailRemetente, autenticacao);

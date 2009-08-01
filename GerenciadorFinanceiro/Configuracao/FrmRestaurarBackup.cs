@@ -31,8 +31,11 @@ namespace GerenciadorFinanceiro.Configuracao
         private void FrmRestaurarBackup_Load(object sender, EventArgs e)
         {
             CmbListaBackups.Items.Clear();
+            StringComparer ordenar = StringComparer.CurrentCultureIgnoreCase;
+           
             String[] registrosBackup = new Servicos.Backup().ListarTodosOsBackup();
-            for (int i = registrosBackup.Length -1; i >=0 ; i--)
+            Array.Sort(registrosBackup, ordenar);
+            for (int i = 0; i < registrosBackup.Length; i++)
                 CmbListaBackups.Items.Add(registrosBackup[i].Substring(registrosBackup[i].Length - 17, 17));
             if (CmbListaBackups.Items.Count > 0)
                 CmbListaBackups.SelectedIndex = 0;
