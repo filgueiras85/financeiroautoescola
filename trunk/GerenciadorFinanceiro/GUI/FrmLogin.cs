@@ -75,8 +75,9 @@ namespace GerenciadorFinanceiro.GUI
 
                 if (_Usuario != null)
                 {
-                    new Servicos.Email().EnviarEmail("alcenir@zyoncore.com.br", "Alcenir Moretto", _Usuario.Email,
-                        "Esqueci Minha Senha", "Username = " + _Usuario.UserName + ", Senha = " + _Usuario.Senha, "smtp.zyoncore.com.br", "@MCH9482@", null);
+                    new Servicos.Email().EnviarEmail(Properties.Settings.Default.Email, Properties.Settings.Default.Remetente, _Usuario.Email,
+                        "Esqueci Minha Senha", "Username = " + _Usuario.UserName + ", Senha = " + _Usuario.Senha, Properties.Settings.Default.ServidorSMTP, 
+                        Properties.Settings.Default.SenhaAutenticar, null);
                     MessageBox.Show("Email enviado com sucesso !", "Esqueci minha Senha", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else

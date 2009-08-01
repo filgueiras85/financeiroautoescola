@@ -58,8 +58,8 @@ namespace GerenciadorFinanceiro.GUI
             if (new Servicos.Email().ValidaEmail(TxtDestinatario.Text.Trim()) == false)
                 throw new Exception("Email inválido.");
             this.AdicionarAnexos();
-            new Servicos.Email().EnviarEmail("alcenir@zyoncore.com.br", "Alcenir Moretto", TxtDestinatario.Text,
-                                                    TxtAssunto.Text, TxtMensagem.Text, "smtp.zyoncore.com.br", "@MCH9482@", _ListaAnexos);
+            new Servicos.Email().EnviarEmail(Properties.Settings.Default.Email, Properties.Settings.Default.Remetente, TxtDestinatario.Text,
+                                                    TxtAssunto.Text, TxtMensagem.Text, Properties.Settings.Default.ServidorSMTP, Properties.Settings.Default.SenhaAutenticar, _ListaAnexos);
         }
 
         private void AdicionarAnexos()
