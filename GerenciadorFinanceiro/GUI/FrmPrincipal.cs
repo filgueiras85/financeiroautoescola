@@ -242,7 +242,7 @@ namespace GerenciadorFinanceiro
             {
                 this.MdiChildren[0].Close();
             }
-            GUI.FrmReceita form = new GerenciadorFinanceiro.GUI.FrmReceita();
+            GUI.FrmReceita form = new GerenciadorFinanceiro.GUI.FrmReceita(new Dominio.Receita());
             form.MdiParent = this;
             form.WindowState = FormWindowState.Maximized;
             form.Show();

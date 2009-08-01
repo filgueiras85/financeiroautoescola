@@ -31,16 +31,29 @@ namespace GerenciadorFinanceiro.Configuracao
         private void FrmRestaurarBackup_Load(object sender, EventArgs e)
         {
             CmbListaBackups.Items.Clear();
-            StringComparer ordenar = StringComparer.CurrentCultureIgnoreCase;
-           
+            //StringComparer ordenar = StringComparer.CurrentCultureIgnoreCase;
+            //Array.Sort(registrosBackup, ordenar);
             String[] registrosBackup = new Servicos.Backup().ListarTodosOsBackup();
-            Array.Sort(registrosBackup, ordenar);
+            Array.Sort(registrosBackup, new System.Comparison<string>(OrdenarPorData));
+
             for (int i = 0; i < registrosBackup.Length; i++)
                 CmbListaBackups.Items.Add(registrosBackup[i].Substring(registrosBackup[i].Length - 17, 17));
             if (CmbListaBackups.Items.Count > 0)
                 CmbListaBackups.SelectedIndex = 0;
             else
                 MessageBox.Show("Nenhum registro de backup encontrado. ", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private int OrdenarPorData(string data1, string data2)
+        {
+            DateTime dataum = DateTime.Parse(data1.Substring(data1.Length -10, 10));
+            DateTime datadois = DateTime.Parse(data2.Substring(data2.Length - 10, 10));
+            if (dataum > datadois)
+                return -1;
+            else if (datadois> dataum)
+                return 1;  
+            else
+                return 0;
         }
 
     }
