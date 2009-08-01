@@ -141,7 +141,7 @@ namespace GerenciadorFinanceiro.Repositorio
                     aluno.IdAluno = (int)reader["IdAluno"]; ;
                     aluno.NomeAluno = (string)reader["Nome"];
                     aluno.CPF_CNPJ = (string)reader["CPF_CNPJ"];
-                    aluno.RG_InscEstadual = (string)reader["RG_InscEstadual"];
+                    aluno.RG_InscEstadual = (string)reader["RG_InscricaoEstadual"];
                     aluno.TelefoneResidencial = (string)reader["TelefoneResidencial"];
                     aluno.TelefoneComercial = (string)reader["TelefoneComercial"];
                     aluno.TelefoneCelular = (string)reader["TelefoneCelular"];

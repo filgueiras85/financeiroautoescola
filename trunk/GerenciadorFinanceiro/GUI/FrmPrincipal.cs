@@ -237,5 +237,17 @@ namespace GerenciadorFinanceiro
             frm.Dispose();
         }
 
+        private void receitasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (this.MdiChildren.Length > 0)
+            {
+                this.MdiChildren[0].Close();
+            }
+            GUI.FrmReceita form = new GerenciadorFinanceiro.GUI.FrmReceita();
+            form.MdiParent = this;
+            form.WindowState = FormWindowState.Maximized;
+            form.Show();
+        }
+
     }
 }
