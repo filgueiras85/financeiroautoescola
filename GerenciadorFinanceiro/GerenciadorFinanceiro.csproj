@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{9B6CBD3E-42D9-44CC-A998-FA9422A29D55}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -98,8 +98,11 @@
     <Compile Include="Dominio\Estado.cs" />
     <Compile Include="Dominio\FabricanteVeiculo.cs" />
     <Compile Include="Dominio\FormaPagamento.cs" />
+    <Compile Include="Dominio\Frequencia.cs" />
     <Compile Include="Dominio\Instrutor.cs" />
     <Compile Include="Dominio\ModeloVeiculo.cs" />
+    <Compile Include="Dominio\Receita.cs" />
+    <Compile Include="Dominio\ReceitaParcela.cs" />
     <Compile Include="Dominio\Servico.cs" />
     <Compile Include="Dominio\TipoDocumento.cs" />
     <Compile Include="Dominio\TipoServico.cs" />
@@ -184,6 +187,12 @@
     </Compile>
     <Compile Include="GUI\FrmPrincipal.Designer.cs">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmReceita.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmReceita.Designer.cs">
+      <DependentUpon>FrmReceita.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\FrmServicos.cs">
       <SubType>Form</SubType>
@@ -285,6 +294,9 @@
     <EmbeddedResource Include="GUI\FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmReceita.resx">
+      <DependentUpon>FrmReceita.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmServicos.resx">
       <DependentUpon>FrmServicos.cs</DependentUpon>
