@@ -9,29 +9,28 @@ using System.Windows.Forms;
 
 namespace GerenciadorFinanceiro.GUI
 {
-    public partial class FrmReceita : Form
+    partial class FrmReceita : Form
     {
 
         private Dominio.Receita _Receita;
         private List<Dominio.Aluno> _ListAlunos;
         private List<Dominio.CentroCustos> _ListCentroCustos;
         private List<Dominio.Categoria> _ListCategoria;
+        BindingSource _BindingSource = new BindingSource();
 
-        public FrmReceita()
-        {
-            InitializeComponent();
-        }
-
-        //public FrmReceita(Dominio.Receita rec)
+        //public FrmReceita()
         //{
         //    InitializeComponent();
-        //    _Receita = rec;
         //}
+
+        public FrmReceita(Dominio.Receita receita)
+        {
+            InitializeComponent();
+            _Receita = receita;
+        }
 
         private void PreencherFormulario()
         {
-            if (_Receita == null)
-                _Receita = new Dominio.Receita();
             this.CmbAluno.SelectedItem = _Receita.AlunoReceita;
             this.CmbCentroDeCusto.SelectedItem = _Receita.CentroCustoReceita;
             this.CmbCategoria.SelectedItem = _Receita.CategoriaReceita;
@@ -45,7 +44,7 @@ namespace GerenciadorFinanceiro.GUI
         private void PreencherComboFrequencia()
         {
             CmbFrequencia.DisplayMember = "Descricao";
-            CmbFrequencia.ValueMember = "QntdParcela";
+            CmbFrequencia.ValueMember = "DiferencaDias";
             CmbFrequencia.DataSource = new Dominio.ListaFrequencia().ListFrequencia;
         }
 
@@ -55,6 +54,8 @@ namespace GerenciadorFinanceiro.GUI
             this.BuscarTodosOsAlunos();
             this.BuscarTodosOsCentrosDeCusto();
             this.PreencherFormulario();
+            _BindingSource.DataSource = _Receita.ListaReceitaParcela;
+            DGPreviewReceita.DataSource = _BindingSource;
         }
 
         private void BuscarTodosOsAlunos()
@@ -119,17 +120,21 @@ namespace GerenciadorFinanceiro.GUI
             _Receita.UltimoVencimento = DateTimePrimeiroVencimento.Value.AddDays((int.Parse(TxtQntdParcelas.Text) * (int)CmbFrequencia.SelectedValue));
         }
 
-        private void PreencherGridParcelasDaReceita()
+        private void PreviewParcelasVenda()
         {
             PreencherReceita();
+            _Receita.ListaReceitaParcela.Clear();
             for(int i = 0; i < _Receita.QuantidadeParcela; i++)
-                _Receita.ListaReceitaParcela.Add(new Dominio.ReceitaParcela(){ IdParcela = 0, NumeroDaParcela = (i + 1), ValorParcela = (double.Parse(TxtValorTotal.Text) /  int.Parse(TxtQntdParcelas.Text)), Vencimento = DateTimePrimeiroVencimento.Value.AddDays((int)CmbFrequencia.SelectedValue * (i)), StatusParcela = 0});
-            DGPreviewReceita.DataSource = _Receita.ListaReceitaParcela;
+                _Receita.ListaReceitaParcela.Add(new Dominio.ReceitaParcela(){ IdParcela = 0, NumeroDaParcela = (i + 1), 
+                                                 ValorParcela = (double.Parse(TxtValorTotal.Text) /  int.Parse(TxtQntdParcelas.Text)), 
+                                                 Vencimento = DateTimePrimeiroVencimento.Value.AddDays((int)CmbFrequencia.SelectedValue * (i)), 
+                                                 StatusParcela = 0});
+            _BindingSource.ResetBindings(true);
         }
 
         private void BtnPreview_Click(object sender, EventArgs e)
         {
-            this.PreencherGridParcelasDaReceita();
+            this.PreviewParcelasVenda();
         }
 
         private void BtnNovoAluno_Click(object sender, EventArgs e)
@@ -138,6 +143,40 @@ namespace GerenciadorFinanceiro.GUI
             frm.ShowDialog();
             frm.Dispose();
             this.BuscarTodosOsAlunos();
+        }
+
+        private void BtnCancelar_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+        }
+
+        private void BtnSalvar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void DGPreviewReceita_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (this.DGPreviewReceita.Columns[e.ColumnIndex].Name == "ColStatusParcela")
+            {
+                if (e != null)
+                {
+                    if (e.Value != null)
+                    {
+                        if ((int)e.Value == 0)
+                            e.Value = "Aberta";
+                        else
+                            e.Value = "Quitada";
+                    }
+                }
+            }
         }
     }
 }

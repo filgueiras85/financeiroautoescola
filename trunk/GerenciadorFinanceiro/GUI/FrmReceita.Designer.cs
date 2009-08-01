@@ -46,19 +46,19 @@
             this.LblVenvimento = new System.Windows.Forms.Label();
             this.DateTimePrimeiroVencimento = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
-            this.TxtValorTotal = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.TabInfoGeral = new System.Windows.Forms.TabPage();
             this.BtnPreview = new System.Windows.Forms.Button();
             this.BtnCancelar = new System.Windows.Forms.Button();
             this.BtnSalvar = new System.Windows.Forms.Button();
             this.DGPreviewReceita = new System.Windows.Forms.DataGridView();
-            this.TabInfoAdicionais = new System.Windows.Forms.TabPage();
             this.ColIdParcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColNumeroDaParcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColDataVencimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColValorParcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColStatusParcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TabInfoAdicionais = new System.Windows.Forms.TabPage();
+            this.TxtValorTotal = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.TabInfoGeral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGPreviewReceita)).BeginInit();
@@ -224,16 +224,6 @@
             this.label8.TabIndex = 33;
             this.label8.Text = "Valor total da receita :";
             // 
-            // TxtValorTotal
-            // 
-            this.TxtValorTotal.BackColor = System.Drawing.Color.White;
-            this.TxtValorTotal.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.TxtValorTotal.Location = new System.Drawing.Point(140, 248);
-            this.TxtValorTotal.MaxLength = 20000;
-            this.TxtValorTotal.Name = "TxtValorTotal";
-            this.TxtValorTotal.Size = new System.Drawing.Size(85, 20);
-            this.TxtValorTotal.TabIndex = 8;
-            // 
             // tabControl1
             // 
             this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
@@ -244,12 +234,13 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(513, 466);
+            this.tabControl1.Size = new System.Drawing.Size(513, 507);
             this.tabControl1.TabIndex = 0;
             // 
             // TabInfoGeral
             // 
             this.TabInfoGeral.BackColor = System.Drawing.SystemColors.Control;
+            this.TabInfoGeral.Controls.Add(this.TxtValorTotal);
             this.TabInfoGeral.Controls.Add(this.BtnPreview);
             this.TabInfoGeral.Controls.Add(this.BtnCancelar);
             this.TabInfoGeral.Controls.Add(this.BtnSalvar);
@@ -257,7 +248,6 @@
             this.TabInfoGeral.Controls.Add(this.CmbAluno);
             this.TabInfoGeral.Controls.Add(this.label8);
             this.TabInfoGeral.Controls.Add(this.label2);
-            this.TabInfoGeral.Controls.Add(this.TxtValorTotal);
             this.TabInfoGeral.Controls.Add(this.TxtObservacao);
             this.TabInfoGeral.Controls.Add(this.DateTimePrimeiroVencimento);
             this.TabInfoGeral.Controls.Add(this.BtnNovoAluno);
@@ -274,7 +264,7 @@
             this.TabInfoGeral.Location = new System.Drawing.Point(4, 22);
             this.TabInfoGeral.Name = "TabInfoGeral";
             this.TabInfoGeral.Padding = new System.Windows.Forms.Padding(3);
-            this.TabInfoGeral.Size = new System.Drawing.Size(505, 440);
+            this.TabInfoGeral.Size = new System.Drawing.Size(505, 481);
             this.TabInfoGeral.TabIndex = 0;
             this.TabInfoGeral.Text = "Geral";
             // 
@@ -284,7 +274,7 @@
             this.BtnPreview.Location = new System.Drawing.Point(231, 246);
             this.BtnPreview.Name = "BtnPreview";
             this.BtnPreview.Size = new System.Drawing.Size(28, 26);
-            this.BtnPreview.TabIndex = 34;
+            this.BtnPreview.TabIndex = 9;
             this.BtnPreview.UseVisualStyleBackColor = true;
             this.BtnPreview.Click += new System.EventHandler(this.BtnPreview_Click);
             // 
@@ -296,9 +286,10 @@
             this.BtnCancelar.Location = new System.Drawing.Point(393, 247);
             this.BtnCancelar.Name = "BtnCancelar";
             this.BtnCancelar.Size = new System.Drawing.Size(85, 25);
-            this.BtnCancelar.TabIndex = 3;
+            this.BtnCancelar.TabIndex = 11;
             this.BtnCancelar.Text = "    Cancelar";
             this.BtnCancelar.UseVisualStyleBackColor = true;
+            this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
             // BtnSalvar
             // 
@@ -308,17 +299,17 @@
             this.BtnSalvar.Location = new System.Drawing.Point(302, 247);
             this.BtnSalvar.Name = "BtnSalvar";
             this.BtnSalvar.Size = new System.Drawing.Size(85, 25);
-            this.BtnSalvar.TabIndex = 2;
+            this.BtnSalvar.TabIndex = 10;
             this.BtnSalvar.Text = "   Salvar";
             this.BtnSalvar.UseVisualStyleBackColor = true;
+            this.BtnSalvar.Click += new System.EventHandler(this.BtnSalvar_Click);
             // 
             // DGPreviewReceita
             // 
             this.DGPreviewReceita.AllowUserToAddRows = false;
             this.DGPreviewReceita.AllowUserToDeleteRows = false;
-            this.DGPreviewReceita.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.DGPreviewReceita.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)));
             this.DGPreviewReceita.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGPreviewReceita.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColIdParcela,
@@ -331,18 +322,9 @@
             this.DGPreviewReceita.Name = "DGPreviewReceita";
             this.DGPreviewReceita.ReadOnly = true;
             this.DGPreviewReceita.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGPreviewReceita.Size = new System.Drawing.Size(453, 139);
-            this.DGPreviewReceita.TabIndex = 9;
-            // 
-            // TabInfoAdicionais
-            // 
-            this.TabInfoAdicionais.BackColor = System.Drawing.SystemColors.Control;
-            this.TabInfoAdicionais.Location = new System.Drawing.Point(4, 22);
-            this.TabInfoAdicionais.Name = "TabInfoAdicionais";
-            this.TabInfoAdicionais.Padding = new System.Windows.Forms.Padding(3);
-            this.TabInfoAdicionais.Size = new System.Drawing.Size(505, 440);
-            this.TabInfoAdicionais.TabIndex = 1;
-            this.TabInfoAdicionais.Text = "Informações Adicionais";
+            this.DGPreviewReceita.Size = new System.Drawing.Size(453, 180);
+            this.DGPreviewReceita.TabIndex = 12;
+            this.DGPreviewReceita.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DGPreviewReceita_CellFormatting);
             // 
             // ColIdParcela
             // 
@@ -389,11 +371,28 @@
             this.ColStatusParcela.Name = "ColStatusParcela";
             this.ColStatusParcela.ReadOnly = true;
             // 
+            // TabInfoAdicionais
+            // 
+            this.TabInfoAdicionais.BackColor = System.Drawing.SystemColors.Control;
+            this.TabInfoAdicionais.Location = new System.Drawing.Point(4, 22);
+            this.TabInfoAdicionais.Name = "TabInfoAdicionais";
+            this.TabInfoAdicionais.Padding = new System.Windows.Forms.Padding(3);
+            this.TabInfoAdicionais.Size = new System.Drawing.Size(505, 481);
+            this.TabInfoAdicionais.TabIndex = 1;
+            this.TabInfoAdicionais.Text = "Informações Adicionais";
+            // 
+            // TxtValorTotal
+            // 
+            this.TxtValorTotal.Location = new System.Drawing.Point(140, 248);
+            this.TxtValorTotal.Name = "TxtValorTotal";
+            this.TxtValorTotal.Size = new System.Drawing.Size(85, 20);
+            this.TxtValorTotal.TabIndex = 8;
+            // 
             // FrmReceita
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(537, 490);
+            this.ClientSize = new System.Drawing.Size(537, 531);
             this.Controls.Add(this.tabControl1);
             this.MinimizeBox = false;
             this.Name = "FrmReceita";
@@ -426,7 +425,6 @@
         private System.Windows.Forms.Label LblVenvimento;
         private System.Windows.Forms.DateTimePicker DateTimePrimeiroVencimento;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox TxtValorTotal;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage TabInfoGeral;
         private System.Windows.Forms.TabPage TabInfoAdicionais;
@@ -439,6 +437,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColDataVencimento;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColValorParcela;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColStatusParcela;
+        private System.Windows.Forms.TextBox TxtValorTotal;
 
     }
 }

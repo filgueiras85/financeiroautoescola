@@ -346,6 +346,8 @@
     <Compile Include="Repositorio\RepositorioFormaPagamento.cs" />
     <Compile Include="Repositorio\RepositorioInstrutor.cs" />
     <Compile Include="Repositorio\RepositorioModeloVeiculo.cs" />
+    <Compile Include="Repositorio\RepositorioReceita.cs" />
+    <Compile Include="Repositorio\RepositorioReceitaParcela.cs" />
     <Compile Include="Repositorio\RepositorioServico.cs" />
     <Compile Include="Repositorio\RepositorioTipoServico.cs" />
     <Compile Include="Repositorio\RepositorioTipoVeiculo.cs" />
@@ -354,6 +356,7 @@
     <Compile Include="Repositorio\RepositorioVeiculo.cs" />
     <Compile Include="Servicos\Backup.cs" />
     <Compile Include="Servicos\Email.cs" />
+    <Compile Include="Servicos\Validacao.cs" />
     <Compile Include="TratamentoErros\TratadorErro.cs" />
   </ItemGroup>
   <ItemGroup>

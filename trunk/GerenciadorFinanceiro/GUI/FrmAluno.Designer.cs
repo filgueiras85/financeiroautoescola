@@ -468,6 +468,7 @@
             this.Controls.Add(this.TxtNome);
             this.MinimizeBox = false;
             this.Name = "FrmAluno";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Alunos";
             this.Load += new System.EventHandler(this.FrmAluno_Load);
             this.StatusStrip.ResumeLayout(false);

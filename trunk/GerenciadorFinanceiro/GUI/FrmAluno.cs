@@ -106,7 +106,8 @@ namespace GerenciadorFinanceiro.GUI
             if (new Servicos.Email().ValidaEmail(TxtEmail.Text.Trim()) == false)
                 throw new Exception("Email inválido.");
             _Aluno.Email = TxtEmail.Text;
-            if(TxtCPF.Text.Trim() == String.Empty  || TxtCPF.Text.Trim().Length != 14 )
+            //if(TxtCPF.Text.Trim() == String.Empty  || TxtCPF.Text.Trim().Length != 14 )
+            if (new Servicos.Validacao().ValidaCPF(TxtCPF.Text)== false)
                 throw new Exception("Cpf inválido.");
             _Aluno.CPF_CNPJ = TxtCPF.Text;
             if (txtRg.Text.Trim() == String.Empty)
@@ -187,7 +188,6 @@ namespace GerenciadorFinanceiro.GUI
                 else
                     new Repositorio.RepositorioAluno().SalvarObjeto(_Aluno);
                 this.CamposInterface(Status.Consultando);
-
             }
             catch (Exception ex)
             {
