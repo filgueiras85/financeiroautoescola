@@ -7,7 +7,11 @@ namespace GerenciadorFinanceiro.Dominio
 {
     class Veiculo
     {
-        public Veiculo() { }
+        public Veiculo() 
+        {
+            Renavam = string.Empty; Chassi = string.Empty; Combustivel = string.Empty; Cor = string.Empty;
+            Observacao = string.Empty; PathFoto = string.Empty; TipoVeiculo = new TipoVeiculo(); ModeloVeiculo = new ModeloVeiculo();
+        }
 
         public int IdVeiculo { get; set; }
 

@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{9B6CBD3E-42D9-44CC-A998-FA9422A29D55}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -297,6 +297,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmReceita.resx">
       <DependentUpon>FrmReceita.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmServicos.resx">
       <DependentUpon>FrmServicos.cs</DependentUpon>

@@ -86,8 +86,8 @@ namespace GerenciadorFinanceiro.GUI
             }
             else
             {
-                CmbTipo.SelectedIndex = 0;
-                CmbModelo.SelectedIndex = 0;
+                CmbTipo.SelectedIndex =-1;
+                CmbModelo.SelectedIndex = -1;
             }
             if (status == Status.Inserindo)
             {
