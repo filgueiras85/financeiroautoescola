@@ -250,6 +250,7 @@
             // txtSSP
             // 
             this.txtSSP.BackColor = System.Drawing.Color.White;
+            this.txtSSP.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtSSP.Location = new System.Drawing.Point(442, 198);
             this.txtSSP.Name = "txtSSP";
             this.txtSSP.Size = new System.Drawing.Size(102, 20);

@@ -123,6 +123,37 @@ namespace GerenciadorFinanceiro.Repositorio
             }
         }
 
+        public List<GerenciadorFinanceiro.Dominio.Servico> BuscarTodosPorTipoDeServico(int idTipoServico)
+        {
+            string sSqlSelect = "select * from TB_Servico where Ativo = 1 and idTipoServico = @id order by Descricao";
+            List<Dominio.Servico> ListServicos = new List<GerenciadorFinanceiro.Dominio.Servico>();
+            try
+            {
+                Conection.AbrirConexao();
+                var reader = Conection.ExecuteReader(sSqlSelect, idTipoServico);
+                Dominio.Servico servico;
+                while (reader.Read())
+                {
+                    servico = new Dominio.Servico();
+                    servico.IdServico = (int)reader["IdServico"];
+                    servico.Descricao = (string)reader["Descricao"];
+                    servico.Valor = (double)reader["Valor"];
+                    servico.Observacao = (string)reader["Observacao"];
+                    ListServicos.Add(servico);
+                    servico = null;
+                }
+                return ListServicos;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Não foi possível Buscar todos os serviços por Tipo de Serviço.", ex);
+            }
+            finally
+            {
+                Conection.FecharConexao();
+            }
+        }
+
         #endregion
     }
 }

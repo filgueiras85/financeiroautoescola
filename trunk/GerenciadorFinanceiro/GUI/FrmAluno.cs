@@ -191,7 +191,6 @@ namespace GerenciadorFinanceiro.GUI
             }
             catch (Exception ex)
             {
-                this.CamposInterface(Status.Inserindo);
                 MessageBox.Show(ex.Message, "Atenção!");
             }
         }
