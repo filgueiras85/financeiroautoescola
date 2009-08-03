@@ -75,6 +75,7 @@
             // rdbReceitas
             // 
             this.rdbReceitas.AutoSize = true;
+            this.rdbReceitas.Checked = true;
             this.rdbReceitas.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
             this.rdbReceitas.Location = new System.Drawing.Point(108, 50);
             this.rdbReceitas.Name = "rdbReceitas";
@@ -83,6 +84,7 @@
             this.rdbReceitas.TabStop = true;
             this.rdbReceitas.Text = "Receitas";
             this.rdbReceitas.UseVisualStyleBackColor = true;
+            this.rdbReceitas.CheckedChanged += new System.EventHandler(this.rdbReceitas_CheckedChanged);
             // 
             // rdbDespesas
             // 
@@ -92,9 +94,9 @@
             this.rdbDespesas.Name = "rdbDespesas";
             this.rdbDespesas.Size = new System.Drawing.Size(82, 19);
             this.rdbDespesas.TabIndex = 5;
-            this.rdbDespesas.TabStop = true;
             this.rdbDespesas.Text = "Despesas";
             this.rdbDespesas.UseVisualStyleBackColor = true;
+            this.rdbDespesas.CheckedChanged += new System.EventHandler(this.rdbDespesas_CheckedChanged);
             // 
             // cmbCentroCustos
             // 
@@ -106,6 +108,7 @@
             this.cmbCentroCustos.Name = "cmbCentroCustos";
             this.cmbCentroCustos.Size = new System.Drawing.Size(282, 21);
             this.cmbCentroCustos.TabIndex = 7;
+            this.cmbCentroCustos.SelectedIndexChanged += new System.EventHandler(this.cmbCentroCustos_SelectedIndexChanged);
             // 
             // checkBox1
             // 
