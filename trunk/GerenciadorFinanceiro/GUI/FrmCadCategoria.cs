@@ -63,6 +63,7 @@ namespace GerenciadorFinanceiro.GUI
         {
             Dominio.CentroCustos custos = new GerenciadorFinanceiro.Dominio.CentroCustos();
             custos.Descricao = txtDescricao.Text;
+            custos.ReceitaOuDespesa = rdbReceitas.Checked ? Dominio.CentroCustos.Tipo.Receita: Dominio.CentroCustos.Tipo.Despesa;
             new Repositorio.RepositorioCentroCustos().SalvarObjeto(custos);
             if (Finalizando != null)
                 Finalizando(custos);   
@@ -73,20 +74,60 @@ namespace GerenciadorFinanceiro.GUI
             try
             {
                 if (_Custos == null)
-                    _Custos = new Repositorio.RepositorioCentroCustos().BuscarTodos();
+                {
+                    if (rdbReceitas.Checked)
+                        _Custos = new Repositorio.RepositorioCentroCustos().BuscarTodosPorTipo(GerenciadorFinanceiro.Dominio.CentroCustos.Tipo.Receita);
+                    else
+                        _Custos = new Repositorio.RepositorioCentroCustos().BuscarTodosPorTipo(GerenciadorFinanceiro.Dominio.CentroCustos.Tipo.Despesa);
+                }
                 cmbCentroCustos.DataSource = _Custos;
                 cmbCentroCustos.DisplayMember = "Descricao";
                 cmbCentroCustos.ValueMember = "Id";
 
                 if (checkBox1.Checked == true)
+                {
                     cmbCentroCustos.Enabled = true;
+                }
                 else
+                {
                     cmbCentroCustos.Enabled = false;
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "");
             }  
+        }
+
+        private void cmbCentroCustos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbCentroCustos.SelectedItem != null)
+            {
+                Dominio.CentroCustos custos = (Dominio.CentroCustos)cmbCentroCustos.SelectedItem;               
+            }
+        }
+
+        private void rdbReceitas_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdbReceitas.Checked)
+            {
+                _Custos = new Repositorio.RepositorioCentroCustos().BuscarTodosPorTipo(GerenciadorFinanceiro.Dominio.CentroCustos.Tipo.Receita);
+                cmbCentroCustos.DataSource = _Custos;
+                cmbCentroCustos.DisplayMember = "Descricao";
+                cmbCentroCustos.ValueMember = "Id";
+            }
+
+        }
+
+        private void rdbDespesas_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdbDespesas.Checked)
+            {
+                _Custos = new Repositorio.RepositorioCentroCustos().BuscarTodosPorTipo(GerenciadorFinanceiro.Dominio.CentroCustos.Tipo.Despesa);                
+                cmbCentroCustos.DataSource = _Custos;
+                cmbCentroCustos.DisplayMember = "Descricao";
+                cmbCentroCustos.ValueMember = "Id";
+            }
         }
     }
 }

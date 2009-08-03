@@ -10,4 +10,6 @@ enum TipoErro { InterfaceGrafica = 0, BancoDados = 1, NaoTratado =2 }
 
 enum TipoCategoria { Receita = 0, Despesa = 1 }
 
+enum StatusParcela { Aberta = 0, Quitada = 1, Cancelada = 2 }
+
 

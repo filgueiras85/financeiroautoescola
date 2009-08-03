@@ -7,11 +7,15 @@ namespace GerenciadorFinanceiro.Dominio
 {
     class CentroCustos
     {
+        public enum Tipo { Receita = 0, Despesa = 1}
+
         public CentroCustos() { }
 
         public int Id { get; set; }
 
         public string Descricao { get; set; }
+
+        public Tipo ReceitaOuDespesa { get; set; }
 
     }
 }
