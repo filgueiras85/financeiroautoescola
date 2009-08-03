@@ -8,8 +8,8 @@ namespace GerenciadorFinanceiro.Dominio
     class Receita
     {
 
-        public Receita() { IdReceita = 0; AlunoReceita = new Aluno(); CentroCustoReceita = new CentroCustos();
-        CategoriaReceita = new Categoria(); Observacao = String.Empty; Frequencia = "Uma única vez"; QuantidadeParcela = 0;
+        public Receita() { IdReceita = 0; AlunoReceita = new Aluno(); TipoServicoReceita = new TipoServico();
+        ServicoReceita = new Servico(); Observacao = String.Empty; Frequencia = "Uma única vez"; QuantidadeParcela = 0;
         ValorTotalReceita = 0.0; ListaReceitaParcela = new List<ReceitaParcela>(); UltimoVencimento = DateTime.Now;
         }
 
@@ -17,9 +17,9 @@ namespace GerenciadorFinanceiro.Dominio
 
         public Aluno AlunoReceita { get; set; }
 
-        public CentroCustos CentroCustoReceita { get; set; }
+        public TipoServico TipoServicoReceita { get; set; }
 
-        public Categoria CategoriaReceita { get; set; }
+        public Servico ServicoReceita { get; set; }
 
         public String Observacao { get; set; }
 

@@ -14,8 +14,8 @@ namespace GerenciadorFinanceiro.GUI
 
         private Dominio.Receita _Receita;
         private List<Dominio.Aluno> _ListAlunos;
-        private List<Dominio.CentroCustos> _ListCentroCustos;
-        private List<Dominio.Categoria> _ListCategoria;
+        private List<Dominio.TipoServico> _ListTipoServico;
+        private List<Dominio.Servico> _ListServico;
         BindingSource _BindingSource = new BindingSource();
 
         //public FrmReceita()
@@ -32,8 +32,8 @@ namespace GerenciadorFinanceiro.GUI
         private void PreencherFormulario()
         {
             this.CmbAluno.SelectedItem = _Receita.AlunoReceita;
-            this.CmbCentroDeCusto.SelectedItem = _Receita.CentroCustoReceita;
-            this.CmbCategoria.SelectedItem = _Receita.CategoriaReceita;
+            this.CmbTipoDeServico.SelectedItem = _Receita.TipoServicoReceita;
+            this.CmbServico.SelectedItem = _Receita.ServicoReceita;
             this.TxtObservacao.Text = _Receita.Observacao;
             this.CmbFrequencia.SelectedText = _Receita.Frequencia;
             this.TxtQntdParcelas.Text = _Receita.QuantidadeParcela.ToString();
@@ -52,7 +52,7 @@ namespace GerenciadorFinanceiro.GUI
         {
             this.PreencherComboFrequencia();
             this.BuscarTodosOsAlunos();
-            this.BuscarTodosOsCentrosDeCusto();
+            this.BuscarTodosOsTiposDeServicos();
             this.PreencherFormulario();
             _BindingSource.DataSource = _Receita.ListaReceitaParcela;
             DGPreviewReceita.DataSource = _BindingSource;
@@ -66,20 +66,20 @@ namespace GerenciadorFinanceiro.GUI
             CmbAluno.DataSource = _ListAlunos;
         }
 
-        private void BuscarTodosOsCentrosDeCusto()
+        private void BuscarTodosOsTiposDeServicos()
         {
-            _ListCentroCustos = new Repositorio.RepositorioCentroCustos().BuscarTodos();
-            CmbCentroDeCusto.DisplayMember = "Descricao";
-            CmbCentroDeCusto.ValueMember = "Id";
-            CmbCentroDeCusto.DataSource = _ListCentroCustos;
+            _ListTipoServico = new Repositorio.RepositorioTipoServico().BuscarTodos();
+            CmbTipoDeServico.DisplayMember = "Descricao";
+            CmbTipoDeServico.ValueMember = "IdTipoServico";
+            CmbTipoDeServico.DataSource = _ListTipoServico;
         }
 
-        private void BuscarTodasAsCategoriasPorCentroDeCusto()
+        private void BuscarTodosOsServicosPorTipoDeServico()
         {
-            _ListCategoria = new Repositorio.RepositorioCategoria().BuscarTodasPorCentroCusto((int)CmbCentroDeCusto.SelectedValue);
-            CmbCategoria.DisplayMember = "Descricao";
-            CmbCategoria.ValueMember = "Id";
-            CmbCategoria.DataSource = _ListCategoria;
+            _ListServico = new Repositorio.RepositorioServico().BuscarTodosPorTipoDeServico((int)CmbTipoDeServico.SelectedValue);
+            CmbServico.DisplayMember = "Descricao";
+            CmbServico.ValueMember = "IdServico";
+            CmbServico.DataSource = _ListServico;
         }
 
         private void CamposQuantidadeParcela()
@@ -104,15 +104,15 @@ namespace GerenciadorFinanceiro.GUI
 
         private void CmbCentroDeCusto_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (CmbCentroDeCusto.SelectedItem != null)
-                this.BuscarTodasAsCategoriasPorCentroDeCusto();
+            if (CmbTipoDeServico.SelectedItem != null)
+                this.BuscarTodosOsServicosPorTipoDeServico();
         }
 
         private void PreencherReceita()
         {
             _Receita.AlunoReceita = (Dominio.Aluno)CmbAluno.SelectedItem;
-            _Receita.CentroCustoReceita = (Dominio.CentroCustos)CmbCentroDeCusto.SelectedItem;
-            _Receita.CategoriaReceita = (Dominio.Categoria)CmbCategoria.SelectedItem;
+            _Receita.TipoServicoReceita = (Dominio.TipoServico)CmbTipoDeServico.SelectedItem;
+            _Receita.ServicoReceita = (Dominio.Servico)CmbServico.SelectedItem;
             _Receita.Observacao = TxtObservacao.Text;
             _Receita.Frequencia = CmbFrequencia.SelectedText;
             _Receita.QuantidadeParcela = int.Parse(TxtQntdParcelas.Text);
@@ -177,6 +177,20 @@ namespace GerenciadorFinanceiro.GUI
                     }
                 }
             }
+        }
+
+        private void CmbServico_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CmbServico.SelectedItem != null)
+                TxtValorTotal.Text = ((Dominio.Servico)CmbServico.SelectedItem).Valor.ToString();
+        }
+
+        private void BtnNovoServico_Click(object sender, EventArgs e)
+        {
+            FrmServicos frm = new FrmServicos();
+            frm.ShowDialog();
+            frm.Dispose();
+            this.BuscarTodosOsServicosPorTipoDeServico();
         }
     }
 }

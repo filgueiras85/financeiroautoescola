@@ -28,15 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.BtnNovoAluno = new System.Windows.Forms.Button();
             this.CmbAluno = new System.Windows.Forms.ComboBox();
             this.TxtObservacao = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.CmbCategoria = new System.Windows.Forms.ComboBox();
+            this.CmbServico = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.CmbCentroDeCusto = new System.Windows.Forms.ComboBox();
+            this.CmbTipoDeServico = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -48,6 +48,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.TabInfoGeral = new System.Windows.Forms.TabPage();
+            this.TxtValorTotal = new System.Windows.Forms.TextBox();
             this.BtnPreview = new System.Windows.Forms.Button();
             this.BtnCancelar = new System.Windows.Forms.Button();
             this.BtnSalvar = new System.Windows.Forms.Button();
@@ -58,7 +59,7 @@
             this.ColValorParcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColStatusParcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TabInfoAdicionais = new System.Windows.Forms.TabPage();
-            this.TxtValorTotal = new System.Windows.Forms.TextBox();
+            this.BtnNovoServico = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.TabInfoGeral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGPreviewReceita)).BeginInit();
@@ -104,46 +105,47 @@
             this.label2.TabIndex = 19;
             this.label2.Text = "Receber de :";
             // 
-            // CmbCategoria
+            // CmbServico
             // 
-            this.CmbCategoria.BackColor = System.Drawing.Color.White;
-            this.CmbCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbCategoria.FormattingEnabled = true;
-            this.CmbCategoria.Location = new System.Drawing.Point(140, 80);
-            this.CmbCategoria.Name = "CmbCategoria";
-            this.CmbCategoria.Size = new System.Drawing.Size(338, 21);
-            this.CmbCategoria.TabIndex = 3;
+            this.CmbServico.BackColor = System.Drawing.Color.White;
+            this.CmbServico.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbServico.FormattingEnabled = true;
+            this.CmbServico.Location = new System.Drawing.Point(140, 80);
+            this.CmbServico.Name = "CmbServico";
+            this.CmbServico.Size = new System.Drawing.Size(301, 21);
+            this.CmbServico.TabIndex = 3;
+            this.CmbServico.SelectedIndexChanged += new System.EventHandler(this.CmbServico_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(34, 54);
+            this.label1.Location = new System.Drawing.Point(37, 54);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(103, 15);
+            this.label1.Size = new System.Drawing.Size(100, 15);
             this.label1.TabIndex = 21;
-            this.label1.Text = "Centro de custo :";
+            this.label1.Text = "Tipo de Serviço :";
             // 
-            // CmbCentroDeCusto
+            // CmbTipoDeServico
             // 
-            this.CmbCentroDeCusto.BackColor = System.Drawing.Color.White;
-            this.CmbCentroDeCusto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbCentroDeCusto.FormattingEnabled = true;
-            this.CmbCentroDeCusto.Location = new System.Drawing.Point(140, 52);
-            this.CmbCentroDeCusto.Name = "CmbCentroDeCusto";
-            this.CmbCentroDeCusto.Size = new System.Drawing.Size(338, 21);
-            this.CmbCentroDeCusto.TabIndex = 2;
-            this.CmbCentroDeCusto.SelectedIndexChanged += new System.EventHandler(this.CmbCentroDeCusto_SelectedIndexChanged);
+            this.CmbTipoDeServico.BackColor = System.Drawing.Color.White;
+            this.CmbTipoDeServico.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbTipoDeServico.FormattingEnabled = true;
+            this.CmbTipoDeServico.Location = new System.Drawing.Point(140, 52);
+            this.CmbTipoDeServico.Name = "CmbTipoDeServico";
+            this.CmbTipoDeServico.Size = new System.Drawing.Size(338, 21);
+            this.CmbTipoDeServico.TabIndex = 2;
+            this.CmbTipoDeServico.SelectedIndexChanged += new System.EventHandler(this.CmbCentroDeCusto_SelectedIndexChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(69, 82);
+            this.label3.Location = new System.Drawing.Point(81, 82);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(68, 15);
+            this.label3.Size = new System.Drawing.Size(56, 15);
             this.label3.TabIndex = 23;
-            this.label3.Text = "Categoria :";
+            this.label3.Text = "Serviço :";
             // 
             // label4
             // 
@@ -240,6 +242,7 @@
             // TabInfoGeral
             // 
             this.TabInfoGeral.BackColor = System.Drawing.SystemColors.Control;
+            this.TabInfoGeral.Controls.Add(this.BtnNovoServico);
             this.TabInfoGeral.Controls.Add(this.TxtValorTotal);
             this.TabInfoGeral.Controls.Add(this.BtnPreview);
             this.TabInfoGeral.Controls.Add(this.BtnCancelar);
@@ -254,10 +257,10 @@
             this.TabInfoGeral.Controls.Add(this.LblVenvimento);
             this.TabInfoGeral.Controls.Add(this.label1);
             this.TabInfoGeral.Controls.Add(this.label6);
-            this.TabInfoGeral.Controls.Add(this.CmbCategoria);
+            this.TabInfoGeral.Controls.Add(this.CmbServico);
             this.TabInfoGeral.Controls.Add(this.TxtQntdParcelas);
             this.TabInfoGeral.Controls.Add(this.label3);
-            this.TabInfoGeral.Controls.Add(this.CmbCentroDeCusto);
+            this.TabInfoGeral.Controls.Add(this.CmbTipoDeServico);
             this.TabInfoGeral.Controls.Add(this.CmbFrequencia);
             this.TabInfoGeral.Controls.Add(this.label4);
             this.TabInfoGeral.Controls.Add(this.label5);
@@ -267,6 +270,13 @@
             this.TabInfoGeral.Size = new System.Drawing.Size(505, 481);
             this.TabInfoGeral.TabIndex = 0;
             this.TabInfoGeral.Text = "Geral";
+            // 
+            // TxtValorTotal
+            // 
+            this.TxtValorTotal.Location = new System.Drawing.Point(140, 248);
+            this.TxtValorTotal.Name = "TxtValorTotal";
+            this.TxtValorTotal.Size = new System.Drawing.Size(85, 20);
+            this.TxtValorTotal.TabIndex = 8;
             // 
             // BtnPreview
             // 
@@ -345,9 +355,9 @@
             // ColDataVencimento
             // 
             this.ColDataVencimento.DataPropertyName = "Vencimento";
-            dataGridViewCellStyle3.Format = "d";
-            dataGridViewCellStyle3.NullValue = null;
-            this.ColDataVencimento.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Format = "d";
+            dataGridViewCellStyle1.NullValue = null;
+            this.ColDataVencimento.DefaultCellStyle = dataGridViewCellStyle1;
             this.ColDataVencimento.HeaderText = "Data Vencimento";
             this.ColDataVencimento.Name = "ColDataVencimento";
             this.ColDataVencimento.ReadOnly = true;
@@ -356,9 +366,9 @@
             // ColValorParcela
             // 
             this.ColValorParcela.DataPropertyName = "ValorParcela";
-            dataGridViewCellStyle4.Format = "C2";
-            dataGridViewCellStyle4.NullValue = null;
-            this.ColValorParcela.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Format = "C2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.ColValorParcela.DefaultCellStyle = dataGridViewCellStyle2;
             this.ColValorParcela.HeaderText = "Valor da Parcela";
             this.ColValorParcela.Name = "ColValorParcela";
             this.ColValorParcela.ReadOnly = true;
@@ -381,12 +391,15 @@
             this.TabInfoAdicionais.TabIndex = 1;
             this.TabInfoAdicionais.Text = "Informações Adicionais";
             // 
-            // TxtValorTotal
+            // BtnNovoServico
             // 
-            this.TxtValorTotal.Location = new System.Drawing.Point(140, 248);
-            this.TxtValorTotal.Name = "TxtValorTotal";
-            this.TxtValorTotal.Size = new System.Drawing.Size(85, 20);
-            this.TxtValorTotal.TabIndex = 8;
+            this.BtnNovoServico.Image = global::GerenciadorFinanceiro.Properties.Resources.file_add;
+            this.BtnNovoServico.Location = new System.Drawing.Point(447, 77);
+            this.BtnNovoServico.Name = "BtnNovoServico";
+            this.BtnNovoServico.Size = new System.Drawing.Size(31, 24);
+            this.BtnNovoServico.TabIndex = 34;
+            this.BtnNovoServico.UseVisualStyleBackColor = true;
+            this.BtnNovoServico.Click += new System.EventHandler(this.BtnNovoServico_Click);
             // 
             // FrmReceita
             // 
@@ -413,9 +426,9 @@
         private System.Windows.Forms.ComboBox CmbAluno;
         private System.Windows.Forms.TextBox TxtObservacao;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox CmbCategoria;
+        private System.Windows.Forms.ComboBox CmbServico;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox CmbCentroDeCusto;
+        private System.Windows.Forms.ComboBox CmbTipoDeServico;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
@@ -438,6 +451,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColValorParcela;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColStatusParcela;
         private System.Windows.Forms.TextBox TxtValorTotal;
+        private System.Windows.Forms.Button BtnNovoServico;
 
     }
 }

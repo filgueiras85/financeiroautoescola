@@ -36,7 +36,7 @@ namespace GerenciadorFinanceiro.GUI
                 throw new Exception("O campo tipo é obrigatório.");
             if (CmbModelo.SelectedValue == null)
                 throw new Exception("O campo modelo é obrigatório.");
-            if (CmbCombustivel.SelectedText == String.Empty)
+            if (CmbCombustivel.Text == String.Empty)
                 throw new Exception("O campo combustível é obrigatório.");
             this._Veiculo.Placa = TxtPlaca.Text;
             this._Veiculo.Renavam = TxtRenavam.Text;
@@ -74,7 +74,7 @@ namespace GerenciadorFinanceiro.GUI
             TxtPlaca.Text = _Veiculo.Placa;
             TxtRenavam.Text = _Veiculo.Renavam;
             TxtChassi.Text = _Veiculo.Chassi;
-            CmbCombustivel.SelectedText = _Veiculo.Combustivel;
+            CmbCombustivel.SelectedItem = _Veiculo.Combustivel;
             TxtAno.Text = _Veiculo.Ano.ToString();
             TxtCor.Text = _Veiculo.Cor;
             TxtAnoModelo.Text = _Veiculo.Modelo.ToString();
