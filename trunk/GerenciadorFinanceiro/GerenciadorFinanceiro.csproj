@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{9B6CBD3E-42D9-44CC-A998-FA9422A29D55}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -90,6 +90,7 @@
       <DependentUpon>CtrNavigator.cs</DependentUpon>
     </Compile>
     <Compile Include="Dominio\Aluno.cs" />
+    <Compile Include="Dominio\Banco.cs" />
     <Compile Include="Dominio\Categoria.cs" />
     <Compile Include="Dominio\CentroCustos.cs" />
     <Compile Include="Dominio\Cidade.cs" />
@@ -341,6 +342,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Repositorio\RepositorioBanco.cs" />
     <Compile Include="Repositorio\RepositorioBase.cs" />
     <Compile Include="Repositorio\RepositorioCategoria.cs" />
     <Compile Include="Repositorio\RepositorioCentroCustos.cs" />
