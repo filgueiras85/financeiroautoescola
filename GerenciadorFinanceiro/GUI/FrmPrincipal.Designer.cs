@@ -69,6 +69,9 @@
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.Timer = new System.Windows.Forms.Timer(this.components);
+            this.despesasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.combustívelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.despesasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -83,7 +86,8 @@
             this.consultasToolStripMenuItem,
             this.relatóriosToolStripMenuItem,
             this.configuraçõesToolStripMenuItem,
-            this.ajudaToolStripMenuItem});
+            this.ajudaToolStripMenuItem,
+            this.despesasToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(994, 24);
@@ -103,7 +107,7 @@
             // enviarEmailToolStripMenuItem
             // 
             this.enviarEmailToolStripMenuItem.Name = "enviarEmailToolStripMenuItem";
-            this.enviarEmailToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.enviarEmailToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.enviarEmailToolStripMenuItem.Text = "Enviar Email";
             this.enviarEmailToolStripMenuItem.Click += new System.EventHandler(this.enviarEmailToolStripMenuItem_Click);
             // 
@@ -308,7 +312,7 @@
             this.LblDataHora.Name = "LblDataHora";
             this.LblDataHora.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.LblDataHora.RightToLeftAutoMirrorImage = true;
-            this.LblDataHora.Size = new System.Drawing.Size(58, 17);
+            this.LblDataHora.Size = new System.Drawing.Size(62, 17);
             this.LblDataHora.Text = "Data HOra";
             // 
             // toolStrip1
@@ -429,6 +433,29 @@
             this.Timer.Interval = 30000;
             this.Timer.Tick += new System.EventHandler(this.Timer_Tick);
             // 
+            // despesasToolStripMenuItem
+            // 
+            this.despesasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.combustívelToolStripMenuItem,
+            this.despesasToolStripMenuItem1});
+            this.despesasToolStripMenuItem.Name = "despesasToolStripMenuItem";
+            this.despesasToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
+            this.despesasToolStripMenuItem.Text = "Despesas";
+            // 
+            // combustívelToolStripMenuItem
+            // 
+            this.combustívelToolStripMenuItem.Name = "combustívelToolStripMenuItem";
+            this.combustívelToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.combustívelToolStripMenuItem.Text = "Combustível";
+            this.combustívelToolStripMenuItem.Click += new System.EventHandler(this.combustívelToolStripMenuItem_Click);
+            // 
+            // despesasToolStripMenuItem1
+            // 
+            this.despesasToolStripMenuItem1.Name = "despesasToolStripMenuItem1";
+            this.despesasToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.despesasToolStripMenuItem1.Text = "Despesas";
+            this.despesasToolStripMenuItem1.Click += new System.EventHandler(this.despesasToolStripMenuItem1_Click);
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -496,6 +523,9 @@
         private System.Windows.Forms.ToolStripMenuItem categoriasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem receitasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem configuraçõesDoSistemaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem despesasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem combustívelToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem despesasToolStripMenuItem1;
     }
 }
 

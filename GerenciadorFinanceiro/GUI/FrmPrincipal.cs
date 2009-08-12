@@ -262,5 +262,29 @@ namespace GerenciadorFinanceiro
             this.Cursor = System.Windows.Forms.Cursors.Default;
         }
 
+        private void combustívelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (this.MdiChildren.Length > 0)
+            {
+                this.MdiChildren[0].Close();
+            }
+            GUI.FrmCombustivel form = new GerenciadorFinanceiro.GUI.FrmCombustivel();
+            form.MdiParent = this;
+            form.WindowState = FormWindowState.Maximized;
+            form.Show();
+        }
+
+        private void despesasToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (this.MdiChildren.Length > 0)
+            {
+                this.MdiChildren[0].Close();
+            }
+            GUI.FrmDespesa form = new GerenciadorFinanceiro.GUI.FrmDespesa();
+            form.MdiParent = this;
+            form.WindowState = FormWindowState.Maximized;
+            form.Show();
+        }
+
     }
 }

@@ -37,5 +37,12 @@ namespace GerenciadorFinanceiro.Dominio
 
         public ModeloVeiculo  ModeloVeiculo { get; set; }
 
+        public override string ToString()
+        {
+            if (ModeloVeiculo != null)
+                return this.ModeloVeiculo.Descricao + " - " + this.Placa;
+            else
+                return base.ToString();
+        }
     }
 }
