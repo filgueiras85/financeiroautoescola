@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.BtnNovoAluno = new System.Windows.Forms.Button();
@@ -48,27 +49,52 @@
             this.label8 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.TabInfoGeral = new System.Windows.Forms.TabPage();
+            this.BtnNovoServico = new System.Windows.Forms.Button();
             this.TxtValorTotal = new System.Windows.Forms.TextBox();
             this.BtnPreview = new System.Windows.Forms.Button();
-            this.BtnCancelar = new System.Windows.Forms.Button();
-            this.BtnSalvar = new System.Windows.Forms.Button();
             this.DGPreviewReceita = new System.Windows.Forms.DataGridView();
             this.ColIdParcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColNumeroDaParcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColDataVencimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColValorParcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColStatusParcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColNumeroDoTitulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColTipoDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColDataCompetencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColNumeroDoDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColSerie = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColIdentificacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColObservacaoIndividual = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TabInfoAdicionais = new System.Windows.Forms.TabPage();
-            this.BtnNovoServico = new System.Windows.Forms.Button();
+            this.TxtObservacaoIndividual = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.TxtIdentificacao = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.TxtNumeroDoDocumento = new System.Windows.Forms.TextBox();
+            this.TxtSerie = new System.Windows.Forms.TextBox();
+            this.CmbDataCompetencia = new System.Windows.Forms.DateTimePicker();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.CmbParcela = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.TxtNumeroDoTitulo = new System.Windows.Forms.TextBox();
+            this.CmbTipoDocumento = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.BtnCancelar = new System.Windows.Forms.Button();
+            this.BtnSalvar = new System.Windows.Forms.Button();
+            this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.tabControl1.SuspendLayout();
             this.TabInfoGeral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGPreviewReceita)).BeginInit();
+            this.TabInfoAdicionais.SuspendLayout();
             this.SuspendLayout();
             // 
             // BtnNovoAluno
             // 
             this.BtnNovoAluno.Image = global::GerenciadorFinanceiro.Properties.Resources.file_add;
-            this.BtnNovoAluno.Location = new System.Drawing.Point(447, 21);
+            this.BtnNovoAluno.Location = new System.Drawing.Point(447, 17);
             this.BtnNovoAluno.Name = "BtnNovoAluno";
             this.BtnNovoAluno.Size = new System.Drawing.Size(31, 24);
             this.BtnNovoAluno.TabIndex = 1;
@@ -80,7 +106,7 @@
             this.CmbAluno.BackColor = System.Drawing.Color.White;
             this.CmbAluno.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbAluno.FormattingEnabled = true;
-            this.CmbAluno.Location = new System.Drawing.Point(140, 24);
+            this.CmbAluno.Location = new System.Drawing.Point(140, 20);
             this.CmbAluno.Name = "CmbAluno";
             this.CmbAluno.Size = new System.Drawing.Size(301, 21);
             this.CmbAluno.TabIndex = 0;
@@ -88,7 +114,7 @@
             // TxtObservacao
             // 
             this.TxtObservacao.BackColor = System.Drawing.Color.White;
-            this.TxtObservacao.Location = new System.Drawing.Point(140, 108);
+            this.TxtObservacao.Location = new System.Drawing.Point(140, 104);
             this.TxtObservacao.MaxLength = 500;
             this.TxtObservacao.Multiline = true;
             this.TxtObservacao.Name = "TxtObservacao";
@@ -99,7 +125,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(59, 26);
+            this.label2.Location = new System.Drawing.Point(59, 22);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(78, 15);
             this.label2.TabIndex = 19;
@@ -110,7 +136,7 @@
             this.CmbServico.BackColor = System.Drawing.Color.White;
             this.CmbServico.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbServico.FormattingEnabled = true;
-            this.CmbServico.Location = new System.Drawing.Point(140, 80);
+            this.CmbServico.Location = new System.Drawing.Point(140, 76);
             this.CmbServico.Name = "CmbServico";
             this.CmbServico.Size = new System.Drawing.Size(301, 21);
             this.CmbServico.TabIndex = 3;
@@ -120,7 +146,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(37, 54);
+            this.label1.Location = new System.Drawing.Point(37, 50);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 15);
             this.label1.TabIndex = 21;
@@ -131,7 +157,7 @@
             this.CmbTipoDeServico.BackColor = System.Drawing.Color.White;
             this.CmbTipoDeServico.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbTipoDeServico.FormattingEnabled = true;
-            this.CmbTipoDeServico.Location = new System.Drawing.Point(140, 52);
+            this.CmbTipoDeServico.Location = new System.Drawing.Point(140, 48);
             this.CmbTipoDeServico.Name = "CmbTipoDeServico";
             this.CmbTipoDeServico.Size = new System.Drawing.Size(338, 21);
             this.CmbTipoDeServico.TabIndex = 2;
@@ -141,7 +167,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(81, 82);
+            this.label3.Location = new System.Drawing.Point(81, 78);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(56, 15);
             this.label3.TabIndex = 23;
@@ -151,7 +177,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(55, 110);
+            this.label4.Location = new System.Drawing.Point(55, 106);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(82, 15);
             this.label4.TabIndex = 24;
@@ -161,18 +187,18 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(61, 197);
+            this.label5.Location = new System.Drawing.Point(61, 193);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(76, 15);
             this.label5.TabIndex = 25;
-            this.label5.Text = "Frequencia :";
+            this.label5.Text = "Frequência :";
             // 
             // CmbFrequencia
             // 
             this.CmbFrequencia.BackColor = System.Drawing.Color.White;
             this.CmbFrequencia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbFrequencia.FormattingEnabled = true;
-            this.CmbFrequencia.Location = new System.Drawing.Point(140, 195);
+            this.CmbFrequencia.Location = new System.Drawing.Point(140, 191);
             this.CmbFrequencia.Name = "CmbFrequencia";
             this.CmbFrequencia.Size = new System.Drawing.Size(176, 21);
             this.CmbFrequencia.TabIndex = 5;
@@ -182,7 +208,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(324, 197);
+            this.label6.Location = new System.Drawing.Point(324, 193);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(110, 15);
             this.label6.TabIndex = 29;
@@ -192,7 +218,7 @@
             // 
             this.TxtQntdParcelas.BackColor = System.Drawing.Color.White;
             this.TxtQntdParcelas.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.TxtQntdParcelas.Location = new System.Drawing.Point(438, 195);
+            this.TxtQntdParcelas.Location = new System.Drawing.Point(438, 191);
             this.TxtQntdParcelas.MaxLength = 10;
             this.TxtQntdParcelas.Name = "TxtQntdParcelas";
             this.TxtQntdParcelas.Size = new System.Drawing.Size(40, 20);
@@ -201,7 +227,7 @@
             // LblVenvimento
             // 
             this.LblVenvimento.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblVenvimento.Location = new System.Drawing.Point(3, 225);
+            this.LblVenvimento.Location = new System.Drawing.Point(3, 221);
             this.LblVenvimento.Name = "LblVenvimento";
             this.LblVenvimento.Size = new System.Drawing.Size(134, 15);
             this.LblVenvimento.TabIndex = 30;
@@ -211,7 +237,7 @@
             // DateTimePrimeiroVencimento
             // 
             this.DateTimePrimeiroVencimento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DateTimePrimeiroVencimento.Location = new System.Drawing.Point(140, 222);
+            this.DateTimePrimeiroVencimento.Location = new System.Drawing.Point(140, 218);
             this.DateTimePrimeiroVencimento.Name = "DateTimePrimeiroVencimento";
             this.DateTimePrimeiroVencimento.Size = new System.Drawing.Size(176, 20);
             this.DateTimePrimeiroVencimento.TabIndex = 7;
@@ -220,7 +246,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(6, 250);
+            this.label8.Location = new System.Drawing.Point(6, 246);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(131, 15);
             this.label8.TabIndex = 33;
@@ -236,7 +262,7 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(513, 507);
+            this.tabControl1.Size = new System.Drawing.Size(513, 504);
             this.tabControl1.TabIndex = 0;
             // 
             // TabInfoGeral
@@ -245,8 +271,6 @@
             this.TabInfoGeral.Controls.Add(this.BtnNovoServico);
             this.TabInfoGeral.Controls.Add(this.TxtValorTotal);
             this.TabInfoGeral.Controls.Add(this.BtnPreview);
-            this.TabInfoGeral.Controls.Add(this.BtnCancelar);
-            this.TabInfoGeral.Controls.Add(this.BtnSalvar);
             this.TabInfoGeral.Controls.Add(this.DGPreviewReceita);
             this.TabInfoGeral.Controls.Add(this.CmbAluno);
             this.TabInfoGeral.Controls.Add(this.label8);
@@ -267,52 +291,37 @@
             this.TabInfoGeral.Location = new System.Drawing.Point(4, 22);
             this.TabInfoGeral.Name = "TabInfoGeral";
             this.TabInfoGeral.Padding = new System.Windows.Forms.Padding(3);
-            this.TabInfoGeral.Size = new System.Drawing.Size(505, 481);
+            this.TabInfoGeral.Size = new System.Drawing.Size(505, 478);
             this.TabInfoGeral.TabIndex = 0;
             this.TabInfoGeral.Text = "Geral";
             // 
+            // BtnNovoServico
+            // 
+            this.BtnNovoServico.Image = global::GerenciadorFinanceiro.Properties.Resources.file_add;
+            this.BtnNovoServico.Location = new System.Drawing.Point(447, 73);
+            this.BtnNovoServico.Name = "BtnNovoServico";
+            this.BtnNovoServico.Size = new System.Drawing.Size(31, 24);
+            this.BtnNovoServico.TabIndex = 34;
+            this.BtnNovoServico.UseVisualStyleBackColor = true;
+            this.BtnNovoServico.Click += new System.EventHandler(this.BtnNovoServico_Click);
+            // 
             // TxtValorTotal
             // 
-            this.TxtValorTotal.Location = new System.Drawing.Point(140, 248);
+            this.TxtValorTotal.Location = new System.Drawing.Point(140, 244);
             this.TxtValorTotal.Name = "TxtValorTotal";
-            this.TxtValorTotal.Size = new System.Drawing.Size(85, 20);
+            this.TxtValorTotal.Size = new System.Drawing.Size(140, 20);
             this.TxtValorTotal.TabIndex = 8;
             // 
             // BtnPreview
             // 
             this.BtnPreview.Image = global::GerenciadorFinanceiro.Properties.Resources.viewmag;
-            this.BtnPreview.Location = new System.Drawing.Point(231, 246);
+            this.BtnPreview.Location = new System.Drawing.Point(286, 242);
             this.BtnPreview.Name = "BtnPreview";
-            this.BtnPreview.Size = new System.Drawing.Size(28, 26);
+            this.BtnPreview.Size = new System.Drawing.Size(30, 26);
             this.BtnPreview.TabIndex = 9;
+            this.ToolTip.SetToolTip(this.BtnPreview, "Pré-Visualizar Parcela(s)");
             this.BtnPreview.UseVisualStyleBackColor = true;
             this.BtnPreview.Click += new System.EventHandler(this.BtnPreview_Click);
-            // 
-            // BtnCancelar
-            // 
-            this.BtnCancelar.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
-            this.BtnCancelar.Image = global::GerenciadorFinanceiro.Properties.Resources.Cancel;
-            this.BtnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnCancelar.Location = new System.Drawing.Point(393, 247);
-            this.BtnCancelar.Name = "BtnCancelar";
-            this.BtnCancelar.Size = new System.Drawing.Size(85, 25);
-            this.BtnCancelar.TabIndex = 11;
-            this.BtnCancelar.Text = "    Cancelar";
-            this.BtnCancelar.UseVisualStyleBackColor = true;
-            this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
-            // 
-            // BtnSalvar
-            // 
-            this.BtnSalvar.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
-            this.BtnSalvar.Image = global::GerenciadorFinanceiro.Properties.Resources.apply;
-            this.BtnSalvar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnSalvar.Location = new System.Drawing.Point(302, 247);
-            this.BtnSalvar.Name = "BtnSalvar";
-            this.BtnSalvar.Size = new System.Drawing.Size(85, 25);
-            this.BtnSalvar.TabIndex = 10;
-            this.BtnSalvar.Text = "   Salvar";
-            this.BtnSalvar.UseVisualStyleBackColor = true;
-            this.BtnSalvar.Click += new System.EventHandler(this.BtnSalvar_Click);
             // 
             // DGPreviewReceita
             // 
@@ -326,13 +335,20 @@
             this.ColNumeroDaParcela,
             this.ColDataVencimento,
             this.ColValorParcela,
-            this.ColStatusParcela});
+            this.ColStatusParcela,
+            this.ColNumeroDoTitulo,
+            this.ColTipoDocumento,
+            this.ColDataCompetencia,
+            this.ColNumeroDoDocumento,
+            this.ColSerie,
+            this.ColIdentificacao,
+            this.ColObservacaoIndividual});
             this.DGPreviewReceita.Location = new System.Drawing.Point(25, 278);
             this.DGPreviewReceita.MultiSelect = false;
             this.DGPreviewReceita.Name = "DGPreviewReceita";
             this.DGPreviewReceita.ReadOnly = true;
             this.DGPreviewReceita.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGPreviewReceita.Size = new System.Drawing.Size(453, 180);
+            this.DGPreviewReceita.Size = new System.Drawing.Size(453, 177);
             this.DGPreviewReceita.TabIndex = 12;
             this.DGPreviewReceita.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DGPreviewReceita_CellFormatting);
             // 
@@ -381,32 +397,293 @@
             this.ColStatusParcela.Name = "ColStatusParcela";
             this.ColStatusParcela.ReadOnly = true;
             // 
+            // ColNumeroDoTitulo
+            // 
+            this.ColNumeroDoTitulo.DataPropertyName = "NumeroDoTitulo";
+            this.ColNumeroDoTitulo.HeaderText = "NumeroDoTitulo";
+            this.ColNumeroDoTitulo.Name = "ColNumeroDoTitulo";
+            this.ColNumeroDoTitulo.ReadOnly = true;
+            this.ColNumeroDoTitulo.Visible = false;
+            // 
+            // ColTipoDocumento
+            // 
+            this.ColTipoDocumento.DataPropertyName = "TipoDocumento";
+            this.ColTipoDocumento.HeaderText = "TipoDocumento";
+            this.ColTipoDocumento.Name = "ColTipoDocumento";
+            this.ColTipoDocumento.ReadOnly = true;
+            this.ColTipoDocumento.Visible = false;
+            // 
+            // ColDataCompetencia
+            // 
+            this.ColDataCompetencia.DataPropertyName = "DataCompetencia";
+            this.ColDataCompetencia.HeaderText = "Competencia";
+            this.ColDataCompetencia.Name = "ColDataCompetencia";
+            this.ColDataCompetencia.ReadOnly = true;
+            this.ColDataCompetencia.Visible = false;
+            // 
+            // ColNumeroDoDocumento
+            // 
+            this.ColNumeroDoDocumento.DataPropertyName = "NumeroDoDocumento";
+            this.ColNumeroDoDocumento.HeaderText = "NumeroDoDocumento";
+            this.ColNumeroDoDocumento.Name = "ColNumeroDoDocumento";
+            this.ColNumeroDoDocumento.ReadOnly = true;
+            this.ColNumeroDoDocumento.Visible = false;
+            // 
+            // ColSerie
+            // 
+            this.ColSerie.DataPropertyName = "Serie";
+            this.ColSerie.HeaderText = "Serie";
+            this.ColSerie.Name = "ColSerie";
+            this.ColSerie.ReadOnly = true;
+            this.ColSerie.Visible = false;
+            // 
+            // ColIdentificacao
+            // 
+            this.ColIdentificacao.DataPropertyName = "Identificacao";
+            this.ColIdentificacao.HeaderText = "Identificacao";
+            this.ColIdentificacao.Name = "ColIdentificacao";
+            this.ColIdentificacao.ReadOnly = true;
+            this.ColIdentificacao.Visible = false;
+            // 
+            // ColObservacaoIndividual
+            // 
+            this.ColObservacaoIndividual.DataPropertyName = "ObservacaoIndividual";
+            this.ColObservacaoIndividual.HeaderText = "ObservacaoIndividual";
+            this.ColObservacaoIndividual.Name = "ColObservacaoIndividual";
+            this.ColObservacaoIndividual.ReadOnly = true;
+            this.ColObservacaoIndividual.Visible = false;
+            // 
             // TabInfoAdicionais
             // 
             this.TabInfoAdicionais.BackColor = System.Drawing.SystemColors.Control;
+            this.TabInfoAdicionais.Controls.Add(this.TxtObservacaoIndividual);
+            this.TabInfoAdicionais.Controls.Add(this.label15);
+            this.TabInfoAdicionais.Controls.Add(this.TxtIdentificacao);
+            this.TabInfoAdicionais.Controls.Add(this.label14);
+            this.TabInfoAdicionais.Controls.Add(this.TxtNumeroDoDocumento);
+            this.TabInfoAdicionais.Controls.Add(this.TxtSerie);
+            this.TabInfoAdicionais.Controls.Add(this.CmbDataCompetencia);
+            this.TabInfoAdicionais.Controls.Add(this.label13);
+            this.TabInfoAdicionais.Controls.Add(this.label12);
+            this.TabInfoAdicionais.Controls.Add(this.label11);
+            this.TabInfoAdicionais.Controls.Add(this.CmbParcela);
+            this.TabInfoAdicionais.Controls.Add(this.label10);
+            this.TabInfoAdicionais.Controls.Add(this.TxtNumeroDoTitulo);
+            this.TabInfoAdicionais.Controls.Add(this.CmbTipoDocumento);
+            this.TabInfoAdicionais.Controls.Add(this.label7);
+            this.TabInfoAdicionais.Controls.Add(this.label9);
             this.TabInfoAdicionais.Location = new System.Drawing.Point(4, 22);
             this.TabInfoAdicionais.Name = "TabInfoAdicionais";
             this.TabInfoAdicionais.Padding = new System.Windows.Forms.Padding(3);
-            this.TabInfoAdicionais.Size = new System.Drawing.Size(505, 481);
+            this.TabInfoAdicionais.Size = new System.Drawing.Size(505, 478);
             this.TabInfoAdicionais.TabIndex = 1;
             this.TabInfoAdicionais.Text = "Informações Adicionais";
             // 
-            // BtnNovoServico
+            // TxtObservacaoIndividual
             // 
-            this.BtnNovoServico.Image = global::GerenciadorFinanceiro.Properties.Resources.file_add;
-            this.BtnNovoServico.Location = new System.Drawing.Point(447, 77);
-            this.BtnNovoServico.Name = "BtnNovoServico";
-            this.BtnNovoServico.Size = new System.Drawing.Size(31, 24);
-            this.BtnNovoServico.TabIndex = 34;
-            this.BtnNovoServico.UseVisualStyleBackColor = true;
-            this.BtnNovoServico.Click += new System.EventHandler(this.BtnNovoServico_Click);
+            this.TxtObservacaoIndividual.Location = new System.Drawing.Point(140, 216);
+            this.TxtObservacaoIndividual.Multiline = true;
+            this.TxtObservacaoIndividual.Name = "TxtObservacaoIndividual";
+            this.TxtObservacaoIndividual.Size = new System.Drawing.Size(344, 135);
+            this.TxtObservacaoIndividual.TabIndex = 7;
+            this.TxtObservacaoIndividual.Leave += new System.EventHandler(this.TxtObservacaoIndividual_Leave);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(52, 218);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(82, 15);
+            this.label15.TabIndex = 48;
+            this.label15.Text = "Observação :";
+            // 
+            // TxtIdentificacao
+            // 
+            this.TxtIdentificacao.Location = new System.Drawing.Point(140, 188);
+            this.TxtIdentificacao.Name = "TxtIdentificacao";
+            this.TxtIdentificacao.Size = new System.Drawing.Size(229, 20);
+            this.TxtIdentificacao.TabIndex = 6;
+            this.TxtIdentificacao.Leave += new System.EventHandler(this.TxtIdentificacao_Leave);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(48, 190);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(86, 15);
+            this.label14.TabIndex = 46;
+            this.label14.Text = "Identificação :";
+            // 
+            // TxtNumeroDoDocumento
+            // 
+            this.TxtNumeroDoDocumento.Location = new System.Drawing.Point(140, 132);
+            this.TxtNumeroDoDocumento.Name = "TxtNumeroDoDocumento";
+            this.TxtNumeroDoDocumento.Size = new System.Drawing.Size(229, 20);
+            this.TxtNumeroDoDocumento.TabIndex = 4;
+            this.TxtNumeroDoDocumento.Leave += new System.EventHandler(this.TxtNumeroDoDocumento_Leave);
+            // 
+            // TxtSerie
+            // 
+            this.TxtSerie.Location = new System.Drawing.Point(140, 160);
+            this.TxtSerie.Name = "TxtSerie";
+            this.TxtSerie.Size = new System.Drawing.Size(229, 20);
+            this.TxtSerie.TabIndex = 5;
+            this.TxtSerie.Leave += new System.EventHandler(this.TxtSerie_Leave);
+            // 
+            // CmbDataCompetencia
+            // 
+            this.CmbDataCompetencia.Location = new System.Drawing.Point(140, 103);
+            this.CmbDataCompetencia.Name = "CmbDataCompetencia";
+            this.CmbDataCompetencia.Size = new System.Drawing.Size(229, 20);
+            this.CmbDataCompetencia.TabIndex = 3;
+            this.CmbDataCompetencia.Leave += new System.EventHandler(this.CmbDataCompetencia_Leave);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(46, 106);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(88, 15);
+            this.label13.TabIndex = 42;
+            this.label13.Text = "Competência :";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(41, 134);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(93, 15);
+            this.label12.TabIndex = 41;
+            this.label12.Text = "Nº Documento :";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(91, 162);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(43, 15);
+            this.label11.TabIndex = 40;
+            this.label11.Text = "Série :";
+            // 
+            // CmbParcela
+            // 
+            this.CmbParcela.BackColor = System.Drawing.Color.White;
+            this.CmbParcela.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbParcela.FormattingEnabled = true;
+            this.CmbParcela.Location = new System.Drawing.Point(140, 20);
+            this.CmbParcela.Name = "CmbParcela";
+            this.CmbParcela.Size = new System.Drawing.Size(63, 21);
+            this.CmbParcela.TabIndex = 0;
+            this.CmbParcela.SelectedIndexChanged += new System.EventHandler(this.CmbParcela_SelectedIndexChanged);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(9, 22);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(125, 15);
+            this.label10.TabIndex = 39;
+            this.label10.Text = "Informação Parcela :";
+            // 
+            // TxtNumeroDoTitulo
+            // 
+            this.TxtNumeroDoTitulo.Location = new System.Drawing.Point(140, 48);
+            this.TxtNumeroDoTitulo.Name = "TxtNumeroDoTitulo";
+            this.TxtNumeroDoTitulo.Size = new System.Drawing.Size(229, 20);
+            this.TxtNumeroDoTitulo.TabIndex = 1;
+            this.TxtNumeroDoTitulo.Leave += new System.EventHandler(this.TxtNumeroDoTitulo_Leave);
+            // 
+            // CmbTipoDocumento
+            // 
+            this.CmbTipoDocumento.BackColor = System.Drawing.Color.White;
+            this.CmbTipoDocumento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbTipoDocumento.FormattingEnabled = true;
+            this.CmbTipoDocumento.Items.AddRange(new object[] {
+            "",
+            "Boleto",
+            "Cartão de Crédito",
+            "Cartão de Débito",
+            "Cheque",
+            "DARF",
+            "Depósito em Conta Corrente",
+            "Dinheiro",
+            "Duplicata",
+            "Débito em Conta",
+            "Fatura",
+            "Nota Promissória",
+            "Outra"});
+            this.CmbTipoDocumento.Location = new System.Drawing.Point(140, 76);
+            this.CmbTipoDocumento.Name = "CmbTipoDocumento";
+            this.CmbTipoDocumento.Size = new System.Drawing.Size(229, 21);
+            this.CmbTipoDocumento.TabIndex = 2;
+            this.CmbTipoDocumento.Leave += new System.EventHandler(this.CmbTipoDocumento_Leave);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(25, 50);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(109, 15);
+            this.label7.TabIndex = 37;
+            this.label7.Text = "Número do Título :";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(29, 78);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(105, 15);
+            this.label9.TabIndex = 36;
+            this.label9.Text = "Tipo Documento :";
+            // 
+            // BtnCancelar
+            // 
+            this.BtnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.BtnCancelar.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
+            this.BtnCancelar.Image = global::GerenciadorFinanceiro.Properties.Resources.Cancel;
+            this.BtnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnCancelar.Location = new System.Drawing.Point(436, 523);
+            this.BtnCancelar.Name = "BtnCancelar";
+            this.BtnCancelar.Size = new System.Drawing.Size(85, 25);
+            this.BtnCancelar.TabIndex = 11;
+            this.BtnCancelar.Text = "    Cancelar";
+            this.BtnCancelar.UseVisualStyleBackColor = true;
+            this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
+            // 
+            // BtnSalvar
+            // 
+            this.BtnSalvar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.BtnSalvar.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
+            this.BtnSalvar.Image = global::GerenciadorFinanceiro.Properties.Resources.apply;
+            this.BtnSalvar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnSalvar.Location = new System.Drawing.Point(345, 523);
+            this.BtnSalvar.Name = "BtnSalvar";
+            this.BtnSalvar.Size = new System.Drawing.Size(85, 25);
+            this.BtnSalvar.TabIndex = 10;
+            this.BtnSalvar.Text = "   Salvar";
+            this.BtnSalvar.UseVisualStyleBackColor = true;
+            this.BtnSalvar.Click += new System.EventHandler(this.BtnSalvar_Click);
+            // 
+            // ToolTip
+            // 
+            this.ToolTip.IsBalloon = true;
             // 
             // FrmReceita
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(537, 531);
+            this.ClientSize = new System.Drawing.Size(537, 560);
             this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.BtnCancelar);
+            this.Controls.Add(this.BtnSalvar);
             this.MinimizeBox = false;
             this.Name = "FrmReceita";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -416,6 +693,8 @@
             this.TabInfoGeral.ResumeLayout(false);
             this.TabInfoGeral.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGPreviewReceita)).EndInit();
+            this.TabInfoAdicionais.ResumeLayout(false);
+            this.TabInfoAdicionais.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -445,13 +724,37 @@
         private System.Windows.Forms.Button BtnCancelar;
         private System.Windows.Forms.Button BtnSalvar;
         private System.Windows.Forms.Button BtnPreview;
+        private System.Windows.Forms.TextBox TxtValorTotal;
+        private System.Windows.Forms.Button BtnNovoServico;
+        private System.Windows.Forms.ToolTip ToolTip;
+        private System.Windows.Forms.TextBox TxtNumeroDoTitulo;
+        private System.Windows.Forms.ComboBox CmbTipoDocumento;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox CmbParcela;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.DateTimePicker CmbDataCompetencia;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox TxtNumeroDoDocumento;
+        private System.Windows.Forms.TextBox TxtSerie;
+        private System.Windows.Forms.TextBox TxtObservacaoIndividual;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox TxtIdentificacao;
+        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColIdParcela;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColNumeroDaParcela;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColDataVencimento;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColValorParcela;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColStatusParcela;
-        private System.Windows.Forms.TextBox TxtValorTotal;
-        private System.Windows.Forms.Button BtnNovoServico;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColNumeroDoTitulo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColTipoDocumento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColDataCompetencia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColNumeroDoDocumento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColSerie;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColIdentificacao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColObservacaoIndividual;
 
     }
 }

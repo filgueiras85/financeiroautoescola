@@ -7,7 +7,10 @@ namespace GerenciadorFinanceiro.Dominio
 {
     class ReceitaParcela
     {
-        public ReceitaParcela() { IdParcela = 0; NumeroDaParcela = 0; Vencimento = System.DateTime.Now; ValorParcela = 0.0; }
+        public ReceitaParcela() { IdParcela = 0; NumeroDaParcela = 0; Vencimento = System.DateTime.Now; ValorParcela = 0.0;
+        NumeroDoTitulo = String.Empty; TipoDocumento = 0; DataCompetencia = System.DateTime.Now;
+        NumeroDoDocumento = String.Empty; Serie = String.Empty; Identificacao = String.Empty; ObservacaoIndividual = String.Empty;
+        }
 
         public int IdParcela { get; set; }
 
@@ -19,7 +22,19 @@ namespace GerenciadorFinanceiro.Dominio
 
         public int StatusParcela { get; set; }
 
-        //public Receita ReceitaParc { get; set; }
+        public String NumeroDoTitulo { get; set; }
+
+        public int TipoDocumento { get; set; }
+
+        public DateTime DataCompetencia { get; set; }
+
+        public String NumeroDoDocumento { get; set; }
+
+        public String Serie { get; set; }
+
+        public String Identificacao { get; set; }
+
+        public String ObservacaoIndividual { get; set; }
 
     }
 }
