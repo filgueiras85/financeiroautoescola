@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{9B6CBD3E-42D9-44CC-A998-FA9422A29D55}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -138,6 +138,12 @@
     <Compile Include="GUI\FrmCidade.Designer.cs">
       <DependentUpon>FrmCidade.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\FrmCombustivel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmCombustivel.Designer.cs">
+      <DependentUpon>FrmCombustivel.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FrmDespesa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -261,6 +267,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmCidade.resx">
       <DependentUpon>FrmCidade.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmCombustivel.resx">
+      <DependentUpon>FrmCombustivel.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmDespesa.resx">
