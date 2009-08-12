@@ -95,6 +95,7 @@
     <Compile Include="Dominio\CentroCustos.cs" />
     <Compile Include="Dominio\Cidade.cs" />
     <Compile Include="Dominio\Despesa.cs" />
+    <Compile Include="Dominio\DespesaCombustivel.cs" />
     <Compile Include="Dominio\DespesaParcela.cs" />
     <Compile Include="Dominio\Endereco.cs" />
     <Compile Include="Dominio\Enumeradores.cs" />

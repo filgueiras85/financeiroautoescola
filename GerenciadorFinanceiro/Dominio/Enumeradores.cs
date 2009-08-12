@@ -12,4 +12,6 @@ enum TipoCategoria { Receita = 0, Despesa = 1 }
 
 enum StatusParcela { Aberta = 0, Quitada = 1, Cancelada = 2 }
 
+enum TipoCombustivel {Gasolina = 0, Alcool = 1, Diesel = 2, Flex = 3, Gas = 4}
+
 
