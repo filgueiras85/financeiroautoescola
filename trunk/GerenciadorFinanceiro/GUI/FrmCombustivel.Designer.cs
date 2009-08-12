@@ -165,8 +165,10 @@
             this.cmbTipoComb.FormattingEnabled = true;
             this.cmbTipoComb.Items.AddRange(new object[] {
             "Gasolina",
-            "Álcool",
-            "Diesel"});
+            "Alcool",
+            "Diesel",
+            "Flex",
+            "Gás"});
             this.cmbTipoComb.Location = new System.Drawing.Point(128, 188);
             this.cmbTipoComb.Name = "cmbTipoComb";
             this.cmbTipoComb.Size = new System.Drawing.Size(179, 21);
