@@ -127,14 +127,15 @@ namespace GerenciadorFinanceiro.GUI
             for(int i = 0; i < _Receita.QuantidadeParcela; i++)
                 _Receita.ListaReceitaParcela.Add(new Dominio.ReceitaParcela(){ IdParcela = 0, NumeroDaParcela = (i + 1), 
                                                  ValorParcela = (double.Parse(TxtValorTotal.Text) /  int.Parse(TxtQntdParcelas.Text)), 
-                                                 Vencimento = DateTimePrimeiroVencimento.Value.AddDays((int)CmbFrequencia.SelectedValue * (i)), 
-                                                 StatusParcela = 0});
+                                                 Vencimento = DateTimePrimeiroVencimento.Value.AddDays((int)CmbFrequencia.SelectedValue * (i)),
+                                                 StatusParcela = 0, DataCompetencia = DateTimePrimeiroVencimento.Value.AddDays((int)CmbFrequencia.SelectedValue * (i))});
             _BindingSource.ResetBindings(true);
         }
 
         private void BtnPreview_Click(object sender, EventArgs e)
         {
             this.PreviewParcelasVenda();
+            this.PreencherComboParcelas(_Receita.QuantidadeParcela);
         }
 
         private void BtnNovoAluno_Click(object sender, EventArgs e)
@@ -192,5 +193,63 @@ namespace GerenciadorFinanceiro.GUI
             frm.Dispose();
             this.BuscarTodosOsServicosPorTipoDeServico();
         }
+
+        private void PreencherComboParcelas(int qntdParcelas)
+        {
+            for (int i = 1; i <= qntdParcelas; i++)
+                CmbParcela.Items.Add(i);
+        }
+
+        private void PreencherCamposInformacoesAdicionais()
+        {
+            this.TxtNumeroDoTitulo.Text = _Receita.ListaReceitaParcela[(int)CmbParcela.SelectedIndex].NumeroDoTitulo;
+            this.CmbTipoDocumento.SelectedIndex = _Receita.ListaReceitaParcela[(int)CmbParcela.SelectedIndex].TipoDocumento;
+            this.CmbDataCompetencia.Value = _Receita.ListaReceitaParcela[(int)CmbParcela.SelectedIndex].DataCompetencia;
+            this.TxtNumeroDoDocumento.Text  = _Receita.ListaReceitaParcela[(int)CmbParcela.SelectedIndex].NumeroDoDocumento;
+            this.TxtSerie.Text = _Receita.ListaReceitaParcela[(int)CmbParcela.SelectedIndex].Serie;
+            this.TxtIdentificacao.Text = _Receita.ListaReceitaParcela[(int)CmbParcela.SelectedIndex].Identificacao;
+            this.TxtObservacaoIndividual.Text = _Receita.ListaReceitaParcela[(int)CmbParcela.SelectedIndex].ObservacaoIndividual;
+        }
+
+        private void CmbParcela_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.PreencherCamposInformacoesAdicionais();
+        }
+
+        private void TxtNumeroDoTitulo_Leave(object sender, EventArgs e)
+        {
+            _Receita.ListaReceitaParcela[(int)CmbParcela.SelectedIndex].NumeroDoTitulo = TxtNumeroDoTitulo.Text;
+        }
+
+        private void CmbTipoDocumento_Leave(object sender, EventArgs e)
+        {
+            _Receita.ListaReceitaParcela[(int)CmbParcela.SelectedIndex].TipoDocumento = CmbTipoDocumento.SelectedIndex;
+        }
+
+        private void CmbDataCompetencia_Leave(object sender, EventArgs e)
+        {
+            _Receita.ListaReceitaParcela[(int)CmbParcela.SelectedIndex].DataCompetencia = CmbDataCompetencia.Value;
+        }
+
+        private void TxtNumeroDoDocumento_Leave(object sender, EventArgs e)
+        {
+            _Receita.ListaReceitaParcela[(int)CmbParcela.SelectedIndex].NumeroDoDocumento = TxtNumeroDoDocumento.Text;
+        }
+
+        private void TxtSerie_Leave(object sender, EventArgs e)
+        {
+            _Receita.ListaReceitaParcela[(int)CmbParcela.SelectedIndex].Serie = TxtSerie.Text;
+        }
+
+        private void TxtIdentificacao_Leave(object sender, EventArgs e)
+        {
+            _Receita.ListaReceitaParcela[(int)CmbParcela.SelectedIndex].Identificacao = TxtIdentificacao.Text;
+        }
+
+        private void TxtObservacaoIndividual_Leave(object sender, EventArgs e)
+        {
+            _Receita.ListaReceitaParcela[(int)CmbParcela.SelectedIndex].ObservacaoIndividual = TxtObservacaoIndividual.Text;
+        }
+
     }
 }
