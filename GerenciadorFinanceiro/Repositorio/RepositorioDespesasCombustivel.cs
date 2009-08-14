@@ -21,7 +21,7 @@ namespace GerenciadorFinanceiro.Repositorio
                 Conection.BeginTransaction(System.Data.IsolationLevel.ReadCommitted);
                 Conection.Execute(sSqlInsert, objeto.Veiculo.IdVeiculo, objeto.KmInicial, objeto.KmFinal ,
                                 objeto.QtdLitros, objeto.ValorTotal , objeto.Combustivel, objeto.DataAbastecimento );
-                objeto.IdDespesaCombustivel = Conection.ExecuteScalar("select @@Identity");
+                objeto.IdDespesaCombustivel = (int)Conection.ExecuteScalar("select @@Identity");
                 Conection.Commit();
             }
             catch (Exception ex)
@@ -87,12 +87,12 @@ namespace GerenciadorFinanceiro.Repositorio
 
         public List<Dominio.DespesaCombustivel> BuscarTodasPorVeiculo()
         {
-
+            throw new NotImplementedException();
         }
 
         public Dominio.DespesaCombustivel BuscarUltimaDespesaVeiculo()
         {
-
+            throw new NotImplementedException();
         }
 
         #endregion
