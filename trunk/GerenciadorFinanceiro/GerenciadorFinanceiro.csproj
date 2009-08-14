@@ -97,6 +97,8 @@
     <Compile Include="Dominio\Despesa.cs" />
     <Compile Include="Dominio\DespesaCombustivel.cs" />
     <Compile Include="Dominio\DespesaParcela.cs" />
+    <Compile Include="Dominio\DocumentoPagar.cs" />
+    <Compile Include="Dominio\DocumentoReceber.cs" />
     <Compile Include="Dominio\Endereco.cs" />
     <Compile Include="Dominio\Enumeradores.cs" />
     <Compile Include="Dominio\Estado.cs" />
@@ -168,6 +170,12 @@
     </Compile>
     <Compile Include="GUI\FrmFabricanteVeiculo.Designer.cs">
       <DependentUpon>FrmFabricanteVeiculo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmFavorecido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmFavorecido.Designer.cs">
+      <DependentUpon>FrmFavorecido.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\FrmFormaPagamento.cs">
       <SubType>Form</SubType>
@@ -290,6 +298,10 @@
       <DependentUpon>FrmFabricanteVeiculo.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmFavorecido.resx">
+      <DependentUpon>FrmFavorecido.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmFormaPagamento.resx">
       <DependentUpon>FrmFormaPagamento.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -359,14 +371,21 @@
     <Compile Include="Repositorio\RepositorioCentroCustos.cs" />
     <Compile Include="Repositorio\RepositorioCidade.cs" />
     <Compile Include="Repositorio\RepositorioDespesa.cs" />
+    <Compile Include="Repositorio\RepositorioDespesaAdicionais.cs" />
     <Compile Include="Repositorio\RepositorioDespesaParcela.cs" />
+    <Compile Include="Repositorio\RepositorioDespesaParcelaAdicionais.cs" />
+    <Compile Include="Repositorio\RepositorioDespesasCombustivel.cs" />
+    <Compile Include="Repositorio\RepositorioDocumentoPagar.cs" />
+    <Compile Include="Repositorio\RepositorioDocumentoReceber.cs" />
     <Compile Include="Repositorio\RepositorioEstado.cs" />
     <Compile Include="Repositorio\RepositorioFabricanteVeiculo.cs" />
     <Compile Include="Repositorio\RepositorioFormaPagamento.cs" />
     <Compile Include="Repositorio\RepositorioInstrutor.cs" />
     <Compile Include="Repositorio\RepositorioModeloVeiculo.cs" />
     <Compile Include="Repositorio\RepositorioReceita.cs" />
+    <Compile Include="Repositorio\RepositorioReceitaAdicionais.cs" />
     <Compile Include="Repositorio\RepositorioReceitaParcela.cs" />
+    <Compile Include="Repositorio\RepositorioReceitaParcelaAdicionais.cs" />
     <Compile Include="Repositorio\RepositorioServico.cs" />
     <Compile Include="Repositorio\RepositorioTipoServico.cs" />
     <Compile Include="Repositorio\RepositorioTipoVeiculo.cs" />

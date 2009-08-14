@@ -26,5 +26,7 @@ namespace GerenciadorFinanceiro.Dominio
 
         public List<DespesaParcela> ListaParcelasDespesas { get; set; }
 
+        public DocumentoPagar Documento { get; set; }
+
     }
 }

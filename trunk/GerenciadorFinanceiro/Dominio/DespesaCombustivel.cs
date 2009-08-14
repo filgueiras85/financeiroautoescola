@@ -16,6 +16,8 @@ namespace GerenciadorFinanceiro.Dominio
             this.QtdLitros = qtdLitros; this.ValorTotal = valor; this.Combustivel = combustivel; this.DataAbastecimento = data;
         }
 
+        public int IdDespesaCombustivel { get; set; }
+
         public Dominio.Veiculo Veiculo { get; set; }
 
         public int KmInicial { get; set; }
