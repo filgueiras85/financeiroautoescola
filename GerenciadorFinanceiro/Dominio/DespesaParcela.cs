@@ -18,5 +18,7 @@ namespace GerenciadorFinanceiro.Dominio
 
         public StatusParcela Status { get; set; }
 
+        public DocumentoPagar Documento { get; set; }
+
     }
 }

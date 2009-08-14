@@ -36,5 +36,7 @@ namespace GerenciadorFinanceiro.Dominio
 
         public String ObservacaoIndividual { get; set; }
 
+        public DocumentoReceber Documento { get; set; }
+
     }
 }

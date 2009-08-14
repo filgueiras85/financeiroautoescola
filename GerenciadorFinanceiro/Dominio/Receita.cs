@@ -32,6 +32,8 @@ namespace GerenciadorFinanceiro.Dominio
         public double ValorTotalReceita { get; set; }
 
         public List<ReceitaParcela> ListaReceitaParcela { get; set; }
+
+        public DocumentoReceber Documento { get; set; }
          
     }
 }
