@@ -10,7 +10,7 @@ namespace GerenciadorFinanceiro.Repositorio
 
         #region IRepositorio<DespesaCombustivel> Members
 
-        public void SalvarObjeto(ref GerenciadorFinanceiro.Dominio.DespesaCombustivel objeto)
+        public void SalvarObjeto(GerenciadorFinanceiro.Dominio.DespesaCombustivel objeto)
         {
             string sSqlInsert = "insert into TB_Despesa_Combustivel (IdVeiculo, KmInicial, KmFinal, QtdLitros, " +
                                 "ValorTotal, TipoCombustivel, DataAbastecimento) " +
@@ -96,5 +96,6 @@ namespace GerenciadorFinanceiro.Repositorio
         }
 
         #endregion
+
     }
 }
