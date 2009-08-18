@@ -82,7 +82,10 @@ namespace GerenciadorFinanceiro.Repositorio
 
         public List<GerenciadorFinanceiro.Dominio.DespesaCombustivel> BuscarTodos()
         {
+          
+
             throw new NotImplementedException();
+
         }
 
         public List<Dominio.DespesaCombustivel> BuscarTodasPorVeiculo()
