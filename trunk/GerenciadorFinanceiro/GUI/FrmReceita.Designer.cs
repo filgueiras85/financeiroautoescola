@@ -53,18 +53,15 @@
             this.TxtValorTotal = new System.Windows.Forms.TextBox();
             this.BtnPreview = new System.Windows.Forms.Button();
             this.DGPreviewReceita = new System.Windows.Forms.DataGridView();
+            this.ColVisualizar = new System.Windows.Forms.DataGridViewImageColumn();
             this.ColIdParcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColNumeroDaParcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColDataVencimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColValorParcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColStatusParcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColNumeroDoTitulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColTipoDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColDataCompetencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColNumeroDoDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColSerie = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColIdentificacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColObservacaoIndividual = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColDataQuitado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColValorPago = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TabInfoAdicionais = new System.Windows.Forms.TabPage();
             this.TxtObservacaoIndividual = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
@@ -115,7 +112,7 @@
             // 
             this.TxtObservacao.BackColor = System.Drawing.Color.White;
             this.TxtObservacao.Location = new System.Drawing.Point(140, 104);
-            this.TxtObservacao.MaxLength = 500;
+            this.TxtObservacao.MaxLength = 1000;
             this.TxtObservacao.Multiline = true;
             this.TxtObservacao.Name = "TxtObservacao";
             this.TxtObservacao.Size = new System.Drawing.Size(338, 80);
@@ -262,7 +259,7 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(513, 504);
+            this.tabControl1.Size = new System.Drawing.Size(562, 504);
             this.tabControl1.TabIndex = 0;
             // 
             // TabInfoGeral
@@ -291,7 +288,7 @@
             this.TabInfoGeral.Location = new System.Drawing.Point(4, 22);
             this.TabInfoGeral.Name = "TabInfoGeral";
             this.TabInfoGeral.Padding = new System.Windows.Forms.Padding(3);
-            this.TabInfoGeral.Size = new System.Drawing.Size(505, 478);
+            this.TabInfoGeral.Size = new System.Drawing.Size(554, 478);
             this.TabInfoGeral.TabIndex = 0;
             this.TabInfoGeral.Text = "Geral";
             // 
@@ -309,16 +306,20 @@
             // 
             this.TxtValorTotal.Location = new System.Drawing.Point(140, 244);
             this.TxtValorTotal.Name = "TxtValorTotal";
-            this.TxtValorTotal.Size = new System.Drawing.Size(140, 20);
+            this.TxtValorTotal.Size = new System.Drawing.Size(176, 20);
             this.TxtValorTotal.TabIndex = 8;
+            this.TxtValorTotal.Text = "R$ 0,00";
+            this.TxtValorTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // BtnPreview
             // 
-            this.BtnPreview.Image = global::GerenciadorFinanceiro.Properties.Resources.viewmag;
-            this.BtnPreview.Location = new System.Drawing.Point(286, 242);
+            this.BtnPreview.Image = global::GerenciadorFinanceiro.Properties.Resources.apply;
+            this.BtnPreview.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnPreview.Location = new System.Drawing.Point(324, 241);
             this.BtnPreview.Name = "BtnPreview";
-            this.BtnPreview.Size = new System.Drawing.Size(30, 26);
+            this.BtnPreview.Size = new System.Drawing.Size(110, 24);
             this.BtnPreview.TabIndex = 9;
+            this.BtnPreview.Text = "     Gerar Parcelas";
             this.ToolTip.SetToolTip(this.BtnPreview, "Pré-Visualizar Parcela(s)");
             this.BtnPreview.UseVisualStyleBackColor = true;
             this.BtnPreview.Click += new System.EventHandler(this.BtnPreview_Click);
@@ -331,26 +332,31 @@
                         | System.Windows.Forms.AnchorStyles.Left)));
             this.DGPreviewReceita.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGPreviewReceita.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColVisualizar,
             this.ColIdParcela,
             this.ColNumeroDaParcela,
             this.ColDataVencimento,
             this.ColValorParcela,
             this.ColStatusParcela,
-            this.ColNumeroDoTitulo,
-            this.ColTipoDocumento,
-            this.ColDataCompetencia,
-            this.ColNumeroDoDocumento,
-            this.ColSerie,
-            this.ColIdentificacao,
-            this.ColObservacaoIndividual});
+            this.ColDataQuitado,
+            this.ColValorPago,
+            this.ColDocumento});
             this.DGPreviewReceita.Location = new System.Drawing.Point(25, 278);
             this.DGPreviewReceita.MultiSelect = false;
             this.DGPreviewReceita.Name = "DGPreviewReceita";
             this.DGPreviewReceita.ReadOnly = true;
             this.DGPreviewReceita.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGPreviewReceita.Size = new System.Drawing.Size(453, 177);
+            this.DGPreviewReceita.Size = new System.Drawing.Size(504, 177);
             this.DGPreviewReceita.TabIndex = 12;
             this.DGPreviewReceita.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DGPreviewReceita_CellFormatting);
+            // 
+            // ColVisualizar
+            // 
+            this.ColVisualizar.HeaderText = "Visualizar";
+            this.ColVisualizar.Image = global::GerenciadorFinanceiro.Properties.Resources.viewmag;
+            this.ColVisualizar.Name = "ColVisualizar";
+            this.ColVisualizar.ReadOnly = true;
+            this.ColVisualizar.Width = 60;
             // 
             // ColIdParcela
             // 
@@ -397,61 +403,29 @@
             this.ColStatusParcela.Name = "ColStatusParcela";
             this.ColStatusParcela.ReadOnly = true;
             // 
-            // ColNumeroDoTitulo
+            // ColDataQuitado
             // 
-            this.ColNumeroDoTitulo.DataPropertyName = "NumeroDoTitulo";
-            this.ColNumeroDoTitulo.HeaderText = "NumeroDoTitulo";
-            this.ColNumeroDoTitulo.Name = "ColNumeroDoTitulo";
-            this.ColNumeroDoTitulo.ReadOnly = true;
-            this.ColNumeroDoTitulo.Visible = false;
+            this.ColDataQuitado.DataPropertyName = "DataQuitado";
+            this.ColDataQuitado.HeaderText = "DataQuitado";
+            this.ColDataQuitado.Name = "ColDataQuitado";
+            this.ColDataQuitado.ReadOnly = true;
+            this.ColDataQuitado.Visible = false;
             // 
-            // ColTipoDocumento
+            // ColValorPago
             // 
-            this.ColTipoDocumento.DataPropertyName = "TipoDocumento";
-            this.ColTipoDocumento.HeaderText = "TipoDocumento";
-            this.ColTipoDocumento.Name = "ColTipoDocumento";
-            this.ColTipoDocumento.ReadOnly = true;
-            this.ColTipoDocumento.Visible = false;
+            this.ColValorPago.DataPropertyName = "ValorPago";
+            this.ColValorPago.HeaderText = "ValorPago";
+            this.ColValorPago.Name = "ColValorPago";
+            this.ColValorPago.ReadOnly = true;
+            this.ColValorPago.Visible = false;
             // 
-            // ColDataCompetencia
+            // ColDocumento
             // 
-            this.ColDataCompetencia.DataPropertyName = "DataCompetencia";
-            this.ColDataCompetencia.HeaderText = "Competencia";
-            this.ColDataCompetencia.Name = "ColDataCompetencia";
-            this.ColDataCompetencia.ReadOnly = true;
-            this.ColDataCompetencia.Visible = false;
-            // 
-            // ColNumeroDoDocumento
-            // 
-            this.ColNumeroDoDocumento.DataPropertyName = "NumeroDoDocumento";
-            this.ColNumeroDoDocumento.HeaderText = "NumeroDoDocumento";
-            this.ColNumeroDoDocumento.Name = "ColNumeroDoDocumento";
-            this.ColNumeroDoDocumento.ReadOnly = true;
-            this.ColNumeroDoDocumento.Visible = false;
-            // 
-            // ColSerie
-            // 
-            this.ColSerie.DataPropertyName = "Serie";
-            this.ColSerie.HeaderText = "Serie";
-            this.ColSerie.Name = "ColSerie";
-            this.ColSerie.ReadOnly = true;
-            this.ColSerie.Visible = false;
-            // 
-            // ColIdentificacao
-            // 
-            this.ColIdentificacao.DataPropertyName = "Identificacao";
-            this.ColIdentificacao.HeaderText = "Identificacao";
-            this.ColIdentificacao.Name = "ColIdentificacao";
-            this.ColIdentificacao.ReadOnly = true;
-            this.ColIdentificacao.Visible = false;
-            // 
-            // ColObservacaoIndividual
-            // 
-            this.ColObservacaoIndividual.DataPropertyName = "ObservacaoIndividual";
-            this.ColObservacaoIndividual.HeaderText = "ObservacaoIndividual";
-            this.ColObservacaoIndividual.Name = "ColObservacaoIndividual";
-            this.ColObservacaoIndividual.ReadOnly = true;
-            this.ColObservacaoIndividual.Visible = false;
+            this.ColDocumento.DataPropertyName = "Documento";
+            this.ColDocumento.HeaderText = "Documento";
+            this.ColDocumento.Name = "ColDocumento";
+            this.ColDocumento.ReadOnly = true;
+            this.ColDocumento.Visible = false;
             // 
             // TabInfoAdicionais
             // 
@@ -475,7 +449,7 @@
             this.TabInfoAdicionais.Location = new System.Drawing.Point(4, 22);
             this.TabInfoAdicionais.Name = "TabInfoAdicionais";
             this.TabInfoAdicionais.Padding = new System.Windows.Forms.Padding(3);
-            this.TabInfoAdicionais.Size = new System.Drawing.Size(505, 478);
+            this.TabInfoAdicionais.Size = new System.Drawing.Size(554, 478);
             this.TabInfoAdicionais.TabIndex = 1;
             this.TabInfoAdicionais.Text = "Informações Adicionais";
             // 
@@ -486,7 +460,6 @@
             this.TxtObservacaoIndividual.Name = "TxtObservacaoIndividual";
             this.TxtObservacaoIndividual.Size = new System.Drawing.Size(344, 135);
             this.TxtObservacaoIndividual.TabIndex = 7;
-            this.TxtObservacaoIndividual.Leave += new System.EventHandler(this.TxtObservacaoIndividual_Leave);
             // 
             // label15
             // 
@@ -504,7 +477,6 @@
             this.TxtIdentificacao.Name = "TxtIdentificacao";
             this.TxtIdentificacao.Size = new System.Drawing.Size(229, 20);
             this.TxtIdentificacao.TabIndex = 6;
-            this.TxtIdentificacao.Leave += new System.EventHandler(this.TxtIdentificacao_Leave);
             // 
             // label14
             // 
@@ -522,7 +494,6 @@
             this.TxtNumeroDoDocumento.Name = "TxtNumeroDoDocumento";
             this.TxtNumeroDoDocumento.Size = new System.Drawing.Size(229, 20);
             this.TxtNumeroDoDocumento.TabIndex = 4;
-            this.TxtNumeroDoDocumento.Leave += new System.EventHandler(this.TxtNumeroDoDocumento_Leave);
             // 
             // TxtSerie
             // 
@@ -530,7 +501,6 @@
             this.TxtSerie.Name = "TxtSerie";
             this.TxtSerie.Size = new System.Drawing.Size(229, 20);
             this.TxtSerie.TabIndex = 5;
-            this.TxtSerie.Leave += new System.EventHandler(this.TxtSerie_Leave);
             // 
             // CmbDataCompetencia
             // 
@@ -538,7 +508,6 @@
             this.CmbDataCompetencia.Name = "CmbDataCompetencia";
             this.CmbDataCompetencia.Size = new System.Drawing.Size(229, 20);
             this.CmbDataCompetencia.TabIndex = 3;
-            this.CmbDataCompetencia.Leave += new System.EventHandler(this.CmbDataCompetencia_Leave);
             // 
             // label13
             // 
@@ -597,7 +566,6 @@
             this.TxtNumeroDoTitulo.Name = "TxtNumeroDoTitulo";
             this.TxtNumeroDoTitulo.Size = new System.Drawing.Size(229, 20);
             this.TxtNumeroDoTitulo.TabIndex = 1;
-            this.TxtNumeroDoTitulo.Leave += new System.EventHandler(this.TxtNumeroDoTitulo_Leave);
             // 
             // CmbTipoDocumento
             // 
@@ -622,7 +590,6 @@
             this.CmbTipoDocumento.Name = "CmbTipoDocumento";
             this.CmbTipoDocumento.Size = new System.Drawing.Size(229, 21);
             this.CmbTipoDocumento.TabIndex = 2;
-            this.CmbTipoDocumento.Leave += new System.EventHandler(this.CmbTipoDocumento_Leave);
             // 
             // label7
             // 
@@ -650,7 +617,7 @@
             this.BtnCancelar.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
             this.BtnCancelar.Image = global::GerenciadorFinanceiro.Properties.Resources.Cancel;
             this.BtnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnCancelar.Location = new System.Drawing.Point(436, 523);
+            this.BtnCancelar.Location = new System.Drawing.Point(460, 523);
             this.BtnCancelar.Name = "BtnCancelar";
             this.BtnCancelar.Size = new System.Drawing.Size(85, 25);
             this.BtnCancelar.TabIndex = 11;
@@ -664,7 +631,7 @@
             this.BtnSalvar.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
             this.BtnSalvar.Image = global::GerenciadorFinanceiro.Properties.Resources.apply;
             this.BtnSalvar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnSalvar.Location = new System.Drawing.Point(345, 523);
+            this.BtnSalvar.Location = new System.Drawing.Point(369, 523);
             this.BtnSalvar.Name = "BtnSalvar";
             this.BtnSalvar.Size = new System.Drawing.Size(85, 25);
             this.BtnSalvar.TabIndex = 10;
@@ -680,11 +647,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(537, 560);
+            this.ClientSize = new System.Drawing.Size(586, 560);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.BtnCancelar);
             this.Controls.Add(this.BtnSalvar);
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(594, 594);
             this.Name = "FrmReceita";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Receitas";
@@ -743,18 +711,15 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox TxtIdentificacao;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.DataGridViewImageColumn ColVisualizar;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColIdParcela;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColNumeroDaParcela;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColDataVencimento;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColValorParcela;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColStatusParcela;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColNumeroDoTitulo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColTipoDocumento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColDataCompetencia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColNumeroDoDocumento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColSerie;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColIdentificacao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColObservacaoIndividual;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColDataQuitado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColValorPago;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColDocumento;
 
     }
 }
