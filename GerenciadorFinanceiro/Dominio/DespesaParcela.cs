@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GerenciadorFinanceiro.Dominio
 {
-    class DespesaParcela
+    public class DespesaParcela
     {
 
         public int IdParcela { get; set; }
@@ -17,6 +17,10 @@ namespace GerenciadorFinanceiro.Dominio
         public double ValorParcela { get; set; }
 
         public StatusParcela Status { get; set; }
+
+        public DateTime DataQuitada { get; set; }
+
+        public double ValorPago { get; set; }
 
         public DocumentoPagar Documento { get; set; }
 

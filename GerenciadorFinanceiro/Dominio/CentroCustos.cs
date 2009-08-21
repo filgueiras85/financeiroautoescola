@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GerenciadorFinanceiro.Dominio
 {
-    class CentroCustos
+    public class CentroCustos
     {
         public enum Tipo { Receita = 0, Despesa = 1}
 

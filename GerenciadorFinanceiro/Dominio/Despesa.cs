@@ -5,10 +5,13 @@ using System.Text;
 
 namespace GerenciadorFinanceiro.Dominio
 {
-    class Despesa
+    public class Despesa
     {
+          
 
         public int IdDespesa { get; set; }
+
+        public string Descricao { get; set; }
 
         public Fornecedor PagarPara { get; set; }
 
@@ -24,9 +27,13 @@ namespace GerenciadorFinanceiro.Dominio
 
         public double ValorTotalDespesa { get; set; }
 
+        public Frequencia frequencia { get; set; }
+
         public List<DespesaParcela> ListaParcelasDespesas { get; set; }
 
         public DocumentoPagar Documento { get; set; }
+
+        public StatusParcela Status { get; set; }
 
     }
 }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GerenciadorFinanceiro.Dominio
 {
-    class Fornecedor
+    public class Fornecedor
     {
 
         public Fornecedor()

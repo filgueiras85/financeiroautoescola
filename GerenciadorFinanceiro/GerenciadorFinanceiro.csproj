@@ -99,6 +99,9 @@
     <Compile Include="Controles\CtrNavigator.Designer.cs">
       <DependentUpon>CtrNavigator.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controles\FormatTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Dominio\Aluno.cs" />
     <Compile Include="Dominio\Banco.cs" />
     <Compile Include="Dominio\Categoria.cs" />

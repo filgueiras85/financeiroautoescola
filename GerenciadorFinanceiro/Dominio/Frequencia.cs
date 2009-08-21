@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GerenciadorFinanceiro.Dominio
 {
-    class Frequencia
+    public class Frequencia
     {
 
         public Frequencia() { DiferencaDias = 0; Descricao = ""; }
@@ -16,7 +16,7 @@ namespace GerenciadorFinanceiro.Dominio
 
     }
 
-    class ListaFrequencia
+    public class ListaFrequencia
     {
         public ListaFrequencia() { PreencherLista(); }
 
