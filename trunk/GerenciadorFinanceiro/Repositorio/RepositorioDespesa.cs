@@ -16,13 +16,22 @@ namespace GerenciadorFinanceiro.Repositorio
         }
 
         public void AtualizarObjeto(GerenciadorFinanceiro.Dominio.Despesa objeto)
-        {
+        {            
             throw new NotImplementedException();
         }
 
         public void DeletarObjeto(GerenciadorFinanceiro.Dominio.Despesa objeto)
         {
-            throw new NotImplementedException();
+            string sqlUpdate = "delete from TB_Despesa where IdDespesa=@Id and Status=@status";
+            try
+            {
+                this.Conection.AbrirConexao();
+                this.Conection.Execute(sqlUpdate, objeto.IdDespesa, StatusParcela.Aberta);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("", ex);
+            }
         }
 
         public GerenciadorFinanceiro.Dominio.Despesa BuscarObjetoPorId(int id)
