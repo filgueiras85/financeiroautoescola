@@ -32,7 +32,7 @@
             this.cmbVeiculo = new System.Windows.Forms.ComboBox();
             this.txtKmInicial = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnAddVeiculo = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -41,11 +41,13 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.txtLitros = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtValorTotal = new System.Windows.Forms.TextBox();
             this.cmbTipoComb = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtDataAbastec = new System.Windows.Forms.DateTimePicker();
+            this.txtValorTotal = new GerenciadorFinanceiro.Controles.FormatTextBox();
             this.SuspendLayout();
             // 
             // cmbVeiculo
@@ -74,14 +76,15 @@
             this.label7.TabIndex = 8;
             this.label7.Text = "Veículo :";
             // 
-            // button4
+            // btnAddVeiculo
             // 
-            this.button4.Image = global::GerenciadorFinanceiro.Properties.Resources.file_add;
-            this.button4.Location = new System.Drawing.Point(354, 9);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(31, 24);
-            this.button4.TabIndex = 14;
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnAddVeiculo.Image = global::GerenciadorFinanceiro.Properties.Resources.file_add;
+            this.btnAddVeiculo.Location = new System.Drawing.Point(354, 9);
+            this.btnAddVeiculo.Name = "btnAddVeiculo";
+            this.btnAddVeiculo.Size = new System.Drawing.Size(31, 24);
+            this.btnAddVeiculo.TabIndex = 14;
+            this.btnAddVeiculo.UseVisualStyleBackColor = true;
+            this.btnAddVeiculo.Click += new System.EventHandler(this.btnAddVeiculo_Click);
             // 
             // label1
             // 
@@ -129,7 +132,7 @@
             this.btnUltimoKm.TabIndex = 18;
             this.toolTip1.SetToolTip(this.btnUltimoKm, "Última km anotada.");
             this.btnUltimoKm.UseVisualStyleBackColor = true;
-            this.btnUltimoKm.Click += new System.EventHandler(this.button2_Click);
+            this.btnUltimoKm.Click += new System.EventHandler(this.btnUltimoKm_Click);
             // 
             // toolTip1
             // 
@@ -151,13 +154,6 @@
             this.label4.Size = new System.Drawing.Size(71, 15);
             this.label4.TabIndex = 20;
             this.label4.Text = "Valor total :";
-            // 
-            // txtValorTotal
-            // 
-            this.txtValorTotal.Location = new System.Drawing.Point(128, 153);
-            this.txtValorTotal.Name = "txtValorTotal";
-            this.txtValorTotal.Size = new System.Drawing.Size(100, 20);
-            this.txtValorTotal.TabIndex = 21;
             // 
             // cmbTipoComb
             // 
@@ -186,32 +182,61 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(224, 233);
+            this.btnCancelar.Location = new System.Drawing.Point(224, 265);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(83, 23);
             this.btnCancelar.TabIndex = 25;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnSalvar
             // 
-            this.btnSalvar.Location = new System.Drawing.Point(128, 233);
+            this.btnSalvar.Location = new System.Drawing.Point(128, 265);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(83, 23);
             this.btnSalvar.TabIndex = 24;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
+            this.label6.Location = new System.Drawing.Point(10, 226);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(92, 15);
+            this.label6.TabIndex = 27;
+            this.label6.Text = "Data Abastec. :";
+            // 
+            // txtDataAbastec
+            // 
+            this.txtDataAbastec.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtDataAbastec.Location = new System.Drawing.Point(128, 226);
+            this.txtDataAbastec.Name = "txtDataAbastec";
+            this.txtDataAbastec.Size = new System.Drawing.Size(100, 20);
+            this.txtDataAbastec.TabIndex = 28;
+            // 
+            // txtValorTotal
+            // 
+            this.txtValorTotal.Location = new System.Drawing.Point(128, 153);
+            this.txtValorTotal.Name = "txtValorTotal";
+            this.txtValorTotal.Size = new System.Drawing.Size(100, 20);
+            this.txtValorTotal.TabIndex = 26;
             // 
             // FrmCombustivel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(576, 295);
+            this.ClientSize = new System.Drawing.Size(576, 303);
+            this.Controls.Add(this.txtDataAbastec);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.txtValorTotal);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.cmbTipoComb);
-            this.Controls.Add(this.txtValorTotal);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtLitros);
             this.Controls.Add(this.btnUltimoKm);
@@ -219,7 +244,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.btnAddVeiculo);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtKmInicial);
             this.Controls.Add(this.cmbVeiculo);
@@ -237,7 +262,7 @@
         private System.Windows.Forms.ComboBox cmbVeiculo;
         private System.Windows.Forms.TextBox txtKmInicial;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnAddVeiculo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -246,10 +271,12 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.TextBox txtLitros;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtValorTotal;
         private System.Windows.Forms.ComboBox cmbTipoComb;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnSalvar;
+        private GerenciadorFinanceiro.Controles.FormatTextBox txtValorTotal;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DateTimePicker txtDataAbastec;
     }
 }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GerenciadorFinanceiro.Dominio
 {
-    class DespesaCombustivel
+    public class DespesaCombustivel
     {
         public DespesaCombustivel()
         { }
