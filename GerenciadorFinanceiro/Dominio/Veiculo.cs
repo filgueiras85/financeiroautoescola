@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GerenciadorFinanceiro.Dominio
 {
-    class Veiculo
+    public class Veiculo
     {
         public Veiculo() 
         {

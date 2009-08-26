@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GerenciadorFinanceiro.Dominio
 {
-    class ModeloVeiculo
+    public class ModeloVeiculo
     {
 
         public int IdModeloVeiculo { get; set; }
