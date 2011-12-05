@@ -421,6 +421,7 @@
     <Compile Include="Repositorio\RepositorioVeiculo.cs" />
     <Compile Include="Servicos\Backup.cs" />
     <Compile Include="Servicos\Email.cs" />
+    <Compile Include="Servicos\LeituraXml.cs" />
     <Compile Include="Servicos\Validacao.cs" />
     <Compile Include="TratamentoErros\TratadorErro.cs" />
   </ItemGroup>
