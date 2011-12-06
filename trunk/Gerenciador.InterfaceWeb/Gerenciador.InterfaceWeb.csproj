@@ -38,6 +38,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.ComponentModel.DataAnnotations">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -91,6 +92,7 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <Content Include="Views\Tweet\Add.aspx" />
+    <Content Include="Views\Tweet\Index.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -142,6 +144,10 @@
     <ProjectReference Include="..\Gerenciador.Comandos\Gerenciador.Comandos.csproj">
       <Project>{B1E81051-B844-4703-9AF1-F389AE307DF3}</Project>
       <Name>Gerenciador.Comandos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Gerenciador.ModeloLeitura\Gerenciador.ModeloLeitura.csproj">
+      <Project>{FAF1ED75-4207-4563-8924-1A3CEC679214}</Project>
+      <Name>Gerenciador.ModeloLeitura</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

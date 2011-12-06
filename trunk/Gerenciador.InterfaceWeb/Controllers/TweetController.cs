@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Gerenciador.Comandos;
 using Gerenciador.InterfaceWeb.Commanding;
+using Gerenciador.ModeloLeitura;
 
 namespace Gerenciador.InterfaceWeb.Controllers
 {
@@ -15,7 +16,12 @@ namespace Gerenciador.InterfaceWeb.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            var context = new ReadModeloDataContext();
+            var query = from item in context.TweetIndexItems
+                        orderby item.TimeStamp descending
+                        select item;
+
+            return View(query);            
         }
 
         public ActionResult Add()
