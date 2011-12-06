@@ -7,6 +7,8 @@ using Ncqrs.Commanding.ServiceModel;
 using Gerenciador.ExecutorComandos;
 using Ncqrs.Eventing.Storage;
 using Ncqrs.Eventing.Storage.SQL;
+using Ncqrs.Eventing.ServiceModel.Bus;
+using Gerenciador.ModeloLeitura;
 
 namespace Gerenciador.ServicoComandos
 {
@@ -16,6 +18,15 @@ namespace Gerenciador.ServicoComandos
         {
             NcqrsEnvironment.SetDefault<ICommandService>(InitializeCommandService());
             NcqrsEnvironment.SetDefault<IEventStore>(InitializeEventStore());
+            NcqrsEnvironment.SetDefault<IEventBus>(InitializeEventBus());
+        }
+
+        private static IEventBus InitializeEventBus()
+        {
+            var bus = new InProcessEventBus();
+            bus.RegisterHandler(new TweetListItemDenormalizer());
+
+            return bus;
         }
 
         private static IEventStore InitializeEventStore()

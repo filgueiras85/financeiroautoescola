@@ -79,9 +79,17 @@
       <Project>{B1E81051-B844-4703-9AF1-F389AE307DF3}</Project>
       <Name>Gerenciador.Comandos</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Gerenciador.Eventos\Gerenciador.Eventos.csproj">
+      <Project>{704A179F-0E8E-45D5-93D2-BB0B025A3F13}</Project>
+      <Name>Gerenciador.Eventos</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Gerenciador.ExecutorComandos\Gerenciador.ExecutorComandos.csproj">
       <Project>{E71A10ED-B740-478A-9588-9E96221AB1F9}</Project>
       <Name>Gerenciador.ExecutorComandos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Gerenciador.ModeloLeitura\Gerenciador.ModeloLeitura.csproj">
+      <Project>{FAF1ED75-4207-4563-8924-1A3CEC679214}</Project>
+      <Name>Gerenciador.ModeloLeitura</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
