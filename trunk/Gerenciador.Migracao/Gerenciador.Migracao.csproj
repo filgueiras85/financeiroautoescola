@@ -55,6 +55,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="lib\log4net.dll" />
+    <Content Include="lib\Migrator.Console.exe" />
+    <Content Include="lib\Migrator.Console.pdb" />
     <Content Include="lib\Migrator.dll" />
     <Content Include="lib\Migrator.Framework.dll" />
     <Content Include="lib\Migrator.Framework.pdb" />
