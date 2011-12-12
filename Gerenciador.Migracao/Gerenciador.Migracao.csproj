@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D4F6ACEB-886B-4B4B-823F-975C8374501C}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Gerenciador.Migracao</RootNamespace>
+    <AssemblyName>Gerenciador.Migracao</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Migrator, Version=0.9.0.28138, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\Migrator.dll</HintPath>
+    </Reference>
+    <Reference Include="Migrator.Framework, Version=0.9.0.26940, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\Migrator.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CreateTableEmpresa_001.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="lib\log4net.dll" />
+    <Content Include="lib\Migrator.dll" />
+    <Content Include="lib\Migrator.Framework.dll" />
+    <Content Include="lib\Migrator.Framework.pdb" />
+    <Content Include="lib\Migrator.MSBuild.dll" />
+    <Content Include="lib\Migrator.MSBuild.pdb" />
+    <Content Include="lib\Migrator.NAnt.dll" />
+    <Content Include="lib\Migrator.NAnt.pdb" />
+    <Content Include="lib\Migrator.pdb" />
+    <Content Include="lib\Migrator.Providers.dll" />
+    <Content Include="lib\Migrator.Providers.pdb" />
+    <Content Include="lib\Migrator.Tests.dll" />
+    <Content Include="lib\Migrator.Tests.pdb" />
+    <Content Include="lib\Mono.Security.dll" />
+    <Content Include="lib\MyMigrations.dll" />
+    <Content Include="lib\MyMigrations.pdb" />
+    <Content Include="lib\MySql.Data.dll" />
+    <Content Include="lib\NAnt.Core.dll" />
+    <Content Include="lib\Npgsql.dll" />
+    <Content Include="lib\nunit.framework.dll" />
+    <Content Include="lib\nunit.mocks.dll" />
+    <Content Include="lib\Oracle.DataAccess.dll" />
+    <Content Include="lib\System.Data.SQLite.DLL" />
+    <Content Include="lib\System.Data.SqlServerCe.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="lib\Migrator.Targets" />
+    <None Include="lib\Migrator.Tests.dll.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
